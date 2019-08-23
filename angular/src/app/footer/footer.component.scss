@@ -1,0 +1,22 @@
+.spacer {
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 auto;
+    flex:1 1 auto;
+    height: 1cm;
+
+   
+
+}
+mat-toolbar
+{
+    bottom:0;
+    position: fixed;
+    width:100%;
+    left:0;
+    height: 1cm;
+    background-color:black;
+
+}
+h3{
+    color: white;
+}
