@@ -1,0 +1,36 @@
+<div mat-dialog-content>
+  <mat-form-field>
+    <input matInput placeholder="Survey Name" [(ngModel)]="data.name">
+  </mat-form-field>
+
+  <mat-form-field>
+    <textarea matInput placeholder="Description" [(ngModel)]="data.description"></textarea>
+  </mat-form-field>
+
+  <p>
+    <button mat-raised-button color="Primary" [matMenuTriggerFor]="Domain">Select Name Domain
+      <mat-hint align="end"></mat-hint>
+    </button>
+
+    <mat-menu #Domain="matMenu">
+      <button mat-menu-item [(ngModel)]="data.domain" [matMenuTriggerFor]="Business">Business</button>
+      <button mat-menu-item [(ngModel)]="data.domain" [matMenuTriggerFor]="Education">Education</button>
+    </mat-menu>
+
+    <mat-menu #Business="matMenu">
+      <button mat-menu-item [(ngModel)]="data.subDomain">Business1</button>
+      <button mat-menu-item [(ngModel)]="data.subDomain">business2</button>
+    </mat-menu>
+
+    <mat-menu #Education="matMenu">
+      <button mat-menu-item [(ngModel)]="data.subDomain">Corse Completion</button>
+      <button mat-menu-item [(ngModel)]="data.subDomain">Schools</button>
+      <button mat-menu-item [(ngModel)]="data.subDomain">Colleges</button>
+      <button mat-menu-item [(ngModel)]="data.subDomain">university</button>
+    </mat-menu>
+  </p>
+</div>
+<div mat-dialog-actions>
+  <button mat-raised-button color="Primary" [mat-dialog-close]="data" cdkFocusInitial>create</button>
+  <button mat-raised-button color="Warn" (click)=onNoClick()>Cancel</button>
+</div>
