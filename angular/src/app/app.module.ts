@@ -23,8 +23,13 @@ import {MatDividerModule} from '@angular/material/divider';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { RouterModule, Routes } from '@angular/router';
 import { LandingPageComponent } from './landing-page/landing-page.component';
+<<<<<<< HEAD
 import { MySurveyCardComponent } from './my-survey-card/my-survey-card.component';
 
+=======
+import { MySurveyCardComponent,CreateSurveyDialogue } from './my-survey-card/my-survey-card.component';
+import {MatDialogModule} from '@angular/material/dialog';
+>>>>>>> 530bab2f7a205f5fa9c4cb6794340436523d5e8c
 
 
 @NgModule({
@@ -35,7 +40,12 @@ import { MySurveyCardComponent } from './my-survey-card/my-survey-card.component
     LoginComponent,
     SignUpComponent,
     LandingPageComponent,
+<<<<<<< HEAD
     MySurveyCardComponent
+=======
+    MySurveyCardComponent,
+    CreateSurveyDialogue
+>>>>>>> 530bab2f7a205f5fa9c4cb6794340436523d5e8c
   ],
   imports: [
     BrowserModule,
