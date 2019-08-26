@@ -3,26 +3,28 @@
       <mat-card-title>Sign Up</mat-card-title>
     </mat-card-header>
     <mat-card-content>
+    
 <div class="example-container">
+  <form #userForm="ngForm">
     <mat-form-field>
-      <input matInput placeholder="Your Name">
+      <input matInput placeholder="Your Name" [(ngModel)]="user.name" name="name" #name="ngModel">
     </mat-form-field>
     <mat-form-field>
-      <input type="email" matInput placeholder="Your email">
+      <input type="email" matInput placeholder="Your email" [(ngModel)]="user.email" name="email" #email="ngModel">
     </mat-form-field>
 
     <mat-form-field>
-        <input type="password" matInput placeholder="Password">
+        <input type="password" matInput placeholder="Password" [(ngModel)]="user.password" name="password" #password="ngModel">
       </mat-form-field>
-
-    <mat-form-field>
+    <!-- <mat-form-field>
         <input type="password" matInput placeholder="Confirm Password">
-      </mat-form-field>
+      </mat-form-field> -->
+    </form>
   </div>
   </mat-card-content>
   <mat-card-actions>
     <a style="margin-left: 10px" routerLink="/login">
-    <button mat-raised-button (click)="login()" color="primary">Sign-up</button>
+    <button mat-raised-button (click)="saveUser(user)" color="primary">Sign-up</button>
     <button mat-raised-button (click)="login()" color="primary">Existing user? Login</button></a>
   </mat-card-actions>
   </mat-card>
