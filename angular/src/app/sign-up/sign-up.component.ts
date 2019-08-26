@@ -1,7 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { UserRegistrationService } from '../user-registration.service';
-import { ActivatedRoute } from '@angular/router';
-import { User } from '../modals/User';
 
 @Component({
   selector: 'app-sign-up',
@@ -9,18 +6,9 @@ import { User } from '../modals/User';
   styleUrls: ['./sign-up.component.scss']
 })
 export class SignUpComponent implements OnInit {
-  public user:User
-  constructor(private registrationService: UserRegistrationService,
-    private route: ActivatedRoute) { }
+
+  constructor() { }
 
   ngOnInit() {
-  }
-
-  saveUser(user: User) {
-    console.log(user);
-    this.registrationService.saveUser(user).subscribe((data)=> {
-       this.user = data;
-      console.log("result is ", user);
-    });
   }
 }

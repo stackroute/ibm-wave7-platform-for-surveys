@@ -12,8 +12,11 @@ mat-toolbar{
   .header{
     font-family: 'Courier New', Courier, monospace;
     text-align: center;
-    color:white;
-  }
+    color:white; 
+    // width:200px;
+    // height:70px;
+    // margin:  0%;
+}
   
   .spacer {
     flex: 1 1 auto;
