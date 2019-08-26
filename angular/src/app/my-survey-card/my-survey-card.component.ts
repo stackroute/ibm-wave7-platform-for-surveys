@@ -13,7 +13,19 @@ export class MySurveyCardComponent implements OnInit {
 
   constructor(private dialog: MatDialog, private surveyService : SurveyService ) { }
 
+  public surveyList : Survey[];
+
   ngOnInit() {
+    this.getSurveyList();
+  }
+
+
+  getSurveyList()
+  {
+    this.surveyService.getAllSurveys().subscribe(
+      (data) => {this.surveyList = data
+      console.log(this.surveyList)
+      })
   }
 
   openDialog() {
@@ -29,6 +41,7 @@ export class MySurveyCardComponent implements OnInit {
         this.surveyService.createSurvey(result).subscribe(
           (data) => {
             console.log(data);
+            this.getSurveyList();
           })
       }
     });

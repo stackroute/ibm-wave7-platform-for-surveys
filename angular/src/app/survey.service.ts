@@ -4,7 +4,6 @@ import { Observable } from 'rxjs';
 import { Guid } from "guid-typescript";
 import { Survey } from './modals/Survey';
 
-
 const httpOptions = {
   headers: new HttpHeaders({
     'Content-Type': 'application/json',
@@ -26,5 +25,11 @@ export class SurveyService {
     //microservice create survey api link
     var postUrl = "http://localhost:8090/api/v1/survey";
     return this.httpclient.post<Survey>(postUrl, survey, httpOptions);
+  }
+
+  getAllSurveys() : Observable<Survey[]>
+  {
+    var url = "http://localhost:8090/api/v1/survey";
+    return this.httpclient.get<Survey[]>(url);
   }
 }

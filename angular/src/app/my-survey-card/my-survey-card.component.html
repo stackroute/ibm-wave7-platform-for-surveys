@@ -1,24 +1,23 @@
-
+<div class="wrapper">
+<button class="btn" mat-raised-button color="primary" (click)=openDialog()>Create Survey</button>
 <div class="a">
-
-
-          <mat-card class="example-card">
-            <mat-card-header>
-              <div mat-card-avatar class="example-header-image"></div>
-              <mat-card-title>SOFTWARE</mat-card-title>
-              <mat-card-subtitle></mat-card-subtitle>
-            </mat-card-header>
-            <img mat-card-image src="https://d19d5sz0wkl0lu.cloudfront.net/dims4/default/2d524ed/2147483647/resize/800x%3E/quality/90/?url=https%3A%2F%2Fatd-brightspot.s3.amazonaws.com%2F90%2F93%2F3b46944543bb926eb6ac855261e4%2Fadobestock-215547070.jpeg" alt="Survey Image">
-            <mat-card-content>
-              <p>
-              </p>
-            </mat-card-content>
-            <mat-card-actions class="btn">
-                <a  routerLink="/surveyinfo"> 
-              <button mat-button>OPEN</button></a>
-            </mat-card-actions>
-          </mat-card>
-            </div>
-<p>my-survey-card works!</p>
-<button mat-raised-button color="primary" (click)=openDialog()>Create</button>
-
+  <mat-card class="example-card" *ngFor="let survey of surveyList">
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title>{{survey.name}}</mat-card-title>
+      <mat-card-subtitle>{{survey.description}}</mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image
+      src="https://d19d5sz0wkl0lu.cloudfront.net/dims4/default/2d524ed/2147483647/resize/800x%3E/quality/90/?url=https%3A%2F%2Fatd-brightspot.s3.amazonaws.com%2F90%2F93%2F3b46944543bb926eb6ac855261e4%2Fadobestock-215547070.jpeg"
+      alt="Survey Image">
+    <mat-card-content>
+      <p>
+      </p>
+    </mat-card-content>
+    <mat-card-actions class="btn">
+      <a routerLink="/surveyinfo">
+        <button mat-button>OPEN</button></a>
+    </mat-card-actions>
+  </mat-card>
+</div>
+</div>
