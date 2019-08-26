@@ -2,20 +2,21 @@
     <mat-card-header>
       <mat-card-title>Login</mat-card-title>
     </mat-card-header>
+    <form name="login">
     <mat-card-content>
       <div class="example-container">
         <mat-form-field>
-          <input matInput placeholder="Username">
+          <input matInput placeholder="Username" [(ngModel)]="username">
         </mat-form-field>
-      
         <mat-form-field>
-          <textarea matInput placeholder="Password"></textarea>
+          <textarea matInput placeholder="Password" [(ngModel)]="password"></textarea>
         </mat-form-field>
       </div>
     </mat-card-content>
     <mat-card-actions>
-      <button mat-raised-button (click)="login()" color="primary">Login</button>
+      <button mat-raised-button (click)="login(user)" color="primary">Login</button>
     </mat-card-actions>
+  </form>
     <mat-divider></mat-divider>
   <span><p>Forgot password? Click Here</p></span>
   </mat-card>
