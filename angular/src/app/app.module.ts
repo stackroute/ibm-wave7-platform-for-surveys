@@ -22,7 +22,8 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatDividerModule} from '@angular/material/divider';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { RouterModule, Routes } from '@angular/router';
-import { LandingPageComponent } from './landing-page/landing-page.component'
+import { LandingPageComponent } from './landing-page/landing-page.component';
+import { SurveyinfoComponent } from './surveyinfo/surveyinfo.component';
 import { MySurveyCardComponent,CreateSurveyDialogue } from './my-survey-card/my-survey-card.component';
 import {MatDialogModule} from '@angular/material/dialog';
 
@@ -36,6 +37,7 @@ import {MatDialogModule} from '@angular/material/dialog';
     SignUpComponent,
     LandingPageComponent,
     MySurveyCardComponent,
+    SurveyinfoComponent,
     CreateSurveyDialogue
   ],
   imports: [
