@@ -16,11 +16,11 @@ const httpOptions = {
 export class UserRegistrationService {
 
   constructor(private httpClient:HttpClient) { }
-  apiUrl = "http://localhost:8090/user";
   public user:User;
   saveUser(user:User):Observable<User>
   {
+     var apiUrl = "http://localhost:8090/user";
     user.id = Guid.create().toString();
-    return this.httpClient.post<User>(this.apiUrl, user, httpOptions);
+    return this.httpClient.post<User>(apiUrl, user, httpOptions);
   }
 }

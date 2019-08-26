@@ -9,16 +9,15 @@ import { User } from '../modals/User';
   styleUrls: ['./sign-up.component.scss']
 })
 export class SignUpComponent implements OnInit {
-  public user:User
+  public user:User;
   constructor(private registrationService: UserRegistrationService,
     private route: ActivatedRoute) { }
 
   ngOnInit() {
+    
   }
-
-  saveUser(user: User) {
-    console.log(user);
-    this.registrationService.saveUser(user).subscribe((data)=> {
+  saveUser(user:User) {
+       this.registrationService.saveUser(user).subscribe((data)=> {
        this.user = data;
       console.log("result is ", user);
     });
