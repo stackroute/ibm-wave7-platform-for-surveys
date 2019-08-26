@@ -23,7 +23,9 @@ import {MatDividerModule} from '@angular/material/divider';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { RouterModule, Routes } from '@angular/router';
 import { LandingPageComponent } from './landing-page/landing-page.component';
-import { MySurveyCardComponent } from './my-survey-card/my-survey-card.component';
+import { SurveyinfoComponent } from './surveyinfo/surveyinfo.component';
+import { MySurveyCardComponent,CreateSurveyDialogue } from './my-survey-card/my-survey-card.component';
+import {MatDialogModule} from '@angular/material/dialog';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 
@@ -36,6 +38,8 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
     SignUpComponent,
     LandingPageComponent,
     MySurveyCardComponent,
+    SurveyinfoComponent,
+    CreateSurveyDialogue
   ],
   imports: [
     BrowserModule,
