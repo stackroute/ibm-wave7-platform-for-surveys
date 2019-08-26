@@ -1,0 +1,22 @@
+<div mat-dialog-content>
+  <mat-form-field>
+    <input matInput placeholder="Survey Name" [(ngModel)]="data.name">
+  </mat-form-field>
+
+  <mat-form-field>
+    <textarea matInput placeholder="Description" [(ngModel)]="data.description"></textarea>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-select placeholder="Select Domain Name" [(ngModel)]="data.domain">
+      <mat-option value="Business">Business</mat-option>
+      <mat-option value="Education">Education</mat-option>
+      <mat-option value="Technology">Technology</mat-option>
+    </mat-select>
+    <mat-hint align="end"></mat-hint>
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-raised-button color="Primary" [mat-dialog-close]="data" cdkFocusInitial>create</button>
+  <button mat-raised-button color="Warn" (click)=onNoClick()>Cancel</button>
+</div>
