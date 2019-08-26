@@ -60,7 +60,8 @@ import {MatDialogModule} from '@angular/material/dialog';
     MatMenuModule,
     MatFormFieldModule,
     MatDividerModule,
-    RouterModule
+    RouterModule,
+    MatDialogModule
   ],
   entryComponents : [MySurveyCardComponent, CreateSurveyDialogue],
   providers: [],

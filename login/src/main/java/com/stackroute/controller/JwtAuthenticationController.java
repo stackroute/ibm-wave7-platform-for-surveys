@@ -18,7 +18,7 @@ import com.stackroute.model.JwtResponse;
 import com.stackroute.model.UserDTO;
 
 @RestController
-@CrossOrigin
+@CrossOrigin(origins = "*")
 public class JwtAuthenticationController {
 
 	@Autowired
