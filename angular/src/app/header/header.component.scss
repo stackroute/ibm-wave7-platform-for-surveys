@@ -1,0 +1,27 @@
+mat-toolbar{
+    width:100%;
+    position: fixed;
+    top:0;
+    z-index: 1;
+    left: 0;
+    right: 0;
+    background-color: black;
+    
+  }
+  
+  .header{
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
+    color:white;
+  }
+  
+  .spacer {
+    flex: 1 1 auto;
+  }
+  #menu{
+      color: white;
+  }
+  button{
+      color: white;
+  }
+  

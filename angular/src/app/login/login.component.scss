@@ -1,0 +1,25 @@
+.example-container {
+    display: flex;
+    flex-direction: column;
+    // margin-top: 5cm;
+  }
+  
+  .example-container > * {
+    width: 100%;
+  }
+  mat-card{
+      width: 20%;
+      align-content: center;
+      margin-top: 6cm;
+      margin-left: 35%;
+      height: 100%;
+  }
+  mat-card-actions{
+      text-align: center;
+  }
+  mat-divider{
+      width:3cm;
+  }
+  p{
+      margin-top: 1cm;
+  }
