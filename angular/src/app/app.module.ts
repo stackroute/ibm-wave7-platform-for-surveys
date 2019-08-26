@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule} from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -26,6 +26,7 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
 import { SurveyinfoComponent } from './surveyinfo/surveyinfo.component';
 import { MySurveyCardComponent,CreateSurveyDialogue } from './my-survey-card/my-survey-card.component';
 import {MatDialogModule} from '@angular/material/dialog';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
@@ -61,7 +62,7 @@ import {MatDialogModule} from '@angular/material/dialog';
     MatFormFieldModule,
     MatDividerModule,
     RouterModule,
-    MatDialogModule
+    NgbModule
   ],
   entryComponents : [MySurveyCardComponent, CreateSurveyDialogue],
   providers: [],
