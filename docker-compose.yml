@@ -30,3 +30,24 @@ services:
     hostname: localhost
     ports:
       - 8080:8080
+  mongo:
+   image: mongo:3.4-jessie
+   ports:
+     - 27017:27017
+   expose:
+     - 27017
+   container_name: mongo
+   network_mode: host
+   hostname: localhost
+   restart: always
+
+  survey-service:
+   build: survey-service/
+   container_name: survey-service
+   depends_on:
+     - mongo
+   network_mode: "host"
+   image: survey-service
+   hostname: localhost
+   ports:
+     - 8090:8090

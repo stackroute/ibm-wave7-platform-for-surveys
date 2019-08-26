@@ -25,7 +25,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { MySurveyCardComponent,CreateSurveyDialogue } from './my-survey-card/my-survey-card.component';
 import {MatDialogModule} from '@angular/material/dialog';
-import { BbComponent } from './bb/bb.component';
+// import { BbComponent } from './bb/bb.component';
 
 
 @NgModule({
@@ -38,7 +38,7 @@ import { BbComponent } from './bb/bb.component';
     LandingPageComponent,
     MySurveyCardComponent,
     CreateSurveyDialogue,
-    BbComponent
+    // BbComponent
   ],
   imports: [
     MatDialogModule,
