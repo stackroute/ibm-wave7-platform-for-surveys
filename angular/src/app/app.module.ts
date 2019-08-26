@@ -42,6 +42,7 @@ import {MatDialogModule} from '@angular/material/dialog';
   ],
   imports: [
     BrowserModule,
+    MatDialogModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatToolbarModule,
@@ -61,6 +62,7 @@ import {MatDialogModule} from '@angular/material/dialog';
     MatDividerModule,
     RouterModule
   ],
+  entryComponents : [MySurveyCardComponent, CreateSurveyDialogue],
   providers: [],
   bootstrap: [AppComponent]
 })
