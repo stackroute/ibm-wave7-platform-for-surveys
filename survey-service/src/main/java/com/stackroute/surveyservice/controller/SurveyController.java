@@ -5,15 +5,26 @@ import com.stackroute.surveyservice.service.SurveyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
 @RequestMapping(value = "api/v1")
+@CrossOrigin(origins = "*")
 public class SurveyController {
     private SurveyService surveyService;
     private ResponseEntity responseEntity;
+    // Declaration and Intialization of topic name
+    private static final String TOPIC = "KafkaExample";
+
+    Survey survey=new Survey();
+
+    @Autowired
+    private KafkaTemplate<String,Survey> kafkaTemplate;
+
+
     @Autowired
     public SurveyController(SurveyService surveyService)
     {
@@ -33,7 +44,7 @@ public class SurveyController {
     }
     //to delete a survey
     @DeleteMapping("survey/{id}")
-    public ResponseEntity<?> deleteSurvey(@PathVariable("id") int id)
+    public ResponseEntity<?> deleteSurvey(@PathVariable("id") String id)
     {
         try{
             surveyService.deleteSurvey(id);
@@ -53,4 +64,12 @@ public class SurveyController {
         return responseEntity;
     }
 
+    // handling user request with endpoint passing name
+    @PostMapping("/publish")
+    public String post()
+    {
+        // Sending records to topic
+        kafkaTemplate.send(TOPIC, new Survey(survey.getId(),survey.getName(),survey.getDescription(),survey.getDomain_type()));
+        return "published";
+    }
 }
