@@ -14,7 +14,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document
 public class Survey {
     @Id
-    private int id;
+    private String id;
 
     private String name;
 

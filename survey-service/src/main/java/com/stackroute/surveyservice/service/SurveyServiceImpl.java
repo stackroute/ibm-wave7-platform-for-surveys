@@ -25,7 +25,7 @@ public class SurveyServiceImpl implements SurveyService{
         return savedSurvey;    }
 
     @Override
-    public boolean deleteSurvey(int id) {
+    public boolean deleteSurvey(String id) {
         surveyRepository.deleteById(id);
         return false;
     }
