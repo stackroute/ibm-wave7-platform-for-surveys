@@ -9,6 +9,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { MatCardModule } from '@angular/material/card';
 import { HttpClientModule } from '@angular/common/http';
+import {MatRadioModule} from '@angular/material/radio';
 import { MatInputModule,MatListModule} from '@angular/material';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
@@ -26,12 +27,8 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
 import { SurveyinfoComponent } from './surveyinfo/surveyinfo.component';
 import { MySurveyCardComponent,CreateSurveyDialogue } from './my-survey-card/my-survey-card.component';
 import {MatDialogModule} from '@angular/material/dialog';
-<<<<<<< HEAD
-// import { BbComponent } from './bb/bb.component';
-=======
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
->>>>>>> 14d02200c12e687565761a62fcf4eec2016b7058
-
+import { QuestionsTemplateComponent } from './questions-template/questions-template.component';
 
 @NgModule({
   declarations: [
@@ -42,15 +39,12 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
     SignUpComponent,
     LandingPageComponent,
     MySurveyCardComponent,
-<<<<<<< HEAD
     CreateSurveyDialogue,
-    // BbComponent
-=======
     SurveyinfoComponent,
-    CreateSurveyDialogue
->>>>>>> 14d02200c12e687565761a62fcf4eec2016b7058
+    QuestionsTemplateComponent,
   ],
   imports: [
+    MatRadioModule,
     BrowserModule,
     MatDialogModule,
     AppRoutingModule,

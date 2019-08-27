@@ -3,6 +3,7 @@ import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import {Survey} from '../modals/Survey';
 import { SurveyService } from '../survey.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-my-survey-card',
@@ -11,14 +12,13 @@ import { SurveyService } from '../survey.service';
 })
 export class MySurveyCardComponent implements OnInit {
 
-  constructor(private dialog: MatDialog, private surveyService : SurveyService ) { }
+  constructor(private dialog: MatDialog, private surveyService : SurveyService, private router : Router ) { }
 
   public surveyList : Survey[];
 
   ngOnInit() {
     this.getSurveyList();
   }
-
 
   getSurveyList()
   {
@@ -41,6 +41,7 @@ export class MySurveyCardComponent implements OnInit {
         this.surveyService.createSurvey(result).subscribe(
           (data) => {
             console.log(data);
+            this.router.navigateByUrl('questions-template');
             this.getSurveyList();
           })
       }

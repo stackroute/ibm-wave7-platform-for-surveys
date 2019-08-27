@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Route } from '@angular/compiler/src/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-landing-page',
@@ -72,10 +74,15 @@ export class LandingPageComponent implements OnInit{
     return R;
   }
  
-  constructor() { }
+  constructor(private router : Router) { }
 
   ngOnInit() {
     this.slides = this.chunk(this.cards, 3);
+  }
+
+  login()
+  {
+    this.router.navigateByUrl('login');
   }
 
 }

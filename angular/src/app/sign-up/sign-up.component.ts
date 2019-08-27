@@ -21,6 +21,7 @@ export class SignUpComponent implements OnInit {
        this.registrationService.saveUser(user).subscribe((data)=> {
        this.user = data;
       console.log("result is ", user);
+      alert("Account successfully created")
       this.router.navigateByUrl('login');
 
     });
