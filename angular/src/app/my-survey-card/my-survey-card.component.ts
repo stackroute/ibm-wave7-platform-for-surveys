@@ -1,6 +1,8 @@
+
 import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import {Survey} from '../modals/Survey';
+import { SurveyService } from '../survey.service';
 
 @Component({
   selector: 'app-my-survey-card',
@@ -9,9 +11,21 @@ import {Survey} from '../modals/Survey';
 })
 export class MySurveyCardComponent implements OnInit {
 
-  constructor(private dialog: MatDialog) { }
+  constructor(private dialog: MatDialog, private surveyService : SurveyService ) { }
+
+  public surveyList : Survey[];
 
   ngOnInit() {
+    this.getSurveyList();
+  }
+
+
+  getSurveyList()
+  {
+    this.surveyService.getAllSurveys().subscribe(
+      (data) => {this.surveyList = data
+      console.log(this.surveyList)
+      })
   }
 
   openDialog() {
@@ -24,6 +38,11 @@ export class MySurveyCardComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       if (result != undefined) {
         console.log(result);
+        this.surveyService.createSurvey(result).subscribe(
+          (data) => {
+            console.log(data);
+            this.getSurveyList();
+          })
       }
     });
   }

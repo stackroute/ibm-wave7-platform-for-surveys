@@ -30,6 +30,7 @@ services:
     hostname: localhost
     ports:
       - 8080:8080
+<<<<<<< HEAD
   mongo:
    image: mongo:3.4-jessie
    ports:
@@ -51,3 +52,27 @@ services:
    hostname: localhost
    ports:
      - 8090:8090
+=======
+
+  mongo:
+    image: mongo:3.4-jessie
+    ports:
+      - 27017:27017
+    expose:
+      - 27017
+    container_name: mongo
+    network_mode: host
+    hostname: localhost
+    restart: always
+
+  userregistration:
+    build: userregistration/
+    container_name: userregistration
+    depends_on:
+      - mongo
+    network_mode: "host"
+    image: user-registration
+    hostname: localhost
+    ports:
+      - 8090:8090
+>>>>>>> 14d02200c12e687565761a62fcf4eec2016b7058

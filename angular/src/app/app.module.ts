@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule} from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -23,9 +23,14 @@ import {MatDividerModule} from '@angular/material/divider';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { RouterModule, Routes } from '@angular/router';
 import { LandingPageComponent } from './landing-page/landing-page.component';
+import { SurveyinfoComponent } from './surveyinfo/surveyinfo.component';
 import { MySurveyCardComponent,CreateSurveyDialogue } from './my-survey-card/my-survey-card.component';
 import {MatDialogModule} from '@angular/material/dialog';
+<<<<<<< HEAD
 // import { BbComponent } from './bb/bb.component';
+=======
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+>>>>>>> 14d02200c12e687565761a62fcf4eec2016b7058
 
 
 @NgModule({
@@ -37,13 +42,19 @@ import {MatDialogModule} from '@angular/material/dialog';
     SignUpComponent,
     LandingPageComponent,
     MySurveyCardComponent,
+<<<<<<< HEAD
     CreateSurveyDialogue,
     // BbComponent
+=======
+    SurveyinfoComponent,
+    CreateSurveyDialogue
+>>>>>>> 14d02200c12e687565761a62fcf4eec2016b7058
   ],
   imports: [
-    MatDialogModule,
     BrowserModule,
+    MatDialogModule,
     AppRoutingModule,
+    MatDialogModule,
     BrowserAnimationsModule,
     MatToolbarModule,
     MatCardModule,
@@ -60,10 +71,11 @@ import {MatDialogModule} from '@angular/material/dialog';
     MatMenuModule,
     MatFormFieldModule,
     MatDividerModule,
-    RouterModule
+    RouterModule,
+    NgbModule
   ],
+  entryComponents : [MySurveyCardComponent, CreateSurveyDialogue],
   providers: [],
-  entryComponents : [MySurveyCardComponent,CreateSurveyDialogue],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
