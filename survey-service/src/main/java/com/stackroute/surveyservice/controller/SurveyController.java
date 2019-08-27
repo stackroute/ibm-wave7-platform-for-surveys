@@ -32,8 +32,8 @@ public class SurveyController {
     }
     //to save the survey
     @PostMapping("survey")
-    public ResponseEntity<?> saveTrack(@RequestBody Survey survey){
-        responseEntity = new ResponseEntity<Survey>(surveyService.saveSurvey(survey), HttpStatus.OK);
+    public ResponseEntity<?> saveSurvey(@RequestBody Survey survey){
+        responseEntity = new ResponseEntity<Survey>(surveyService.saveSurvey(survey), HttpStatus.CREATED);
         return responseEntity;
 
     }
@@ -51,7 +51,7 @@ public class SurveyController {
             responseEntity = new ResponseEntity<String>("successfully deleted", HttpStatus.OK);
         }
         catch (Exception e){
-            responseEntity=new ResponseEntity<String>(e.getMessage(),HttpStatus.CONFLICT);
+            responseEntity=new ResponseEntity<String>(e.getMessage(),HttpStatus.OK);
         }
         return responseEntity;
     }

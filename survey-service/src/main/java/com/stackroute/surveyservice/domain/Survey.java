@@ -25,8 +25,6 @@ public class Survey {
 
 
 
-
-
 //    public String getName() {
 //        return name;
 //    }

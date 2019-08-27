@@ -30,7 +30,6 @@ import {MatDialogModule} from '@angular/material/dialog';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { QuestionsTemplateComponent } from './questions-template/questions-template.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,9 +39,9 @@ import { QuestionsTemplateComponent } from './questions-template/questions-templ
     SignUpComponent,
     LandingPageComponent,
     MySurveyCardComponent,
-    SurveyinfoComponent,
     CreateSurveyDialogue,
-    QuestionsTemplateComponent
+    SurveyinfoComponent,
+    QuestionsTemplateComponent,
   ],
   imports: [
     MatRadioModule,
