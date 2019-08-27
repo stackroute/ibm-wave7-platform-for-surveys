@@ -9,6 +9,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { MatCardModule } from '@angular/material/card';
 import { HttpClientModule } from '@angular/common/http';
+import {MatRadioModule} from '@angular/material/radio';
 import { MatInputModule,MatListModule} from '@angular/material';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
@@ -27,6 +28,7 @@ import { SurveyinfoComponent } from './surveyinfo/surveyinfo.component';
 import { MySurveyCardComponent,CreateSurveyDialogue } from './my-survey-card/my-survey-card.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { QuestionsTemplateComponent } from './questions-template/questions-template.component';
 
 
 @NgModule({
@@ -39,9 +41,11 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
     LandingPageComponent,
     MySurveyCardComponent,
     SurveyinfoComponent,
-    CreateSurveyDialogue
+    CreateSurveyDialogue,
+    QuestionsTemplateComponent
   ],
   imports: [
+    MatRadioModule,
     BrowserModule,
     MatDialogModule,
     AppRoutingModule,
