@@ -21,7 +21,7 @@ export class UserRegistrationService {
   public user:User;
   saveUser(user:User):Observable<User>
   {
-    var apiUrl = "http://localhost:8095/user";
+    var apiUrl = "http://localhost:8091/user";
     user.id = Guid.create().toString();
     return this.httpClient.post<User>(apiUrl, user, httpOptions);
   }

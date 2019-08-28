@@ -49,6 +49,7 @@ public class UserController {
         //deleting the user using the id
         return new ResponseEntity<User>(userService.deleteUser(id),HttpStatus.OK);
     }
+
     @PostMapping("/publish")
     public String post()
     {
