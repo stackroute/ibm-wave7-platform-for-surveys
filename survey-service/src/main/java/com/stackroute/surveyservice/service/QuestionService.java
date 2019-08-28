@@ -9,6 +9,7 @@ import java.util.List;
 public interface QuestionService {
     Question addQuestion(Question question) throws QuestionAlreadyExistsException;
     Question editQuestion(Question question) throws QuestionDoesNotExistException;
-    Question removeQuestion(String questionId) throws QuestionDoesNotExistException;
+    Question removeQuestion(Long questionId) throws QuestionDoesNotExistException;
     List<Question> getAllQuestions(String surveyId);
+
 }
