@@ -78,13 +78,10 @@ import { QuestionsTemplateComponent } from './questions-template/questions-templ
     RouterModule,
 
     MatDialogModule,
-    MatTooltipModule
-    
-  ],
-  providers: [MyprofileComponent,DialogComponent],
-
+    MatTooltipModule,
     NgbModule
   ],
+  providers: [MyprofileComponent,DialogComponent],
   entryComponents : [MySurveyCardComponent, CreateSurveyDialogue],
   
 
