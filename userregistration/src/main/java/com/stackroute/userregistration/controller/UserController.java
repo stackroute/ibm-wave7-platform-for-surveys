@@ -34,10 +34,10 @@ public class UserController {
     // handling user request with endpoint passing name
 
 
-//    User user=new User();
+   User user=new User();
 
     @Autowired
-    private KafkaTemplate<String,User> kafkaTemplate;
+    private KafkaTemplate<String, User> kafkaTemplate;
 
 
     //Constructor of the controller having the userservice parameter
@@ -71,40 +71,11 @@ public class UserController {
         return new ResponseEntity<User>(userService.deleteUser(id), HttpStatus.OK);
     }
 
-<<<<<<< HEAD:user-registration-service/src/main/java/com/stackroute/userregistration/controller/UserController.java
-    @PutMapping ("user/{id}")
-    public ResponseEntity<?> updateUser(@RequestBody User user,@PathVariable String id) {
-
-        User updateuser = userService.updateUser(user, id);
-        return new ResponseEntity<User>(updateuser, HttpStatus.OK);
-    }
-
-    @PostMapping("/publish")
-    public ResponseEntity<?> post()
-    {
-
-//        return kafkaTemplate.send(TOPIC, user).isDone();
-        ResponseEntity responseEntity=new ResponseEntity(HttpStatus.OK);
-        try {
-            kafkaTemplate.send(TOPIC,new ObjectMapper().writeValueAsString(responseEntity));
-        } catch (JsonProcessingException e) {
-            e.printStackTrace();
-        }
-        Map<Object,Object> model=new HashMap<>();
-        model.put("message","published");
-        System.out.println("published"+responseEntity);
-        return ok(model);
-=======
-
     @PutMapping("user/{id}")
     public ResponseEntity<?> updateUser(@RequestBody User user, @PathVariable String id) {
 
         User updateuser = userService.updateUser(user, id);
         return new ResponseEntity<User>(updateuser, HttpStatus.OK);
-
->>>>>>> baedf1945b88d3c0f8d094a658fb961d783bb3a7:userregistration/src/main/java/com/stackroute/userregistration/controller/UserController.java
-
     }
-
 }
 
