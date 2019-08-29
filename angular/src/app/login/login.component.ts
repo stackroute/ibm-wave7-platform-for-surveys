@@ -19,11 +19,14 @@ export class LoginComponent implements OnInit {
 
   login(user: LoginUser) {
 
-    this.router.navigateByUrl('survey');
-    // this.userResgistrationService.authenticateUser(user).subscribe(
-    //   (data) => {
-    //     console.log(data);
-    //   })
+    this.userResgistrationService.authenticateUser(user).subscribe(
+      (data) => {
+        console.log(data);
+        if(data)
+        {
+        this.router.navigateByUrl('survey');
+        }
+      })
   }
 
   signup()
