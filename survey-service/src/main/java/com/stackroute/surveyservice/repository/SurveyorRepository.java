@@ -1,4 +1,7 @@
 package com.stackroute.surveyservice.repository;
 
-public class SurveyorRepository {
+import com.stackroute.surveyservice.domain.Surveyor;
+import org.springframework.data.neo4j.repository.Neo4jRepository;
+
+public interface SurveyorRepository extends Neo4jRepository<Surveyor,Integer> {
 }

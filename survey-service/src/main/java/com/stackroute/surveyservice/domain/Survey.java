@@ -1,5 +1,6 @@
 package com.stackroute.surveyservice.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -20,7 +21,7 @@ import java.util.List;
 @NodeEntity
 public class Survey {
     @Id
-    private Integer id;
+    private String id;
 
     private String name;
 
