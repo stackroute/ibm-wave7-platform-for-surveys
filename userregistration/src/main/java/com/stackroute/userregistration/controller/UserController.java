@@ -63,9 +63,16 @@ public class UserController {
         return new ResponseEntity<User>(userService.deleteUser(id),HttpStatus.OK);
     }
 
+    @PutMapping ("user/{id}")
+    public ResponseEntity<?> updateUser(@RequestBody User user,@PathVariable String id){
+
+        User updateuser=userService.updateUser(user,id);
+        return new ResponseEntity<User>(updateuser,HttpStatus.OK);
+
+
     @PostMapping("/publish")
     public ResponseEntity<?> post()  {
-        // Sending records to topic
+        
 //        return kafkaTemplate.send(TOPIC, user).isDone();
         ResponseEntity responseEntity=new ResponseEntity(HttpStatus.OK);
         try {
