@@ -33,6 +33,12 @@ public class QuestionController {
             return responseEntity;
 
     }
+    @PostMapping("questionToSurvey")
+    public ResponseEntity<?> saveQuestionToSurvey(@RequestBody Question question,@RequestParam String surveyId){
+        responseEntity = new ResponseEntity<Question>(questionService.addQuestionToSurvey(question,surveyId), HttpStatus.CREATED);
+        return responseEntity;
+
+    }
     //to get all the question
     @GetMapping("question")
     public ResponseEntity<?> getAllQuestions(String surveyId) {
@@ -45,6 +51,12 @@ public class QuestionController {
              Question deletedQuestion = questionService.removeQuestion(id);
             return new ResponseEntity<Question>(deletedQuestion, HttpStatus.OK);
     }
+    @DeleteMapping("question")
+    public ResponseEntity<?> deleteQuestionFromSurvey(@RequestBody Question question,@RequestParam String surveyId) throws Exception {
+
+        questionService.removeQuestionFromSurvey(question,surveyId);
+        return new ResponseEntity<String>("Deleted From Survey", HttpStatus.OK);
+    }
 
     //to update a question
     @PutMapping("question")
@@ -53,10 +65,7 @@ public class QuestionController {
         Question updatedQuestion = questionService.editQuestion(question);
         return new ResponseEntity<Question>(updatedQuestion, HttpStatus.OK);
     }
-    @DeleteMapping("question")
-    public ResponseEntity<?> deleteQuestion(@RequestBody Question question) throws Exception {
 
-        questionService.removeQuestionFromSurvey(question);
-        return new ResponseEntity<String>("Deleted From Survey", HttpStatus.OK);
-    }
+
+
 }

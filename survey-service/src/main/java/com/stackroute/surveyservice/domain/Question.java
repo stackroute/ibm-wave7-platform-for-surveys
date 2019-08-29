@@ -16,7 +16,5 @@ public class Question {
     private String question_id;
     private String quesiontag;
     private List<String> choices;
-
-    private String surveyId;
 }
 

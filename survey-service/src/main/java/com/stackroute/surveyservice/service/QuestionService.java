@@ -7,10 +7,11 @@ import com.stackroute.surveyservice.exceptions.QuestionDoesNotExistsException;
 import java.util.List;
 
 public interface QuestionService {
-    Question addQuestion(Question question) throws QuestionAlreadyExistsException;
+    Question addQuestionToSurvey(Question question,String SurveyId) ;
     Question editQuestion(Question question) throws QuestionDoesNotExistsException;
     Question removeQuestion(String questionId) throws QuestionDoesNotExistsException;
     List<Question> getAllQuestions(String surveyId);
-    void removeQuestionFromSurvey(Question question);
+    void removeQuestionFromSurvey(Question question,String surveyId);
+    Question addQuestion(Question question) throws QuestionAlreadyExistsException;
 
 }

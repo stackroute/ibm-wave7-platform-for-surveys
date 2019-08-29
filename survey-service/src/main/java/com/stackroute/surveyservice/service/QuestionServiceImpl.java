@@ -22,15 +22,15 @@ public class QuestionServiceImpl implements QuestionService{
 
     //save Question
     @Override
-    public Question addQuestion(Question question) throws QuestionAlreadyExistsException {
+    public Question addQuestionToSurvey(Question question,String SurveyId) {
 
         Question savedQuestion = null;
         if(!questionRepository.findById(question.getQuestion_id()).isPresent())
         {
             savedQuestion = questionRepository.save(question);
-            questionRepository.createBelongsToRelationShip(question.getQuestion_id(),question.getSurveyId());
+            questionRepository.createBelongsToRelationShip(question.getQuestion_id(),SurveyId);
         }else{
-            questionRepository.createBelongsToRelationShip(question.getQuestion_id(),question.getSurveyId());
+            questionRepository.createBelongsToRelationShip(question.getQuestion_id(),SurveyId);
         }
         return savedQuestion;
     }
@@ -70,8 +70,20 @@ public class QuestionServiceImpl implements QuestionService{
     }
 
     @Override
-    public void removeQuestionFromSurvey(Question question) {
-      questionRepository.removeQuestionFromSurvey(question.getQuestion_id(),question.getSurveyId());
+    public void removeQuestionFromSurvey(Question question,String surveyId) {
+        System.out.println(question.getQuestion_id()+"  "+question.getQuestion_id());
+      questionRepository.removeQuestionFromSurvey(question.getQuestion_id(),surveyId);
+    }
+
+    @Override
+    public Question addQuestion(Question question) throws QuestionAlreadyExistsException {
+        Question savedQuestion = null;
+        if(!questionRepository.findById(question.getQuestion_id()).isPresent())
+        {
+            savedQuestion = questionRepository.save(question);
+
+        }
+        return savedQuestion;
     }
 
 }

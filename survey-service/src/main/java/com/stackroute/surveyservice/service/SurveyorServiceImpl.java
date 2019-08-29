@@ -52,8 +52,7 @@ public class SurveyorServiceImpl implements SurveyorService {
 
     @Override
     public List<Surveyor> getAllSurveyors() {
-
-        return (List<Surveyor>) surveyorRepository.findAll();
+          return null;
     }
 
     @Override
