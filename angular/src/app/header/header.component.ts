@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ConstantsService } from '../constants.service';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-header',
@@ -9,7 +11,7 @@ import { ConstantsService } from '../constants.service';
 export class HeaderComponent implements OnInit {
   public variable:Boolean=true;
   public url:string='http://localhost:4200/login';
-  constructor(public constant:ConstantsService) { }
+  constructor(public constant:ConstantsService,private router:Router) { }
 
   ngOnInit() {    
     console.log(this.constant.globalvariable);
@@ -17,5 +19,10 @@ export class HeaderComponent implements OnInit {
 
     console.log(this.variable);
   }
+  login()
+  {
+    this.router.navigateByUrl('login');
+  }
+
 
 }

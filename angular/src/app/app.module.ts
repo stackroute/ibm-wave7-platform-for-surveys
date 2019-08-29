@@ -26,6 +26,10 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
 import { SurveyinfoComponent } from './surveyinfo/surveyinfo.component';
 import { MySurveyCardComponent,CreateSurveyDialogue } from './my-survey-card/my-survey-card.component';
 import {MatDialogModule} from '@angular/material/dialog';
+
+import { MyprofileComponent } from './myprofile/myprofile.component';
+import {MatTooltipModule} from '@angular/material/tooltip';
+import {DialogComponent} from './myprofile/myprofile.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { QuestionsTemplateComponent } from './questions-template/questions-template.component';
 import {MatTabsModule} from '@angular/material/tabs';
@@ -42,7 +46,14 @@ import {ConstantsService} from './constants.service';
     MySurveyCardComponent,
     CreateSurveyDialogue,
     SurveyinfoComponent,
+
+    CreateSurveyDialogue,
+    MyprofileComponent,
+    DialogComponent,
+    
+
     QuestionsTemplateComponent,
+
   ],
   imports: [
     MatRadioModule,
@@ -67,11 +78,15 @@ import {ConstantsService} from './constants.service';
     MatFormFieldModule,
     MatDividerModule,
     RouterModule,
-    NgbModule,
-    MatTabsModule
+
+    MatDialogModule,
+    MatTooltipModule,
+    NgbModule
   ],
+  providers: [MyprofileComponent,DialogComponent],
   entryComponents : [MySurveyCardComponent, CreateSurveyDialogue],
-  providers: [ConstantsService],
+  
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }
