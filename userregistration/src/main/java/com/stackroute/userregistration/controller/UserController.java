@@ -1,5 +1,7 @@
 package com.stackroute.userregistration.controller;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.stackroute.userregistration.domain.User;
 import com.stackroute.userregistration.repository.UserRepository;
 import com.stackroute.userregistration.service.UserService;
@@ -7,17 +9,27 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.kafka.core.KafkaTemplate;
+import org.springframework.kafka.support.SendResult;
+import org.springframework.util.concurrent.ListenableFuture;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.concurrent.ExecutionException;
+
+import static org.springframework.http.ResponseEntity.ok;
+
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
 @ControllerAdvice(basePackages = "com.stackroute.userregistration")
 public class UserController {
     //creating the object of the user service to invoke all the methods in the service
     private UserService userService;
+
     @Autowired
-    private KafkaTemplate<String, User> kafkaTemplate;
+    private KafkaTemplate<String, Object> kafkaTemplate;
+
     // Declaration and Intialization of topic name
     private static final String TOPIC = "KafkaExample";
     // handling user request with endpoint passing name
@@ -31,6 +43,7 @@ public class UserController {
     @PostMapping("user")
     public ResponseEntity<?> saveUser(@RequestBody User user)
     {
+        this.user = user;
         //Saving the user and returning the user
         User savedUser=userService.saveUser(user);
         return new ResponseEntity<User>(savedUser,HttpStatus.CREATED);
@@ -49,12 +62,29 @@ public class UserController {
         //deleting the user using the id
         return new ResponseEntity<User>(userService.deleteUser(id),HttpStatus.OK);
     }
+
+    @PutMapping ("user/{id}")
+    public ResponseEntity<?> updateUser(@RequestBody User user,@PathVariable String id){
+
+        User updateuser=userService.updateUser(user,id);
+        return new ResponseEntity<User>(updateuser,HttpStatus.OK);
+
+
     @PostMapping("/publish")
-    public String post()
-    {
-        // Sending records to topic
-        kafkaTemplate.send(TOPIC, new User(user.getId(),user.getName(),user.getEmail(),user.getPassword()));
-        return "published";
+    public ResponseEntity<?> post()  {
+        
+//        return kafkaTemplate.send(TOPIC, user).isDone();
+        ResponseEntity responseEntity=new ResponseEntity(HttpStatus.OK);
+        try {
+            kafkaTemplate.send(TOPIC,new ObjectMapper().writeValueAsString(responseEntity));
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
+        }
+        Map<Object,Object> model=new HashMap<>();
+        model.put("message","published");
+        System.out.println("published"+responseEntity);
+        return ok(model);
+
     }
 }
 

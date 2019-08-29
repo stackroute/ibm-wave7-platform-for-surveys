@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule} from '@angular/core';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -27,6 +26,10 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
 import { SurveyinfoComponent } from './surveyinfo/surveyinfo.component';
 import { MySurveyCardComponent,CreateSurveyDialogue } from './my-survey-card/my-survey-card.component';
 import {MatDialogModule} from '@angular/material/dialog';
+
+import { MyprofileComponent } from './myprofile/myprofile.component';
+import {MatTooltipModule} from '@angular/material/tooltip';
+import {DialogComponent} from './myprofile/myprofile.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { QuestionsTemplateComponent } from './questions-template/questions-template.component';
 
@@ -41,7 +44,14 @@ import { QuestionsTemplateComponent } from './questions-template/questions-templ
     MySurveyCardComponent,
     CreateSurveyDialogue,
     SurveyinfoComponent,
+
+    CreateSurveyDialogue,
+    MyprofileComponent,
+    DialogComponent,
+    
+
     QuestionsTemplateComponent,
+
   ],
   imports: [
     MatRadioModule,
@@ -66,10 +76,18 @@ import { QuestionsTemplateComponent } from './questions-template/questions-templ
     MatFormFieldModule,
     MatDividerModule,
     RouterModule,
+
+    MatDialogModule,
+    MatTooltipModule
+    
+  ],
+  providers: [MyprofileComponent,DialogComponent],
+
     NgbModule
   ],
   entryComponents : [MySurveyCardComponent, CreateSurveyDialogue],
-  providers: [],
+  
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }

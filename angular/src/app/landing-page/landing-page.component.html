@@ -1,33 +1,32 @@
 
 <div class="hero">
-  <img src="assets/pictures/POLLUVERY.png" alt="hero image" style="height:500px;width:100%;">
-</div>
-<div class="orientation" display="flex">
-<ngb-carousel *ngIf="images" style="margin: 20px; padding:20px;  background-color: black;">
-  <ng-template ngbSlide class="card" *ngFor="let item of slides; let i = index">
-      <div style ="display: flex;flex-direction: row; margin: 20px; padding:20px;">
-          <div  class="col-md-4" *ngFor="let card of item; let cardIndex = index">
-              <mat-card class="example-card">
-                <mat-card-header>
-                  <div mat-card-avatar class="example-header-image"></div>
-                  <mat-card-title>{{card.title}}</mat-card-title>
-                  <mat-card-subtitle>Pollurvey</mat-card-subtitle>
-                </mat-card-header>
-                <img mat-card-image [src]="card.img" alt="Photo of a Shiba Inu">
-                <mat-card-content>
-                  <p>
-                    {{card.description}}
-                  </p>
-                </mat-card-content>
-                 <mat-card-actions>
-                  <button mat-button>{{card.buttonText}}</button>
-                  <!-- <button mat-button>SHARE</button> -->
-                </mat-card-actions>
-              </mat-card>
-            </div>
-      </div>
-  </ng-template>
-</ngb-carousel>
-</div>
-
+    <img src="assets/pictures/POLLUVERY.png" alt="hero image" style="height:500px;width:100%;">
+  </div>
+  <div class="orientation" display="flex">
+  <ngb-carousel *ngIf="images" style="margin: 20px; padding:20px;  background-color: black;">
+    <ng-template ngbSlide class="card" *ngFor="let item of slides; let i = index">
+        <div style ="display: flex;flex-direction: row; margin: 20px; padding:20px;">
+            <div  class="col-md-4" *ngFor="let card of item; let cardIndex = index">
+                <mat-card class="example-card">
+                  <mat-card-header>
+                    <div mat-card-avatar class="example-header-image"></div>
+                    <mat-card-title>{{card.title}}</mat-card-title>
+                    <mat-card-subtitle>Pollurvey</mat-card-subtitle>
+                  </mat-card-header>
+                  <img mat-card-image [src]="card.img" alt="Photo of a Shiba Inu">
+                  <mat-card-content>
+                    <p>
+                      {{card.description}}
+                    </p>
+                  </mat-card-content>
+                   <mat-card-actions>
+                    <button mat-button>{{card.buttonText}}</button>
+                    <!-- <button mat-button>SHARE</button> -->
+                  </mat-card-actions>
+                </mat-card>
+              </div>
+        </div>
+    </ng-template>
+  </ngb-carousel>
+  </div>
 <button class="button" mat-raised-button (click)="login()">Create a Survey</button>

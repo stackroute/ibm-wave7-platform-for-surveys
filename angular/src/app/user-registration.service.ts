@@ -21,7 +21,7 @@ export class UserRegistrationService {
   public user:User;
   saveUser(user:User):Observable<User>
   {
-    var apiUrl = "http://localhost:8095/user";
+    var apiUrl = "http://localhost:8091/user";
     user.id = Guid.create().toString();
     return this.httpClient.post<User>(apiUrl, user, httpOptions);
   }
@@ -41,4 +41,9 @@ public loginuser:LoginUser;
      var apiUrl = "http://localhost:8090/user";
     user.id = Guid.create().toString();
   }
+updateUser(id:String,user:User){
+  var url = "http://localhost:8090/user";
+  return this.httpClient.put<User>(url + "/" + user.id, user, httpOptions);
+
+}
 }

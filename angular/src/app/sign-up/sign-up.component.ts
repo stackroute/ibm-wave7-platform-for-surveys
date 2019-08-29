@@ -10,7 +10,12 @@ import { Router } from '@angular/router';
   styleUrls: ['./sign-up.component.scss']
 })
 export class SignUpComponent implements OnInit {
+<<<<<<< HEAD
+  public user:User
+  
+=======
   public user:User;
+>>>>>>> 5b3482a9ee4297469b985be51b5dd9165a0bfe53
   constructor(private registrationService: UserRegistrationService,
     private route: ActivatedRoute,  private router : Router) { }
 
