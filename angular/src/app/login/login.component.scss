@@ -1,18 +1,41 @@
-.example-container {
-    display: flex;
-    flex-direction: column;
-    // margin-top: 5cm;
-  }
-  
-  .example-container > * {
+
+.flex-container
+{
+    height: 100vh;
     width: 100%;
-  }
+    background:url("/assets/pictures/imgonline-com-ua-BigPic-91iFh0FUVlo.jpg");
+
+}
+.example{
+   margin-left: 30%;
+   margin-right: 50%;
+}
+.example-card{
+    width:6cm;
+    height:9cm;
+    min-width: 6cm;
+}
+// .example-container {
+//     display: flex;
+//     flex-direction: column;
+//     // margin-top: 5cm;
+//   }
+  
+//   .example-container > * {
+//     width: 100%;
+//   }
   mat-card{
-      width: 20%;
+    width:300px;
       align-content: center;
-      margin-top: 6cm;
-      margin-left: 35%;
-      height: 100%;
+      margin-top: 5cm;
+    //   margin-left: 35%;
+    padding: 30px;
+      min-width: 300px;
+      display: block;
+      margin-left:auto;
+      margin-right:auto;  
+      
+    //   vertical-align:middle;
   }
   mat-card-actions{
       text-align: center;
@@ -22,4 +45,8 @@
   }
   p{
       margin-top: 1cm;
+  }
+  
+  .mat-raised-.mat-card-actions .mat-button, .mat-card-actions .mat-raised-button{
+      margin:5px;
   }

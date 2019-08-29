@@ -26,16 +26,12 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
 import { SurveyinfoComponent } from './surveyinfo/surveyinfo.component';
 import { MySurveyCardComponent,CreateSurveyDialogue } from './my-survey-card/my-survey-card.component';
 import {MatDialogModule} from '@angular/material/dialog';
-<<<<<<< HEAD
+
 import { MyprofileComponent } from './myprofile/myprofile.component';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {DialogComponent} from './myprofile/myprofile.component';
-
-
-=======
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { QuestionsTemplateComponent } from './questions-template/questions-template.component';
->>>>>>> 5b3482a9ee4297469b985be51b5dd9165a0bfe53
 
 @NgModule({
   declarations: [
@@ -48,14 +44,14 @@ import { QuestionsTemplateComponent } from './questions-template/questions-templ
     MySurveyCardComponent,
     CreateSurveyDialogue,
     SurveyinfoComponent,
-<<<<<<< HEAD
+
     CreateSurveyDialogue,
     MyprofileComponent,
     DialogComponent,
     
-=======
+
     QuestionsTemplateComponent,
->>>>>>> 5b3482a9ee4297469b985be51b5dd9165a0bfe53
+
   ],
   imports: [
     MatRadioModule,
@@ -80,18 +76,18 @@ import { QuestionsTemplateComponent } from './questions-template/questions-templ
     MatFormFieldModule,
     MatDividerModule,
     RouterModule,
-<<<<<<< HEAD
+
     MatDialogModule,
     MatTooltipModule
     
   ],
   providers: [MyprofileComponent,DialogComponent],
-=======
+
     NgbModule
   ],
   entryComponents : [MySurveyCardComponent, CreateSurveyDialogue],
-  providers: [],
->>>>>>> 5b3482a9ee4297469b985be51b5dd9165a0bfe53
+  
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }
