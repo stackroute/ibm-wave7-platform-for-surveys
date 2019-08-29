@@ -4,16 +4,15 @@
       <mat-label>Select your Question type (required)</mat-label>
     </mat-card>
   </div>
-<<<<<<< HEAD
   <div fxFlex="77%" >
     <mat-card *ngFor="let question of questionList">
       <h3>{{question.question_tag}}</h3>
    <div *ngFor="let choice of question.choices">
         <mat-radio-button class="choice-radio-button" value="Not better">{{choice}}</mat-radio-button>
+        <button mat-raised-button type="submit" color="primary" (click)=addQuestion()>Add Question</button>
+      <button mat-raised-button type="submit" color="primary"> Save Survey</button>
    </div>
     </mat-card>
-      <button mat-raised-button type="submit" color="primary" (click)=addQuestion()>Add Question</button>
-      <button mat-raised-button type="submit" color="primary"> Save Survey</button>
     <ng-template [ngIf]="condition">
         <mat-card>
             <form class="my-form" #questiontemplateform="ngForm" (ngSubmit)="saveQuestion(questiontemplateform.value)">
@@ -29,7 +28,6 @@
               </form> 
         </mat-card>
     </ng-template>
-=======
   <div fxFlex="77%" id="questionForm">
     <mat-card>
       <h3>Are the facilities at the school better than you expected?</h3>
@@ -39,7 +37,6 @@
         <mat-radio-button class="choice-radio-button" value="Much better">Much better</mat-radio-button>
       </mat-radio-group>
     </mat-card>
-
       <mat-card name="question_card">
         <mat-form-field>
            <textarea matInput placeholder="Question"></textarea>
@@ -48,18 +45,11 @@
                <input matInput placeholder="Choice">
              </mat-form-field>
              <button id = "addChoice" mat-mini-fab color="primary" (click)=addChoice($event)>+</button>
-      </mat-card>
-
+            </mat-card>
       <button mat-raised-button id="submitButton" type="submit" color="primary" (click)=addQuestion()>Add Question</button>
       <button mat-raised-button type="submit" color="primary"> Save Survey</button>
-    
    <form>
-    <!-- <ng-template [ngIf]="condition"> -->
-       
-
-    <!-- </ng-template> -->
   </form> 
->>>>>>> baedf1945b88d3c0f8d094a658fb961d783bb3a7
     </div>
 </div>
 

@@ -46,7 +46,7 @@ export class MySurveyCardComponent implements OnInit {
         this.surveyService.createSurvey(result).subscribe(
           (data) => {
             console.log(data);
-            this.router.navigateByUrl('questions-template');
+            this.router.navigateByUrl('question-template');
             this.getSurveyList();
           })
       }
