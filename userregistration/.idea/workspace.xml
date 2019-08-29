@@ -28,7 +28,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="JUnit.UserServiceTest">
     <configuration name="UserRegistrationApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.stackroute.userregistration.UserRegistrationApplication" />
       <module name="userregistration" />
@@ -42,8 +42,56 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="UserControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="userregistration" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.stackroute.userregistration.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.stackroute.userregistration.controller" />
+      <option name="MAIN_CLASS_NAME" value="com.stackroute.userregistration.controller.UserControllerTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserRepositoryTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="userregistration" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.stackroute.userregistration.repository.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.stackroute.userregistration.repository" />
+      <option name="MAIN_CLASS_NAME" value="com.stackroute.userregistration.repository.UserRepositoryTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="userregistration" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.stackroute.userregistration.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.stackroute.userregistration.service" />
+      <option name="MAIN_CLASS_NAME" value="com.stackroute.userregistration.service.UserServiceTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.UserServiceTest" />
+        <item itemvalue="JUnit.UserRepositoryTest" />
+        <item itemvalue="JUnit.UserControllerTest" />
         <item itemvalue="Application.UserRegistrationApplication" />
       </list>
     </recent_temporary>
