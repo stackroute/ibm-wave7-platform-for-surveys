@@ -28,42 +28,50 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @Autowired
-    private KafkaTemplate<String, Object> kafkaTemplate;
 
     // Declaration and Intialization of topic name
-    private static final String TOPIC = "KafkaExample";
+    private static final String TOPIC = "UserRegistration";
     // handling user request with endpoint passing name
 
-    User user=new User();
+
+//    User user=new User();
+
+    @Autowired
+    private KafkaTemplate<String,User> kafkaTemplate;
+
+
     //Constructor of the controller having the userservice parameter
     public UserController(UserService userService) {
         this.userService = userService;
     }
+
     //This method is used to save the user to the database by the url i.e., user
     @PostMapping("user")
-    public ResponseEntity<?> saveUser(@RequestBody User user)
-    {
-        this.user = user;
+    public ResponseEntity<?> saveUser(@RequestBody User user) {
+        user = user;
         //Saving the user and returning the user
-        User savedUser=userService.saveUser(user);
-        return new ResponseEntity<User>(savedUser,HttpStatus.CREATED);
-    }
-    //To get all the users from the database
-    @GetMapping("user")
-    public ResponseEntity<?> getAllUsers()
-    {
-        //Getting all the users as a list
-        return new ResponseEntity<List<User>>(userService.getUsers(),HttpStatus.OK);
-    }
-    //Deleting the user according to the id
-    @DeleteMapping("user/{id}")
-    public ResponseEntity<?> deleteUser(@PathVariable String id)
-    {
-        //deleting the user using the id
-        return new ResponseEntity<User>(userService.deleteUser(id),HttpStatus.OK);
+        User savedUser = userService.saveUser(user);
+        this.kafkaTemplate.send(TOPIC, savedUser);
+        return new ResponseEntity<User>(savedUser, HttpStatus.CREATED);
+
     }
 
+
+    //To get all the users from the database
+    @GetMapping("user")
+    public ResponseEntity<?> getAllUsers() {
+        //Getting all the users as a list
+        return new ResponseEntity<List<User>>(userService.getUsers(), HttpStatus.OK);
+    }
+
+    //Deleting the user according to the id
+    @DeleteMapping("user/{id}")
+    public ResponseEntity<?> deleteUser(@PathVariable String id) {
+        //deleting the user using the id
+        return new ResponseEntity<User>(userService.deleteUser(id), HttpStatus.OK);
+    }
+
+<<<<<<< HEAD:user-registration-service/src/main/java/com/stackroute/userregistration/controller/UserController.java
     @PutMapping ("user/{id}")
     public ResponseEntity<?> updateUser(@RequestBody User user,@PathVariable String id) {
 
@@ -86,7 +94,17 @@ public class UserController {
         model.put("message","published");
         System.out.println("published"+responseEntity);
         return ok(model);
+=======
+
+    @PutMapping("user/{id}")
+    public ResponseEntity<?> updateUser(@RequestBody User user, @PathVariable String id) {
+
+        User updateuser = userService.updateUser(user, id);
+        return new ResponseEntity<User>(updateuser, HttpStatus.OK);
+
+>>>>>>> baedf1945b88d3c0f8d094a658fb961d783bb3a7:userregistration/src/main/java/com/stackroute/userregistration/controller/UserController.java
 
     }
+
 }
 

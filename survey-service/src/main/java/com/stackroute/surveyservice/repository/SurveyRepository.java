@@ -20,6 +20,6 @@ public interface SurveyRepository extends Neo4jRepository<Survey,String> {
     void delete(String id);
     @Query("MATCH (s:Survey{ id: {id}})<-[b:BelongsTo]-(q:Question) RETURN s,b,q")
     Survey getSurveyById(String id);
-
-
+    @Query("MATCH (a:Surveyor),(b:Survey) WHERE a.id ={surveyorId} AND b.id ={surveyId} CREATE (a)-[: Creates]->(b) RETURN a,b")
+    void createCreatesRelationShip(String surveyId, String surveyorId );
 }

@@ -1,18 +1,15 @@
 package com.stackroute.surveyservice.exceptions;
 
-public class QuestionDoesNotExistException extends Exception{
+public class SurveyorAlreadyExistException extends Exception {
 
     private String message;
 
-    public QuestionDoesNotExistException()
-    {
+    public SurveyorAlreadyExistException() {
     }
 
     //creating custom exception
-    public QuestionDoesNotExistException(String message)
-    {
+    public SurveyorAlreadyExistException(String message) {
         super(message);
         this.message = message;
     }
-
 }

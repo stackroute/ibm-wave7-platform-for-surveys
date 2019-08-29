@@ -1,12 +1,13 @@
 package com.stackroute.surveyservice.service;
 
 import com.stackroute.surveyservice.domain.Survey;
+import com.stackroute.surveyservice.domain.Surveyor;
+import com.stackroute.surveyservice.exceptions.SurveyDoesNotExistsException;
 import com.stackroute.surveyservice.repository.SurveyRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Collection;
-import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -18,11 +19,14 @@ public class SurveyServiceImpl implements SurveyService{
     }
 
     @Override
-    public Survey saveSurvey(Survey survey) {
+    public Survey saveSurvey(Survey survey ,String surveyorId) {
         Survey savedSurvey=null;
         if(!surveyRepository.findById(survey.getId()).isPresent()) {
             savedSurvey = surveyRepository.save(survey);
+            System.out.println(surveyorId);
+            surveyRepository.createCreatesRelationShip(survey.getId(),surveyorId);
             surveyRepository.createBelongsToRelationShip(survey.getId());
+
         }
         return savedSurvey;
     }
@@ -40,12 +44,12 @@ public class SurveyServiceImpl implements SurveyService{
     }
 
     @Override
-    public Survey updateSurvey(Survey survey) {
-        Optional<Survey> savedSurvey=Optional.of(new Survey());
-        if (surveyRepository.existsById( survey.getId())) {
-            savedSurvey = surveyRepository.findById(survey.getId());
+    public Survey updateSurvey(Survey survey) throws SurveyDoesNotExistsException{
+
+        if (!surveyRepository.findById(survey.getId()).isPresent()) {
+          throw new SurveyDoesNotExistsException();
         }
-        return saveSurvey(survey);
+       return surveyRepository.save(survey);
     }
 
     @Override
