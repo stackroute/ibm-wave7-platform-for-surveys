@@ -41,4 +41,9 @@ public loginuser:LoginUser;
      var apiUrl = "http://localhost:8090/user";
     user.id = Guid.create().toString();
   }
+updateUser(id:String,user:User){
+  var url = "http://localhost:8090/user";
+  return this.httpClient.put<User>(url + "/" + user.id, user, httpOptions);
+
+}
 }

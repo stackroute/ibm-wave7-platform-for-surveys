@@ -51,7 +51,7 @@ public class QuestionServiceImpl implements QuestionService{
     }
 
     @Override
-    public Question removeQuestion(Long questionId) throws QuestionDoesNotExistException{
+    public Question removeQuestion(String questionId) throws QuestionDoesNotExistException{
 
         Optional<Question> existingQuestion = questionRepository.findById(questionId);
 
@@ -68,4 +68,10 @@ public class QuestionServiceImpl implements QuestionService{
 
         return (List<Question>) questionRepository.findAll();
     }
+
+    @Override
+    public void removeQuestionFromSurvey(Question question) {
+      questionRepository.removeQuestionFromSurvey(question.getQuestion_id(),question.getSurveyId());
+    }
+
 }

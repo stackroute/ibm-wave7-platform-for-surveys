@@ -1,12 +1,16 @@
-
-<div class="hero">
-  <img src="assets/pictures/POLLUVERY.png" alt="hero image" style="height:500px;width:100%;">
-</div>
-<div class="orientation" display="flex">
-<ngb-carousel *ngIf="images" style="margin: 20px; padding:20px;  background-color: black;">
-  <ng-template ngbSlide class="card" *ngFor="let item of slides; let i = index">
-      <div style ="display: flex;flex-direction: row; margin: 20px; padding:20px;">
-          <div  class="col-md-4" *ngFor="let card of item; let cardIndex = index">
+<div class="container-fluid">
+  <div class="row row-no-gutters">
+    <div class="hero" class="col-md-12 col-xs-12 col-sm-12 col-lg-12">
+      <img src="assets/pictures/POLLUVERY.png" alt="hero image" style="height:500px;width:100%;" fxLayout="row">
+    </div>
+  </div>
+  <div class="row row-no-gutters">  
+    <div class="orientation" display="flex" class="col-sm-12 col-md-12 col-xs-12 col-lg-12">
+      <ngb-carousel *ngIf="images" style="margin: 20px; padding:20px;  background-color: black;">
+        <ng-template ngbSlide class="card" *ngFor="let item of slides; let i = index">
+          <div style="display: flex;flex-direction: row; margin: 20px; padding:20px;">
+            <div class="row">
+            <div class="col-sm-4 col-md-4 col-xs-4 col-lg-4" *ngFor="let card of item; let cardIndex = index">
               <mat-card class="example-card">
                 <mat-card-header>
                   <div mat-card-avatar class="example-header-image"></div>
@@ -19,15 +23,25 @@
                     {{card.description}}
                   </p>
                 </mat-card-content>
-                 <mat-card-actions>
+                <!-- <mat-card-actions>
                   <button mat-button>{{card.buttonText}}</button>
                   <!-- <button mat-button>SHARE</button> -->
-                </mat-card-actions>
+                <!-- </mat-card-actions> -->
               </mat-card>
+              </div>
             </div>
-      </div>
-  </ng-template>
-</ngb-carousel>
-</div>
+          </div>
+        </ng-template>
+      </ngb-carousel>
+    </div>
+  </div>
+<!--   
+  <div class="row row-no-gutters"> -->
+  <div class="col-sm-12 col-md-12 col-xs-12 col-lg-12"><div class="container">
+      <!-- <div class="btn btn-small btn btn-large btn btn-medium"> -->
+    <button class="button" mat-raised-button (click)="login()">Create a Survey</button>
+    </div>
+    </div>
 
-<button class="button" mat-raised-button (click)="login()">Create a Survey</button>
+<!-- </div> -->
+</div>

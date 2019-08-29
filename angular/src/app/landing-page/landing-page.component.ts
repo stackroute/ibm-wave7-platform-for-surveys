@@ -13,37 +13,37 @@ export class LandingPageComponent implements OnInit{
     {
       title: 'Get Faster Decisions',
       description: 'You are one step closer to making decisions based on the feedback from the users once you create an account.',
-      buttonText: 'Try Pollurvey',
+      //buttonText: 'Try Pollurvey',
       img: 'assets/pictures/de.jpg'
     },
     {
       title: 'We Secure Data',
       description: 'We promise you that your data is secured.Only you have the right to access it anytime anywhere.',
-      buttonText: 'About Us',
+      //buttonText: 'About Us',
       img: 'assets/pictures/security.jpeg'
     },
     {
       title: 'We connect World',
       description: 'Some quick example text to build on the card title and make up the bulk of the card content.',
-      buttonText: 'Take Surveys',
+      //buttonText: 'Take Surveys',
       img: 'assets/pictures/world.jpg'
     },
     {
       title: 'Fit your Business',
       description: 'Organize our survey platform to best fit your business requirements',
-      buttonText: 'Try Pollurvey',
+      //buttonText: 'Try Pollurvey',
       img: 'assets/pictures/business.jpeg'
     },
     {
       title: 'Ask appropriate Questions',
       description: 'Ask questions that will lead to correct and appropriate data responses',
-      buttonText: 'About Us',
+      //buttonText: 'About Us',
       img: 'assets/pictures/ques.jpg'
     },
     {
       title: 'User Friendly Surveys',
       description: 'Your survey will look nice on all the screens be it mobile or Desktop.',
-      buttonText: 'Create Surveys',
+      //buttonText: 'Create Surveys',
       img: 'assets/pictures/survey.jpeg'
     },
     // {
@@ -73,7 +73,6 @@ export class LandingPageComponent implements OnInit{
     }
     return R;
   }
- 
   constructor(private router : Router) { }
 
   ngOnInit() {
