@@ -39,4 +39,8 @@ export class SurveyService {
  //microservice create survey api link
  return this.httpclient.post<Question>(environment.baseURI+"/question", question, httpOptions)
 }
+  deleteSurvey(survey){
+    console.log("service"+survey.id)
+    return this.httpclient.delete("http://localhost:8090/api/v1/survey/"+survey.id);
+  }
 }

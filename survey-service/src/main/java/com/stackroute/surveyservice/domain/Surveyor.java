@@ -4,25 +4,28 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.neo4j.ogm.annotation.GraphId;
-import org.neo4j.ogm.annotation.NodeEntity;
 import org.neo4j.ogm.annotation.Id;
+import org.neo4j.ogm.annotation.NodeEntity;
 import org.neo4j.ogm.annotation.Relationship;
-import javax.validation.GroupSequence;
+
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
 @NodeEntity
-public class Survey {
+public class Surveyor {
     @Id
-    private String id;
+    private Integer id;
 
     private String name;
-    private String description;
-    private String domain_type;
-    @Relationship(type = "BelongsTo", direction = Relationship.UNDIRECTED)
-    List<Question> questionList=new ArrayList<>();
+
+    private String email;
+    private String password;
+    private Date timeStamp;
+    @Relationship(type = "Creates", direction = Relationship.UNDIRECTED)
+    List<Survey> SurveysList = new ArrayList<>();
 }
