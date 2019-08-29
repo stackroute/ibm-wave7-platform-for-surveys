@@ -21,16 +21,7 @@ public class KafkaConsumer {
     private PasswordEncoder bcryptEncoder;
 
 
-    @KafkaListener(topics = "KafkaExample", groupId = "group_json",
-            containerFactory = "userKafkaListenerFactory")
-    public void consumeJson(UserDTO user)
-    {
-        System.out.println("Consumed JSON Message: " + user);
-    }
-
-
-    @KafkaListener(topics = "KafkaExample", groupId = "group_json",
-            containerFactory = "userKafkaListenerFactory")
+    @KafkaListener(topics = "UserRegistration", groupId = "group_id")
     public void consume(String daoUser) throws IOException {
         DAOUser obj = new ObjectMapper().readValue(daoUser, DAOUser.class);
         obj.setPassword(bcryptEncoder.encode(obj.getPassword()));

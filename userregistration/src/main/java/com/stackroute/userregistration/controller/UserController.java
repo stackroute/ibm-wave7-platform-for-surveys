@@ -27,14 +27,16 @@ public class UserController {
     //creating the object of the user service to invoke all the methods in the service
     private UserService userService;
 
-    @Autowired
-    private KafkaTemplate<String, Object> kafkaTemplate;
 
     // Declaration and Intialization of topic name
-    private static final String TOPIC = "KafkaExample";
+    private static final String TOPIC = "UserRegistration";
     // handling user request with endpoint passing name
 
-    User user=new User();
+//    User user=new User();
+
+    @Autowired
+    private KafkaTemplate<String,User> kafkaTemplate;
+
     //Constructor of the controller having the userservice parameter
     public UserController(UserService userService) {
         this.userService = userService;
@@ -43,10 +45,12 @@ public class UserController {
     @PostMapping("user")
     public ResponseEntity<?> saveUser(@RequestBody User user)
     {
-        this.user = user;
+        user = user;
         //Saving the user and returning the user
         User savedUser=userService.saveUser(user);
+        this.kafkaTemplate.send(TOPIC,savedUser);
         return new ResponseEntity<User>(savedUser,HttpStatus.CREATED);
+
     }
     //To get all the users from the database
     @GetMapping("user")
@@ -63,21 +67,5 @@ public class UserController {
         return new ResponseEntity<User>(userService.deleteUser(id),HttpStatus.OK);
     }
 
-    @PostMapping("/publish")
-    public ResponseEntity<?> post()  {
-        // Sending records to topic
-//        return kafkaTemplate.send(TOPIC, user).isDone();
-        ResponseEntity responseEntity=new ResponseEntity(HttpStatus.OK);
-        try {
-            kafkaTemplate.send(TOPIC,new ObjectMapper().writeValueAsString(responseEntity));
-        } catch (JsonProcessingException e) {
-            e.printStackTrace();
-        }
-        Map<Object,Object> model=new HashMap<>();
-        model.put("message","published");
-        System.out.println("published"+responseEntity);
-        return ok(model);
-
-    }
 }
 
