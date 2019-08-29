@@ -8,10 +8,15 @@ import java.util.List;
 public interface SurveyService {
     public Survey saveSurvey(Survey survey);
 
-    public boolean deleteSurvey(Integer id);
+    public boolean deleteSurvey(String id);
 
     public Collection<Survey> getAllSurveys();
 
     public Survey updateSurvey(Survey survey);
+
+    public Survey getSurveyById(String id);
+
+
+
 
 }
