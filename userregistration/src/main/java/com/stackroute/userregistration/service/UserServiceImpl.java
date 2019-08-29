@@ -38,4 +38,18 @@ public class UserServiceImpl implements UserService{
         //Return the deleted user
         return user1.get();
     }
+
+
+    @Override
+    public User updateUser(User user, String id) {
+
+        Optional<User> user1=userRepository.findById(id);
+        user.setId(user.getId());
+        user.setName(user.getName());
+        user.setEmail(user.getEmail());
+        User modifiedUser=userRepository.save(user);
+        return modifiedUser ;
+    }
+
+
 }

@@ -31,4 +31,8 @@ export class SurveyService {
   {
     return this.httpclient.get<Survey[]>(environment.baseURI+"/survey");
   }
+  deleteSurvey(survey){
+    console.log("service"+survey.id)
+    return this.httpclient.delete("http://localhost:8090/api/v1/survey/"+survey.id);
+  }
 }

@@ -1,20 +1,26 @@
 package com.stackroute.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import javax.persistence.*;
 
 @Entity
 @Table(name = "user")
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class DAOUser {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
+
 	@Column
+	@JsonProperty("name")
 	private String username;
 	@Column
 	@JsonIgnore
+	@JsonProperty("password")
 	private String password;
 
 	public String getUsername() {

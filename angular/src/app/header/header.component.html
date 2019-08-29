@@ -1,13 +1,10 @@
 <header>
-    <mat-toolbar class="flex-container" fxLayout="row" >
-    <mat-toolbar-row>
-      <span class="header">SURVEY</span>
-      <span class="spacer"></span>
-      <button mat-button >Support</button>
-      <!-- <mat-menu #menu="matMenu"> -->
-      <!-- </mat-menu> -->
-    <button mat-button >About us</button>
-        <button mat-button >Login</button>
-      </mat-toolbar-row>
+    <mat-toolbar fxLayout.xs="column" >
+      <mat-toolbar-row>
+          <span fxFlex="10%" class="header">SURVEY</span>
+          <span class="spacer"></span>
+          <button fxFlex="10%" mat-button >Login</button>
+        </mat-toolbar-row>
     </mat-toolbar>
   </header>
+  <!-- *ngIf="that global variable == true" -->
