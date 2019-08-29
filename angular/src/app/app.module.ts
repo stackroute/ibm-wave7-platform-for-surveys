@@ -32,6 +32,8 @@ import {MatTooltipModule} from '@angular/material/tooltip';
 import {DialogComponent} from './myprofile/myprofile.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { QuestionsTemplateComponent } from './questions-template/questions-template.component';
+import {MatTabsModule} from '@angular/material/tabs';
+import {ConstantsService} from './constants.service';
 
 @NgModule({
   declarations: [
