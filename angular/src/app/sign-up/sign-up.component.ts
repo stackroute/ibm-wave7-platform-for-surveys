@@ -15,7 +15,6 @@ export class SignUpComponent implements OnInit {
     private route: ActivatedRoute,  private router : Router) { }
 
   ngOnInit() {
-    
   }
   saveUser(user:User) {
        this.registrationService.saveUser(user).subscribe((data)=> {
@@ -23,7 +22,6 @@ export class SignUpComponent implements OnInit {
       console.log("result is ", user);
       alert("Account successfully created")
       this.router.navigateByUrl('login');
-
     });
   }
 }

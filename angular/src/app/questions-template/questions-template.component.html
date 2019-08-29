@@ -15,25 +15,21 @@
       <button mat-raised-button type="submit" color="primary" (click)=addQuestion()>Add Question</button>
       <button mat-raised-button type="submit" color="primary"> Save Survey</button>
     </mat-card>
-   <form>
     <ng-template [ngIf]="condition">
         <mat-card>
+            <form class="my-form" #questiontemplateform="ngForm" (ngSubmit)="saveQuestion(questiontemplateform.value)">
              <mat-form-field>
-                <textarea matInput placeholder="Question"></textarea><br>
+               <mat-label>Question</mat-label>
+                <textarea matInput placeholder="Question" [(ngModel)]="question_tag" name="question_tag" ></textarea><br>
              </mat-form-field>
                 <mat-form-field>
-                    <input matInput placeholder="Choice">
+                  <mat-label>Choices</mat-label>
+                    <input matInput placeholder="Choice" [(ngModel)]="choices" name="choices" >
                   </mat-form-field>
-                <button (click)=addChoice()>+</button>
-                <ng-template [ngIf]="choiceVisibility">
-                    <mat-form-field>
-                        <input matInput placeholder="Choice">
-                      </mat-form-field>
-                      <button mat-raised-button type="submit" color="primary">Add Question</button>
-                </ng-template>
+                      <button mat-raised-button type="submit"color="primary">Add Question</button>
+              </form> 
         </mat-card>
     </ng-template>
-  </form> 
     </div>
 </div>
 
