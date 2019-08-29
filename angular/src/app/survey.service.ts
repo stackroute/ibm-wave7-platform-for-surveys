@@ -32,4 +32,8 @@ export class SurveyService {
     var url = "http://localhost:8090/api/v1/survey";
     return this.httpclient.get<Survey[]>(url);
   }
+  deleteSurvey(survey){
+    console.log("service"+survey.id)
+    return this.httpclient.delete("http://localhost:8090/api/v1/survey/"+survey.id);
+  }
 }

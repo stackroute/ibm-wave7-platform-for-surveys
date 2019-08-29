@@ -29,6 +29,8 @@ import { MySurveyCardComponent,CreateSurveyDialogue } from './my-survey-card/my-
 import {MatDialogModule} from '@angular/material/dialog';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { QuestionsTemplateComponent } from './questions-template/questions-template.component';
+import {MatTabsModule} from '@angular/material/tabs';
+
 
 @NgModule({
   declarations: [
@@ -66,7 +68,8 @@ import { QuestionsTemplateComponent } from './questions-template/questions-templ
     MatFormFieldModule,
     MatDividerModule,
     RouterModule,
-    NgbModule
+    NgbModule,
+    MatTabsModule
   ],
   entryComponents : [MySurveyCardComponent, CreateSurveyDialogue],
   providers: [],
