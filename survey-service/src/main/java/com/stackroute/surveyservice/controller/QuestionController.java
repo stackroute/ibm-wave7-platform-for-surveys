@@ -1,9 +1,8 @@
 package com.stackroute.surveyservice.controller;
 
 import com.stackroute.surveyservice.domain.Question;
-import com.stackroute.surveyservice.domain.Survey;
 import com.stackroute.surveyservice.exceptions.QuestionAlreadyExistsException;
-import com.stackroute.surveyservice.exceptions.QuestionDoesNotExistException;
+import com.stackroute.surveyservice.exceptions.QuestionDoesNotExistsException;
 import com.stackroute.surveyservice.service.QuestionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -36,8 +35,8 @@ public class QuestionController {
     }
     //to get all the question
     @GetMapping("question")
-    public ResponseEntity<?> getAllQuestions(String surveyId) {
-        return new ResponseEntity<List<Question>>(questionService.getAllQuestions(surveyId),HttpStatus.OK);
+    public ResponseEntity<?> getAllQuestions() {
+        return new ResponseEntity<List<Question>>(questionService.getAllQuestions(),HttpStatus.OK);
     }
     //to delete a question
     @DeleteMapping("question/{id}")
@@ -49,7 +48,7 @@ public class QuestionController {
 
     //to update a question
     @PutMapping("question")
-    public ResponseEntity<?> updateQuestion(@RequestBody Question question) throws QuestionDoesNotExistException
+    public ResponseEntity<?> updateQuestion(@RequestBody Question question) throws QuestionDoesNotExistsException
     {
         Question updatedQuestion = questionService.editQuestion(question);
         return new ResponseEntity<Question>(updatedQuestion, HttpStatus.OK);

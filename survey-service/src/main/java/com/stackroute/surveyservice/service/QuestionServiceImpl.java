@@ -2,7 +2,7 @@ package com.stackroute.surveyservice.service;
 
 import com.stackroute.surveyservice.domain.Question;
 import com.stackroute.surveyservice.exceptions.QuestionAlreadyExistsException;
-import com.stackroute.surveyservice.exceptions.QuestionDoesNotExistException;
+import com.stackroute.surveyservice.exceptions.QuestionDoesNotExistsException;
 import com.stackroute.surveyservice.repository.QuestionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -36,7 +36,7 @@ public class QuestionServiceImpl implements QuestionService{
     }
 
     @Override
-    public Question editQuestion(Question question) throws QuestionDoesNotExistException {
+    public Question editQuestion(Question question) throws QuestionDoesNotExistsException {
 
         Optional<Question> existingQuestion = questionRepository.findById(question.getQuestion_id());
 
@@ -51,7 +51,7 @@ public class QuestionServiceImpl implements QuestionService{
     }
 
     @Override
-    public Question removeQuestion(String questionId) throws QuestionDoesNotExistException{
+    public Question removeQuestion(String questionId) throws QuestionDoesNotExistsException {
 
         Optional<Question> existingQuestion = questionRepository.findById(questionId);
 
@@ -64,7 +64,7 @@ public class QuestionServiceImpl implements QuestionService{
     }
 
     @Override
-    public List<Question> getAllQuestions(String surveyId) {
+    public List<Question> getAllQuestions() {
 
         return (List<Question>) questionRepository.findAll();
     }

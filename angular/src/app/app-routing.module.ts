@@ -30,16 +30,13 @@ const routes: Routes = [
     path:'login',
     component:LoginComponent,
   },
+  // {
+  //   path:'',
+  //   redirectTo:'/',
+  //   pathMatch:'full'
+  // },
   {
-    path:'question-template',component:QuestionsTemplateComponent
-  },
-  {
-    path:'login',
-    component:HeaderComponent,
-    outlet:'header'
-  },
-  {
-    path : 'questions-template',
+    path : 'question-template',
     component : QuestionsTemplateComponent
   },
   {

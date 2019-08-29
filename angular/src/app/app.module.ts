@@ -46,12 +46,9 @@ import {ConstantsService} from './constants.service';
     MySurveyCardComponent,
     CreateSurveyDialogue,
     SurveyinfoComponent,
-
     CreateSurveyDialogue,
     MyprofileComponent,
     DialogComponent,
-    
-
     QuestionsTemplateComponent,
 
   ],
@@ -78,12 +75,13 @@ import {ConstantsService} from './constants.service';
     MatFormFieldModule,
     MatDividerModule,
     RouterModule,
-
+    NgbModule,
     MatDialogModule,
-    MatTooltipModule,
-    NgbModule
+    MatTooltipModule
+    
   ],
   providers: [MyprofileComponent,DialogComponent],
+    
   entryComponents : [MySurveyCardComponent, CreateSurveyDialogue],
   
 
