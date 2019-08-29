@@ -29,6 +29,9 @@ const routes: Routes = [
     path:'login',
     component:LoginComponent
   },
+  {
+    path:'question-template',component:QuestionsTemplateComponent
+  },
   // {
   //   path:'',
   //   redirectTo:'/',

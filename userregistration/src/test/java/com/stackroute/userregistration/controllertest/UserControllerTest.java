@@ -77,19 +77,19 @@ public class UserControllerTest {
         verify(userService, times(1)).getUsers();
         verifyNoMoreInteractions(userService);
     }
-//    @Test
-//    public void deleteUserTest() throws Exception
-//    {
-//        //Sample user details
-//        User user = new User("1","Sahithi","sahithi@gmail.com","pwd");
-//        //When the deleteUser is called it has to return the deleted user
-//        when(userService.deleteUser("1")).thenReturn(user);
-//        mockMvc.perform(delete("/track/1")
-//                .contentType(MediaType.APPLICATION_JSON))
-//                .andExpect(status().isOk());
-//        verify(userService, times(1)).deleteUser("1");
-//        verifyNoMoreInteractions(userService);
-//    }
+    @Test
+    public void deleteUserTest() throws Exception
+    {
+        //Sample user details
+        User user = new User("1","Sahithi","sahithi@gmail.com","pwd");
+        //When the deleteUser is called it has to return the deleted user
+        when(userService.deleteUser("1")).thenReturn(user);
+        mockMvc.perform(delete("/user/1")
+                .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk());
+        verify(userService, times(1)).deleteUser("1");
+        verifyNoMoreInteractions(userService);
+    }
     //This method is used to change the object to the string
     public static String asJsonString(final Object obj) {
         try {
