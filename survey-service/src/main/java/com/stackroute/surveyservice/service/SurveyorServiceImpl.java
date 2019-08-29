@@ -1,8 +1,8 @@
 package com.stackroute.surveyservice.service;
 
-import com.stackroute.surveyservice.domain.Survey;
 import com.stackroute.surveyservice.domain.Surveyor;
-import com.stackroute.surveyservice.repository.QuestionRepository;
+import com.stackroute.surveyservice.exceptions.SurveyorAlreadyExistException;
+import com.stackroute.surveyservice.exceptions.SurveyorDoesNotExistsException;
 import com.stackroute.surveyservice.repository.SurveyorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,7 +21,7 @@ public class SurveyorServiceImpl implements SurveyorService {
     }
 
     @Override
-    public Surveyor addSurveyor(Surveyor surveyor) {
+    public Surveyor addSurveyor(Surveyor surveyor) throws SurveyorAlreadyExistException {
         Surveyor savedSurveyor=null;
         if(!surveyorRepository.findById(surveyor.getId()).isPresent()) {
             savedSurveyor = surveyorRepository.save(surveyor);
@@ -31,26 +31,33 @@ public class SurveyorServiceImpl implements SurveyorService {
     }
 
     @Override
-    public void editSurveyor(Surveyor surveyor) {
-        Optional<Surveyor> updatedSurveyor=Optional.of(new Surveyor());
-        if (surveyorRepository.existsById( surveyor.getId())) {
-            updatedSurveyor = surveyorRepository.findById(surveyor.getId());
+    public Surveyor editSurveyor(Surveyor surveyor)  throws SurveyorDoesNotExistsException {
+        Optional<Surveyor> existingQuestion = surveyorRepository.findById(surveyor.getId());
+
+        Surveyor updatedSurveyor = null;
+
+        if (existingQuestion.isPresent()) {
+
+            updatedSurveyor = surveyorRepository.save(surveyor);
         }
-       // return addSurveyor(updatedSurveyor);
+
+        return updatedSurveyor;
     }
 
     @Override
-    public Surveyor removeSurveyor(Integer surveyorId) {
+    public Surveyor removeSurveyor(String surveyorId) throws SurveyorDoesNotExistsException {
+        surveyorRepository.deleteById(surveyorId);
         return null;
     }
 
     @Override
-    public List<Surveyor> getAllSurveyors(String surveyId) {
-        return null;
+    public List<Surveyor> getAllSurveyors() {
+
+        return (List<Surveyor>) surveyorRepository.findAll();
     }
 
     @Override
-    public Surveyor getSurveyorById(Integer surveyorId) {
+    public Surveyor getSurveyorById(Integer surveyorId) throws SurveyorDoesNotExistsException {
         return null;
     }
 }

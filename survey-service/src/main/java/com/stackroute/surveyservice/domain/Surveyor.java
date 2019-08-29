@@ -19,10 +19,8 @@ import java.util.List;
 @NodeEntity
 public class Surveyor {
     @Id
-    private Integer id;
-
+    private String id;
     private String name;
-
     private String email;
     private String password;
     private Date timeStamp;

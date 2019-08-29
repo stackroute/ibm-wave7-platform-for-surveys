@@ -10,6 +10,6 @@ import org.springframework.stereotype.Repository;
 public interface QuestionRepository extends Neo4jRepository<Question,String> {
     @Query("MATCH (a:Question), (b:Survey) WHERE a.question_id = {questionId} AND b.id = {surveyId} CREATE (a)-[: BelongsTo]->(b) RETURN a,b")
     void createBelongsToRelationShip(String questionId,String surveyId);
-    @Query("MATCH (:Question {question_id:5 })-[r:BelongsTo]-(:Survey {id: 2}) DELETE r")
+    @Query("MATCH (:Question {question_id:{questionId} })-[r:BelongsTo]-(:Survey {id:{surveyId}}) DELETE r")
     void removeQuestionFromSurvey(String questionId,String surveyId);
 }

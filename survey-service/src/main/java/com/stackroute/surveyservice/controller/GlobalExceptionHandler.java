@@ -1,7 +1,7 @@
 package com.stackroute.surveyservice.controller;
 
 import com.stackroute.surveyservice.exceptions.QuestionAlreadyExistsException;
-import com.stackroute.surveyservice.exceptions.QuestionDoesNotExistException;
+import com.stackroute.surveyservice.exceptions.QuestionDoesNotExistsException;
 import org.springframework.hateoas.VndErrors;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,8 +19,8 @@ public class GlobalExceptionHandler {
     }
 
     //handling QuestionDoesNotExistException exception
-    @ExceptionHandler(QuestionDoesNotExistException.class)
-    public ResponseEntity <VndErrors> notFoundException(final QuestionDoesNotExistException e)
+    @ExceptionHandler(QuestionDoesNotExistsException.class)
+    public ResponseEntity <VndErrors> notFoundException(final QuestionDoesNotExistsException e)
     {
         return error(e, HttpStatus.NOT_FOUND, e.getMessage());
     }
