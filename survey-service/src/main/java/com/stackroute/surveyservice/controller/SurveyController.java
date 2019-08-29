@@ -48,7 +48,7 @@ public class SurveyController {
 
     //to delete a survey
     @DeleteMapping("survey/{id}")
-    public ResponseEntity<?> deleteSurvey(@PathVariable("id") Integer id) {
+    public ResponseEntity<?> deleteSurvey(@PathVariable("id") String id) {
         try {
             surveyService.deleteSurvey(id);
             responseEntity = new ResponseEntity<String>("successfully deleted", HttpStatus.OK);
@@ -66,6 +66,11 @@ public class SurveyController {
         return responseEntity;
     }
 
+    @GetMapping("survey/{id}")
+    public ResponseEntity<?> getSurveyById(@PathVariable("id") String id) {
+        responseEntity = new ResponseEntity<Survey>(surveyService.getSurveyById(id), HttpStatus.OK);
+        return responseEntity;
+    }
     // handling user request with endpoint passing name
     @PostMapping("/publish")
     public String post()

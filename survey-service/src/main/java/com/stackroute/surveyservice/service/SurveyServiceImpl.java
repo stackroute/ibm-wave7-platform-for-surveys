@@ -22,12 +22,13 @@ public class SurveyServiceImpl implements SurveyService{
         Survey savedSurvey=null;
         if(!surveyRepository.findById(survey.getId()).isPresent()) {
             savedSurvey = surveyRepository.save(survey);
+            surveyRepository.createBelongsToRelationShip(survey.getId());
         }
         return savedSurvey;
     }
 
     @Override
-    public boolean deleteSurvey(Integer id) {
+    public boolean deleteSurvey(String id) {
         surveyRepository.delete(id);
         surveyRepository.deleteById(id);
         return false;
@@ -45,5 +46,10 @@ public class SurveyServiceImpl implements SurveyService{
             savedSurvey = surveyRepository.findById(survey.getId());
         }
         return saveSurvey(survey);
+    }
+
+    @Override
+    public Survey getSurveyById(String id) {
+        return surveyRepository.getSurveyById(id);
     }
 }
