@@ -64,6 +64,11 @@ public class QuestionServiceImpl implements QuestionService{
     }
 
     @Override
+    public List<Question> getAllQuestions(String surveyId) {
+        return null;
+    }
+
+    @Override
     public List<Question> getAllQuestions() {
 
         return (List<Question>) questionRepository.findAll();
