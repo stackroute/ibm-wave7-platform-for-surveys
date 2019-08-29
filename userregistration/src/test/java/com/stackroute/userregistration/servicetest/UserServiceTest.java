@@ -51,7 +51,7 @@ public class UserServiceTest {
         verifyNoMoreInteractions(userRepository);
     }
     @Test
-    public void getAllTracksTest()
+    public void getAllUsersTest()
     {
         //Sample user details
         List<User> trackList = new ArrayList<>();
@@ -65,7 +65,7 @@ public class UserServiceTest {
         verifyNoMoreInteractions(userRepository);
     }
     @Test
-    public void deleteTrackTest()
+    public void deleteUserTest()
     {
         //sample user details for the testcase
         Optional<User> optionalTrack = Optional.of(user);

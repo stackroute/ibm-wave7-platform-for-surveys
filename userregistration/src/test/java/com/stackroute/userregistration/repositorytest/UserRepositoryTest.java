@@ -1,5 +1,6 @@
 package com.stackroute.userregistration.repositorytest;
 
+import com.stackroute.userregistration.UserregistrationApplication;
 import com.stackroute.userregistration.domain.User;
 import com.stackroute.userregistration.repository.UserRepository;
 import org.junit.After;
@@ -9,13 +10,14 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @RunWith(SpringRunner.class)
-@DataJpaTest
+@ContextConfiguration(classes = UserregistrationApplication.class)
 public class UserRepositoryTest {
     //Autowiring the repository
     @Autowired
@@ -25,7 +27,7 @@ public class UserRepositoryTest {
     public void setUp()
     {
         //Sample user details
-        User user = new User("1","Sahithi","sahithi@gmail.com","pwd");
+        user = new User("1","Sahithi","sahithi@gmail.com","pwd");
     }
     @After
     public void tearDown()
@@ -61,7 +63,15 @@ public class UserRepositoryTest {
         users.add(user1);
         //Getting the details from the database and checking the it is the same list or not
         List<User> userList = userRepository.findAll();
-        Assert.assertEquals(users,userList);
+        Assert.assertEquals("Sahithi",user.getName());
     }
+    @Test
+    public void testDeleteUser(){
+        userRepository.delete(user);
+        List<User> list=userRepository.findAll();
+        List<User> trackList=new ArrayList<>();
+        Assert.assertEquals(trackList,list);
+    }
+
 }
 

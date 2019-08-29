@@ -84,7 +84,7 @@ public class UserControllerTest {
         User user = new User("1","Sahithi","sahithi@gmail.com","pwd");
         //When the deleteUser is called it has to return the deleted user
         when(userService.deleteUser("1")).thenReturn(user);
-        mockMvc.perform(delete("/track/1")
+        mockMvc.perform(delete("/user/1")
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk());
         verify(userService, times(1)).deleteUser("1");

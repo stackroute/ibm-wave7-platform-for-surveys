@@ -3,7 +3,7 @@ import { HttpClient, HttpParams, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Guid } from "guid-typescript";
 import { Survey } from './modals/Survey';
-
+import { environment } from '../environments/environment'
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -24,7 +24,11 @@ export class SurveyService {
     survey.id = Guid.create().toString();
 
     //microservice create survey api link
-    var postUrl = "http://localhost:8090/api/v1/survey";
-    return this.httpclient.post<Survey>(postUrl, survey, httpOptions);
+    return this.httpclient.post<Survey>(environment.baseURI+"/survey", survey, httpOptions);
+  }
+
+  getAllSurveys() : Observable<Survey[]>
+  {
+    return this.httpclient.get<Survey[]>(environment.baseURI+"/survey");
   }
 }

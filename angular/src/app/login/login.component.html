@@ -1,22 +1,25 @@
 <mat-card class="example-card">
-    <mat-card-header>
-      <mat-card-title>Login</mat-card-title>
-    </mat-card-header>
+  <mat-card-header>
+    <mat-card-title>Login</mat-card-title>                                                                                                                                                                                                                                                              
+  </mat-card-header>
+  <form name="login-form" #loginform="ngForm" (ngSubmit)="login(loginform.value)">
     <mat-card-content>
-      <div class="example-container">
+      <div class="example-container">                                                                                                                                                                       
         <mat-form-field>
-          <input matInput placeholder="Username">
+          <input matInput placeholder="Username" [(ngModel)]="username" name="username">                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
         </mat-form-field>
-      
         <mat-form-field>
-          <textarea matInput placeholder="Password"></textarea>
+          <textarea matInput placeholder="Password" type="password" [(ngModel)]="password" name="password"></textarea>
         </mat-form-field>
       </div>
     </mat-card-content>
     <mat-card-actions>
-      <button mat-raised-button (click)="login()" color="primary">Login</button>
-    </mat-card-actions>
-    <mat-divider></mat-divider>
-  <span><p>Forgot password? Click Here</p></span>
-  </mat-card>
-  
+      <button mat-raised-button type="submit" color="primary">Login</button>
+      <button mat-raised-button (click)=signup() color="primary">Not a existing User? signup</button>
+    </mat-card-actions>n
+  </form>
+  <mat-divider></mat-divider>
+  <span>
+    <p>Forgot password? Click Here</p>
+  </span>
+</mat-card>

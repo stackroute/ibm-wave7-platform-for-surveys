@@ -2,5 +2,5 @@
      id : string
     name : string
     description : string
-    domain : string
+    domain_type: string
 }

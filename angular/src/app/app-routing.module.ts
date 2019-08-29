@@ -4,6 +4,8 @@ import { SignUpComponent } from './sign-up/sign-up.component';
 import { LoginComponent } from './login/login.component';
 import { MySurveyCardComponent } from './my-survey-card/my-survey-card.component';
 import { SurveyinfoComponent } from './surveyinfo/surveyinfo.component';
+import { LandingPageComponent } from './landing-page/landing-page.component';
+import { QuestionsTemplateComponent } from './questions-template/questions-template.component';
 
 
 const routes: Routes = [
@@ -16,14 +18,31 @@ const routes: Routes = [
   {
     path:'surveyinfo',component:SurveyinfoComponent
   },
+
+  // {
+  //   path:'landing-page', component: LandingPageComponent
+  // },
+  {
+    path:'',component:LandingPageComponent
+  },
   {
     path:'login',
     component:LoginComponent
   },
   {
-    path:'',
-    redirectTo:'/sign-up',
-    pathMatch:'full'
+    path:'question-template',component:QuestionsTemplateComponent
+  },
+  // {
+  //   path:'',
+  //   redirectTo:'/',
+  //   pathMatch:'full'
+  // },
+  {
+    path : 'questions-template',
+    component : QuestionsTemplateComponent
+  },
+  {
+    path:'signup',component:SignUpComponent
   }
 ];
 

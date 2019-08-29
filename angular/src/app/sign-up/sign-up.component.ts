@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UserRegistrationService } from '../user-registration.service';
 import { ActivatedRoute } from '@angular/router';
 import { User } from '../modals/User';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sign-up',
@@ -9,19 +10,25 @@ import { User } from '../modals/User';
   styleUrls: ['./sign-up.component.scss']
 })
 export class SignUpComponent implements OnInit {
+<<<<<<< HEAD
   public user:User
   
+=======
+  public user:User;
+>>>>>>> 5b3482a9ee4297469b985be51b5dd9165a0bfe53
   constructor(private registrationService: UserRegistrationService,
-    private route: ActivatedRoute) { }
+    private route: ActivatedRoute,  private router : Router) { }
 
   ngOnInit() {
+    
   }
-
-  saveUser(user: User) {
-    console.log(user);
-    this.registrationService.saveUser(user).subscribe((data)=> {
+  saveUser(user:User) {
+       this.registrationService.saveUser(user).subscribe((data)=> {
        this.user = data;
       console.log("result is ", user);
+      alert("Account successfully created")
+      this.router.navigateByUrl('login');
+
     });
   }
 }
