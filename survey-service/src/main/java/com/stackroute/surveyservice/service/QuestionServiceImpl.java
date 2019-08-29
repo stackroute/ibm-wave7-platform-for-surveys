@@ -25,9 +25,12 @@ public class QuestionServiceImpl implements QuestionService{
     public Question addQuestion(Question question) throws QuestionAlreadyExistsException {
 
         Question savedQuestion = null;
-        if(questionRepository.findById(question.getQuestion_id()).isPresent())
+        if(!questionRepository.findById(question.getQuestion_id()).isPresent())
         {
             savedQuestion = questionRepository.save(question);
+            questionRepository.createBelongsToRelationShip(question.getQuestion_id(),question.getSurveyId());
+        }else{
+            questionRepository.createBelongsToRelationShip(question.getQuestion_id(),question.getSurveyId());
         }
         return savedQuestion;
     }
@@ -48,7 +51,7 @@ public class QuestionServiceImpl implements QuestionService{
     }
 
     @Override
-    public Question removeQuestion(String questionId) throws QuestionDoesNotExistException{
+    public Question removeQuestion(Long questionId) throws QuestionDoesNotExistException{
 
         Optional<Question> existingQuestion = questionRepository.findById(questionId);
 
@@ -63,6 +66,6 @@ public class QuestionServiceImpl implements QuestionService{
     @Override
     public List<Question> getAllQuestions(String surveyId) {
 
-        return questionRepository.findAll();
+        return (List<Question>) questionRepository.findAll();
     }
 }
