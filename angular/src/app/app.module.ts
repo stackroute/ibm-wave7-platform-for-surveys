@@ -29,7 +29,7 @@ import {MatDialogModule} from '@angular/material/dialog';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { QuestionsTemplateComponent } from './questions-template/questions-template.component';
 import {MatTabsModule} from '@angular/material/tabs';
-
+import {ConstantsService} from './constants.service';
 
 @NgModule({
   declarations: [
@@ -71,7 +71,7 @@ import {MatTabsModule} from '@angular/material/tabs';
     MatTabsModule
   ],
   entryComponents : [MySurveyCardComponent, CreateSurveyDialogue],
-  providers: [],
+  providers: [ConstantsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

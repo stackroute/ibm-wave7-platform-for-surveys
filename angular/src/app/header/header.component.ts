@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ConstantsService } from '../constants.service';
 
 @Component({
   selector: 'app-header',
@@ -6,10 +7,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
+  public variable:Boolean=true;
+  public url:string='http://localhost:4200/login';
+  constructor(public constant:ConstantsService) { }
 
-  constructor() { }
+  ngOnInit() {    
+    console.log(this.constant.globalvariable);
+    this.variable = this.constant.globalvariable;
 
-  ngOnInit() {
+    console.log(this.variable);
   }
 
 }

@@ -6,6 +6,7 @@ import { MySurveyCardComponent } from './my-survey-card/my-survey-card.component
 import { SurveyinfoComponent } from './surveyinfo/surveyinfo.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { QuestionsTemplateComponent } from './questions-template/questions-template.component';
+import { HeaderComponent } from './header/header.component';
 
 
 const routes: Routes = [
@@ -27,16 +28,16 @@ const routes: Routes = [
   },
   {
     path:'login',
-    component:LoginComponent
+    component:LoginComponent,
   },
   {
     path:'question-template',component:QuestionsTemplateComponent
   },
-  // {
-  //   path:'',
-  //   redirectTo:'/',
-  //   pathMatch:'full'
-  // },
+  {
+    path:'login',
+    component:HeaderComponent,
+    outlet:'header'
+  },
   {
     path : 'questions-template',
     component : QuestionsTemplateComponent
