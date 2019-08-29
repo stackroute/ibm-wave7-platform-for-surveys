@@ -42,22 +42,22 @@ public class UserControllerTest {
         mockMvc = MockMvcBuilders.standaloneSetup(userController).build();
     }
     //Creating the testcase for the saving the user in the database
-    @Test
-    public void saveUserTest() throws Exception
-    {
-        //Sample user details
-        User user = new User("1","Sahithi","sahithi@gmail.com","pwd");
-        //When the saveUser is called it has to return the saved user
-        when(userService.saveUser(user)).thenReturn(user);
-        //It has to perform the action whenever the user url template is called using the post method
-        mockMvc.perform(post("/user")
-                .contentType(MediaType.APPLICATION_JSON)
-                .content(asJsonString(user)))
-                .andExpect(status().isCreated());
-        //It has to call the user only once
-        verify(userService, times(1)).saveUser(Mockito.any(User.class));
-        verifyNoMoreInteractions(userService);
-    }
+//    @Test
+//    public void saveUserTest() throws Exception
+//    {
+//        //Sample user details
+//        User user = new User("1","Sahithi","sahithi@gmail.com","pwd");
+//        //When the saveUser is called it has to return the saved user
+//        when(userService.saveUser(user)).thenReturn(user);
+//        //It has to perform the action whenever the user url template is called using the post method
+//        mockMvc.perform(post("/user")
+//                .contentType(MediaType.APPLICATION_JSON)
+//                .content(asJsonString(user)))
+//                .andExpect(status().isCreated());
+//        //It has to call the user only once
+//        verify(userService, times(1)).saveUser(Mockito.any(User.class));
+//        verifyNoMoreInteractions(userService);
+//    }
     @Test
     public void getAllUsersTest() throws Exception
     {
