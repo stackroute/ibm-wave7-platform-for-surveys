@@ -29,7 +29,7 @@ import { MySurveyCardComponent,CreateSurveyDialogue } from './my-survey-card/my-
 import {MatDialogModule} from '@angular/material/dialog';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { QuestionsTemplateComponent } from './questions-template/questions-template.component';
-
+// import { ObservableMedia } from '@angular/flex-layout';
 @NgModule({
   declarations: [
     AppComponent,
