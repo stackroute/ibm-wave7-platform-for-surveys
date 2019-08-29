@@ -64,10 +64,11 @@ public class QuestionServiceImpl implements QuestionService{
     }
 
     @Override
-    public List<Question> getAllQuestions(String surveyId) {
-
+    public List<Question> getAllQuestions() {
         return (List<Question>) questionRepository.findAll();
     }
+
+
 
     @Override
     public void removeQuestionFromSurvey(Question question,String surveyId) {

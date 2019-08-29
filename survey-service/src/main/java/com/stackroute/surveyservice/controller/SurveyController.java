@@ -34,9 +34,9 @@ public class SurveyController {
 
     //to save the survey
     @PostMapping("survey")
-    public ResponseEntity<?> saveSurvey(@RequestBody Survey survey,@RequestParam String surveyorId) {
+    public ResponseEntity<?> saveSurvey(@RequestBody Survey survey) {
 
-        responseEntity = new ResponseEntity<Survey>(surveyService.saveSurvey(survey,surveyorId), HttpStatus.CREATED);
+        responseEntity = new ResponseEntity<Survey>(surveyService.saveSurvey(survey), HttpStatus.CREATED);
         return responseEntity;
 
     }

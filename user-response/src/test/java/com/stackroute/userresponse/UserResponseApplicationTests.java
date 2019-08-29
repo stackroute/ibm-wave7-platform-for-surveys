@@ -1,4 +1,4 @@
-package com.stackroute.userregistration;
+package com.stackroute.userresponse;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -7,7 +7,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class UserregistrationApplicationTests {
+public class UserResponseApplicationTests {
 
 	@Test
 	public void contextLoads() {

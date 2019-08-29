@@ -6,7 +6,7 @@ import com.stackroute.surveyservice.exceptions.SurveyDoesNotExistsException;
 import java.util.Collection;
 
 public interface SurveyService {
-    public Survey saveSurvey(Survey survey, String surveyorId);
+    public Survey saveSurvey(Survey survey);
 
     public boolean deleteSurvey(String id);
 

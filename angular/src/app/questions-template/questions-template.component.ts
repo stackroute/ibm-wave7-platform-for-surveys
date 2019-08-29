@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { SurveyService } from '../survey.service';
+import { ActivatedRoute } from '@angular/router';
+import { Question } from '../modals/Question';
+import { Survey } from '../modals/Survey';
 import { MatInput } from '@angular/material';
 
 
@@ -12,12 +16,15 @@ export class QuestionsTemplateComponent implements OnInit {
   private condition : boolean;
 
   private choiceVisibility : boolean;
-
   private count : number;
-
-  constructor() { }
+  private question:Question;
+  private survey:Survey;
+  // private questionList:Question[];
+  questionList;
+  constructor(private surveyService:SurveyService,private route:ActivatedRoute) { }
 
   ngOnInit() {
+    this.getQuestionList(this.survey);
   }
 
   addQuestion()
@@ -59,5 +66,17 @@ export class QuestionsTemplateComponent implements OnInit {
       // questionCard.appendChild(newElement);
       questionCard.insertBefore(newElement, document.getElementById('addChoice'));
   }
-
+  saveQuestion(question:Question) {
+    this.surveyService.saveQuestion(question).subscribe((data)=> {
+    this.question = data;
+   console.log("result is ", question);
+ });
+}
+getQuestionList(survey:Survey)
+{
+  this.surveyService.getAllQuestions(survey).subscribe(
+    (data) => {this.questionList=data;
+    console.log("questions : ",this.questionList)
+    })
+}
 }

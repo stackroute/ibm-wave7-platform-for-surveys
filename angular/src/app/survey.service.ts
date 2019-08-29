@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { Guid } from "guid-typescript";
 import { Survey } from './modals/Survey';
 import { environment } from '../environments/environment'
+import { Question } from './modals/Question';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -31,8 +32,25 @@ export class SurveyService {
   {
     return this.httpclient.get<Survey[]>(environment.baseURI+"/survey");
   }
+  
+  saveQuestion(question:Question)
+  {
+ //creating a Guid Id
+ question.question_id = Guid.create().toString();
+ //microservice create survey api link
+ console.log(question);
+ return this.httpclient.post<Question>(environment.baseURI+"/question", question, httpOptions)
+}
   deleteSurvey(survey){
     console.log("service"+survey.id)
     return this.httpclient.delete("http://localhost:8090/api/v1/survey/"+survey.id);
+  }
+  // getAllQuestions() :Observable<Question[]>
+  // {
+  //   return this.httpclient.get<Question[]>(environment.baseURI+"/question");
+  // }
+  getAllQuestions(survey:Survey) :Observable<any>
+  {
+    return this.httpclient.get<any>(environment.baseURI+"/question/"+survey.id);
   }
 }

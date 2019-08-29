@@ -1,8 +1,7 @@
-package com.stackroute.userregistration.servicetest;
+package com.stackroute.userregistration.service;
 
 import com.stackroute.userregistration.domain.User;
 import com.stackroute.userregistration.repository.UserRepository;
-import com.stackroute.userregistration.service.UserServiceImpl;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;

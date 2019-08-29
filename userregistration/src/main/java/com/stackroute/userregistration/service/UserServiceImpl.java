@@ -2,6 +2,7 @@ package com.stackroute.userregistration.service;
 
 import com.stackroute.userregistration.domain.User;
 import com.stackroute.userregistration.repository.UserRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -10,6 +11,7 @@ import java.util.Optional;
 @Service
 public class UserServiceImpl implements UserService{
     //Creating the object for the user repository in order to connect with the database
+    @Autowired
     private UserRepository userRepository;
     public UserServiceImpl(UserRepository userRepository) {
         this.userRepository = userRepository;

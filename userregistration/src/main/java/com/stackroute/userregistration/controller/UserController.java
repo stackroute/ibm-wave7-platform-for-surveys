@@ -25,6 +25,7 @@ import static org.springframework.http.ResponseEntity.ok;
 @ControllerAdvice(basePackages = "com.stackroute.userregistration")
 public class UserController {
     //creating the object of the user service to invoke all the methods in the service
+    @Autowired
     private UserService userService;
 
 
@@ -33,10 +34,10 @@ public class UserController {
     // handling user request with endpoint passing name
 
 
-//    User user=new User();
+   User user=new User();
 
     @Autowired
-    private KafkaTemplate<String,User> kafkaTemplate;
+    private KafkaTemplate<String, User> kafkaTemplate;
 
 
     //Constructor of the controller having the userservice parameter
@@ -70,15 +71,11 @@ public class UserController {
         return new ResponseEntity<User>(userService.deleteUser(id), HttpStatus.OK);
     }
 
-
     @PutMapping("user/{id}")
     public ResponseEntity<?> updateUser(@RequestBody User user, @PathVariable String id) {
 
         User updateuser = userService.updateUser(user, id);
         return new ResponseEntity<User>(updateuser, HttpStatus.OK);
-
-
     }
-
 }
 

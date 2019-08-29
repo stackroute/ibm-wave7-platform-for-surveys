@@ -32,6 +32,8 @@ import {MatTooltipModule} from '@angular/material/tooltip';
 import {DialogComponent} from './myprofile/myprofile.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { QuestionsTemplateComponent } from './questions-template/questions-template.component';
+import {MatTabsModule} from '@angular/material/tabs';
+import {ConstantsService} from './constants.service';
 
 @NgModule({
   declarations: [
@@ -44,12 +46,9 @@ import { QuestionsTemplateComponent } from './questions-template/questions-templ
     MySurveyCardComponent,
     CreateSurveyDialogue,
     SurveyinfoComponent,
-
     CreateSurveyDialogue,
     MyprofileComponent,
     DialogComponent,
-    
-
     QuestionsTemplateComponent,
 
   ],
@@ -76,12 +75,13 @@ import { QuestionsTemplateComponent } from './questions-template/questions-templ
     MatFormFieldModule,
     MatDividerModule,
     RouterModule,
-
+    NgbModule,
     MatDialogModule,
-    MatTooltipModule,
-    NgbModule
+    MatTooltipModule
+    
   ],
   providers: [MyprofileComponent,DialogComponent],
+    
   entryComponents : [MySurveyCardComponent, CreateSurveyDialogue],
   
 
