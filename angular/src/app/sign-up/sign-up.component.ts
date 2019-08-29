@@ -10,6 +10,7 @@ import { User } from '../modals/User';
 })
 export class SignUpComponent implements OnInit {
   public user:User
+  
   constructor(private registrationService: UserRegistrationService,
     private route: ActivatedRoute) { }
 

@@ -23,4 +23,9 @@ export class UserRegistrationService {
     user.id = Guid.create().toString();
     return this.httpClient.post<User>(this.apiUrl, user, httpOptions);
   }
+updateUser(id:String,user:User){
+  var url = "http://localhost:8090/user";
+  return this.httpClient.put<User>(url + "/" + user.id, user, httpOptions);
+
+}
 }

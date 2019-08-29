@@ -26,6 +26,10 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
 import { SurveyinfoComponent } from './surveyinfo/surveyinfo.component';
 import { MySurveyCardComponent,CreateSurveyDialogue } from './my-survey-card/my-survey-card.component';
 import {MatDialogModule} from '@angular/material/dialog';
+import { MyprofileComponent } from './myprofile/myprofile.component';
+import {MatTooltipModule} from '@angular/material/tooltip';
+import {DialogComponent} from './myprofile/myprofile.component';
+
 
 
 @NgModule({
@@ -38,7 +42,10 @@ import {MatDialogModule} from '@angular/material/dialog';
     LandingPageComponent,
     MySurveyCardComponent,
     SurveyinfoComponent,
-    CreateSurveyDialogue
+    CreateSurveyDialogue,
+    MyprofileComponent,
+    DialogComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -59,9 +66,12 @@ import {MatDialogModule} from '@angular/material/dialog';
     MatMenuModule,
     MatFormFieldModule,
     MatDividerModule,
-    RouterModule
+    RouterModule,
+    MatDialogModule,
+    MatTooltipModule
+    
   ],
-  providers: [],
+  providers: [MyprofileComponent,DialogComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
