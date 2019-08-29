@@ -8,6 +8,9 @@ import org.neo4j.ogm.annotation.GraphId;
 import org.neo4j.ogm.annotation.NodeEntity;
 import org.neo4j.ogm.annotation.Id;
 import org.neo4j.ogm.annotation.Relationship;
+
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.validation.GroupSequence;
 import java.util.ArrayList;
 import java.util.List;
@@ -18,8 +21,8 @@ import java.util.List;
 @NodeEntity
 public class Survey {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private String id;
-
     private String name;
     private String description;
     private String domain_type;

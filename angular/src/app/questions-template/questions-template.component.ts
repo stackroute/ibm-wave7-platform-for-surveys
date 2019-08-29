@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { SurveyService } from '../survey.service';
 import { ActivatedRoute } from '@angular/router';
 import { Question } from '../modals/Question';
+import { Survey } from '../modals/Survey';
 
 @Component({
   selector: 'app-questions-template',
@@ -13,13 +14,15 @@ export class QuestionsTemplateComponent implements OnInit {
   private condition : boolean;
 
   private choiceVisibility : boolean;
-
   private count : number;
   private question:Question;
-
+  private survey:Survey;
+  // private questionList:Question[];
+  questionList;
   constructor(private surveyService:SurveyService,private route:ActivatedRoute) { }
 
   ngOnInit() {
+    this.getQuestionList(this.survey);
   }
 
   addQuestion()
@@ -38,5 +41,12 @@ export class QuestionsTemplateComponent implements OnInit {
     this.question = data;
    console.log("result is ", question);
  });
+}
+getQuestionList(survey:Survey)
+{
+  this.surveyService.getAllQuestions(survey).subscribe(
+    (data) => {this.questionList=data;
+    console.log("questions : ",this.questionList)
+    })
 }
 }

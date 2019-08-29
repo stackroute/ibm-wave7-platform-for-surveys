@@ -1,8 +1,8 @@
 export interface Question
 {
-    id:string;
+    question_id:string;
     question_tag:string;
-    choices:any[];
+    choices:string[];
     survey_id:string;
 
 }

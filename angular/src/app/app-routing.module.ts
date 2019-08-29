@@ -29,16 +29,13 @@ const routes: Routes = [
     path:'login',
     component:LoginComponent
   },
-  {
-    path:'question-template',component:QuestionsTemplateComponent
-  },
   // {
   //   path:'',
   //   redirectTo:'/',
   //   pathMatch:'full'
   // },
   {
-    path : 'questions-template',
+    path : 'question-template',
     component : QuestionsTemplateComponent
   },
   {

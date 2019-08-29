@@ -1,7 +1,6 @@
-package com.stackroute.userregistration.controllertest;
+package com.stackroute.userregistration.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.stackroute.userregistration.controller.UserController;
 import com.stackroute.userregistration.domain.User;
 import com.stackroute.userregistration.service.UserService;
 import org.junit.Before;

@@ -36,8 +36,8 @@ public class QuestionController {
     }
     //to get all the question
     @GetMapping("question")
-    public ResponseEntity<?> getAllQuestions(String surveyId) {
-        return new ResponseEntity<List<Question>>(questionService.getAllQuestions(surveyId),HttpStatus.OK);
+    public ResponseEntity<?> getAllQuestions() {
+        return new ResponseEntity<List<Question>>(questionService.getAllQuestions(),HttpStatus.OK);
     }
     //to delete a question
     @DeleteMapping("question/{id}")

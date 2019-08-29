@@ -25,6 +25,7 @@ import static org.springframework.http.ResponseEntity.ok;
 @ControllerAdvice(basePackages = "com.stackroute.userregistration")
 public class UserController {
     //creating the object of the user service to invoke all the methods in the service
+    @Autowired
     private UserService userService;
 
     @Autowired
@@ -64,15 +65,16 @@ public class UserController {
     }
 
     @PutMapping ("user/{id}")
-    public ResponseEntity<?> updateUser(@RequestBody User user,@PathVariable String id){
+    public ResponseEntity<?> updateUser(@RequestBody User user,@PathVariable String id) {
 
-        User updateuser=userService.updateUser(user,id);
-        return new ResponseEntity<User>(updateuser,HttpStatus.OK);
-
+        User updateuser = userService.updateUser(user, id);
+        return new ResponseEntity<User>(updateuser, HttpStatus.OK);
+    }
 
     @PostMapping("/publish")
-    public ResponseEntity<?> post()  {
-        
+    public ResponseEntity<?> post()
+    {
+
 //        return kafkaTemplate.send(TOPIC, user).isDone();
         ResponseEntity responseEntity=new ResponseEntity(HttpStatus.OK);
         try {

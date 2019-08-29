@@ -1,15 +1,15 @@
-package com.stackroute.userregistration.repositorytest;
+package com.stackroute.userregistration.repository;
 
-import com.stackroute.userregistration.UserregistrationApplication;
+import com.stackroute.userregistration.UserRegistrationApplication;
+
 import com.stackroute.userregistration.domain.User;
-import com.stackroute.userregistration.repository.UserRepository;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 
@@ -17,12 +17,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RunWith(SpringRunner.class)
-@ContextConfiguration(classes = UserregistrationApplication.class)
+@ContextConfiguration(classes = UserRegistrationApplication.class)
 public class UserRepositoryTest {
     //Autowiring the repository
     @Autowired
     private UserRepository userRepository;
     private User user;
+
+    @Autowired
+    private KafkaTemplate<String, Object> kafkaTemplate;
     @Before
     public void setUp()
     {
