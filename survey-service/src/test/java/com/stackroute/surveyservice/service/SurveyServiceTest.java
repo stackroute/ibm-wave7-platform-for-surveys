@@ -10,6 +10,7 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
@@ -29,7 +30,7 @@ public class SurveyServiceTest {
     public void setUp(){
         MockitoAnnotations.initMocks(this);
         survey=new Survey();
-        survey.setId("1");
+        //survey.setId(1);
         survey.setName("spoorthi");
         survey.setDescription("hiii");
         survey.setDomain_type("Education");
@@ -46,8 +47,8 @@ public class SurveyServiceTest {
     @Test
     public void getAllTracks(){
         surveyRepository.save(survey);
-        when(surveyRepository.findAll()).thenReturn(list);
-        List<Survey> trackList=surveyService.getAllSurveys();
+        when(surveyRepository.getAllSurveys()).thenReturn(list);
+        Collection<Survey> trackList=surveyService.getAllSurveys();
         Assert.assertEquals(list,trackList);
     }
 

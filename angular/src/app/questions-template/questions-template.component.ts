@@ -7,9 +7,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class QuestionsTemplateComponent implements OnInit {
 
+  private condition : boolean;
+
+  private choiceVisibility : boolean;
+
+  private count : number;
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  addQuestion()
+  {
+    this.condition = true;
+    console.log(this.condition);
+    this.count++;
+  }
+
+  addChoice()
+  {
+      this.choiceVisibility = true;
   }
 
 }

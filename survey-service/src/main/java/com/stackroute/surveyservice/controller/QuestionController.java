@@ -29,7 +29,8 @@ public class QuestionController {
     //to save the question
     @PostMapping("question")
     public ResponseEntity<?> saveQuestion(@RequestBody Question question) throws QuestionAlreadyExistsException {
-        responseEntity = new ResponseEntity<Question>(questionService.addQuestion(question), HttpStatus.CREATED);
+            responseEntity = new ResponseEntity<Question>(questionService.addQuestion(question), HttpStatus.CREATED);
+
         return responseEntity;
 
     }
@@ -40,7 +41,7 @@ public class QuestionController {
     }
     //to delete a question
     @DeleteMapping("question/{id}")
-    public ResponseEntity<?> deleteQuestion(@PathVariable("id") String id) throws Exception {
+    public ResponseEntity<?> deleteQuestion(@PathVariable("id") Long id) throws Exception {
 
              Question deletedQuestion = questionService.removeQuestion(id);
             return new ResponseEntity<Question>(deletedQuestion, HttpStatus.OK);

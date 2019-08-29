@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Collection;
 import java.util.List;
 
 @RestController
@@ -16,6 +17,7 @@ import java.util.List;
 public class SurveyController {
     private SurveyService surveyService;
     private ResponseEntity responseEntity;
+
     // Declaration and Intialization of topic name
     private static final String TOPIC = "KafkaExample";
 
@@ -32,6 +34,7 @@ public class SurveyController {
     //to save the survey
     @PostMapping("survey")
     public ResponseEntity<?> saveSurvey(@RequestBody Survey survey) {
+
         responseEntity = new ResponseEntity<Survey>(surveyService.saveSurvey(survey), HttpStatus.CREATED);
         return responseEntity;
 
@@ -40,12 +43,12 @@ public class SurveyController {
     //to get all the survey
     @GetMapping("survey")
     public ResponseEntity<?> getAllSurveys() {
-        return new ResponseEntity<List<Survey>>(surveyService.getAllSurveys(), HttpStatus.OK);
+        return new ResponseEntity<Collection<Survey>>(surveyService.getAllSurveys(), HttpStatus.OK);
     }
 
     //to delete a survey
     @DeleteMapping("survey/{id}")
-    public ResponseEntity<?> deleteSurvey(@PathVariable("id") String id) {
+    public ResponseEntity<?> deleteSurvey(@PathVariable("id") Integer id) {
         try {
             surveyService.deleteSurvey(id);
             responseEntity = new ResponseEntity<String>("successfully deleted", HttpStatus.OK);
@@ -68,7 +71,7 @@ public class SurveyController {
     public String post()
     {
         // Sending records to topic
-        kafkaTemplate.send(TOPIC, new Survey(survey.getId(),survey.getName(),survey.getDescription(),survey.getDomain_type()));
+       // kafkaTemplate.send(TOPIC, new Survey(survey.getId(),survey.getName(),survey.getDescription(),survey.getDomain_type()));
         return "published";
     }
 }

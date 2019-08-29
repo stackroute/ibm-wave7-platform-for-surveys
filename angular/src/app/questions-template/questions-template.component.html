@@ -1,16 +1,39 @@
-<div class="wrapper">
-<h3>Are the facilities at the school better than you expected?</h3>
-<mat-radio-group aria-label="Select an option" class="choice-radio-group">
-    <mat-radio-button class="choice-radio-button" value="Not better">Not better</mat-radio-button>
-    <mat-radio-button class="choice-radio-button" value="better">better</mat-radio-button>
-    <mat-radio-button class="choice-radio-button" value="Much better">Much better</mat-radio-button>
-  </mat-radio-group>
-
-  <h3>Are the facilities at the school better than you expected?</h3>
-<mat-radio-group aria-label="Select an option" class="choice-radio-group">
-    <mat-radio-button class="choice-radio-button" value="Not better">Not better</mat-radio-button>
-    <mat-radio-button class="choice-radio-button" value="better">better</mat-radio-button>
-    <mat-radio-button class="choice-radio-button" value="Much better">Much better</mat-radio-button>
-  </mat-radio-group>
-
+<div class="container" fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="10px">
+    <div fxFlex="20%">
+<mat-card>
+      <mat-label>Select your Question type (required)</mat-label>
+    </mat-card>
+  </div>
+  <div fxFlex="77%">
+    <mat-card>
+      <h3>Are the facilities at the school better than you expected?</h3>
+      <mat-radio-group aria-label="Select an option" class="choice-radio-group">
+        <mat-radio-button class="choice-radio-button" value="Not better">Not better</mat-radio-button>
+        <mat-radio-button class="choice-radio-button" value="better">better</mat-radio-button>
+        <mat-radio-button class="choice-radio-button" value="Much better">Much better</mat-radio-button>
+      </mat-radio-group>
+      <button mat-raised-button type="submit" color="primary" (click)=addQuestion()>Add Question</button>
+      <button mat-raised-button type="submit" color="primary"> Save Survey</button>
+    </mat-card>
+   <form>
+    <ng-template [ngIf]="condition">
+        <mat-card>
+             <mat-form-field>
+                <textarea matInput placeholder="Question"></textarea><br>
+             </mat-form-field>
+                <mat-form-field>
+                    <input matInput placeholder="Choice">
+                  </mat-form-field>
+                <button (click)=addChoice()>+</button>
+                <ng-template [ngIf]="choiceVisibility">
+                    <mat-form-field>
+                        <input matInput placeholder="Choice">
+                      </mat-form-field>
+                      <button mat-raised-button type="submit" color="primary">Add Question</button>
+                </ng-template>
+        </mat-card>
+    </ng-template>
+  </form> 
+    </div>
 </div>
+
