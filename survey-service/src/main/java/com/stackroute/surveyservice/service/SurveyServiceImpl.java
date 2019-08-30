@@ -61,7 +61,13 @@ public class SurveyServiceImpl implements SurveyService{
 
     @Override
     public Survey getSurveyById(String id) {
-        return surveyRepository.getSurveyById(id);
+        System.out.println(id);
+        Survey survey= surveyRepository.getSurveyById(id);
+        if(survey==null)
+        {
+            System.out.println("survey is null");
+        }
+        return survey;
     }
 
 }

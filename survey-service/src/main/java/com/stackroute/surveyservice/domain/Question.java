@@ -16,7 +16,7 @@ import java.util.List;
 @NodeEntity
 public class Question {
     @Id
-    private String quesionTag;
+    private String questionTag;
     private String questionId;
     private List<String> choices;
     private String domainType;

@@ -34,6 +34,7 @@ public class SurveyController {
     }
 
     //to save the survey
+    //takes survey object and surveyorId as RequestParam
     @PostMapping("survey")
     public ResponseEntity<?> saveSurvey(@RequestBody Survey survey, @RequestParam String surveyorId) {
 
@@ -70,6 +71,7 @@ public class SurveyController {
 
     @GetMapping("survey/{id}")
     public ResponseEntity<?> getSurveyById(@PathVariable("id") String id) {
+        System.out.println(id);
         responseEntity = new ResponseEntity<Survey>(surveyService.getSurveyById(id), HttpStatus.OK);
         return responseEntity;
     }
