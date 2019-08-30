@@ -54,6 +54,7 @@ export class MyprofileComponent implements OnInit {
   templateUrl: 'dialogComponent.html',
  })
  export class DialogComponent {
+  
   constructor(
     public dialogRef: MatDialogRef<DialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: User,private registrationService: UserRegistrationService) {}
@@ -64,7 +65,7 @@ export class MyprofileComponent implements OnInit {
     saveUser(user: User) {
       console.log(user);
       this.registrationService.saveUser(user).subscribe((data)=> {
-         this.user = data;
+        //  this.user = data;
         console.log("result is ", user);
       });
     }
