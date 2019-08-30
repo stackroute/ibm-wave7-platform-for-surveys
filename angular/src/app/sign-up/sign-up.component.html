@@ -1,24 +1,33 @@
-<div class="flex-container" fxLayout="row" >
-<mat-card class="example-card">
+<div class="flex-container" fxLayout="row">
+  <mat-card class="example-card">
     <mat-card-header>
       <mat-card-title>Sign Up</mat-card-title>
     </mat-card-header>
     <mat-card-content>
-        <form class="my-form" #userregistrationform="ngForm" (ngSubmit)="saveUser(userregistrationform.value)">  
-           <mat-form-field class="full-width">
-                  <mat-label>UserName</mat-label>
-                  <input  matInput  placeholder="Username" name="name" [(ngModel)]="name" required>
-               </mat-form-field>
-               <mat-form-field class="full-width">
-                  <mat-label>Email</mat-label>
-                <input  matInput placeholder="Email" name="email" [(ngModel)]="email" required>
-                </mat-form-field>
-               <mat-form-field class="full-width">
-                  <mat-label>Password</mat-label>
-                  <input  matInput  placeholder="Password" type="password"  name="password" [(ngModel)]="password" required>
-                </mat-form-field>
-                <button mat-raised-button type="submit"color="primary" >REGISTER</button>
-        </form>
-      </mat-card-content>
-        </mat-card>
+      <form class="my-form" #userregistrationform="ngForm" (ngSubmit)="saveUser(userregistrationform.value)">
+        <mat-form-field class="full-width">
+          <mat-label>UserName</mat-label>
+          <input matInput placeholder="Username" name="name" [(ngModel)]="name" required>
+        </mat-form-field>
+        <mat-form-field class="full-width">
+          <mat-label>Email</mat-label>
+          <input matInput placeholder="Email" name="email" [(ngModel)]="email" required>
+        </mat-form-field>
+        <mat-form-field class="full-width">
+          <mat-label>Password</mat-label>
+          <input matInput placeholder="Password" type="password" name="password" [(ngModel)]="password" required>
+        </mat-form-field>
+
+        <mat-form-field class="full-width">
+          <mat-label>Role</mat-label>
+          <mat-select placeholder="Select role" [(ngModel)]="value" name="role">
+            <mat-option value="Surveyor">Surveyor</mat-option>
+            <mat-option value="User">User</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <button mat-raised-button type="submit" color="primary">REGISTER</button>
+
+      </form>
+    </mat-card-content>
+  </mat-card>
 </div>
