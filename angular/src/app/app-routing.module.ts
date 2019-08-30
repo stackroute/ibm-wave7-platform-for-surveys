@@ -7,6 +7,7 @@ import { SurveyinfoComponent } from './surveyinfo/surveyinfo.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { QuestionsTemplateComponent } from './questions-template/questions-template.component';
 import { HeaderComponent } from './header/header.component';
+import { PublishedviewComponent } from './publishedview/publishedview.component';
 
 
 const routes: Routes = [
@@ -41,6 +42,11 @@ const routes: Routes = [
   },
   {
     path:'signup',component:SignUpComponent
+  },
+  {
+    path : 'publishview',
+    component : PublishedviewComponent
+
   }
 ];
 

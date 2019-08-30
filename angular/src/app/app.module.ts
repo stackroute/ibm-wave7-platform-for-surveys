@@ -37,6 +37,7 @@ import { MypasswordComponent } from './mypassword/mypassword.component';
 
 import {MatTabsModule} from '@angular/material/tabs';
 import {ConstantsService} from './constants.service';
+import { PublishedviewComponent } from './publishedview/publishedview.component';
 
 
 @NgModule({
@@ -57,6 +58,9 @@ import {ConstantsService} from './constants.service';
 
 
     MypasswordComponent,
+
+
+    PublishedviewComponent,
 
   ],
   imports: [
