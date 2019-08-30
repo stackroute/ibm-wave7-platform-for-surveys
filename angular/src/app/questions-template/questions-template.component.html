@@ -1,4 +1,4 @@
-<!-- <div class="container" fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="10px">
+<div class="container" fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="10px">
   <div fxFlex="20%">
     <mat-card>
       <mat-label>Select your Question type (required)</mat-label>
@@ -18,25 +18,26 @@
 
     </mat-card>
     <button mat-raised-button type="submit" color="primary" (click)=addQuestion()>Add Question</button>
-    <button mat-raised-button type="submit" color="primary"> Save Survey</button>
-
-    <mat-card>
-      <form class="my-form" #questiontemplateform="ngForm" (ngSubmit)="saveQuestion(questiontemplateform.value)">
-        <mat-form-field>
-          <mat-label>Question</mat-label>
-          <textarea matInput placeholder="Question" [(ngModel)]="question_tag" name="question_tag"></textarea><br>
-        </mat-form-field>
-        <mat-form-field>
-          <mat-label>Choices</mat-label>
-          <input matInput placeholder="Choice" [(ngModel)]="choices[0]" name="choices">
-        </mat-form-field>
-        <ng-template [ngIf]="condition">
-          <button mat-raised-button type="submit" color="primary">Add Question</button>
-          <button mat-raised-button type="submit" color="primary"> Save Survey</button>
-      </form>
-    </mat-card>
-    </ng-template>
-    <div fxFlex="77%" id="questionForm">
+      <button mat-raised-button type="submit" color="primary"> Save Survey</button>
+   
+        <mat-card>
+            <form class="my-form" #questiontemplateform="ngForm" (ngSubmit)="saveQuestion(questiontemplateform.value)">
+             <mat-form-field>
+               <mat-label>Question</mat-label>
+                <textarea matInput placeholder="Question" [(ngModel)]="question_tag" name="question_tag" ></textarea><br>
+             </mat-form-field>
+                <mat-form-field>
+                  <mat-label>Choices</mat-label>
+                    <input matInput placeholder="Choice" [(ngModel)]="choices[0]" name="choices" >
+                  </mat-form-field>
+                  <ng-template [ngIf]="condition">
+                      <button mat-raised-button type="submit"color="primary">Add Question</button>
+                      <button mat-raised-button type="submit" color="primary"> Save Survey</button>
+                    </ng-template>
+              </form> 
+        </mat-card>
+     
+  <div fxFlex="77%" id="questionForm">
       <mat-card name="question_card">
         <mat-form-field>
           <textarea matInput placeholder="Question"></textarea>
@@ -50,4 +51,4 @@
         Question</button>
     </div>
   </div>
-</div> -->
+</div>

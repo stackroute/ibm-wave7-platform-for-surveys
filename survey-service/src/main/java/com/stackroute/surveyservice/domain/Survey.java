@@ -21,7 +21,6 @@ import java.util.List;
 @NodeEntity
 public class Survey {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private String id;
     private String name;
     private String description;

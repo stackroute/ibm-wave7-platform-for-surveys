@@ -1,6 +1,7 @@
 package com.stackroute.surveyservice.controller;
 
 import com.stackroute.surveyservice.domain.Survey;
+import com.stackroute.surveyservice.domain.Surveyor;
 import com.stackroute.surveyservice.exceptions.SurveyDoesNotExistsException;
 import com.stackroute.surveyservice.service.SurveyService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,7 +35,7 @@ public class SurveyController {
 
     //to save the survey
     @PostMapping("survey")
-    public ResponseEntity<?> saveSurvey(@RequestBody Survey survey,@RequestParam String surveyorId) {
+    public ResponseEntity<?> saveSurvey(@RequestBody Survey survey, @RequestParam String surveyorId) {
 
         responseEntity = new ResponseEntity<Survey>(surveyService.saveSurvey(survey,surveyorId), HttpStatus.CREATED);
         return responseEntity;
