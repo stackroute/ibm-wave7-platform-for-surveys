@@ -1,18 +1,21 @@
 <div class="container" fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="10px">
-    <div fxFlex="20%">
-<mat-card>
+  <div fxFlex="20%">
+    <mat-card>
       <mat-label>Select your Question type (required)</mat-label>
     </mat-card>
   </div>
-  <div fxFlex="77%" >
+  <div fxFlex="77%">
     <mat-card *ngFor="let question of questionList">
-    
-    <span class="questionTag"><h3>{{question.question_tag}}<a><mat-icon (click)=deleteQuestion(question.question_id)>delete</mat-icon></a></h3>
-   </span>
-   <div *ngFor="let choice of question.choices">
+
+      <span class="questionTag">
+        <h3>{{question.question_tag}}<a>
+            <mat-icon (click)=deleteQuestion(question.question_id)>delete</mat-icon>
+          </a></h3>
+      </span>
+      <div *ngFor="let choice of question.choices">
         <mat-radio-button class="choice-radio-button" value="Not better">{{choice}}</mat-radio-button>
-   </div>
-  
+      </div>
+
     </mat-card>
     <button mat-raised-button type="submit" color="primary" (click)=addQuestion()>Add Question</button>
       <button mat-raised-button type="submit" color="primary"> Save Survey</button>
@@ -37,14 +40,15 @@
   <div fxFlex="77%" id="questionForm">
       <mat-card name="question_card">
         <mat-form-field>
-           <textarea matInput placeholder="Question"></textarea>
+          <textarea matInput placeholder="Question"></textarea>
         </mat-form-field>
-             <mat-form-field name="choice" class="choice">
-               <input matInput placeholder="Choice">
-             </mat-form-field>
-             <button id = "addChoice" mat-mini-fab color="primary" (click)=addChoice($event)>+</button>
-            </mat-card>
-      <button mat-raised-button id="submitButton" type="submit" color="primary" (click)=addQuestion()>Add Question</button>
-   </div>
+        <mat-form-field name="choice" class="choice">
+          <input matInput placeholder="Choice">
+        </mat-form-field>
+        <button id="addChoice" mat-mini-fab color="primary" (click)=addChoice($event)>+</button>
+      </mat-card>
+      <button mat-raised-button id="submitButton" type="submit" color="primary" (click)=addQuestion()>Add
+        Question</button>
+    </div>
+  </div>
 </div>
-

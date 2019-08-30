@@ -39,6 +39,7 @@ import {MatTabsModule} from '@angular/material/tabs';
 import {ConstantsService} from './constants.service';
 import { DialogContentComponent } from './dialog-content/dialog-content.component';
 import { ThankingDialogBoxComponent } from './thanking-dialog-box/thanking-dialog-box.component';
+import { UserLandingPageComponent } from './user-landing-page/user-landing-page.component';
 
 
 @NgModule({
@@ -61,6 +62,9 @@ import { ThankingDialogBoxComponent } from './thanking-dialog-box/thanking-dialo
 
 
     MypasswordComponent,
+
+
+    UserLandingPageComponent,
 
   ],
   imports: [

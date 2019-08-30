@@ -13,8 +13,8 @@ export class SurveyinfoComponent implements OnInit {
   result:String;
   ngOnInit() {
   
-    this.survey.surveydata().subscribe(result=>this.result=result);
-    console.log(this.result);
+    this.survey.surveydata().subscribe(data=>{this.result=data;
+    console.log(this.result);});
   }
   
 
