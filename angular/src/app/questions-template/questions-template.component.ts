@@ -19,12 +19,12 @@ export class QuestionsTemplateComponent implements OnInit {
   private count : number;
   private question:Question;
   private survey:Survey;
-  // private questionList:Question[];
-  questionList;
+  private questionList:Question[];
+
   constructor(private surveyService:SurveyService,private route:ActivatedRoute) { }
 
   ngOnInit() {
-    this.getQuestionList(this.survey);
+    this.getQuestionList();
   }
 
   addQuestion()
@@ -72,11 +72,20 @@ export class QuestionsTemplateComponent implements OnInit {
    console.log("result is ", question);
  });
 }
-getQuestionList(survey:Survey)
+
+getQuestionList()
 {
-  this.surveyService.getAllQuestions(survey).subscribe(
-    (data) => {this.questionList=data;
+  this.surveyService.getAllQuestions().subscribe(
+    (data) => {
+      this.questionList=data.questionList;
     console.log("questions : ",this.questionList)
     })
+}
+
+deleteQuestion( question_id: string )
+{
+  this.surveyService.deleteQuestion(question_id).subscribe(
+    (data) => console.log(data)
+  );
 }
 }

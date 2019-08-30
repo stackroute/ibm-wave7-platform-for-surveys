@@ -39,14 +39,13 @@ export class MySurveyCardComponent implements OnInit {
         width: '250px',
         data: {}
       });
-
     dialogRef.afterClosed().subscribe(result => {
       if (result != undefined) {
         console.log(result);
         this.surveyService.createSurvey(result).subscribe(
           (data) => {
             console.log(data);
-            this.router.navigateByUrl('questions-template');
+            this.router.navigateByUrl('question-template');
             this.getSurveyList();
           })
       }

@@ -25,7 +25,7 @@ export class SurveyService {
     survey.id = Guid.create().toString();
 
     //microservice create survey api link
-    return this.httpclient.post<Survey>(environment.baseURI+"/survey", survey, httpOptions);
+    return this.httpclient.post<Survey>(environment.baseURI+"/survey?surveyorId=24", survey, httpOptions);
   }
 
   getAllSurveys() : Observable<Survey[]>
@@ -49,8 +49,13 @@ export class SurveyService {
   // {
   //   return this.httpclient.get<Question[]>(environment.baseURI+"/question");
   // }
-  getAllQuestions(survey:Survey) :Observable<any>
+  getAllQuestions() :Observable<Survey>
   {
-    return this.httpclient.get<any>(environment.baseURI+"/question/"+survey.id);
+    return this.httpclient.get<Survey>(environment.baseURI+"/survey/24");
+  }
+
+  deleteQuestion(question_id : string)
+  {
+    return this.httpclient.delete<Question>(environment.baseURI+"/survey/"+question_id);
   }
 }
