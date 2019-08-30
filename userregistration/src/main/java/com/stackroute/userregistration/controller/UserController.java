@@ -28,7 +28,7 @@ public class UserController {
     private UserService userService;
 
     @Autowired
-    private KafkaTemplate<String, Object> kafkaTemplate;
+    private KafkaTemplate<String, User> kafkaTemplate;
 
     // Declaration and Intialization of topic name
     private static final String TOPIC = "KafkaExample";

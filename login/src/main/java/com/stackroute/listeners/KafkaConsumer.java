@@ -21,8 +21,7 @@ public class KafkaConsumer {
     private PasswordEncoder bcryptEncoder;
 
 
-    @KafkaListener(topics = "KafkaExample", groupId = "group_json",
-            containerFactory = "userKafkaListenerFactory")
+    @KafkaListener(topics = "KafkaExample", groupId = "group_json", containerFactory = "userKafkaListenerFactory")
     public void consumeJson(UserDTO user)
     {
         System.out.println("Consumed JSON Message: " + user);

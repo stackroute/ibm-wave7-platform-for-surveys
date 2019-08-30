@@ -46,4 +46,8 @@ updateUser(id:String,user:User){
   return this.httpClient.put<User>(url + "/" + user.id, user, httpOptions);
 
 }
+forgotPassword(login:LoginUser,password:String){
+  var apiUrl = "http://localhost:8080/authenticate";
+  return this.httpClient.put(apiUrl + "/" + login.password,httpOptions);
+}
 }

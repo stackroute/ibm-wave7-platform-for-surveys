@@ -32,6 +32,7 @@ import {MatTooltipModule} from '@angular/material/tooltip';
 import {DialogComponent} from './myprofile/myprofile.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { QuestionsTemplateComponent } from './questions-template/questions-template.component';
+import { MypasswordComponent } from './mypassword/mypassword.component';
 
 @NgModule({
   declarations: [
@@ -51,6 +52,9 @@ import { QuestionsTemplateComponent } from './questions-template/questions-templ
     
 
     QuestionsTemplateComponent,
+    
+
+    MypasswordComponent,
 
   ],
   imports: [
@@ -82,7 +86,7 @@ import { QuestionsTemplateComponent } from './questions-template/questions-templ
     NgbModule
   ],
   providers: [MyprofileComponent,DialogComponent],
-  entryComponents : [MySurveyCardComponent, CreateSurveyDialogue],
+  entryComponents : [MySurveyCardComponent, CreateSurveyDialogue,DialogComponent],
   
 
   bootstrap: [AppComponent]
