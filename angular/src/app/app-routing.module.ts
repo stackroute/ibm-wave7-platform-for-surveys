@@ -7,6 +7,7 @@ import { SurveyinfoComponent } from './surveyinfo/surveyinfo.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { QuestionsTemplateComponent } from './questions-template/questions-template.component';
 import { HeaderComponent } from './header/header.component';
+import { ThankingDialogBoxComponent } from './thanking-dialog-box/thanking-dialog-box.component';
 
 
 const routes: Routes = [
@@ -41,6 +42,9 @@ const routes: Routes = [
   },
   {
     path:'signup',component:SignUpComponent
+  },
+  {
+    path:'thankyou',component:ThankingDialogBoxComponent
   }
 ];
 
