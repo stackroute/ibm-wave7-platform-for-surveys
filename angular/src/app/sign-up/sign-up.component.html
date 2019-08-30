@@ -17,7 +17,11 @@
                   <mat-label>Password</mat-label>
                   <input  matInput  placeholder="Password" type="password"  name="password" [(ngModel)]="password" required>
                 </mat-form-field>
-                <button mat-raised-button type="submit"color="primary" >REGISTER</button>
+                <mat-form-field class="full-width">
+                  <mat-label>ConfirmPassword</mat-label>
+                  <input  matInput  placeholder="ConfirmPassword" type="password"  name="confirmPassword" [(ngModel)]="confirmPassword" required>
+                </mat-form-field>
+                <button mat-raised-button type="submit"color="primary" [disabled]="!userregistrationform.valid">REGISTER</button>
         </form>
       </mat-card-content>
         </mat-card>
