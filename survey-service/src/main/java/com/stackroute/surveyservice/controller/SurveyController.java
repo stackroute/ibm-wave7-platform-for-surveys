@@ -1,6 +1,7 @@
 package com.stackroute.surveyservice.controller;
 
 import com.stackroute.surveyservice.domain.Survey;
+import com.stackroute.surveyservice.domain.Surveyor;
 import com.stackroute.surveyservice.exceptions.SurveyDoesNotExistsException;
 import com.stackroute.surveyservice.service.SurveyService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,11 +22,8 @@ public class SurveyController {
 
     // Declaration and Intialization of topic name
     private static final String TOPIC = "KafkaExample";
-
     Survey survey = new Survey();
-
     private KafkaTemplate<String, Survey> kafkaTemplate;
-
 
     @Autowired
     public SurveyController(SurveyService surveyService) {
@@ -33,8 +31,9 @@ public class SurveyController {
     }
 
     //to save the survey
+    //takes survey object and surveyorId as RequestParam
     @PostMapping("survey")
-    public ResponseEntity<?> saveSurvey(@RequestBody Survey survey,@RequestParam String surveyorId) {
+    public ResponseEntity<?> saveSurvey(@RequestBody Survey survey, @RequestParam String surveyorId) {
 
         responseEntity = new ResponseEntity<Survey>(surveyService.saveSurvey(survey,surveyorId), HttpStatus.CREATED);
         return responseEntity;
@@ -69,6 +68,7 @@ public class SurveyController {
 
     @GetMapping("survey/{id}")
     public ResponseEntity<?> getSurveyById(@PathVariable("id") String id) {
+        System.out.println(id);
         responseEntity = new ResponseEntity<Survey>(surveyService.getSurveyById(id), HttpStatus.OK);
         return responseEntity;
     }

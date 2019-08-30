@@ -1,12 +1,14 @@
 package com.stackroute.surveyservice.service;
 
+import com.stackroute.surveyservice.domain.Question;
 import com.stackroute.surveyservice.domain.Survey;
 import com.stackroute.surveyservice.exceptions.SurveyDoesNotExistsException;
 
 import java.util.Collection;
+import java.util.List;
 
 public interface SurveyService {
-    public Survey saveSurvey(Survey survey, String surveyorId);
+    public Survey saveSurvey(Survey survey,String surveyorId);
 
     public boolean deleteSurvey(String id);
 
@@ -15,6 +17,8 @@ public interface SurveyService {
     public Survey updateSurvey(Survey survey) throws SurveyDoesNotExistsException;
 
     public Survey getSurveyById(String id);
+
+
 
 
 
