@@ -4,6 +4,17 @@
     margin: 15px 0;
   }
 
+  #question_card {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .choice {
+      width: 30%;
+      padding: 5%;
+  }
+  
+
   .choice-radio-button{
       margin: 5px;
   }
@@ -13,4 +24,8 @@
   button
   {
       margin-left: 10px;
+  }
+  .questionTag a{
+    float: right ;
+    margin-top: 0px;
   }

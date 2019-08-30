@@ -4,7 +4,9 @@
 
 export const environment = {
   production: false,
-  baseURI : "http://172.23.238.186:8090/api/v1"
+  baseURI : "http://localhost:8090/api/v1",
+  loginBaseURI : "http://172.23.238.196:8081",
+  signUpBaseURI : "http://172.23.238.196:8095"
 };
 
 /*

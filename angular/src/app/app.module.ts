@@ -32,7 +32,12 @@ import {MatTooltipModule} from '@angular/material/tooltip';
 import {DialogComponent} from './myprofile/myprofile.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { QuestionsTemplateComponent } from './questions-template/questions-template.component';
+
 import { MypasswordComponent } from './mypassword/mypassword.component';
+
+import {MatTabsModule} from '@angular/material/tabs';
+import {ConstantsService} from './constants.service';
+
 
 @NgModule({
   declarations: [
@@ -45,14 +50,11 @@ import { MypasswordComponent } from './mypassword/mypassword.component';
     MySurveyCardComponent,
     CreateSurveyDialogue,
     SurveyinfoComponent,
-
     CreateSurveyDialogue,
     MyprofileComponent,
     DialogComponent,
-    
-
     QuestionsTemplateComponent,
-    
+
 
     MypasswordComponent,
 
@@ -80,14 +82,18 @@ import { MypasswordComponent } from './mypassword/mypassword.component';
     MatFormFieldModule,
     MatDividerModule,
     RouterModule,
-
+    NgbModule,
     MatDialogModule,
-    MatTooltipModule,
-    NgbModule
+    MatTooltipModule
+
   ],
   providers: [MyprofileComponent,DialogComponent],
+
   entryComponents : [MySurveyCardComponent, CreateSurveyDialogue,DialogComponent],
-  
+
+
+
+
 
   bootstrap: [AppComponent]
 })

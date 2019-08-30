@@ -5,6 +5,9 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.neo4j.ogm.annotation.Id;
 import org.neo4j.ogm.annotation.NodeEntity;
+
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import java.util.List;
 @Data
 @AllArgsConstructor
@@ -13,10 +16,10 @@ import java.util.List;
 @NodeEntity
 public class Question {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private String question_id;
-    private String quesiontag;
-    private List<String> choices;
-
+    private String question_tag;
+    private String[] choices;
     private String surveyId;
 }
 

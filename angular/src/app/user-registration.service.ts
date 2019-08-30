@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient ,HttpHeaders} from "@angular/common/http";
 import { User } from "./modals/User";
 import { LoginUser } from "./modals/Login";
-
+import { environment } from '../environments/environment';
 import { Observable } from 'rxjs';
 import { Guid } from "guid-typescript";
 
@@ -21,9 +21,8 @@ export class UserRegistrationService {
   public user:User;
   saveUser(user:User):Observable<User>
   {
-    var apiUrl = "http://localhost:8091/user";
     user.id = Guid.create().toString();
-    return this.httpClient.post<User>(apiUrl, user, httpOptions);
+    return this.httpClient.post<User>(environment.signUpBaseURI+"/user", user, httpOptions);
   }
 
 
@@ -36,13 +35,12 @@ public loginuser:LoginUser;
 //   }
 
   authenticateUser(user:LoginUser): Observable<boolean>{
-    var apiUrl = "http://localhost:8080/authenticate";
-    return this.httpClient.get<boolean>(apiUrl+'/?username='+user.username+'&password='+user.password);
-     var apiUrl = "http://localhost:8090/user";
-    user.id = Guid.create().toString();
+
+    return this.httpClient.get<boolean>('http://172.23.238.196:8081/authenticate?username='+user.username+'&password='+user.password);
+    // return this.httpClient.get<boolean>(environment.loginBaseURI+'/authenticate/?username='+user.username+'&password='+user.password);
   }
 updateUser(id:String,user:User){
-  var url = "http://localhost:8090/user";
+  var url = "http://localhost:8095/user";
   return this.httpClient.put<User>(url + "/" + user.id, user, httpOptions);
 
 }

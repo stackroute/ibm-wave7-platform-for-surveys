@@ -14,12 +14,12 @@ import java.util.List;
 public interface SurveyRepository extends Neo4jRepository<Survey,String> {
     @Query("MATCH (s:Survey)<-[b:BelongsTo]-(q:Question) RETURN s,b,q")
     Collection<Survey> getAllSurveys();
-    @Query("MATCH (a:Question), (b:Survey) WHERE a.question_id =\"1\" AND b.id ={surveyId} CREATE (a)-[: BelongsTo]->(b) RETURN a,b")
+    @Query("MATCH (a:Question), (b:Survey) WHERE a.question_id =\"23\" AND b.id ={surveyId} CREATE (a)-[: BelongsTo]->(b) RETURN a,b")
     void createBelongsToRelationShip(String surveyId);
     @Query("MATCH (s:Survey{id:{id}})-[r:BelongsTo]-(:Question) DELETE r")
     void delete(String id);
     @Query("MATCH (s:Survey{ id: {id}})<-[b:BelongsTo]-(q:Question) RETURN s,b,q")
     Survey getSurveyById(String id);
-
-
+    @Query("MATCH (a:Surveyor),(b:Survey) WHERE a.id ={surveyorId} AND b.id ={surveyId} CREATE (a)-[: Creates]->(b) RETURN a,b")
+    void createCreatesRelationShip(String surveyId, String surveyorId );
 }
