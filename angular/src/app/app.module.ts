@@ -37,7 +37,10 @@ import { MypasswordComponent } from './mypassword/mypassword.component';
 
 import {MatTabsModule} from '@angular/material/tabs';
 import {ConstantsService} from './constants.service';
+
 import { PublishedviewComponent } from './publishedview/publishedview.component';
+import { DialogContentComponent } from './dialog-content/dialog-content.component';
+import { ThankingDialogBoxComponent } from './thanking-dialog-box/thanking-dialog-box.component';
 
 
 @NgModule({
@@ -55,6 +58,8 @@ import { PublishedviewComponent } from './publishedview/publishedview.component'
     MyprofileComponent,
     DialogComponent,
     QuestionsTemplateComponent,
+    DialogContentComponent,
+    ThankingDialogBoxComponent,
 
 
     MypasswordComponent,
@@ -93,7 +98,7 @@ import { PublishedviewComponent } from './publishedview/publishedview.component'
   ],
   providers: [MyprofileComponent,DialogComponent],
 
-  entryComponents : [MySurveyCardComponent, CreateSurveyDialogue,DialogComponent],
+  entryComponents : [MySurveyCardComponent, CreateSurveyDialogue,DialogComponent, DialogContentComponent],
 
 
 

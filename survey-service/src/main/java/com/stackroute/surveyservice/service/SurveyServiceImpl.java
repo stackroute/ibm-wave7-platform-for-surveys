@@ -19,13 +19,13 @@ public class SurveyServiceImpl implements SurveyService{
     }
 
     @Override
-    public Survey saveSurvey(Survey survey ,String surveyorId) {
+    public Survey saveSurvey(Survey survey) {
         Survey savedSurvey=null;
         if(!surveyRepository.findById(survey.getId()).isPresent()) {
             savedSurvey = surveyRepository.save(survey);
-            System.out.println(surveyorId);
-            surveyRepository.createCreatesRelationShip(survey.getId(),surveyorId);
-            surveyRepository.createBelongsToRelationShip(survey.getId());
+//            System.out.println(surveyorId);
+//            surveyRepository.createCreatesRelationShip(survey.getId(),surveyorId);
+//            surveyRepository.createBelongsToRelationShip(survey.getId());
 
         }
         return savedSurvey;
