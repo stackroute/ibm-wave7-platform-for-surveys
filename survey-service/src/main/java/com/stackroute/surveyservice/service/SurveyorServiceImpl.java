@@ -50,13 +50,9 @@ public class SurveyorServiceImpl implements SurveyorService {
         return null;
     }
 
-    @Override
-    public List<Surveyor> getAllSurveyors() {
-          return null;
-    }
 
     @Override
-    public Surveyor getSurveyorById(Integer surveyorId) throws SurveyorDoesNotExistsException {
-        return null;
+    public Surveyor getSurveyorById(String surveyorId) throws SurveyorDoesNotExistsException {
+        return surveyorRepository.getSurveyorById(surveyorId);
     }
 }

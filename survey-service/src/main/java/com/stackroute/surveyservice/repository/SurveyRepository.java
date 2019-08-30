@@ -1,5 +1,6 @@
 package com.stackroute.surveyservice.repository;
 
+import com.stackroute.surveyservice.domain.Question;
 import com.stackroute.surveyservice.domain.Survey;
 
 import org.springframework.data.neo4j.annotation.Query;
@@ -14,12 +15,14 @@ import java.util.List;
 public interface SurveyRepository extends Neo4jRepository<Survey,String> {
     @Query("MATCH (s:Survey)<-[b:BelongsTo]-(q:Question) RETURN s,b,q")
     Collection<Survey> getAllSurveys();
-    @Query("MATCH (a:Question), (b:Survey) WHERE a.question_id =\"1\" AND b.id ={surveyId} CREATE (a)-[: BelongsTo]->(b) RETURN a,b")
-    void createBelongsToRelationShip(String surveyId);
+    @Query("MATCH (a:Question), (b:Survey) WHERE a.questionId={questionId} AND b.id ={surveyId} CREATE (a)-[: BelongsTo]->(b) RETURN a,b")
+    void createBelongsToRelationShip(String surveyId,String questionId);
     @Query("MATCH (s:Survey{id:{id}})-[r:BelongsTo]-(:Question) DELETE r")
     void delete(String id);
     @Query("MATCH (s:Survey{ id: {id}})<-[b:BelongsTo]-(q:Question) RETURN s,b,q")
     Survey getSurveyById(String id);
     @Query("MATCH (a:Surveyor),(b:Survey) WHERE a.id ={surveyorId} AND b.id ={surveyId} CREATE (a)-[: Creates]->(b) RETURN a,b")
     void createCreatesRelationShip(String surveyId, String surveyorId );
+    @Query("MATCH (q:Question{domainType:{domainType}})-[:BelongsTo]->(s:Survey) WITH q,count(s) as rels, collect(s) as surveys WHERE rels > 1 RETURN q ORDER BY rels DESC LIMIT 10")
+    List<Question> getRecommendedQuestions(String domainType);
 }

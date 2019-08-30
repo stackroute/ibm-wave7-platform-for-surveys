@@ -16,10 +16,10 @@ import java.util.List;
 @NodeEntity
 public class Question {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private String question_id;
-    private String quesiontag;
+    private String quesionTag;
+    private String questionId;
     private List<String> choices;
+    private String domainType;
 
 }
 

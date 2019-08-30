@@ -25,12 +25,12 @@ public class QuestionServiceImpl implements QuestionService{
     public Question addQuestionToSurvey(Question question,String SurveyId) {
 
         Question savedQuestion = null;
-        if(!questionRepository.findById(question.getQuestion_id()).isPresent())
+        if(!questionRepository.findById(question.getQuesionTag()).isPresent())
         {
             savedQuestion = questionRepository.save(question);
-            questionRepository.createBelongsToRelationShip(question.getQuestion_id(),SurveyId);
+            questionRepository.createBelongsToRelationShip(question.getQuesionTag(),SurveyId);
         }else{
-            questionRepository.createBelongsToRelationShip(question.getQuestion_id(),SurveyId);
+            questionRepository.createBelongsToRelationShip(question.getQuesionTag(),SurveyId);
         }
         return savedQuestion;
     }
@@ -38,7 +38,7 @@ public class QuestionServiceImpl implements QuestionService{
     @Override
     public Question editQuestion(Question question) throws QuestionDoesNotExistsException {
 
-        Optional<Question> existingQuestion = questionRepository.findById(question.getQuestion_id());
+        Optional<Question> existingQuestion = questionRepository.findById(question.getQuesionTag());
 
         Question updatedQuestion = null;
 
@@ -72,14 +72,14 @@ public class QuestionServiceImpl implements QuestionService{
 
     @Override
     public void removeQuestionFromSurvey(Question question,String surveyId) {
-        System.out.println(question.getQuestion_id()+"  "+question.getQuestion_id());
-      questionRepository.removeQuestionFromSurvey(question.getQuestion_id(),surveyId);
+
+      questionRepository.removeQuestionFromSurvey(question.getQuestionId(),surveyId);
     }
 
     @Override
     public Question addQuestion(Question question) throws QuestionAlreadyExistsException {
         Question savedQuestion = null;
-        if(!questionRepository.findById(question.getQuestion_id()).isPresent())
+        if(!questionRepository.findById(question.getQuesionTag()).isPresent())
         {
             savedQuestion = questionRepository.save(question);
 

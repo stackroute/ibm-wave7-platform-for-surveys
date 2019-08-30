@@ -47,8 +47,7 @@ public class QuestionController {
     //to delete a question
     @DeleteMapping("question/{id}")
     public ResponseEntity<?> deleteQuestion(@PathVariable("id") String id) throws Exception {
-
-             Question deletedQuestion = questionService.removeQuestion(id);
+        Question deletedQuestion = questionService.removeQuestion(id);
             return new ResponseEntity<Question>(deletedQuestion, HttpStatus.OK);
     }
     @DeleteMapping("question")
