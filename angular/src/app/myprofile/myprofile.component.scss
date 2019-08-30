@@ -1,28 +1,24 @@
-.card-category{
-    padding-top: 50px;
-}
-.example-container {
-    display: flex;
-    flex-direction: column;
-    // margin-top: 5cm;
-  }
-  
-  .example-container > * {
-    width: 100%;
-  }
-  mat-card{
-      width: 20%;
-      align-content: center;
-      margin-top: 6cm;
-      margin-left: 35%;
-      height:100%;
-  }
-  mat-card-actions{
-      text-align: center;
-  }
-  mat-divider{
-      width:3cm;
-  }
-  p{
-      margin-top: 1cm;
-  }
+.example-card{
+    padding-top:130px;
+    padding-left: 60px;
+    }
+    .example-container{
+    font-family: arial;
+    }
+    h6{
+    padding-top:20px;
+    }
+    #button1{
+        width: 200px;
+        height: 40px;
+        margin-right: 150px;
+        
+    }
+    mat-card-actions{
+        text-align: center;
+        
+    }
+    .mat-raised-.mat-card-actions .mat-button, .mat-card-actions .mat-raised-button{
+        margin:5px;
+        
+    }
