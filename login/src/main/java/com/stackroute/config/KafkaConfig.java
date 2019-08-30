@@ -24,7 +24,11 @@ import java.util.Map;
 public class KafkaConfig {
 
     @Bean
+
+
+
     public ConsumerFactory<String, DAOUser> consumerFactory() {
+
         Map<String, Object> config = new HashMap<>();
         config.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, "localhost:9092");
         config.put(ConsumerConfig.GROUP_ID_CONFIG, "group_id");

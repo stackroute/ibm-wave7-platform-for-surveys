@@ -25,7 +25,8 @@
 		<module>config-server</module>
 		<module>eureka-server</module>
 		<module>zuul-api</module>
-		<module>userregistration</module>
+		<module>user-registration-service</module>
+		<module>login</module>
 	</modules>
 	<dependencies>
 		<dependency>

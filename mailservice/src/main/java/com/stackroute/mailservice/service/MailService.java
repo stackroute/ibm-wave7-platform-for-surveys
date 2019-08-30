@@ -33,7 +33,7 @@ public class MailService {
         Context context = new Context();
         context.setVariables(map);
         String html = templateEngine.process("MailTemplate", context);
-        helper.setTo("@gmail.com");
+        helper.setTo("289anshu441@gmail.com");
         helper.setText(html, true);
         helper.setSubject("take the survey to get some reward points");
         helper.setFrom("agha.zafeer@gmail.com");

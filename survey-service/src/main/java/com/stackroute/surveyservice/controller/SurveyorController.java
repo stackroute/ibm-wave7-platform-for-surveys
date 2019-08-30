@@ -30,13 +30,6 @@ public class SurveyorController {
         return responseEntity;
 
     }
-
-    //to get all the survey
-    @GetMapping("surveyor")
-    public ResponseEntity<?> getAllSurveyors() {
-        return new ResponseEntity<Collection<Surveyor>>(surveyorService.getAllSurveyors(), HttpStatus.OK);
-    }
-
     //to delete a survey
     @DeleteMapping("surveyor/{id}")
     public ResponseEntity<?> deleteSurveyor(@PathVariable("id") String id) throws SurveyorDoesNotExistsException {
@@ -58,7 +51,7 @@ public class SurveyorController {
     }
 
     @GetMapping("surveyor/{id}")
-    public ResponseEntity<?> getSurveyorById(@PathVariable("id") Integer id) throws SurveyorDoesNotExistsException {
+    public ResponseEntity<?> getSurveyorById(@PathVariable("id") String id) throws SurveyorDoesNotExistsException {
         responseEntity = new ResponseEntity<Surveyor>(surveyorService.getSurveyorById(id), HttpStatus.OK);
         return responseEntity;
     }
