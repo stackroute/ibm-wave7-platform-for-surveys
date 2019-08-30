@@ -4,6 +4,7 @@ import {TooltipPosition} from '@angular/material/tooltip';
 import { UserRegistrationService } from '../user-registration.service';
 import { User } from '../modals/User';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { LoginUser } from '../modals/Login';
 
 
 
@@ -14,10 +15,11 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dial
 })
 export class MyprofileComponent implements OnInit {
   public updateUser: User;
+  private name :String;
   user:User;
   public updatedEmail:String
-  positionOptions: TooltipPosition[] = ['after', 'before', 'above', 'below', 'left', 'right'];
-  position = new FormControl(this.positionOptions[0]);
+  user1:LoginUser
+  
   constructor(private registrationService: UserRegistrationService,private dialog: MatDialog) { }
 
   ngOnInit() {
@@ -32,7 +34,7 @@ export class MyprofileComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       this.updatedEmail = result;
       console.log('Dialog result: ${result}');
-      console.log('updated comment:' , this.updatedEmail);
+      console.log('updated email:' , this.updatedEmail);
       this.updateUser;
     });
   }
@@ -44,13 +46,7 @@ export class MyprofileComponent implements OnInit {
       console.log("result is ", data);
     });
 }
-saveUser(user: User) {
-  console.log(user);
-  this.registrationService.saveUser(user).subscribe((data)=> {
-     this.user = data;
-    console.log("result is ", user);
-  });
-}
+
 
 }
 @Component({
@@ -58,10 +54,19 @@ saveUser(user: User) {
   templateUrl: 'dialogComponent.html',
  })
  export class DialogComponent {
+  
   constructor(
     public dialogRef: MatDialogRef<DialogComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: User) {}
+    @Inject(MAT_DIALOG_DATA) public data: User,private registrationService: UserRegistrationService) {}
     onNoClick(): void {
       this.dialogRef.close();
+    }
+    user:LoginUser
+    saveUser(user: User) {
+      console.log(user);
+      this.registrationService.saveUser(user).subscribe((data)=> {
+        //  this.user = data;
+        console.log("result is ", user);
+      });
     }
  }
