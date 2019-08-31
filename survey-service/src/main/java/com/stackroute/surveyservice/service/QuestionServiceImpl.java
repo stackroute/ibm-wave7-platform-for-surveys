@@ -20,19 +20,22 @@ public class QuestionServiceImpl implements QuestionService{
     //save Question
     @Override
     public Question addQuestionToSurvey(Question question,String SurveyId) {
+
         Question savedQuestion = null;
-        if(!questionRepository.findById(question.getQuestion_id()).isPresent())
+        if(!questionRepository.findById(question.getQuestionTag()).isPresent())
         {
             savedQuestion = questionRepository.save(question);
-            questionRepository.createBelongsToRelationShip(question.getQuestion_id(),SurveyId);
+            questionRepository.createBelongsToRelationShip(question.getQuestionId(),SurveyId);
         }else{
-            questionRepository.createBelongsToRelationShip(question.getQuestion_id(),SurveyId);
+            questionRepository.createBelongsToRelationShip(question.getQuestionId(),SurveyId);
+
         }
         return savedQuestion;
     }
     @Override
     public Question editQuestion(Question question) throws QuestionDoesNotExistsException {
-        Optional<Question> existingQuestion = questionRepository.findById(question.getQuestion_id());
+
+        Optional<Question> existingQuestion = questionRepository.findById(question.getQuestionTag());
         Question updatedQuestion = null;
         if (existingQuestion.isPresent()) {
             updatedQuestion = questionRepository.save(question);
@@ -47,22 +50,26 @@ public class QuestionServiceImpl implements QuestionService{
         }
         return existingQuestion.get();
     }
+
+
     @Override
     public List<Question> getAllQuestions() {
         return (List<Question>) questionRepository.findAll();
     }
+
     @Override
     public void removeQuestionFromSurvey(Question question,String surveyId) {
-        System.out.println(question.getQuestion_id()+"  "+question.getQuestion_id());
-        questionRepository.removeQuestionFromSurvey(question.getQuestion_id(),surveyId);
+
+        questionRepository.removeQuestionFromSurvey(question.getQuestionId(), surveyId);
     }
+
     @Override
     public Question addQuestion(Question question) throws QuestionAlreadyExistsException {
         Question savedQuestion = null;
-        if(!questionRepository.findById(question.getQuestion_id()).isPresent())
-        {
+        if(!questionRepository.findById(question.getQuestionTag()).isPresent()) {
             savedQuestion = questionRepository.save(question);
         }
+
         return savedQuestion;
     }
 }

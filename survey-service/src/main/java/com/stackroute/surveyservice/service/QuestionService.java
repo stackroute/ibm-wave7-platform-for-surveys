@@ -13,4 +13,8 @@ public interface QuestionService {
     List<Question> getAllQuestions();
     void removeQuestionFromSurvey(Question question,String surveyId);
     Question addQuestion(Question question) throws QuestionAlreadyExistsException;
+
 }
+
+
+

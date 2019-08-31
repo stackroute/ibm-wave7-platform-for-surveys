@@ -13,6 +13,7 @@ import { PublishedviewComponent } from './publishedview/publishedview.component'
 import { ThankingDialogBoxComponent } from './thanking-dialog-box/thanking-dialog-box.component';
 import { MyprofileComponent } from './myprofile/myprofile.component';
 
+import { UserLandingPageComponent } from './user-landing-page/user-landing-page.component';
 
 
 const routes: Routes = [
@@ -55,6 +56,9 @@ const routes: Routes = [
   },
   {
 
+    path:'landing',component:UserLandingPageComponent
+  },
+  {
     path:'thankyou',component:ThankingDialogBoxComponent
   },
   {

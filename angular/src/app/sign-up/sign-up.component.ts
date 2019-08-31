@@ -19,11 +19,11 @@ export class SignUpComponent implements OnInit {
   ngOnInit() {
   }
   saveUser(user:User) {
-       this.registrationService.saveUser(user).subscribe((data)=> {
-       this.user = data;
-      console.log("result is ", user);
-      alert("Account successfully created")
-      this.router.navigateByUrl('login');
-    });
+      this.registrationService.saveUser(user).subscribe((data)=> {
+        this.user = data;
+       console.log("result is ", user);
+       alert("Account successfully created");
+       this.router.navigateByUrl('login');
+     });
   }
 }

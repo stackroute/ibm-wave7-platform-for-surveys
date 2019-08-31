@@ -49,6 +49,7 @@ public class QuestionController {
         questionService.removeQuestionFromSurvey(question,surveyId);
         return new ResponseEntity<String>("Deleted From Survey", HttpStatus.OK);
     }
+
     //to update a question
     @PutMapping("question")
     public ResponseEntity<?> updateQuestion(@RequestBody Question question) throws QuestionDoesNotExistsException
@@ -56,4 +57,5 @@ public class QuestionController {
         Question updatedQuestion = questionService.editQuestion(question);
         return new ResponseEntity<Question>(updatedQuestion, HttpStatus.OK);
     }
+
 }
