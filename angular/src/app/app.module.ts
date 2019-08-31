@@ -37,11 +37,12 @@ import { MypasswordComponent } from './mypassword/mypassword.component';
 
 import {MatTabsModule} from '@angular/material/tabs';
 import {ConstantsService} from './constants.service';
+
+import { PublishedviewComponent } from './publishedview/publishedview.component';
 import { DialogContentComponent } from './dialog-content/dialog-content.component';
 import { ThankingDialogBoxComponent } from './thanking-dialog-box/thanking-dialog-box.component';
+import { AboutUsComponent } from './about-us/about-us.component';
 import { UserLandingPageComponent } from './user-landing-page/user-landing-page.component';
-import {ScrollingModule} from '@angular/cdk/scrolling';
-
 
 
 @NgModule({
@@ -66,6 +67,8 @@ import {ScrollingModule} from '@angular/cdk/scrolling';
     MypasswordComponent,
 
 
+    PublishedviewComponent,
+    AboutUsComponent,
     UserLandingPageComponent,
 
   ],
@@ -95,9 +98,6 @@ import {ScrollingModule} from '@angular/cdk/scrolling';
     NgbModule,
     MatDialogModule,
     MatTooltipModule,
-    ScrollingModule,
-   // MatSidenav,
-    //MatSidenavContainer,
     MatSidenavModule
 
   ],
