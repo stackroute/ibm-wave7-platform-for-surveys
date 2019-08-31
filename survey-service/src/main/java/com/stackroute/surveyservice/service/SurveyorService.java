@@ -10,7 +10,6 @@ public interface SurveyorService {
     Surveyor addSurveyor(Surveyor question) throws SurveyorAlreadyExistException;
     Surveyor editSurveyor(Surveyor question) throws SurveyorDoesNotExistsException;
     Surveyor removeSurveyor(String surveyorId) throws SurveyorDoesNotExistsException;
-    List<Surveyor> getAllSurveyors() ;
-    Surveyor getSurveyorById(Integer surveyorId) throws SurveyorDoesNotExistsException;
+    Surveyor getSurveyorById(String surveyorId) throws SurveyorDoesNotExistsException;
 
 }

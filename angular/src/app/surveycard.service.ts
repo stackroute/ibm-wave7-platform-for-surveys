@@ -11,6 +11,6 @@ export class SurveycardService {
 
   surveydata():Observable<String>
   {
-    return this.http.get<String>("http://localhost:3000/survey");
+    return this.http.get<String>("http://localhost:3000/data");
   }
 }

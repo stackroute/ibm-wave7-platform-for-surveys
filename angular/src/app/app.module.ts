@@ -9,7 +9,7 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import { MatCardModule } from '@angular/material/card';
 import { HttpClientModule } from '@angular/common/http';
 import {MatRadioModule} from '@angular/material/radio';
-import { MatInputModule,MatListModule} from '@angular/material';
+import { MatInputModule,MatListModule, MatSidenav, MatSidenavContainer, MatSidenavModule} from '@angular/material';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatSelectModule } from '@angular/material/select';
@@ -39,6 +39,9 @@ import {MatTabsModule} from '@angular/material/tabs';
 import {ConstantsService} from './constants.service';
 import { DialogContentComponent } from './dialog-content/dialog-content.component';
 import { ThankingDialogBoxComponent } from './thanking-dialog-box/thanking-dialog-box.component';
+import { UserLandingPageComponent } from './user-landing-page/user-landing-page.component';
+import {ScrollingModule} from '@angular/cdk/scrolling';
+
 
 
 @NgModule({
@@ -61,6 +64,9 @@ import { ThankingDialogBoxComponent } from './thanking-dialog-box/thanking-dialo
 
 
     MypasswordComponent,
+
+
+    UserLandingPageComponent,
 
   ],
   imports: [
@@ -88,7 +94,11 @@ import { ThankingDialogBoxComponent } from './thanking-dialog-box/thanking-dialo
     RouterModule,
     NgbModule,
     MatDialogModule,
-    MatTooltipModule
+    MatTooltipModule,
+    ScrollingModule,
+   // MatSidenav,
+    //MatSidenavContainer,
+    MatSidenavModule
 
   ],
   providers: [MyprofileComponent,DialogComponent],
@@ -102,3 +112,4 @@ import { ThankingDialogBoxComponent } from './thanking-dialog-box/thanking-dialo
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
