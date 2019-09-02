@@ -100,8 +100,6 @@ import { SupportPageComponent } from './support-page/support-page.component';
     NgbModule,
     MatDialogModule,
     MatTooltipModule,
-   // MatSidenav,
-    //MatSidenavContainer,
     MatSidenavModule
 
   ],

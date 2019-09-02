@@ -1,33 +1,13 @@
-// // .spacer {
-// //     -webkit-box-flex: 1;
-// //     -ms-flex: 1 1 auto;
-// //     flex:1 1 auto;
-// //     height: 1cm;
+.spacer {
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 auto;
+    flex:1 1 auto;
+    height: 1cm;
 
    
 
-// // }
-// // mat-toolbar
-// // {
-// //     bottom:0;
-// //     position: fixed;
-// //     width:100%;
-// //     left:0;
-// //     height: 1cm;
-// //     background-color:black;
-
-// // }
-// // h3{
-// //     color: white;
-// // }
-
-// .footer
-// {
-//    bottom: 0%;
-//    background-color:black;
-//    height: 2cm;
-// }
-// .mat-icon
+}
+// mat-toolbar
 // {
 //   /* padding-left: 10px;  */
 //   width: 30px;
@@ -48,12 +28,16 @@
 //    margin-top: -15px;
 //    font-family: 'Zhi Mang Xing', cursive;
 // }
-// .copyright
-// {
-//    float: right;
-//    margin-top: -20px;
-// }
-.body
+
+.footer
+{
+   bottom: 0;
+   background-color:black;
+   height: 1.5cm;
+   position:fixed;
+   width:100%;
+}
+.mat-icon
 {
     bottom: 0%;
     width: 100%;
@@ -68,7 +52,7 @@ footer {
 }
 .link{
    float: right;
-   position: relative;
+   margin-top:-0.5cm;
 }
 fa-facebook {
    background: #3B5998;
