@@ -39,9 +39,9 @@ public loginuser:LoginUser;
     return this.httpClient.get<boolean>('http://172.23.238.196:8081/authenticate?username='+user.username+'&password='+user.password);
     // return this.httpClient.get<boolean>(environment.loginBaseURI+'/authenticate/?username='+user.username+'&password='+user.password);
   }
-updateUser(id:String,user:User){
-  var url = "http://localhost:8095/user";
-  return this.httpClient.put<User>(url + "/" + user.id, user, httpOptions);
+updateUser(user:User,id:String):Observable<User>{
+  var url = "http://localhost:8095/user/105";
+  return this.httpClient.put<User>(url ,user, httpOptions);
 
 }
 forgotPassword(login:LoginUser,password:String){
@@ -51,7 +51,7 @@ forgotPassword(login:LoginUser,password:String){
 getUser():Observable<User>{
   var url = "http://localhost:8095/user";
  
-  return this.httpClient.get<User>(url + "/");
+  return this.httpClient.get<User>(url);
 
 }
 }
