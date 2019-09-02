@@ -5,6 +5,7 @@ import { UserRegistrationService } from '../user-registration.service';
 import { User } from '../modals/User';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { LoginUser } from '../modals/Login';
+import { Profile } from 'selenium-webdriver/firefox';
 
 export interface DialogData{
   email:String
@@ -17,11 +18,11 @@ export interface DialogData{
 })
 export class MyprofileComponent implements OnInit {
   
-  private name :String;
+ name :String;
   user:User;
-  email:String
-  public updatedEmail:String
-  user1:LoginUser
+  email:String;
+  
+  
   
   constructor(private registrationService: UserRegistrationService,private dialog: MatDialog) { }
 
@@ -33,7 +34,7 @@ export class MyprofileComponent implements OnInit {
   }
   updateUser(user:User){
     //console.log(user);
-    this.registrationService.updateUser(this.user.id,this.user).subscribe((data)=> {
+    this.registrationService.updateUser(user,user.id).subscribe((data)=> {
        this.user = data;
       console.log("result is ", data);
       this.registrationService.getUser().subscribe((data) => {
@@ -72,6 +73,7 @@ export class MyprofileComponent implements OnInit {
   
   user:User;
   email:string;
+  name:string;
 
   constructor(
     public dialogRef: MatDialogRef<DialogComponent>,

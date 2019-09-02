@@ -28,11 +28,11 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-<<<<<<< HEAD:userregistration/src/main/java/com/stackroute/userregistration/controller/UserController.java
+
     @Autowired
     private KafkaTemplate<String, User> kafkaTemplate;
-=======
->>>>>>> 7999bc8a5122f7ef3d7eb42ad75cc3b4410d02e1:user-registration-service/src/main/java/com/stackroute/userregistration/controller/UserController.java
+
+
 
     // Declaration and Intialization of topic name
     private static final String TOPIC = "UserRegistration";
@@ -41,8 +41,7 @@ public class UserController {
 
    User user=new User();
 
-    @Autowired
-    private KafkaTemplate<String, User> kafkaTemplate;
+
 
 
     //Constructor of the controller having the userservice parameter
