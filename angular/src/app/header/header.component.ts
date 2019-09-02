@@ -30,4 +30,13 @@ export class HeaderComponent implements OnInit {
     this.navbarOpen = !this.navbarOpen;
   }
 
+  about()
+  {
+    this.router.navigateByUrl('about');
+  }
+
+  support()
+  {
+    this.router.navigateByUrl('support');
+  }
 }
