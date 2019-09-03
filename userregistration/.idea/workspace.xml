@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b86e5376-c349-41fc-80bc-32d8fce2450f" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../login/src/main/java/com/stackroute/config/KafkaConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/../login/src/main/java/com/stackroute/config/KafkaConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../login/src/main/java/com/stackroute/listeners/KafkaConsumer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../login/src/main/java/com/stackroute/listeners/KafkaConsumer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../login/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../login/src/main/resources/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/stackroute/userregistration/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stackroute/userregistration/controller/UserController.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -27,10 +31,10 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.UserServiceTest">
+  <component name="RunManager" selected="Application.UserRegistrationApplication">
     <configuration name="UserRegistrationApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.stackroute.userregistration.UserRegistrationApplication" />
-      <module name="userregistration" />
+      <module name="user-registration-service" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.stackroute.userregistration.*" />
@@ -88,10 +92,10 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.UserRegistrationApplication" />
         <item itemvalue="JUnit.UserServiceTest" />
         <item itemvalue="JUnit.UserRepositoryTest" />
         <item itemvalue="JUnit.UserControllerTest" />
-        <item itemvalue="Application.UserRegistrationApplication" />
       </list>
     </recent_temporary>
   </component>

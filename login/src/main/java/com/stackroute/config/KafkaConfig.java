@@ -24,9 +24,6 @@ import java.util.Map;
 public class KafkaConfig {
 
     @Bean
-
-
-
     public ConsumerFactory<String, DAOUser> consumerFactory() {
 
         Map<String, Object> config = new HashMap<>();
