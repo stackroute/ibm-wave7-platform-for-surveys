@@ -43,6 +43,8 @@
     </div>
     <button mat-raised-button type="submit" color="primary" (click)=addQuestion()>Add Question</button>
     <button mat-raised-button type="submit" color="primary"> Save Survey</button>
+    <button mat-raised-button type="submit" color="primary" (click)=publish()> Publish</button>
+
   
   <div fxFlex="77%">
     <mat-card *ngFor="let question of questionList">
@@ -73,6 +75,7 @@
         <ng-template [ngIf]="condition">
           <button mat-raised-button type="submit" color="primary">Add Question</button>
           <button mat-raised-button type="submit" color="primary"> Save Survey</button>
+
         </ng-template>
       </form>
     </mat-card>

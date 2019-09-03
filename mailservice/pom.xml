@@ -4,12 +4,12 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.stackroute</groupId>
-	<artifactId>NotifyService</artifactId>
+	<artifactId>MailService</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>MailApi</name>
-	<description>Demo project for Spring Boot</description>
+	<name>MailService</name>
+	<description>Spring Boot App to send a mail</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
