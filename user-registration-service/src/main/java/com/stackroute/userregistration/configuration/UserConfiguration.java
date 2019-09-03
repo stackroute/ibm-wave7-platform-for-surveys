@@ -22,7 +22,7 @@ public class UserConfiguration
     public ProducerFactory<String, User> producerFactory() {
         Map<String, Object> config = new HashMap<>();
         // sending records in JSON format (value)
-        config.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, "172.23.238.200:9092");
+        config.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, "localhost:9092");
         config.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
         config.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, JsonSerializer.class);
         return new DefaultKafkaProducerFactory<>(config);

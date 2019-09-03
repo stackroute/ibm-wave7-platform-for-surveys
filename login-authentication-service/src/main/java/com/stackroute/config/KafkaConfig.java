@@ -4,6 +4,7 @@ import com.stackroute.dao.UserDao;
 import com.stackroute.model.DAOUser;
 import com.stackroute.model.UserDTO;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
+
 import org.apache.kafka.common.serialization.StringDeserializer;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.context.annotation.Bean;

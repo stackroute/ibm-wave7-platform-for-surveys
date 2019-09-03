@@ -50,7 +50,6 @@ private static final String TOPIC = "UserRegistration";
         User savedUser = userService.saveUser(user);
         this.kafkaTemplate.send(TOPIC, savedUser);
         return new ResponseEntity<User>(savedUser, HttpStatus.CREATED);
-
     }
 
 

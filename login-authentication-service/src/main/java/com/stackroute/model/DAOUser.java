@@ -18,7 +18,7 @@ public class DAOUser {
 
 	@Column
 	@JsonProperty("id")
-	private int sign_id;
+	private long sign_id;
 	@Column
 	@JsonProperty("name")
 	private String username;
@@ -53,7 +53,7 @@ public class DAOUser {
 	public void setRole(String role) {
 		this.role = role;
 	}
-	public int getSign_id() {
+	public long getSign_id() {
 		return sign_id;
 	}
 

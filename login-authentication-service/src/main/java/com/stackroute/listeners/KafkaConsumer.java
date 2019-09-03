@@ -25,6 +25,7 @@ public class KafkaConsumer {
     @KafkaListener(topics = "UserRegistration", groupId = "group_id")
     public void consume(String daoUser) throws IOException {
        DAOUser obj = new ObjectMapper().readValue(daoUser, DAOUser.class);
+        System.out.printf(daoUser);
         obj.setPassword(bcryptEncoder.encode(obj.getPassword()));
         userDao.save(obj);
     }
