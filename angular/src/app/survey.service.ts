@@ -19,6 +19,10 @@ export class SurveyService {
 
   constructor(private httpclient : HttpClient) { }
 
+  sendMail(url)
+  {
+    return this.httpclient.post("http://localhost:8070/send-mail?url="+ url,url);
+  }
 
   createSurvey(survey: Survey): Observable<Survey> {
     //creating a Guid Id
