@@ -4,16 +4,14 @@
     </mat-card-header>
     <mat-card-content>
       <div class="example-container">
-        <!-- <mat-form-field>
-          <input matInput placeholder="enter username" type="text" >
-        </mat-form-field> -->
+        
         <mat-form-field>
-          <input type="text" matInput placeholder="enter email" >
+          <input matInput type="text" placeholder="enter email" [(ngModel)]="data.email" >
         </mat-form-field>
       </div>
     </mat-card-content>
     <mat-card-actions>
-      <button mat-raised-button color="primary" [mat-dialog-close]="data" cdkFocusInitial (click)=saveUser(user)>Save</button>
+      <button mat-raised-button color="primary" [mat-dialog-close]="data" cdkFocusInitial>Save</button>
       <!-- <button mat-raised-button (click)="onNoClick()" color="primary">Sign-up</button> -->
       <button mat-raised-button (click)="onNoClick()" color="primary">Cancel</button>
     </mat-card-actions>

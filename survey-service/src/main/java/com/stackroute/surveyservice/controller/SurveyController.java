@@ -22,11 +22,8 @@ public class SurveyController {
 
     // Declaration and Intialization of topic name
     private static final String TOPIC = "KafkaExample";
-
     Survey survey = new Survey();
-
     private KafkaTemplate<String, Survey> kafkaTemplate;
-
 
     @Autowired
     public SurveyController(SurveyService surveyService) {

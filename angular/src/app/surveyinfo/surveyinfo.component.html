@@ -1,9 +1,9 @@
 
 <div class="sur">
 <ul *ngFor="let res of result">
-<div *ngIf="res.question_id=='1'">
-     <ul *ngFor="let question of res.questions;let i = index">
-     <h3>{{i+1}}) {{question.questiontag}}</h3>
+<div *ngIf="res.surveyId=='1'">
+     <ul *ngFor="let question of res.questions">
+     <h3>{{question.question_id}}) {{question.questiontag}}</h3>
      <ul *ngFor="let choice of question.choices">
             <h3><input type="radio">{{choice}}</h3>
           </ul>

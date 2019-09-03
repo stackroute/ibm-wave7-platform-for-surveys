@@ -12,11 +12,72 @@
 }
 .btn
 {
- float:right;
-//  margin-right:2cm;
-//  margin-bottom:3cm;
+ margin-right:90vh;
+ margin-top:0.8cm;
+ display: block;
+ margin-left:auto;
+ margin-right:auto;  
+
 }
 
-section{
-    background-color: black;
+.flex-container{
+    background-color:grey;
+    width:100%;
+    height:3cm;
+    left:0cm;
+    display: block;
+    margin-left:auto;
+    margin-right:auto;  
 }
+.a{ 
+    margin-left:auto;
+    margin-right:auto;
+    margin-top:0.3cm;
+    margin-bottom:auto;
+    padding-left: 3cm;
+    padding-right:3cm;
+    padding-top:2cm;
+    width:50%;
+    height:300vh;
+    background: linear-gradient(to bottom, #ffffff 1%, #ffff66 100%);
+
+}
+h2{
+    margin-top:1.7cm;
+    color: white;
+    text-align: center;
+    display: block;
+    margin-left:auto;
+    margin-right:auto;  
+
+}
+p{
+    text-align: center;
+
+}
+h3{
+    text-align: center;
+
+}
+li{
+    text-align: left;
+}
+::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #888; 
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+  }

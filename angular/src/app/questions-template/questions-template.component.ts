@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { SurveyService } from '../survey.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Question } from '../modals/Question';
 import { Survey } from '../modals/Survey';
-import { MatInput } from '@angular/material';
+import { HttpClient } from '@angular/common/http';
+import{Location} from '@angular/common';
 
 
 @Component({
@@ -21,12 +22,19 @@ export class QuestionsTemplateComponent implements OnInit {
   private survey:Survey;
   private questionList:Question[];
 
-  constructor(private surveyService:SurveyService,private route:ActivatedRoute) { }
+  constructor(private surveyService:SurveyService,private location:Location,private route:ActivatedRoute,private http:HttpClient,private router:Router) { }
 
   ngOnInit() {
     this.getQuestionList();
-  }
+  this.url=this.location.path();
 
+
+  }
+  url;
+  publish()
+  {
+   this.surveyService.sendMail(this.url).subscribe();
+  }
   addQuestion()
   {
     // this.condition = true;
