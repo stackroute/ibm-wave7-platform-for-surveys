@@ -4,7 +4,6 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Question } from '../modals/Question';
 import { Survey } from '../modals/Survey';
 import { HttpClient } from '@angular/common/http';
-import{Location} from '@angular/common';
 
 
 @Component({
@@ -22,11 +21,11 @@ export class QuestionsTemplateComponent implements OnInit {
   private survey:Survey;
   private questionList:Question[];
 
-  constructor(private surveyService:SurveyService,private location:Location,private route:ActivatedRoute,private http:HttpClient,private router:Router) { }
+  constructor(private surveyService:SurveyService) { }
 
   ngOnInit() {
     this.getQuestionList();
-  this.url=this.location.path();
+  this.url=window.location.href;
 
 
   }

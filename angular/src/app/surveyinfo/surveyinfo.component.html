@@ -3,9 +3,11 @@
 <ul *ngFor="let res of result">
 <div *ngIf="res.surveyId=='1'">
      <ul *ngFor="let question of res.questions">
-     <h3>{{question.question_id}}) {{question.questiontag}}</h3>
+     {{question.question_id}}) {{question.questiontag}}
      <ul *ngFor="let choice of question.choices">
-            <h3><input type="radio">{{choice}}</h3>
+            <form action="">
+                   <input type="radio">{{choice}}
+          </form>
           </ul>
      </ul>
      
