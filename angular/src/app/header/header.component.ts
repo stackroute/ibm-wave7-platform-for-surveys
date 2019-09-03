@@ -24,5 +24,19 @@ export class HeaderComponent implements OnInit {
     this.router.navigateByUrl('login');
   }
 
+  navbarOpen = false;
 
+  toggleNavbar() {
+    this.navbarOpen = !this.navbarOpen;
+  }
+
+  about()
+  {
+    this.router.navigateByUrl('about');
+  }
+
+  support()
+  {
+    this.router.navigateByUrl('support');
+  }
 }

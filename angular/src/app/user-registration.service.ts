@@ -8,8 +8,8 @@ import { Guid } from "guid-typescript";
 
 const httpOptions = {
   headers: new HttpHeaders({
-    "Content-Type": "application/json",
-    Authorization: "my-auth-token"
+    'Content-Type': "application/json",
+    'Authorization': "my-auth-token"
   })
 };
 @Injectable({
@@ -39,13 +39,19 @@ public loginuser:LoginUser;
     return this.httpClient.get<boolean>('http://172.23.238.196:8081/authenticate?username='+user.username+'&password='+user.password);
     // return this.httpClient.get<boolean>(environment.loginBaseURI+'/authenticate/?username='+user.username+'&password='+user.password);
   }
-updateUser(id:String,user:User){
-  var url = "http://localhost:8095/user";
-  return this.httpClient.put<User>(url + "/" + user.id, user, httpOptions);
+updateUser(user:User,id:String):Observable<User>{
+  var url = "http://localhost:8095/user/105";
+  return this.httpClient.put<User>(url ,user, httpOptions);
 
 }
 forgotPassword(login:LoginUser,password:String){
   var apiUrl = "http://localhost:8080/authenticate";
   return this.httpClient.put(apiUrl + "/" + login.password,httpOptions);
+}
+getUser():Observable<User>{
+  var url = "http://localhost:8095/user";
+ 
+  return this.httpClient.get<User>(url);
+
 }
 }

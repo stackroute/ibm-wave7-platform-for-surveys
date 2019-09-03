@@ -5,8 +5,11 @@ import { UserRegistrationService } from '../user-registration.service';
 import { User } from '../modals/User';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { LoginUser } from '../modals/Login';
+import { Profile } from 'selenium-webdriver/firefox';
 
-
+export interface DialogData{
+  email:String
+}
 
 @Component({
   selector: 'app-myprofile',
@@ -14,59 +17,70 @@ import { LoginUser } from '../modals/Login';
   styleUrls: ['./myprofile.component.scss']
 })
 export class MyprofileComponent implements OnInit {
-  public updateUser: User;
-  private name :String;
+  
+ name :String;
   user:User;
-  public updatedEmail:String
-  user1:LoginUser
+  email:String;
+  
+  
   
   constructor(private registrationService: UserRegistrationService,private dialog: MatDialog) { }
 
   ngOnInit() {
+    this.registrationService.getUser().subscribe((data) =>{
+      this.user=data;
+      console.log(this.user);
+    })
   }
+  updateUser(user:User){
+    //console.log(user);
+    this.registrationService.updateUser(user,user.id).subscribe((data)=> {
+       this.user = data;
+      console.log("result is ", data);
+      this.registrationService.getUser().subscribe((data) => {
+        this.user=data;})
+    });
+}
+  data;
   openDialog(user:User) {
-    this.updateUser = user
     const dialogRef = this.dialog.open(DialogComponent,
       {
         width : '250px',
         data : {}
       });
     dialogRef.afterClosed().subscribe(result => {
-      this.updatedEmail = result;
-      console.log('Dialog result: ${result}');
-      console.log('updated email:' , this.updatedEmail);
-      this.updateUser;
+      this.data=result;
+      console.log(result);
+      this.updateUser(result);
     });
   }
   
-  onclick(){
-    //console.log(user);
-    this.registrationService.updateUser(this.updateUser.id,this.updateUser).subscribe((data)=> {
-       this.user = data;
-      console.log("result is ", data);
-    });
-}
+  
+// saveUser(user: User) {
+//   console.log(user);
+//   this.registrationService.saveUser(user).subscribe((data)=> {
+//       this.user = data;
+//     console.log("result is ", user);
+//   });
+// }
 
-
-}
+ }
 @Component({
   selector: 'app-dialogComponent',
   templateUrl: 'dialogComponent.html',
  })
  export class DialogComponent {
   
+  user:User;
+  email:string;
+  name:string;
+
   constructor(
     public dialogRef: MatDialogRef<DialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: User,private registrationService: UserRegistrationService) {}
     onNoClick(): void {
       this.dialogRef.close();
     }
-    user:LoginUser
-    saveUser(user: User) {
-      console.log(user);
-      this.registrationService.saveUser(user).subscribe((data)=> {
-        //  this.user = data;
-        console.log("result is ", user);
-      });
-    }
+  
+    
  }

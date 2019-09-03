@@ -10,25 +10,48 @@
     flex-wrap: wrap;
     justify-content:space-around;
 }
-section{
-    background-color: black;
+.btn
+{
+ margin-right:90vh;
+ margin-top:0.8cm;
+ display: block;
+ margin-left:auto;
+ margin-right:auto;  
+
 }
-.btn{
-    margin-right:5cm;
-    width:20%;
-    margin: auto;
-    text-align: center;
-    float: right;
-}
+
 .flex-container{
     background-color:grey;
+    width:100%;
     height:3cm;
+    left:0cm;
+    display: block;
+    margin-left:auto;
+    margin-right:auto;  
 }
-h1{
+.a{ 
+    margin-left:auto;
+    margin-right:auto;
+    margin-top:1cm;
+    margin-bottom:auto;
+    padding:5cm;
+    width:50%;
+    height:300vh;
+    background: linear-gradient(to bottom, #ffffff 1%, #ffff66 100%);
+
+}
+h2{
     margin-top:1.7cm;
+    color: white;
+    text-align: center;
+    display: block;
+    margin-left:auto;
+    margin-right:auto;  
+
+}
+p{
     text-align: center;
 }
-.a{
-    background-color: lightgrey;
-
+h3{
+    text-align: center;
 }

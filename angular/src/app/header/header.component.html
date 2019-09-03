@@ -1,10 +1,19 @@
 <header>
-    <mat-toolbar fxLayout.xs="column" >
-      <mat-toolbar-row>
-        <a routerLink="">
-          <span fxFlex="10%" class="header" >SURVEY</span></a>
-          <span class="spacer"></span>
-          <button *ngIf= "!globalvariable && url" fxFlex="10%" (click)="login()" mat-button >Login</button>
-        </mat-toolbar-row>
-    </mat-toolbar>
-  </header>
+  <mat-toolbar fxLayout.xs="column">
+    <mat-toolbar-row>
+      <!-- <a routerLink="">
+        <span fxFlex="10%" class="header">SURVEY</span></a> -->
+        <img alt="muzix Logo" src="assets/pictures/pollurvey.png">
+      <span class="spacer"></span>
+      <button fxFlex="10%" mat-button [matMenuTriggerFor]="menu">Company</button>
+      <!-- <button mat-button [matMenuTriggerFor]="menu">Menu</button> -->
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item (click) = "about()">About Us</button>
+        <button mat-menu-item (click)="support()">Support</button>
+      </mat-menu>
+      <button *ngIf="!globalvariable && url" fxFlex="10%" (click)="login()" mat-button>Login</button>
+
+
+    </mat-toolbar-row>
+  </mat-toolbar>
+</header>

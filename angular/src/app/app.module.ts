@@ -9,7 +9,7 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import { MatCardModule } from '@angular/material/card';
 import { HttpClientModule } from '@angular/common/http';
 import {MatRadioModule} from '@angular/material/radio';
-import { MatInputModule,MatListModule} from '@angular/material';
+import { MatInputModule,MatListModule, MatSidenav, MatSidenavContainer, MatSidenavModule} from '@angular/material';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatSelectModule } from '@angular/material/select';
@@ -37,9 +37,13 @@ import { MypasswordComponent } from './mypassword/mypassword.component';
 
 import {MatTabsModule} from '@angular/material/tabs';
 import {ConstantsService} from './constants.service';
+
+import { PublishedviewComponent } from './publishedview/publishedview.component';
 import { DialogContentComponent } from './dialog-content/dialog-content.component';
 import { ThankingDialogBoxComponent } from './thanking-dialog-box/thanking-dialog-box.component';
+import { AboutUsComponent } from './about-us/about-us.component';
 import { UserLandingPageComponent } from './user-landing-page/user-landing-page.component';
+import { SupportPageComponent } from './support-page/support-page.component';
 
 
 @NgModule({
@@ -64,7 +68,10 @@ import { UserLandingPageComponent } from './user-landing-page/user-landing-page.
     MypasswordComponent,
 
 
+    PublishedviewComponent,
+    AboutUsComponent,
     UserLandingPageComponent,
+    SupportPageComponent,
 
   ],
   imports: [
@@ -92,7 +99,8 @@ import { UserLandingPageComponent } from './user-landing-page/user-landing-page.
     RouterModule,
     NgbModule,
     MatDialogModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatSidenavModule
 
   ],
   providers: [MyprofileComponent,DialogComponent],
@@ -106,3 +114,4 @@ import { UserLandingPageComponent } from './user-landing-page/user-landing-page.
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
