@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.stackroute</groupId>
-	<artifactId>user-response</artifactId>
+	<artifactId>user-response-service</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>user-response</name>
 	<description>User-response service</description>
