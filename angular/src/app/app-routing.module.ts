@@ -14,6 +14,8 @@ import { ThankingDialogBoxComponent } from './thanking-dialog-box/thanking-dialo
 import { MyprofileComponent } from './myprofile/myprofile.component';
 
 import { UserLandingPageComponent } from './user-landing-page/user-landing-page.component';
+import { AboutUsComponent } from './about-us/about-us.component';
+import { SupportPageComponent } from './support-page/support-page.component';
 
 
 const routes: Routes = [
@@ -24,7 +26,7 @@ const routes: Routes = [
     path:'survey',component:MySurveyCardComponent
   },
   {
-    path:'surveyinfo',component:SurveyinfoComponent
+    path:'publishview/surveyinfo',component:SurveyinfoComponent
   },
 
   // {
@@ -64,7 +66,14 @@ const routes: Routes = [
   {
     path:'myprofile',
     component:MyprofileComponent
+  },
+  {
+    path:'about', component: AboutUsComponent
+  },
+  {
+    path:'support', component: SupportPageComponent
   }
+
 ];
 
 @NgModule({

@@ -1,0 +1,92 @@
+
+
+{ 
+"data":
+[
+{
+
+	"surveyId":"1",
+	"questions":
+	[
+	{
+	"question_id": "1",
+	"questiontag" : "what is your name?",
+	"choices" : ["abc","def"]
+	},
+	{
+	"question_id": "2",
+	"questiontag" : "what pet do u have?",
+	"choices" : ["dog","cat"]
+	},
+	{
+	"question_id": "3",
+	"questiontag" : "from where do u belong?",
+	"choices" : ["India","Outside India"]
+	},
+	{
+	"question_id": "4",
+	"questiontag" : "what is your name?",
+	"choices" : ["abc","def"]
+	},
+	{
+	"question_id": "5",
+	"questiontag" : "what pet do u have?",
+	"choices" : ["dog","cat"]
+	},
+	{
+	"question_id": "6",
+	"questiontag" : "from where do u belong?",
+	"choices" : ["India","Outside India"]
+	},
+	{
+	"question_id": "7",
+	"questiontag" : "what is your name?",
+	"choices" : ["abc","def"]
+	},
+	{
+	"question_id": "8",
+	"questiontag" : "what pet do u have?",
+	"choices" : ["dog","cat"]
+	},
+	{
+	"question_id": "9",
+	"questiontag" : "from where do u belong?",
+	"choices" : ["India","Outside India"]
+	},
+	{
+	"question_id": "10",
+	"questiontag" : "from where do u belong?",
+	"choices" : ["India","Outside India"]
+	}
+
+	]
+	
+	
+},
+{
+
+	"surveyId" : "2",
+	"questions":
+	[
+	{
+	"question_id": "1",
+	"questiontag" : "what is your name?",
+	"choices" : ["ghi","jkl"]
+	}
+	]
+},
+{
+
+	"surveyId" : "3",
+	"questions":
+	[
+	{
+	"question_id": "1",
+	"questiontag": "what is your name?",
+	"choices" : ["mno","pqr"]
+	}
+	]
+}
+]
+
+}

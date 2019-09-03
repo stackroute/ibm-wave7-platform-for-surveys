@@ -43,6 +43,7 @@ import { DialogContentComponent } from './dialog-content/dialog-content.componen
 import { ThankingDialogBoxComponent } from './thanking-dialog-box/thanking-dialog-box.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { UserLandingPageComponent } from './user-landing-page/user-landing-page.component';
+import { SupportPageComponent } from './support-page/support-page.component';
 
 
 @NgModule({
@@ -70,6 +71,7 @@ import { UserLandingPageComponent } from './user-landing-page/user-landing-page.
     PublishedviewComponent,
     AboutUsComponent,
     UserLandingPageComponent,
+    SupportPageComponent,
 
   ],
   imports: [

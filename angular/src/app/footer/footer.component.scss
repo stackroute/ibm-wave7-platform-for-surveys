@@ -9,16 +9,24 @@
 }
 // mat-toolbar
 // {
-//     bottom:0;
-//     position: fixed;
-//     width:100%;
-//     left:0;
-//     height: 1cm;
-//     background-color:black;
-
+//   /* padding-left: 10px;  */
+//   width: 30px;
+//   font-size: 30px;
+//   float: left;
+//   margin-top: -20px;
+//   color: aliceblue;
+//   /* margin-top: 0.3cm; */
+// }
+// p{
+//    color: aliceblue;
+//    /* margin-left: -3px; */
+//    font-family: 'Zhi Mang Xing', cursive;
 // }
 // h3{
-//     color: white;
+//    color: aliceblue;
+//    text-align: center;
+//    margin-top: -15px;
+//    font-family: 'Zhi Mang Xing', cursive;
 // }
 
 .footer
@@ -31,27 +39,47 @@
 }
 .mat-icon
 {
-  /* padding-left: 10px;  */
-  width: 30px;
-  font-size: 30px;
-  float: left;
-  margin-top: -20px;
-  color: aliceblue;
-  /* margin-top: 0.3cm; */
+    bottom: 0%;
+    width: 100%;
+    position: fixed;
 }
-p{
-   color: aliceblue;
-   /* margin-left: -3px; */
-   font-family: 'Zhi Mang Xing', cursive;
+footer {
+   position: fixed;
+   bottom: 0;
+   width:100%;
+   
+   /* margin-top:5%;  */
 }
-h3{
-   color: aliceblue;
-   text-align: center;
-   margin-top: -15px;
-   font-family: 'Zhi Mang Xing', cursive;
-}
-.copyright
-{
+.link{
    float: right;
    margin-top:-0.5cm;
 }
+fa-facebook {
+   background: #3B5998;
+   color: white;
+   
+ }
+ .fa-twitter {
+   background: #55ACEE;
+   color: white;
+ }
+ .fa-google {
+   background: #dd4b39;
+   color: white;
+ }
+ .fa-linkedin {
+   background: #007bb5;
+   color: white;
+ }
+ .fa-youtube {
+   background: #bb0000;
+   color: white;
+ }
+ .fa-instagram {
+   background: #125688;
+   color: white;
+ }
+ .fa-pinterest {
+   background: #cb2027;
+   color: white;
+ }
