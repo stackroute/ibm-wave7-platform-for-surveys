@@ -29,6 +29,9 @@ export class HeaderComponent implements OnInit {
   toggleNavbar() {
     this.navbarOpen = !this.navbarOpen;
   }
+  myprofile(){
+    this.router.navigateByUrl('myprofile')
+  }
 
   about()
   {
