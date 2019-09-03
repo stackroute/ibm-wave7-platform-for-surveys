@@ -33,4 +33,13 @@ export class HeaderComponent implements OnInit {
     this.router.navigateByUrl('myprofile')
   }
 
+  about()
+  {
+    this.router.navigateByUrl('about');
+  }
+
+  support()
+  {
+    this.router.navigateByUrl('support');
+  }
 }
