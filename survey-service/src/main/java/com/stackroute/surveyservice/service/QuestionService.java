@@ -11,7 +11,7 @@ public interface QuestionService {
     Question editQuestion(Question question) throws QuestionDoesNotExistsException;
     Question removeQuestion(String questionId) throws QuestionDoesNotExistsException;
     List<Question> getAllQuestions();
-    void removeQuestionFromSurvey(Question question,String surveyId);
+    void removeQuestionFromSurvey(Question question,String surveyId)throws QuestionDoesNotExistsException;;
     Question addQuestion(Question question) throws QuestionAlreadyExistsException;
 
 }
