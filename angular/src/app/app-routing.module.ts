@@ -16,6 +16,7 @@ import { MyprofileComponent } from './myprofile/myprofile.component';
 import { UserLandingPageComponent } from './user-landing-page/user-landing-page.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { SupportPageComponent } from './support-page/support-page.component';
+import { QuestionsComponent } from './questions/questions.component';
 
 
 const routes: Routes = [
@@ -26,7 +27,7 @@ const routes: Routes = [
     path:'survey',component:MySurveyCardComponent
   },
   {
-    path:'publishview/surveyinfo',component:SurveyinfoComponent
+    path:'surveyinfo',component:SurveyinfoComponent
   },
 
   // {
@@ -72,6 +73,9 @@ const routes: Routes = [
   },
   {
     path:'support', component: SupportPageComponent
+  },
+  {
+    path:'questions', component: QuestionsComponent
   }
 
 ];

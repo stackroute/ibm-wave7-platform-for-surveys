@@ -2,6 +2,7 @@ package com.stackroute.surveyservice.service;
 
 import com.stackroute.surveyservice.domain.Survey;
 import com.stackroute.surveyservice.repository.SurveyRepository;
+import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -30,22 +31,25 @@ public class SurveyServiceTest {
     public void setUp(){
         MockitoAnnotations.initMocks(this);
         survey=new Survey();
-        //survey.setId(1);
-        survey.setName("spoorthi");
+        survey.setId("1");
+        survey.setName("Feedback");
         survey.setDescription("hiii");
         survey.setDomain_type("Education");
         list=new ArrayList<>();
         list.add(survey);
     }
-//    @Test
-//    public void saveSurveyTest() throws Exception {
-//        when(surveyRepository.save((Survey) any())).thenReturn(survey);
-//        Survey savedSurvey=surveyService.saveSurvey(survey, surveyorId);
-//        assertEquals(survey,savedSurvey);
-//        verify(surveyRepository,times(1)).save(survey);
-//    }
+    @After
+    public void tearDown() throws Exception {
+    }
     @Test
-    public void getAllTracks(){
+    public void saveSurveyTest() throws Exception {
+        when(surveyRepository.save((Survey) any())).thenReturn(survey);
+        Survey savedSurvey=surveyService.saveSurvey(survey,"1");
+        assertEquals(survey,savedSurvey);
+        verify(surveyRepository,times(1)).save(survey);
+    }
+    @Test
+    public void getAllSurveys(){
         surveyRepository.save(survey);
         when(surveyRepository.getAllSurveys()).thenReturn(list);
         Collection<Survey> trackList=surveyService.getAllSurveys();
@@ -53,11 +57,19 @@ public class SurveyServiceTest {
     }
 
     @Test
-    public void updateTrack() throws Exception {
+    public void updateSurvey() throws Exception {
         when(surveyRepository.save(any())).thenReturn(survey);
         Survey savedTrack=surveyService.updateSurvey(survey);
         assertEquals(survey,savedTrack);
         verify(surveyRepository,times(1)).save(survey);
 
+    }
+
+    @Test
+    public void getSurveyById() {
+        when(surveyRepository.save((Survey) any())).thenReturn(survey);
+        Survey savedSurvey=surveyService.getSurveyById("1");
+        assertEquals(savedSurvey,survey);
+        verify(surveyRepository,times(1)).save(survey);
     }
 }

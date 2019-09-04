@@ -7,7 +7,6 @@ import com.stackroute.surveyservice.repository.SurveyorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -32,22 +31,21 @@ public class SurveyorServiceImpl implements SurveyorService {
 
     @Override
     public Surveyor editSurveyor(Surveyor surveyor)  throws SurveyorDoesNotExistsException {
-        Optional<Surveyor> existingQuestion = surveyorRepository.findById(surveyor.getId());
 
         Surveyor updatedSurveyor = null;
-
-        if (existingQuestion.isPresent()) {
-
+        System.out.println(surveyorRepository.findById(surveyor.getId()).isPresent());
+        if(surveyorRepository.findById(surveyor.getId()).isPresent()) {
             updatedSurveyor = surveyorRepository.save(surveyor);
+
         }
 
         return updatedSurveyor;
     }
 
     @Override
-    public Surveyor removeSurveyor(String surveyorId) throws SurveyorDoesNotExistsException {
+    public void removeSurveyor(String surveyorId) throws SurveyorDoesNotExistsException {
+
         surveyorRepository.deleteById(surveyorId);
-        return null;
     }
 
 

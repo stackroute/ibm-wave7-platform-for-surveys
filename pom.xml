@@ -25,9 +25,8 @@
 		<module>config-server</module>
 		<module>eureka-server</module>
 		<module>zuul-api</module>
-		<module>user-response</module>
-
-		<module>login</module>
+		<module>user-response-service</module>
+		<module>login-authentication-service</module>
 		<module>user-registration-service</module>
 	</modules>
 	<dependencies>
@@ -36,6 +35,21 @@
 			<artifactId>javassist</artifactId>
 			<version>3.23.1-GA</version>
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/junit/junit -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.12</version>
+			<scope>test</scope>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.sonatype.http-testing-harness/junit-runner -->
+		<dependency>
+			<groupId>org.sonatype.http-testing-harness</groupId>
+			<artifactId>junit-runner</artifactId>
+			<version>0.11</version>
+			<scope>test</scope>
+		</dependency>
+
 		<dependency>
 			<groupId>javax.xml.bind</groupId>
 			<artifactId>jaxb-api</artifactId>
@@ -111,9 +125,9 @@
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-surefire-plugin</artifactId>
 				<version>2.22.0</version>
-				<configuration>
-					<argLine>${surefireArgLine}</argLine>
-				</configuration>
+<!--				<configuration>-->
+<!--					<argLine>${surefireArgLine}</argLine>-->
+<!--				</configuration>-->
 			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -126,7 +140,7 @@
 				<artifactId>maven-failsafe-plugin</artifactId>
 				<version>3.0.0-M2</version>
 				<configuration>
-					<argLine>${failsafeArgLine}</argLine>
+<!--					<argLine>${failsafeArgLine}</argLine>-->
 				</configuration>
 				<executions>
 					<execution>
@@ -136,6 +150,11 @@
 						</goals>
 					</execution>
 				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.sonarsource.scanner.maven</groupId>
+				<artifactId>sonar-maven-plugin</artifactId>
+				<version>3.6.0.1398</version>
 			</plugin>
 			<!--
             Code Coverage using Jacoco
@@ -233,16 +252,22 @@
 	</build>
 	<reporting>
 		<plugins>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-surefire-report-plugin</artifactId>
-				<version>2.22.0</version>
-			</plugin>
+<!--			<plugin>-->
+<!--				<groupId>org.apache.maven.plugins</groupId>-->
+<!--				<artifactId>maven-surefire-report-plugin</artifactId>-->
+<!--				<version>2.22.0</version>-->
+<!--			</plugin>-->
 			<plugin>
 				<groupId>com.github.spotbugs</groupId>
 				<artifactId>spotbugs-maven-plugin</artifactId>
 				<version>3.1.9</version>
 			</plugin>
-		</plugins>
+				<plugin>
+					<groupId>org.sonarsource.scanner.maven</groupId>
+					<artifactId>sonar-maven-plugin</artifactId>
+					<version>3.6.0.1398</version>
+				</plugin>
+			</plugins>
 	</reporting>
+
 </project>
