@@ -1,19 +1,21 @@
 .example-card
 {
     margin-top: 100px;
-    width:200px;
-    height:100%;
+    width:300px;
+    min-width: 200px;
+    height:60%;
 
 }
 .a{
     display: flex;
     flex-wrap: wrap;
     justify-content:space-around;
+    text-align: left;
 }
 .btn
 {
  margin-right:90vh;
- margin-top:0.8cm;
+//  margin-top:0.8cm;
  display: block;
  margin-left:auto;
  margin-right:auto;  
@@ -37,8 +39,7 @@
     padding-left: 3cm;
     padding-right:3cm;
     padding-top:2cm;
-    width:50%;
-    height:300vh;
+    height:100vh;
     background: linear-gradient(to bottom, #ffffff 1%, #ffff66 100%);
 
 }

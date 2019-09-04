@@ -18,16 +18,16 @@ mat-toolbar{
     flex: 1 1 auto;
   }
   #menu{
-      color: white;
+      color:white;
   }
   button{
-      color: white;
+      color:black;
   }
   a{
     text-decoration: none;
   }
   .mat-menu-item {
-    background-color: black;
+    background:white;
 
   }
   img
@@ -35,4 +35,10 @@ mat-toolbar{
     width:200px;
     height:55px;
     margin:  0%;
+}
+a{
+  text-decoration: none;
+}
+.main-button{
+  color:white;
 }

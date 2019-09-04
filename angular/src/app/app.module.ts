@@ -26,18 +26,14 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
 import { SurveyinfoComponent } from './surveyinfo/surveyinfo.component';
 import { MySurveyCardComponent,CreateSurveyDialogue } from './my-survey-card/my-survey-card.component';
 import {MatDialogModule} from '@angular/material/dialog';
-
 import { MyprofileComponent } from './myprofile/myprofile.component';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {DialogComponent} from './myprofile/myprofile.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-import { QuestionsTemplateComponent } from './questions-template/questions-template.component';
-
+import { QuestionsTemplateComponent, EditQuestionDialog } from './questions-template/questions-template.component';
 import { MypasswordComponent } from './mypassword/mypassword.component';
-
 import {MatTabsModule} from '@angular/material/tabs';
 import {ConstantsService} from './constants.service';
-
 import { PublishedviewComponent } from './publishedview/publishedview.component';
 import { DialogContentComponent } from './dialog-content/dialog-content.component';
 import { ThankingDialogBoxComponent } from './thanking-dialog-box/thanking-dialog-box.component';
@@ -64,17 +60,13 @@ import { QuestionsComponent } from './questions/questions.component';
     QuestionsTemplateComponent,
     DialogContentComponent,
     ThankingDialogBoxComponent,
-
-
     MypasswordComponent,
-
-
     PublishedviewComponent,
     AboutUsComponent,
     UserLandingPageComponent,
     SupportPageComponent,
     QuestionsComponent,
-
+    EditQuestionDialog
   ],
   imports: [
     MatRadioModule,
@@ -107,7 +99,7 @@ import { QuestionsComponent } from './questions/questions.component';
   ],
   providers: [MyprofileComponent,DialogComponent],
 
-  entryComponents : [MySurveyCardComponent, CreateSurveyDialogue,DialogComponent, DialogContentComponent],
+  entryComponents : [MySurveyCardComponent, CreateSurveyDialogue,DialogComponent, DialogContentComponent, QuestionsTemplateComponent, EditQuestionDialog],
 
 
 

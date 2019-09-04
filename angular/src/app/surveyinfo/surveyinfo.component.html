@@ -1,16 +1,7 @@
-
-<div class="sur">
-<ul *ngFor="let res of result">
-<div *ngIf="res.surveyId=='1'">
-     <ul *ngFor="let question of res.questions">
-     {{question.question_id}}) {{question.questiontag}}
-     <ul *ngFor="let choice of question.choices">
-            <form action="">
-                   <input type="radio">{{choice}}
-          </form>
-          </ul>
-     </ul>
-     
-</div>
-</ul>
-</div>
+<h3 class="main">Question template Preview</h3>
+<mat-card *ngFor="let question of questionList">
+     <h4>{{question.questionTag}}</h4>
+     <div *ngFor="let choice of question.choices">
+       <mat-radio-button class="choice-radio-button" value="{{choice}}">{{choice}}</mat-radio-button>
+     </div>
+   </mat-card>

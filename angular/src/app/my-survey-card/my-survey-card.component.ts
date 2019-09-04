@@ -20,6 +20,11 @@ export class MySurveyCardComponent implements OnInit {
     this.getSurveyList();
   }
 
+  preview(survey){
+    this.surveyService.surveyId = survey.id;
+    this.router.navigateByUrl('surveyinfo');
+  }
+
   getSurveyList()
   {
     this.surveyService.getAllSurveys().subscribe(
@@ -32,6 +37,11 @@ export class MySurveyCardComponent implements OnInit {
     let demo;
     this.surveyService.deleteSurvey(survey).subscribe(data=>demo=data);
   }
+  editQuestions(survey : Survey)
+ {
+    this.surveyService.surveyId = survey.id;
+    this.router.navigateByUrl('question-template');
+ }
 
   openDialog() {
     const dialogRef = this.dialog.open(CreateSurveyDialogue,

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SurveyService } from '../survey.service';
 
 @Component({
   selector: 'app-publishedview',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PublishedviewComponent implements OnInit {
 
-  constructor() { }
+  constructor(private surveyService : SurveyService) { }
+
+  private publishedURL : string;
 
   ngOnInit() {
+    this.publishedURL = this.surveyService.publishedURL;
   }
 
 }

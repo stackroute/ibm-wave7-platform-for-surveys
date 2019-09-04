@@ -14,7 +14,7 @@
             <textarea matInput placeholder="Question" [(ngModel)]="data.question.questionTag" name="questionTag"></textarea><br>
           </mat-form-field>
           <div *ngFor="let choice of data.question.choices">
-            <input matInput type="text" [(ngModel)]="choice" name="choice">
+            <mat-radio-button >{{choice}}</mat-radio-button>
           </div>
           <!-- <mat-form-field>
               <input  matInput placeholder="Choice" name="choices" #choiceText>

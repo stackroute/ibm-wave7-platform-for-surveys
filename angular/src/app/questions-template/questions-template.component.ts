@@ -1,11 +1,11 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { SurveyService } from '../survey.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Question } from '../modals/Question';
 import { Survey } from '../modals/Survey';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-
 import { HttpClient } from '@angular/common/http';
+import { Location } from '@angular/common';
 
 
 @Component({
@@ -23,18 +23,38 @@ export class QuestionsTemplateComponent implements OnInit {
   private survey: Survey;
   private questionList:Question[];
   private newchoices : string[] = [];
-
+  private url;
 
   constructor(private surveyService: SurveyService, private route: ActivatedRoute,
-    private dialog : MatDialog) { }
-
+    private dialog : MatDialog,private location:Location,private httpClient:HttpClient,private router:Router) { }
+   
+   
   ngOnInit() {
 
     this.getQuestionList(this.surveyService.surveyId);
+    this.url=window.location.href;
+  }
+  publish()
+  {
+    this.surveyService.sendMail(this.url).subscribe(
+      (data) =>{
+        console.log(data);
+      });
+      this.surveyService.publishedURL = this.url;
+        this.router.navigateByUrl('publishview')
   }
 
   addQuestion() {
     this.condition = true;
+  }
+
+  deleteQuestion(question : Question)
+  {
+   this.surveyService.deleteQuestion(question).subscribe(
+     (data) => {
+         console.log(data);
+         this.getQuestionList(this.surveyService.surveyId);
+     })
   }
 
   addChoice(choiceText : string) {

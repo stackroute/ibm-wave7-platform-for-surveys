@@ -53,7 +53,6 @@ const routes: Routes = [
     path:'signup',component:SignUpComponent
   },
   {
-
     path : 'publishview',
     component : PublishedviewComponent
   },
@@ -75,7 +74,7 @@ const routes: Routes = [
     path:'support', component: SupportPageComponent
   },
   {
-    path:'questions', component: QuestionsComponent
+    path:'publishview/questions', component: QuestionsComponent
   }
 
 ];
