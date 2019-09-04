@@ -27,7 +27,7 @@ const routes: Routes = [
     path:'survey',component:MySurveyCardComponent
   },
   {
-    path:'publishview/surveyinfo',component:SurveyinfoComponent
+    path:'surveyinfo',component:SurveyinfoComponent
   },
 
   // {

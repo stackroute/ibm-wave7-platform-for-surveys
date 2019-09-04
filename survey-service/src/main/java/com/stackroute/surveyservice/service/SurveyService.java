@@ -14,7 +14,7 @@ public interface SurveyService {
 
     public Collection<Survey> getAllSurveys();
 
-    public Survey updateSurvey(Survey survey) throws SurveyDoesNotExistsException;
+    public Survey updateSurvey(Survey survey);
 
     public Survey getSurveyById(String id);
 

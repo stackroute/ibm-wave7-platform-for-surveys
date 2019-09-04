@@ -36,7 +36,7 @@ public class UserServiceTest {
         MockitoAnnotations.initMocks(this);
         //Building the userservice
         mockMvc = MockMvcBuilders.standaloneSetup(userService).build();
-        user = new User("1","Sahithi","sahithi@gmail.com","pwd");
+        user = new User("1","Sahithi","sahithi@gmail.com","pwd","Surveyor");
     }
 
     @Test

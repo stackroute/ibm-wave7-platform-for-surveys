@@ -5,8 +5,8 @@
 export const environment = {
   production: false,
   baseURI : "http://localhost:8090/api/v1",
-  loginBaseURI : "http://172.23.238.196:8081",
-  signUpBaseURI : "http://172.23.238.196:8095"
+  loginBaseURI : "http://localhost:8081",
+  signUpBaseURI : "http://localhost:8095"
 };
 
 /*

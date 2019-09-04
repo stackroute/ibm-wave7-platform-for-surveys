@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="1837a211-f7eb-41c7-b243-5416369a1014" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/../angular/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../angular/package-lock.json" afterDir="false" />
+
       <change beforePath="$PROJECT_DIR$/../angular/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../angular/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../angular/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../angular/src/app/app-routing.module.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../angular/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../angular/src/app/app.module.ts" afterDir="false" />
@@ -14,6 +15,16 @@
       <change beforePath="$PROJECT_DIR$/../pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/../angular/src/app/user-registration.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../angular/src/app/user-registration.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../angular/src/environments/environment.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../angular/src/environments/environment.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../login-authentication-service/src/main/java/com/stackroute/config/KafkaConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/../login-authentication-service/src/main/java/com/stackroute/config/KafkaConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../login-authentication-service/src/main/java/com/stackroute/listeners/KafkaConsumer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../login-authentication-service/src/main/java/com/stackroute/listeners/KafkaConsumer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../login-authentication-service/src/main/java/com/stackroute/model/DAOUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/../login-authentication-service/src/main/java/com/stackroute/model/DAOUser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/stackroute/userregistration/configuration/UserConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stackroute/userregistration/configuration/UserConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/stackroute/userregistration/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stackroute/userregistration/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/stackroute/userregistration/domain/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stackroute/userregistration/domain/User.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -43,7 +54,7 @@
     <ConfirmationsSetting value="1" id="Add" />
   </component>
   <component name="PropertiesComponent">
-    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.last.edited" value="SDKs" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
   </component>
@@ -59,10 +70,10 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.UserRegistrationApplication">
-    <configuration name="UserRegistrationApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Application.UserRegistrationApplication (1)">
+    <configuration name="UserRegistrationApplication (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.stackroute.userregistration.UserRegistrationApplication" />
-      <module name="userregistration" />
+      <module name="user-registration-service" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.stackroute.userregistration.*" />
@@ -73,7 +84,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UserRegistrationApplicationTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="UserRegistrationApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.stackroute.userregistration.UserRegistrationApplication" />
       <module name="userregistration" />
       <extension name="coverage">
         <pattern>
@@ -81,9 +93,6 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.stackroute.userregistration" />
-      <option name="MAIN_CLASS_NAME" value="com.stackroute.userregistration.UserRegistrationApplicationTests" />
-      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -136,11 +145,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.UserRegistrationApplication (1)" />
         <item itemvalue="Application.UserRegistrationApplication" />
         <item itemvalue="JUnit.UserRepositoryTest" />
         <item itemvalue="JUnit.UserRepositoryTest.testSaveUser" />
         <item itemvalue="JUnit.UserServiceTest" />
-        <item itemvalue="JUnit.UserRegistrationApplicationTests" />
       </list>
     </recent_temporary>
   </component>

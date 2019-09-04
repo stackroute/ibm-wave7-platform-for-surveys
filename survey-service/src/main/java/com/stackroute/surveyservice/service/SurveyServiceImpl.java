@@ -51,22 +51,13 @@ public class SurveyServiceImpl implements SurveyService{
     }
 
     @Override
-    public Survey updateSurvey(Survey survey) throws SurveyDoesNotExistsException{
-
-        if (!surveyRepository.findById(survey.getId()).isPresent()) {
-          throw new SurveyDoesNotExistsException();
-        }
+    public Survey updateSurvey(Survey survey){
        return surveyRepository.save(survey);
     }
 
     @Override
     public Survey getSurveyById(String id) {
-        System.out.println(id);
         Survey survey= surveyRepository.getSurveyById(id);
-        if(survey==null)
-        {
-            System.out.println("survey is null");
-        }
         return survey;
     }
 

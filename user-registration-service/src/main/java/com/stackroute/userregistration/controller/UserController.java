@@ -28,14 +28,16 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @Autowired
-    private KafkaTemplate<String, User> kafkaTemplate;   // Declaration and Intialization of topic name
-    private static final String TOPIC = "UserRegistration";
+@Autowired
+private KafkaTemplate<String, User> kafkaTemplate;
+
+    // Declaration and Intialization of topic name
+private static final String TOPIC = "UserRegistration";
     // handling user request with endpoint passing name
 
 
-   User user=new User();
-    //Constructor of the controller having the userservice parameter
+   //User user=new User();
+//Constructor of the controller having the userservice parameter
     public UserController(UserService userService) {
         this.userService = userService;
     }
@@ -48,7 +50,6 @@ public class UserController {
         User savedUser = userService.saveUser(user);
         this.kafkaTemplate.send(TOPIC, savedUser);
         return new ResponseEntity<User>(savedUser, HttpStatus.CREATED);
-
     }
 
 

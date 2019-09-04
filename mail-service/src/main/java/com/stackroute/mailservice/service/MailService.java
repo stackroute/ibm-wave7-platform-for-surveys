@@ -23,7 +23,7 @@ public class MailService {
     private JavaMailSender javaMailSender;
 
     @Autowired
-    private SpringTemplateEngine templateEngine;
+    private SpringTemplateEngine springTemplateEngine;
 
     public void sendMail(Map map) throws MessagingException, IOException {
         MimeMessage message = javaMailSender.createMimeMessage();
@@ -32,7 +32,7 @@ public class MailService {
                 StandardCharsets.UTF_8.name());
         Context context = new Context();
         context.setVariables(map);
-        String html = templateEngine.process("MailTemplate", context);
+        String html = springTemplateEngine.process("MailTemplate", context);
         helper.setTo("agzafee1@in.ibm.com");
         helper.setText(html, true);
         helper.setSubject("take the survey to get some reward points");
