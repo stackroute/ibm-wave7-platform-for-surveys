@@ -44,6 +44,7 @@ import { ThankingDialogBoxComponent } from './thanking-dialog-box/thanking-dialo
 import { AboutUsComponent } from './about-us/about-us.component';
 import { UserLandingPageComponent } from './user-landing-page/user-landing-page.component';
 import { SupportPageComponent } from './support-page/support-page.component';
+import { QuestionsComponent } from './questions/questions.component';
 
 
 @NgModule({
@@ -72,6 +73,7 @@ import { SupportPageComponent } from './support-page/support-page.component';
     AboutUsComponent,
     UserLandingPageComponent,
     SupportPageComponent,
+    QuestionsComponent,
 
   ],
   imports: [

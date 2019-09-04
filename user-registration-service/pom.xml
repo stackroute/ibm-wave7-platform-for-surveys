@@ -11,7 +11,7 @@
 	<groupId>com.stackroute</groupId>
 	<artifactId>user-registration-service</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>user registration</name>
+	<name>user registration service</name>
 	<description>It is the useregistration project</description>
 
 	<properties>

@@ -22,17 +22,12 @@ public class KafkaConsumer {
 
 
 
-    @KafkaListener(topics = "KafkaExample", groupId = "group_json", containerFactory = "userKafkaListenerFactory")
-    public void consumeJson(UserDTO user)
-    {
-        System.out.println("Consumed JSON Message: " + user);
-    }
-
     @KafkaListener(topics = "UserRegistration", groupId = "group_id")
     public void consume(String daoUser) throws IOException {
-        DAOUser obj = new ObjectMapper().readValue(daoUser, DAOUser.class);
+       DAOUser obj = new ObjectMapper().readValue(daoUser, DAOUser.class);
+        System.out.printf(daoUser);
         obj.setPassword(bcryptEncoder.encode(obj.getPassword()));
         userDao.save(obj);
     }
 
-}
+   }

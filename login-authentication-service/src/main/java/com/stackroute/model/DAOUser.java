@@ -15,6 +15,10 @@ public class DAOUser {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 
+
+	@Column
+	@JsonProperty("id")
+	private long sign_id;
 	@Column
 	@JsonProperty("name")
 	private String username;
@@ -23,6 +27,10 @@ public class DAOUser {
 	@JsonProperty("password")
 	private String password;
 
+	@Column
+	@JsonIgnore
+	@JsonProperty("role")
+	private String role;
 	public String getUsername() {
 		return username;
 	}
@@ -38,5 +46,18 @@ public class DAOUser {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+	public String getRole() {
+		return role;
+	}
 
+	public void setRole(String role) {
+		this.role = role;
+	}
+	public long getSign_id() {
+		return sign_id;
+	}
+
+	public void setSign_id(int sign_id) {
+		this.sign_id = sign_id;
+	}
 }

@@ -5,6 +5,7 @@ import { Guid } from "guid-typescript";
 import { Survey } from './modals/Survey';
 import { environment } from '../environments/environment'
 import { Question } from './modals/Question';
+import { User } from './modals/User';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -17,49 +18,50 @@ const httpOptions = {
 })
 export class SurveyService {
 
-  constructor(private httpclient : HttpClient) { }
+  constructor(private httpclient: HttpClient) { }
 
-  sendMail(url)
-  {
-    return this.httpclient.post("http://localhost:8070/send-mail?url="+ url,url);
-  }
+  public surveyId : string;
+
+  public loginCredentials : User;
 
   createSurvey(survey: Survey): Observable<Survey> {
     //creating a Guid Id
     survey.id = Guid.create().toString();
-
+    this.surveyId = survey.id;
     //microservice create survey api link
-    return this.httpclient.post<Survey>(environment.baseURI+"/survey?surveyorId=24", survey, httpOptions);
+    return this.httpclient.post<Survey>(environment.baseURI + "/survey/?surveyorId="+"123", survey, httpOptions);
   }
 
-  getAllSurveys() : Observable<Survey[]>
-  {
-    return this.httpclient.get<Survey[]>(environment.baseURI+"/survey");
+  getAllSurveys(): Observable<Survey[]> {
+    return this.httpclient.get<Survey[]>(environment.baseURI + "/survey");
   }
-  
-  saveQuestion(question:Question)
+
+  saveQuestion(question: Question) {
+    //creating a Guid Id
+    question.questionId = Guid.create().toString();
+    //microservice create survey api link
+    console.log(question);
+    return this.httpclient.post<Question>(environment.baseURI + "/questionToSurvey/?surveyId="+this.surveyId, question, httpOptions)
+  }
+
+  editQuestion(question : Question)
   {
- //creating a Guid Id
- question.question_id = Guid.create().toString();
- //microservice create survey api link
- console.log(question);
- return this.httpclient.post<Question>(environment.baseURI+"/question", question, httpOptions)
-}
-  deleteSurvey(survey){
-    console.log("service"+survey.id)
-    return this.httpclient.delete("http://localhost:8090/api/v1/survey/"+survey.id);
+    let oldQuestionId =question.questionId;
+    console.log(oldQuestionId)
+    question.questionId = Guid.create().toString();
+    console.log(question.questionId);
+    return this.httpclient.put<Question>(environment.baseURI + "/question?surveyId="+this.surveyId+"&questionId="+oldQuestionId,question,httpOptions);
+  }
+
+  deleteSurvey(survey) {
+    console.log("service" + survey.id)
+    return this.httpclient.delete("http://localhost:8090/api/v1/survey/" + survey.id);
   }
   // getAllQuestions() :Observable<Question[]>
   // {
   //   return this.httpclient.get<Question[]>(environment.baseURI+"/question");
   // }
-  getAllQuestions() :Observable<Survey>
-  {
-    return this.httpclient.get<Survey>(environment.baseURI+"/survey/24");
-  }
-
-  deleteQuestion(question_id : string)
-  {
-    return this.httpclient.delete<Question>(environment.baseURI+"/survey/"+question_id);
+  getAllQuestions(surveyId : string): Observable<Survey> {
+    return this.httpclient.get<Survey>(environment.baseURI + "/survey/" + surveyId);
   }
 }

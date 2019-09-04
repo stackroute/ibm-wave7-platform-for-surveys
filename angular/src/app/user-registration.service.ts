@@ -36,7 +36,7 @@ public loginuser:LoginUser;
 
   authenticateUser(user:LoginUser): Observable<boolean>{
 
-    return this.httpClient.get<boolean>('http://172.23.238.196:8081/authenticate?username='+user.username+'&password='+user.password);
+    return this.httpClient.get<boolean>('http://localhost:8081/authenticate?username='+user.username+'&password='+user.password);
     // return this.httpClient.get<boolean>(environment.loginBaseURI+'/authenticate/?username='+user.username+'&password='+user.password);
   }
 updateUser(user:User,id:String):Observable<User>{

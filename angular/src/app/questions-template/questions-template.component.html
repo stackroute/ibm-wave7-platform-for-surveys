@@ -1,50 +1,47 @@
-<div class="container" fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="10px">
-  <div fxFlex="20%">
+<div class="container wrapper" fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="10px">
+  <!-- <div fxFlex="20%">
     <mat-card>
       <mat-label>Select your Question type (required)</mat-label>
     </mat-card>
-  </div>
-  <div fxFlex="77%" >
-    <mat-card *ngFor="let question of questionList">  
-    <span class="questionTag"><h3>{{question.question_tag}}<a><mat-icon (click)=deleteQuestion(question.question_id)></mat-icon></a></h3>
-   </span>
-   <div *ngFor="let choice of question.choices">
-        <mat-radio-button class="choice-radio-button" value="Not better">{{choice}}</mat-radio-button>
-   </div>
+  </div> -->
+  <div fxFlex="77%">
+    
+    <mat-card *ngFor="let question of questionList">
+      <h3>{{question.questionTag}} <mat-icon (click)=editQuestion(question)>edit</mat-icon></h3>
+      <div *ngFor="let choice of question.choices">
+        <mat-radio-button class="choice-radio-button" value="{{choice}}">{{choice}}</mat-radio-button>
+      </div>
     </mat-card>
-      <div fxFlex="77%" id="questionForm">
-        <mat-card name="question_card">
-          <mat-form-field>
-             <textarea matInput placeholder="Question"></textarea>
-          </mat-form-field>
-               <mat-form-field name="choice" class="choice">
-                 <input matInput placeholder="Choice">
-               </mat-form-field>
-               <button id = "addChoice" mat-mini-fab color="primary" (click)=addChoice($event)>+</button>
-              </mat-card>
-        <button mat-raised-button id="submitButton" type="submit" color="primary" (click)=addQuestion()>Add Question</button>
-            </div>
-      <mat-card>
-            <form class="my-form" #questiontemplateform="ngForm" (ngSubmit)="saveQuestion(questiontemplateform.value)">
-             <mat-form-field>
-               <mat-label>Question</mat-label>
-                <textarea matInput placeholder="Question" [(ngModel)]="question_tag" name="question_tag" ></textarea><br>
-             </mat-form-field>
-                <mat-form-field>
-                  <mat-label>Choices</mat-label>
-                    <input matInput placeholder="Choice" [(ngModel)]="choices" name="choices" >
-                  </mat-form-field>
-                  <ng-template [ngIf]="condition">
-                      <button mat-raised-button type="submit"color="primary">Add Question</button>
-                      <!-- <button mat-raised-button type="submit" color="primary"> Save Survey</button> -->
-                    </ng-template>
-              </form> 
-        </mat-card>
-    </div>
+
     <button mat-raised-button type="submit" color="primary" (click)=addQuestion()>Add Question</button>
     <button mat-raised-button type="submit" color="primary"> Save Survey</button>
+<<<<<<< HEAD
+    
+    <ng-template [ngIf]="condition">
+      <mat-card>
+        <form name="question_card" class="my-form" #questiontemplateform="ngForm" (ngSubmit)="saveQuestion(questiontemplateform.value)">
+          <mat-form-field>
+            <mat-label>Question</mat-label>
+            <textarea matInput placeholder="Question" [(ngModel)]="questionTag" name="questionTag"></textarea><br>
+          </mat-form-field>
+          <div *ngFor="let choice of newchoices">
+              <mat-radio-button class="choice-radio-button" value="{{choice}}">{{choice}}</mat-radio-button>
+          </div>
+          <mat-form-field>
+              <input  matInput placeholder="Choice" name="choices" #choiceText>
+            </mat-form-field>
+          <button id="addChoice" mat-mini-fab color="primary" (click)=addChoice(choiceText.value)>+</button>
+          <button mat-raised-button type="submit" color="primary">save</button>
+        </form>
+      </mat-card>
+    </ng-template>
+
+    <!-- <div fxFlex="77%" id="questionForm">
+=======
     <button mat-raised-button type="submit" color="primary" (click)=publish()> Publish</button>
+    
     <div fxFlex="77%" id="questionForm">
+>>>>>>> 9c1fb033c7f64bbe64d9dd35cf6b3ee79b2f9463
       <mat-card name="question_card">
         <mat-form-field>
           <textarea matInput placeholder="Question"></textarea>
@@ -54,12 +51,20 @@
         </mat-form-field>
         <button id="addChoice" mat-mini-fab color="primary" (click)=addChoice($event)>+</button>
       </mat-card>
+
       <button mat-raised-button id="submitButton" type="submit" color="primary" (click)=addQuestion()>Add
         Question</button>
+<<<<<<< HEAD
+      <button mat-raised-button type="submit" color="primary"> Save Survey</button>
+    </div> -->
+  </div>
+=======
     </div>
   </div>
+<!-- </div> -->
+<!-- </div> -->
 
 
 
 
-
+>>>>>>> 9c1fb033c7f64bbe64d9dd35cf6b3ee79b2f9463
