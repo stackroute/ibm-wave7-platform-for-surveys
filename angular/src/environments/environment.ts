@@ -4,11 +4,10 @@
 
 export const environment = {
   production: false,
-  baseURI : "http://localhost:8090/api/v1",
+  baseURI : "http://172.23.238.186:8090/api/v1",
   loginBaseURI : "http://172.23.238.196:8081",
   signUpBaseURI : "http://172.23.238.196:8095"
 };
-
 /*
  * For easier debugging in development mode, you can import the following file
  * to ignore zone related error stack frames such as `zone.run`, `zoneDelegate.invokeTask`.

@@ -1,10 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { SurveyService } from '../survey.service';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { Question } from '../modals/Question';
 import { Survey } from '../modals/Survey';
-import { HttpClient } from '@angular/common/http';
-import{Location} from '@angular/common';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+
 
 
 @Component({
@@ -14,86 +14,129 @@ import{Location} from '@angular/common';
 })
 export class QuestionsTemplateComponent implements OnInit {
 
-  private condition : boolean;
+  private condition: boolean;
 
-  private choiceVisibility : boolean;
-  private count : number;
-  private question:Question;
-  private survey:Survey;
+  private choiceVisibility: boolean;
+  private count: number;
+  private question: Question;
+  private survey: Survey;
   private questionList:Question[];
+  private newchoices : string[] = [];
 
-  constructor(private surveyService:SurveyService,private location:Location,private route:ActivatedRoute,private http:HttpClient,private router:Router) { }
+
+  constructor(private surveyService: SurveyService, private route: ActivatedRoute,
+    private dialog : MatDialog) { }
 
   ngOnInit() {
-    this.getQuestionList();
-  this.url=this.location.path();
 
+    this.getQuestionList(this.surveyService.surveyId);
+  }
 
-  }
-  url;
-  publish()
-  {
-   this.surveyService.sendMail(this.url).subscribe();
-  }
-  addQuestion()
-  {
-    // this.condition = true;
+  addQuestion() {
+    this.condition = true;
     // console.log(this.condition);
     // this.count++;
-      var form = document.getElementById('questionForm');
-      var questionCard = document.getElementsByName('question_card').item(0);
-      var newElement = document.createElement('mat-card');
-      // newElement.innerHTML = questionCard.innerHTML;
-      newElement.innerHTML = `<mat-form-field>
-        <textarea matInput placeholder="Question"></textarea>
-        </mat-form-field>
-        <mat-form-field name="choice" class="choice">
-          <input matInput placeholder="Choice">
-        </mat-form-field>
-        <button id = "addChoice" mat-mini-fab color="primary" (click)=addChoice($event)>+</button>`;
+    // var form = document.getElementById('questionForm');
+    // var questionCard = document.getElementsByName('question_card').item(0);
+    // var newElement = document.createElement('mat-card');
+    // // newElement.innerHTML = questionCard.innerHTML;
+    // newElement.innerHTML = `<mat-form-field>
+    //     <textarea matInput placeholder="Question"></textarea>
+    //     </mat-form-field>
+    //     <mat-form-field name="choice" class="choice">
+    //       <input matInput placeholder="Choice">
+    //     </mat-form-field>
+    //     <button id = "addChoice" mat-mini-fab color="primary" (click)=addChoice($event)>+</button>`;
 
-      console.log(newElement.innerHTML);
-      // newElement.innerHTML = '<input placeholder="Choice">';
-      // newElement.setAttribute('matInput','true');
-      // newElement.classList.add('choice');
-      // questionCard.appendChild(newElement);
-      form.insertBefore(newElement, document.getElementById('submitButton'));
+    // console.log(newElement.innerHTML);
+    // // newElement.innerHTML = '<input placeholder="Choice">';
+    // // newElement.setAttribute('matInput','true');
+    // // newElement.classList.add('choice');
+    // // questionCard.appendChild(newElement);
+    // form.insertBefore(newElement, document.getElementById('submitButton'));
   }
 
-  addChoice(event)
-  {
-    console.log(event);
-      // this.choiceVisibility = true;
-      var questionCard = document.getElementsByName('question_card').item(0);
-      var element = document.getElementsByName('choice').item(0);
-      var newElement = document.createElement('mat-form-field');
-      // newElement.innerHTML = element.innerHTML;
-      newElement.innerHTML = '<input placeholder="Choice">';
-      // newElement.setAttribute('matInput','true');
-      newElement.classList.add('choice');
-      // questionCard.appendChild(newElement);
-      questionCard.insertBefore(newElement, document.getElementById('addChoice'));
+  addChoice(choiceText : string) {
+
+    this.newchoices.push(choiceText);
+    choiceText
+    // console.log(event);
+    // this.choiceVisibility = true;
+    // var questionCard = document.getElementsByName('question_card').item(0);
+    // // var element = document.getElementsByName('choice').item(0);
+    // var newElement = document.createElement('mat-form-field');
+    // // newElement.innerHTML = element.innerHTML;
+    // newElement.innerHTML = '<input placeholder="Choice">';
+    // // newElement.setAttribute('matInput','true');
+    // newElement.classList.add('choice');
+    // // questionCard.appendChild(newElement);
+    // questionCard.insertBefore(newElement, document.getElementById('addChoice'));
   }
-  saveQuestion(question:Question) {
-    this.surveyService.saveQuestion(question).subscribe((data)=> {
-    this.question = data;
-   console.log("result is ", question);
- });
+
+  saveQuestion(question: Question) {
+    question.choices = this.newchoices;
+    console.log("questin from ts",question);
+    this.surveyService.saveQuestion(question).subscribe((data) => {
+      this.question = data;
+      console.log("result is ", this.question);
+      this.getQuestionList(this.surveyService.surveyId);
+    });
+  }
+
+  editQuestion(question){
+    console.log(question);
+
+    const dialogRef = this.dialog.open(EditQuestionDialog,
+      {
+        width: '250px',
+        // height : '500px',
+        data: {question}
+      });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result != undefined) {
+        console.log(result);
+        this.surveyService.editQuestion(result.question).subscribe(
+          (data) => {
+            console.log(data);
+            console.log("Choices",data.choices);
+            this.getQuestionList(this.surveyService.surveyId);
+          })
+      }
+    });
+  }
+
+  getQuestionList(surveyId: string) {
+    this.surveyService.getAllQuestions(surveyId).subscribe(
+      (data) => {
+      this.questionList = data.questionList;
+        console.log("questions : ", this.questionList)
+      })
+  }
 }
 
-getQuestionList()
-{
-  this.surveyService.getAllQuestions().subscribe(
-    (data) => {
-      this.questionList=data.questionList;
-    console.log("questions : ",this.questionList)
-    })
-}
 
-deleteQuestion( question_id: string )
-{
-  this.surveyService.deleteQuestion(question_id).subscribe(
-    (data) => console.log(data)
-  );
-}
+@Component({
+  selector: 'editQuestionDialog',
+  templateUrl: 'editQuestionDialog.html',
+})
+
+export class EditQuestionDialog {
+
+  constructor(
+
+    public dialogRef: MatDialogRef<EditQuestionDialog>,
+    @Inject(MAT_DIALOG_DATA) public data: Question) { }
+
+    private editQuestion : Question
+
+    ngOnInit()
+    {
+        this.editQuestion = this.data;
+        console.log(this.data);
+    }
+
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
 }
