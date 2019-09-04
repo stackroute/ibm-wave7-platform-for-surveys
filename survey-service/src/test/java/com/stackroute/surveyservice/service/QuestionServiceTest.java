@@ -50,13 +50,13 @@ public class QuestionServiceTest {
     }
 
 
-    @Test
-    public void editQuestion() throws QuestionDoesNotExistsException {
-        when(questionRepository.save(any())).thenReturn(question);
-        Question savedTrack=questionService.editQuestion(question);
-        assertEquals(question,savedTrack);
-
-    }
+//    @Test
+//    public void editQuestion() throws QuestionDoesNotExistsException {
+//        when(questionRepository.save(any())).thenReturn(question);
+//        Question savedTrack=questionService.editQuestion(question);
+//        assertEquals(question,savedTrack);
+//
+//    }
 
 
 
@@ -73,7 +73,7 @@ public class QuestionServiceTest {
     @Test
     public void addQuestion() throws QuestionAlreadyExistsException {
         when(questionRepository.save((Question) any())).thenReturn(question);
-        Question savedQuestion=questionService.addQuestion(question);
+        Question savedQuestion=questionService.addQuestionToSurvey(question,"10");
         assertEquals(question,savedQuestion);
         verify(questionRepository,times(1)).save(question);
     }

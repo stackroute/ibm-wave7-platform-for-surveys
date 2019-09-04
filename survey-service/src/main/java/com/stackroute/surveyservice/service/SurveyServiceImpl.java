@@ -26,11 +26,11 @@ public class SurveyServiceImpl implements SurveyService{
         Survey savedSurvey=null;
         if(!surveyRepository.findById(survey.getId()).isPresent()) {
             savedSurvey = surveyRepository.save(survey);
-            System.out.println(surveyorId);
             surveyRepository.createCreatesRelationShip(survey.getId(), surveyorId);
             List<Question> questionList = surveyRepository.getRecommendedQuestions(survey.getDomain_type());
             System.out.println(questionList.size());
             for (Question question :questionList) {
+                System.out.println(question.getQuestionTag());
                 surveyRepository.createBelongsToRelationShip(survey.getId(),question.getQuestionId());
 
             }

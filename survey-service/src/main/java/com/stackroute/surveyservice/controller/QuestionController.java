@@ -30,6 +30,7 @@ public class QuestionController {
     }
     @PostMapping("questionToSurvey")
     public ResponseEntity<?> saveQuestionToSurvey(@RequestBody Question question,@RequestParam String surveyId){
+        System.out.println(question.getQuestionId()+" "+question.getQuestionTag());
         responseEntity = new ResponseEntity<Question>(questionService.addQuestionToSurvey(question,surveyId), HttpStatus.CREATED);
         return responseEntity;
     }
@@ -38,23 +39,18 @@ public class QuestionController {
     public ResponseEntity<?> getAllQuestions() {
         return new ResponseEntity<List<Question>>(questionService.getAllQuestions(),HttpStatus.OK);
     }
-    //to delete a question
-    @DeleteMapping("question/{id}")
-    public ResponseEntity<?> deleteQuestion(@PathVariable("id") String id) throws Exception {
-        Question deletedQuestion = questionService.removeQuestion(id);
-        return new ResponseEntity<Question>(deletedQuestion, HttpStatus.OK);
-    }
+
     @DeleteMapping("question")
     public ResponseEntity<?> deleteQuestionFromSurvey(@RequestBody Question question,@RequestParam String surveyId) throws Exception {
-        questionService.removeQuestionFromSurvey(question,surveyId);
-        return new ResponseEntity<String>("Deleted From Survey", HttpStatus.OK);
+        Question question1=questionService.removeQuestionFromSurvey(question,surveyId);
+        return new ResponseEntity<Question>(question1, HttpStatus.OK);
     }
 
     //to update a question
     @PutMapping("question")
-    public ResponseEntity<?> updateQuestion(@RequestBody Question question) throws QuestionDoesNotExistsException
+    public ResponseEntity<?> updateQuestion(@RequestBody Question question,@RequestParam String surveyId,@RequestParam String questionId) throws QuestionDoesNotExistsException
     {
-        Question updatedQuestion = questionService.editQuestion(question);
+        Question updatedQuestion = questionService.editQuestion(question,surveyId,questionId);
         return new ResponseEntity<Question>(updatedQuestion, HttpStatus.OK);
     }
 
