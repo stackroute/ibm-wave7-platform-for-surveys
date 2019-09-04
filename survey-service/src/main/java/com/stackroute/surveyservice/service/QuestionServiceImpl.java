@@ -20,9 +20,9 @@ public class QuestionServiceImpl implements QuestionService{
     //save Question
     @Override
     public Question addQuestionToSurvey(Question question,String SurveyId) {
-
+      System.out.println(question.getQuestionId()+" "+question.getQuestionTag());
         Question savedQuestion = null;
-        if(!questionRepository.findById(question.getQuestionTag()).isPresent())
+        if(!questionRepository.findById(question.getQuestionId()).isPresent())
         {
             savedQuestion = questionRepository.save(question);
             questionRepository.createBelongsToRelationShip(question.getQuestionId(),SurveyId);
@@ -33,22 +33,16 @@ public class QuestionServiceImpl implements QuestionService{
         return savedQuestion;
     }
     @Override
-    public Question editQuestion(Question question) throws QuestionDoesNotExistsException {
+    public Question editQuestion(Question question,String surveyId,String questionIdOld) throws QuestionDoesNotExistsException {
+        System.out.println(questionIdOld);
+        questionRepository.removeQuestionFromSurvey(questionIdOld,surveyId);
+        System.out.println("Removed from survey");
+          Question  updatedQuestion = questionRepository.save(question);
+          System.out.println("saved Question");
+            questionRepository.createBelongsToRelationShip(question.getQuestionId(),surveyId);
+            System.out.println("Created Relationship");
 
-        Optional<Question> existingQuestion = questionRepository.findById(question.getQuestionTag());
-        Question updatedQuestion = null;
-        if (existingQuestion.isPresent()) {
-            updatedQuestion = questionRepository.save(question);
-        }
         return updatedQuestion;
-    }
-    @Override
-    public Question removeQuestion(String questionId) throws QuestionDoesNotExistsException {
-        Optional<Question> existingQuestion = questionRepository.findById(questionId);
-        if (existingQuestion.isPresent()) {
-            questionRepository.deleteById(questionId);
-        }
-        return existingQuestion.get();
     }
 
 
@@ -58,9 +52,10 @@ public class QuestionServiceImpl implements QuestionService{
     }
 
     @Override
-    public void removeQuestionFromSurvey(Question question,String surveyId) {
-
+    public Question removeQuestionFromSurvey(Question question, String surveyId) {
+        Question question1=questionRepository.getQuestionById(question.getQuestionId());
         questionRepository.removeQuestionFromSurvey(question.getQuestionId(), surveyId);
+        return question1;
     }
 
     @Override
