@@ -25,10 +25,10 @@
 		<module>config-server</module>
 		<module>eureka-server</module>
 		<module>zuul-api</module>
-		<module>user-response</module>
+		<module>user-response-service</module>
 
-		<module>login</module>
-		<module>userregistration</module>
+		<module>login-authentication-service</module>
+		<module>user-registration-service</module>
 	</modules>
 	<dependencies>
 		<dependency>
@@ -238,6 +238,11 @@
 				<artifactId>spotbugs-maven-plugin</artifactId>
 				<version>3.1.9</version>
 			</plugin>
-		</plugins>
+				<plugin>
+					<groupId>org.sonarsource.scanner.maven</groupId>
+					<artifactId>sonar-maven-plugin</artifactId>
+					<version>3.6.0.1398</version>
+				</plugin>
+			</plugins>
 	</reporting>
 </project>
