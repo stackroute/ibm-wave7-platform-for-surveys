@@ -19,6 +19,7 @@ export class UserRegistrationService {
 
   constructor(private httpClient:HttpClient) { }
   public user:User;
+  public loginCredentials : User;
   saveUser(user:User):Observable<User>
   {
     user.id = Guid.create().toString();
@@ -40,7 +41,8 @@ public loginuser:LoginUser;
     // return this.httpClient.get<boolean>(environment.loginBaseURI+'/authenticate/?username='+user.username+'&password='+user.password);
   }
 updateUser(user:User,id:String):Observable<User>{
-  var url = "http://localhost:8095/user/105";
+  console.log(user);
+  var url = "http://localhost:8095/user/"+105;
   return this.httpClient.put<User>(url ,user, httpOptions);
 
 }
@@ -53,5 +55,9 @@ getUser():Observable<User>{
  
   return this.httpClient.get<User>(url);
 
+}
+getUserById(id:string):Observable<User>{
+  var url="http://localhost:8095/user/"+105;
+return this.httpClient.get<User>(url);
 }
 }

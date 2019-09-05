@@ -72,5 +72,10 @@ private static final String TOPIC = "UserRegistration";
         User updateuser = userService.updateUser(user, id);
         return new ResponseEntity<User>(updateuser, HttpStatus.OK);
     }
+    @GetMapping("user/{id}")
+    public ResponseEntity<?> getUserById(@PathVariable String id){
+        User user = userService.getUserById(id);
+        return new ResponseEntity<User>(user,HttpStatus.OK);
+    }
 }
 

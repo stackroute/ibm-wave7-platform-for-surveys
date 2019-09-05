@@ -6,4 +6,7 @@ export interface User
     password:string;
     confirmPassword:string;
     role:string;
+     location:string;
+   agegroup:string;
+    gender:string;
 }
