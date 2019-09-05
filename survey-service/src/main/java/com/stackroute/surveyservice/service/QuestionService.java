@@ -10,7 +10,7 @@ public interface QuestionService {
     Question addQuestionToSurvey(Question question,String surveyId) ;
     Question editQuestion(Question question,String surveyId,String questionIdOld) throws QuestionDoesNotExistsException;
     List<Question> getAllQuestions();
-    Question removeQuestionFromSurvey(Question question, String surveyId)throws QuestionDoesNotExistsException;;
+    Question removeQuestionFromSurvey(String id, String surveyId)throws QuestionDoesNotExistsException;;
     Question addQuestion(Question question) throws QuestionAlreadyExistsException;
 
 }

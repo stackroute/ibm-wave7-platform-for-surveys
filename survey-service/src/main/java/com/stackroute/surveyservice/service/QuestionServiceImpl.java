@@ -52,9 +52,9 @@ public class QuestionServiceImpl implements QuestionService{
     }
 
     @Override
-    public Question removeQuestionFromSurvey(Question question, String surveyId) {
-        Question question1=questionRepository.getQuestionById(question.getQuestionId());
-        questionRepository.removeQuestionFromSurvey(question.getQuestionId(), surveyId);
+    public Question removeQuestionFromSurvey(String id, String surveyId) {
+        Question question1=questionRepository.getQuestionById(id);
+        questionRepository.removeQuestionFromSurvey(id, surveyId);
         return question1;
     }
 

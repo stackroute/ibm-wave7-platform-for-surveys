@@ -40,9 +40,9 @@ public class QuestionController {
         return new ResponseEntity<List<Question>>(questionService.getAllQuestions(),HttpStatus.OK);
     }
 
-    @DeleteMapping("question")
-    public ResponseEntity<?> deleteQuestionFromSurvey(@RequestBody Question question,@RequestParam String surveyId) throws Exception {
-        Question question1=questionService.removeQuestionFromSurvey(question,surveyId);
+    @DeleteMapping("question/{id}")
+    public ResponseEntity<?> deleteQuestionFromSurvey(@PathVariable String id,@RequestParam String surveyId) throws Exception {
+        Question question1=questionService.removeQuestionFromSurvey(id,surveyId);
         return new ResponseEntity<Question>(question1, HttpStatus.OK);
     }
 

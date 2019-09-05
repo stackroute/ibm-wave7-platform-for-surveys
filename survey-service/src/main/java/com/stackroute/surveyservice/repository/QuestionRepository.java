@@ -13,6 +13,6 @@ public interface QuestionRepository extends Neo4jRepository<Question,String> {
     void createBelongsToRelationShip(String questionId,String surveyId);
     @Query("MATCH (:Question {questionId:{questionId}})-[r:BelongsTo]-(:Survey {id:{surveyId}}) DELETE r")
     void removeQuestionFromSurvey(String questionId,String surveyId);
-    @Query("MATCH (a:Question{questionId:{questioId}) Return a")
+    @Query("MATCH (a:Question{questionId:{questionId}}) Return a")
     Question getQuestionById(String questionId);
 }
