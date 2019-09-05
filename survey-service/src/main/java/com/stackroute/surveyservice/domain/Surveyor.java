@@ -24,6 +24,9 @@ public class Surveyor {
     private String email;
     private String password;
     private Date timeStamp;
+    private String location;
+    private String ageGroup;
+    private String gender;
     @Relationship(type = "Creates", direction = Relationship.UNDIRECTED)
     List<Survey> SurveysList = new ArrayList<>();
 }
