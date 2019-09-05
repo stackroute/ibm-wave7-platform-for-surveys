@@ -13,6 +13,7 @@ public interface UserService {
     public User deleteUser(String id);
     //updating the user
     public User updateUser(User user,String id);
+    public User getUserById(String id);
 
     public User findUserByEmail(String email);
 }
