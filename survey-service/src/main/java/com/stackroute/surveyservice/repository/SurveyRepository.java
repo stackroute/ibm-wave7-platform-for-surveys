@@ -25,6 +25,10 @@ public interface SurveyRepository extends Neo4jRepository<Survey,String> {
 
     @Query("MATCH (a:Surveyor),(b:Survey) WHERE a.id ={surveyorId} AND b.id ={surveyId} CREATE (a)-[: Creates]->(b) RETURN a,b")
     void createCreatesRelationShip(String surveyId, String surveyorId );
-    @Query("MATCH (q:Question{domainType:{domainType}})-[:BelongsTo]->(s:Survey) WITH q,count(s) as rels, collect(s) as surveys WHERE rels >= 1 RETURN q ORDER BY rels DESC LIMIT 10")
+    @Query("MATCH (q:Question{domainType:{domainType}})-[:BelongsTo]->(s:Survey) WITH q,count(s) as rels, collect(s) as surveys WHERE rels >= 1 RETURN q ORDER BY rels DESC LIMIT 3")
     List<Question> getRecommendedQuestions(String domainType);
+    @Query("MATCH (q:Question{domainType:{domainType}})-[:BelongsTo]->(s:Survey) WITH q,count(s) as rels, collect(s) as surveys WHERE rels >= 1 RETURN q ORDER BY rels DESC LIMIT 20")
+    List<Question> getRecommendedQuestionBasedOnDomain(String domainType);
+
+
 }

@@ -18,6 +18,8 @@ public interface SurveyService {
 
     public Survey getSurveyById(String id);
 
+    public List<Question> getRecomendedQuestions(String domainType);
+
 
 
 

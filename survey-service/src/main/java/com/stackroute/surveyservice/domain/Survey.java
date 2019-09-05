@@ -27,4 +27,12 @@ public class Survey {
     private String domain_type;
     @Relationship(type = "BelongsTo", direction = Relationship.UNDIRECTED)
     List<Question> questionList=new ArrayList<>();
+   private String respondants;
+    private String expiryDate;
+    private List<String> location=new ArrayList<>();
+    private String gender;
+    private String age;
+    private String status;
+    private int responses;
+    private int rewardPoints;
 }
