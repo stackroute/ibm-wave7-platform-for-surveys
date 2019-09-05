@@ -62,5 +62,11 @@ private static final String TOPIC = "UserRegistration";
         User updateuser = userService.updateUser(user, id);
         return new ResponseEntity<User>(updateuser, HttpStatus.OK);
     }
+
+    @GetMapping("user")
+    public ResponseEntity<?> getUserByEmail(@RequestParam String email) {
+
+        return new ResponseEntity<>(userService.findUserByEmail(email), HttpStatus.OK);
+    }
 }
 
