@@ -38,7 +38,7 @@ export class MyprofileComponent implements OnInit {
 
   ngOnInit() {
     this.id = this.registrationService.loginCredentials.id;
-    this.registrationService.getUserById(this.id).subscribe((data) =>{
+    this.registrationService.getUserByEmail(this.email).subscribe((data) =>{
       this.user=data;
       console.log(this.user);
     })

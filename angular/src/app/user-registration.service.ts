@@ -39,7 +39,7 @@ public loginuser:LoginUser;
 
   authenticateUser(user:LoginUser): Observable<boolean>{
     this.loginuser = user;
-    return this.httpClient.get<boolean>(environment.loginBaseURI+'/authenticate?username='+user.username+'&password='+user.password)
+    return this.httpClient.get<boolean>(environment.loginBaseURI+'/authenticate?username='+user.email+'&password='+user.password)
     .pipe(
       catchError((error: any) =>
       {

@@ -4,6 +4,7 @@ import { UserRegistrationService } from '../user-registration.service';
 import { Router } from '@angular/router';
 import { ConstantsService } from '../constants.service';
 import { User } from '../modals/User';
+import { FormControl, Validators, FormGroup } from '@angular/forms';
 
 
 @Component({
@@ -23,7 +24,28 @@ export class LoginComponent implements OnInit {
     console.log(this.constant.globalvariable);
 
   }
-
+  emailFormControl = new FormControl("", [
+    Validators.required,
+    Validators.email
+  ]);
+  passwordFormControl = new FormControl("", [Validators.required]);
+  loginForm: FormGroup = new FormGroup({
+    email: this.emailFormControl,
+    password: this.passwordFormControl,
+  });
+  getRequiredErrorMessage()
+  {
+    return this.emailFormControl.hasError("required")
+    ? "You must enter a value"
+    : this.emailFormControl.hasError("username")
+    ? "Not a valid email"
+    : "";
+  }
+   getPasswordErrorMessage(field) {
+    return this.loginForm.get(field).hasError("required")
+      ? "You must enter a value"
+      : "";
+  }
   login(user: LoginUser) {
 
     this.userResgistrationService.authenticateUser(user).subscribe(
@@ -31,7 +53,7 @@ export class LoginComponent implements OnInit {
         console.log(data);
         this.isAuthenticated = data;
 
-        this.userResgistrationService.getUserByEmail(this.userResgistrationService.loginuser.username).
+        this.userResgistrationService.getUserByEmail(this.userResgistrationService.loginuser.email).
           subscribe((data) => {
             console.log(data);
             this.user = data;
