@@ -4,6 +4,8 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dial
 import {Survey} from '../modals/Survey';
 import { SurveyService } from '../survey.service';
 import { Router } from '@angular/router';
+import { AutofillMonitor } from '@angular/cdk/text-field';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-my-survey-card',
@@ -46,7 +48,8 @@ export class MySurveyCardComponent implements OnInit {
   openDialog() {
     const dialogRef = this.dialog.open(CreateSurveyDialogue,
       {
-        width: '250px',
+        width: '300px',
+        height:'auto',
         data: {}
       });
     dialogRef.afterClosed().subscribe(result => {
@@ -78,4 +81,7 @@ export class CreateSurveyDialogue {
   onNoClick(): void {
     this.dialogRef.close();
   }
+  location = new FormControl();
+
+  locationList: string[] = ['Bangalore', 'Hyderabad', 'Chennai', 'Delhi', 'Pune'];
 }
