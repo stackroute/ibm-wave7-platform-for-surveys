@@ -26,6 +26,8 @@ export class SurveyService {
 
   public publishedURL : string;
 
+  public editSurvey: Survey;
+
   createSurvey(survey: Survey): Observable<Survey> {
     //creating a Guid Id
     survey.id = Guid.create().toString();
@@ -38,9 +40,12 @@ export class SurveyService {
     return this.httpclient.get<Survey[]>(environment.baseURI + "/survey");
   }
 
+
+  
   saveQuestion(question: Question) {
     //creating a Guid Id
     question.questionId = Guid.create().toString();
+    question.domainType = this.editSurvey.domain_type;
     //microservice create survey api link
     console.log(question);
     return this.httpclient.post<Question>(environment.baseURI + "/questionToSurvey/?surveyId="+this.surveyId, question, httpOptions)
@@ -63,12 +68,12 @@ export class SurveyService {
     console.log("service" + survey.id)
     return this.httpclient.delete(environment.baseURI+"/survey/" + survey.id);
   }
-  // getAllQuestions() :Observable<Question[]>
-  // {
-  //   return this.httpclient.get<Question[]>(environment.baseURI+"/question");
-  // }
   getAllQuestions(surveyId : string): Observable<Survey> {
     return this.httpclient.get<Survey>(environment.baseURI + "/survey/" + surveyId);
+  }
+  getRecommendedQuestions(domain:String)
+  {
+    return this.httpclient.get<Question[]>(environment.baseURI+"/recommendations/"+domain);
   }
   sendMail(url) : Observable<string> {
     return this.httpclient.post<string>("http://172.23.238.147:8070/send-mail?url=" + url, url);
