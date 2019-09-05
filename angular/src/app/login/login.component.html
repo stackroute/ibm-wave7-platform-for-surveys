@@ -1,36 +1,34 @@
- <div class="flex-container" fxLayout="row" fxFlex.lt-md="column">
-       <mat-card class="example-card" >
-      <mat-card-header>
-        <mat-card-title>Login</mat-card-title>
-      </mat-card-header>
-      <form name="login-form" #loginform="ngForm" (ngSubmit)="login(loginform.value)">
-        <mat-card-content>
-            <mat-form-field>
-              <input matInput placeholder="Username" [(ngModel)]="username" name="username">
-            </mat-form-field>
-            <mat-form-field>
-              <input matInput placeholder="Password" type="password" [(ngModel)]="password"
-                name="password">
-            </mat-form-field>
-          <!-- </div> -->
-        </mat-card-content>
-        <mat-card-actions>
-          <button mat-raised-button type="submit" color="primary">Login</button>
-          <button mat-raised-button (click)=signup() color="primary">Not a existing User? signup</button>
-        </mat-card-actions>
-      </form>
-    
-    
-      <mat-divider></mat-divider>
-  
-      <span>
+<div class="flex-container" fxLayout="row" fxFlex.lt-md="column">
+  <mat-card class="example-card">
+    <mat-card-header>
+      <mat-card-title>Login</mat-card-title>
+    </mat-card-header>
+    <form [formGroup]="loginForm" name="login-form" #loginform="ngForm" (ngSubmit)="login(loginform.value)">
+      <mat-card-content>
+        <mat-form-field>
+          <input matInput [formControl]="nameFormControl" placeholder="Username" [(ngModel)]="username" name="username">
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Password" type="password" [(ngModel)]="password" name="password">
+        </mat-form-field>
+        <!-- </div> -->
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-raised-button type="submit" color="primary">Login</button>
+        <button mat-raised-button (click)=signup() color="primary">Not a existing User? signup</button>
+      </mat-card-actions>
+    </form>
 
-        
-        
-        <a href=""><p>Forgot password?Click Here</p></a>
-      </span>
-    </mat-card>
-    </div>
 
-  
-  
+    <mat-divider></mat-divider>
+
+    <span>
+
+
+
+      <a href="">
+        <p>Forgot password?Click Here</p>
+      </a>
+    </span>
+  </mat-card>
+</div>

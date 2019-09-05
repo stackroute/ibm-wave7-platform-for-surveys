@@ -9,4 +9,5 @@ export interface User
      location:string;
    agegroup:string;
     gender:string;
+    isAuthenticated : boolean;
 }

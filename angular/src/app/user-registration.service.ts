@@ -5,6 +5,8 @@ import { LoginUser } from "./modals/Login";
 import { environment } from '../environments/environment';
 import { Observable } from 'rxjs';
 import { Guid } from "guid-typescript";
+import { catchError } from 'rxjs/operators';
+import { throwError } from 'rxjs';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -36,8 +38,15 @@ public loginuser:LoginUser;
 //   }
 
   authenticateUser(user:LoginUser): Observable<boolean>{
-
-    return this.httpClient.get<boolean>(environment.loginBaseURI+'/authenticate?username='+user.username+'&password='+user.password);
+    this.loginuser = user;
+    return this.httpClient.get<boolean>(environment.loginBaseURI+'/authenticate?username='+user.username+'&password='+user.password)
+    .pipe(
+      catchError((error: any) =>
+      {
+        console.log(error);
+        return throwError(error)
+      }
+    ))
     // return this.httpClient.get<boolean>(environment.loginBaseURI+'/authenticate/?username='+user.username+'&password='+user.password);
   }
 updateUser(user:User,id:String):Observable<User>{
@@ -59,5 +68,10 @@ getUser():Observable<User>{
 getUserById(id:string):Observable<User>{
   var url="http://localhost:8095/user/"+105;
 return this.httpClient.get<User>(url);
+}
+getUserByEmail(email : string):Observable<User>{
+ 
+  return this.httpClient.get<User>(environment.signUpBaseURI+"/user/"+email);
+
 }
 }

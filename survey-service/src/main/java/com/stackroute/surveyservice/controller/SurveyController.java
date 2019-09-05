@@ -1,5 +1,6 @@
 package com.stackroute.surveyservice.controller;
 
+import com.stackroute.surveyservice.domain.Question;
 import com.stackroute.surveyservice.domain.Survey;
 import com.stackroute.surveyservice.domain.Surveyor;
 import com.stackroute.surveyservice.exceptions.SurveyDoesNotExistsException;
@@ -73,11 +74,17 @@ public class SurveyController {
         return responseEntity;
     }
     // handling user request with endpoint passing name
-    @PostMapping("/publish")
+    @PostMapping("publish")
     public String post()
     {
         // Sending records to topic
        // kafkaTemplate.send(TOPIC, new Survey(survey.getId(),survey.getName(),survey.getDescription(),survey.getDomain_type()));
         return "published";
+    }
+    @GetMapping("recommendations/{id}")
+    public ResponseEntity<?> getRecomentadions(@PathVariable("id") String id) {
+        System.out.println(id);
+        responseEntity = new ResponseEntity<List<Question>>(surveyService.getRecomendedQuestions(id), HttpStatus.OK);
+        return responseEntity;
     }
 }

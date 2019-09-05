@@ -25,6 +25,7 @@ public class SurveyServiceImpl implements SurveyService{
     public Survey saveSurvey(Survey survey,String surveyorId) {
         Survey savedSurvey=null;
         if(!surveyRepository.findById(survey.getId()).isPresent()) {
+            survey.setStatus("Draft");
             savedSurvey = surveyRepository.save(survey);
             surveyRepository.createCreatesRelationShip(survey.getId(), surveyorId);
             List<Question> questionList = surveyRepository.getRecommendedQuestions(survey.getDomain_type());
@@ -59,6 +60,11 @@ public class SurveyServiceImpl implements SurveyService{
     public Survey getSurveyById(String id) {
         Survey survey= surveyRepository.getSurveyById(id);
         return survey;
+    }
+
+    @Override
+    public List<Question> getRecomendedQuestions(String domainType) {
+        return surveyRepository.getRecommendedQuestionBasedOnDomain(domainType);
     }
 
 }
