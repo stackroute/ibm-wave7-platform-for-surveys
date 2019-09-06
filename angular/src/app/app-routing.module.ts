@@ -29,10 +29,6 @@ const routes: Routes = [
   {
     path:'surveyinfo',component:SurveyinfoComponent
   },
-
-  // {
-  //   path:'landing-page', component: LandingPageComponent
-  // },
   {
     path:'',component:LandingPageComponent
   },
@@ -40,11 +36,6 @@ const routes: Routes = [
     path:'login',
     component:LoginComponent,
   },
-  // {
-  //   path:'',
-  //   redirectTo:'/',
-  //   pathMatch:'full'
-  // },
   {
     path : 'question-template',
     component : QuestionsTemplateComponent
@@ -74,7 +65,7 @@ const routes: Routes = [
     path:'support', component: SupportPageComponent
   },
   {
-    path:'publishview/questions', component: QuestionsComponent
+    path:'questions', component: QuestionsComponent
   }
 
 ];
