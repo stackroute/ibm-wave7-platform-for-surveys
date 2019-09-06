@@ -55,7 +55,8 @@ export class LoginComponent implements OnInit {
 
         this.userResgistrationService.getUserByEmail(this.userResgistrationService.loginuser.email).
           subscribe((data) => {
-            console.log(data);
+            this.userResgistrationService.loginCredentials = data;
+            console.log(this.userResgistrationService.loginCredentials);
             this.user = data;
             this.user.isAuthenticated = this.isAuthenticated;
             if (this.isAuthenticated && this.user.role == 'Surveyor') {

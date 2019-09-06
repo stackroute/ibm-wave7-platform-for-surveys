@@ -26,7 +26,7 @@ export class MyprofileComponent implements OnInit {
   
  name :string;
   user:User;
-  updateuser:User;
+  
   email:string;
   id:string;
   
@@ -37,8 +37,9 @@ export class MyprofileComponent implements OnInit {
   constructor(private registrationService: UserRegistrationService,private dialog: MatDialog) { }
 
   ngOnInit() {
+    console.log(this.user)
     this.id = this.registrationService.loginCredentials.id;
-    this.registrationService.getUserByEmail(this.email).subscribe((data) =>{
+    this.registrationService.getUserById(this.id).subscribe((data) =>{
       this.user=data;
       console.log(this.user);
     })
