@@ -47,7 +47,8 @@ export class QuestionsTemplateComponent implements OnInit {
  
 
   drop(event: CdkDragDrop<Object[]>) {
-    
+    console.log(event.previousContainer.data);
+    console.log(event.container.data[0]);
     if (event.previousContainer === event.container) {
       moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
     } else {
@@ -55,8 +56,31 @@ export class QuestionsTemplateComponent implements OnInit {
                         event.container.data,
                         event.previousIndex,
                         event.currentIndex);
-      
+      // let droppedQuestion = event.container.data[0];                    
+      this.saveDroppedQuestion(event.container.data[event.currentIndex]);
     }
+  }
+
+  remove(event: CdkDragDrop<Object[]>) {
+    if (event.previousContainer === event.container) {
+      moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
+    } else {
+      transferArrayItem(event.previousContainer.data,
+                        event.container.data,
+                        event.previousIndex,
+                        event.currentIndex);
+      this.deleteQuestion(event.container.data[event.currentIndex]);
+    }
+  }
+
+  saveDroppedQuestion(question : any)
+  {
+    console.log("questin from ts", question);
+    this.surveyService.saveQuestion(question).subscribe((data) => {
+      this.question = data;
+      console.log("result is ", this.question);
+      this.getQuestionList(this.surveyService.editSurvey.id);
+    });
   }
 
   publish() {
@@ -71,12 +95,13 @@ export class QuestionsTemplateComponent implements OnInit {
     this.condition = true;
   }
 
-  deleteQuestion(question: Question) {
+  deleteQuestion(question: any) {
     this.surveyService.deleteQuestion(question).subscribe(data => {
       console.log(data);
       this.getQuestionList(this.surveyService.editSurvey.id);
     });
   }
+
   getRecommendedQuestions(domain: String) {
     this.surveyService.getRecommendedQuestions(domain).subscribe(data => {
       this.recommendedQuestionList = data;

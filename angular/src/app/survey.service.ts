@@ -32,13 +32,16 @@ export class SurveyService {
     survey.id = Guid.create().toString();
     this.surveyId = survey.id;
     //microservice create survey api link
-    return this.httpclient.post<Survey>(environment.baseURI + "/survey/?surveyorId="+"123", survey, httpOptions);
+    return this.httpclient.post<Survey>(environment.baseURI + "/survey/?surveyorId="+this.loginCredentials.id, survey, httpOptions);
   }
 
   getAllSurveys(): Observable<Survey[]> {
     return this.httpclient.get<Survey[]>(environment.baseURI + "/survey");
   }
 
+  getSurveysBySurveyor(): Observable<User> {
+    return this.httpclient.get<User>(environment.baseURI + "/surveyor/"+this.loginCredentials.id);
+  }
 
   
   saveQuestion(question: Question) {

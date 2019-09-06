@@ -19,7 +19,7 @@ export class MySurveyCardComponent implements OnInit {
   public surveyList : Survey[];
 
   ngOnInit() {
-    this.getSurveyList();
+    this.getSurveyorSurveysList();
   }
 
   preview(survey){
@@ -34,6 +34,15 @@ export class MySurveyCardComponent implements OnInit {
       console.log(this.surveyList)
       })
   }
+
+  getSurveyorSurveysList()
+  {
+    this.surveyService.getSurveysBySurveyor().subscribe(
+      (data) => {this.surveyList = data.surveysList
+      console.log(this.surveyList)
+      })
+  }
+
   deleteSurvey(survey){
     console.log(survey);
     let demo;
@@ -60,6 +69,7 @@ export class MySurveyCardComponent implements OnInit {
         this.surveyService.createSurvey(result).subscribe(
           (data) => {
             console.log(data);
+            this.surveyService.editSurvey = data;
             this.router.navigateByUrl('question-template');
             this.getSurveyList();
           })

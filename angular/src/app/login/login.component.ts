@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { ConstantsService } from '../constants.service';
 import { User } from '../modals/User';
 import { FormControl, Validators, FormGroup } from '@angular/forms';
+import { SurveyService } from '../survey.service';
 
 
 @Component({
@@ -17,7 +18,7 @@ export class LoginComponent implements OnInit {
   public user: User;
   public isAuthenticated: boolean;
 
-  constructor(private userResgistrationService: UserRegistrationService, private router: Router, public constant: ConstantsService) { }
+  constructor(private userResgistrationService: UserRegistrationService, private router: Router, public constant: ConstantsService, private surveyService : SurveyService) { }
 
   ngOnInit() {
     this.constant.globalvariable = true;
@@ -55,9 +56,10 @@ export class LoginComponent implements OnInit {
 
         this.userResgistrationService.getUserByEmail(this.userResgistrationService.loginuser.email).
           subscribe((data) => {
-            console.log(data);
             this.user = data;
             this.user.isAuthenticated = this.isAuthenticated;
+            this.surveyService.loginCredentials = data;
+            console.log("loginCredentials", data);
             if (this.isAuthenticated && this.user.role == 'Surveyor') {
               this.router.navigateByUrl('survey');
             }
