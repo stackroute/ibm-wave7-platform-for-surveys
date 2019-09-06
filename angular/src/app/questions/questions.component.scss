@@ -1,8 +1,10 @@
-#question_card {
-    display: flex;
-    flex-direction: column;
-  }
-
-.form-group{
-  margin-top: 92px;
+.example-container
+{
+  max-height: 10cm;
+  margin-top: 2cm;
+}
+.example-box
+{
+  width: 500px;
+  height: 200px;
 }
