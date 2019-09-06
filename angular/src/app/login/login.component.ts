@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { ConstantsService } from '../constants.service';
 import { User } from '../modals/User';
 import { FormControl, Validators, FormGroup } from '@angular/forms';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 
 @Component({
@@ -16,12 +17,27 @@ export class LoginComponent implements OnInit {
 
   public user: User;
   public isAuthenticated: boolean;
+  isLoggedIn$:Observable<boolean>;
+  loggedIn: boolean;
+  isLoggedOut$:Observable<boolean>;
+  loggedOut: boolean;
+
 
   constructor(private userResgistrationService: UserRegistrationService, private router: Router, public constant: ConstantsService) { }
 
   ngOnInit() {
-    this.constant.globalvariable = true;
-    console.log(this.constant.globalvariable);
+    this.isLoggedIn$ = this.userResgistrationService.logged;
+    this.userResgistrationService.setLogin(false);
+    this.isLoggedIn$.subscribe(data => {
+      this.loggedIn = data;
+      console.log(this.loggedIn);
+    });
+    this.isLoggedOut$ = this.userResgistrationService.logOut;
+    this.userResgistrationService.setLogout(false);
+    this.isLoggedOut$.subscribe(data => {
+      this.loggedOut = data;
+      console.log(this.loggedOut);
+    });
 
   }
   emailFormControl = new FormControl("", [
