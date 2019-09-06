@@ -24,6 +24,7 @@ export class QuestionsTemplateComponent implements OnInit {
   private questionList:Question[];
   private newchoices : string[] = [];
   private url;
+  public userResponse: Response;
 
   constructor(private surveyService: SurveyService, private route: ActivatedRoute,
     private dialog : MatDialog,private location:Location,private httpClient:HttpClient,private router:Router) { }
@@ -100,6 +101,21 @@ export class QuestionsTemplateComponent implements OnInit {
       this.questionList = data.questionList;
         console.log("questions : ", this.questionList)
       })
+  }
+  saveResponse(userResponse: Response) {
+
+    console.log(userResponse); 
+
+this.surveyService.saveResponse(userResponse)
+      .subscribe(
+        data => {
+
+        },
+        error => {
+          alert("error=" + error);
+        });
+
+
   }
 }
 
