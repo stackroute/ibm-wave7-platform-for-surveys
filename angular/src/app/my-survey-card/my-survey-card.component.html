@@ -1,6 +1,6 @@
 <div class="flex-container">
   <h2>Please create your survey here....!</h2>
-  <button class="btn" mat-raised-button color="primary" (click)=openDialog()>Create Survey</button>
+  <button class="btn" mat-raised-button (click)=openDialog()>Create Survey</button>
    <div class="a">
     <!-- <h3>1. Decide on your research goals</h3>
       <p> Before you can start your research, you will need to form a clear picture in your mind of the expected outcome.</p>
@@ -47,26 +47,102 @@
         Used correctly online surveys can effectively measure customer satisfaction, get feedback on products or services, and reveal key influences in your area of research.
         The process for conducting an online survey is easy and inexpensive.
         The results, on the other hand, are priceless because they will help you make important decisions about your business.</p> -->
-  <mat-card class="example-card" *ngFor="let survey of surveyList">
-    <mat-card-header>
-      <div mat-card-avatar class="example-header-image"></div>
+  <mat-card class="card" *ngFor="let survey of surveyList">
+   <a (click)=editQuestions(survey)> 
+     <div class="draft">Draft</div>
+     <div class="image">
+        <img mat-card-image src="https://d19d5sz0wkl0lu.cloudfront.net/dims4/default/2d524ed/2147483647/resize/800x%3E/quality/90/?url=https%3A%2F%2Fatd-brightspot.s3.amazonaws.com%2F90%2F93%2F3b46944543bb926eb6ac855261e4%2Fadobestock-215547070.jpeg" alt="Survey Image">
+     </div>
+     <mat-card-header >
       <mat-card-title>{{survey.name}}</mat-card-title>
       <mat-card-subtitle>{{survey.description}}</mat-card-subtitle>
     </mat-card-header>
-    <img mat-card-image src="https://d19d5sz0wkl0lu.cloudfront.net/dims4/default/2d524ed/2147483647/resize/800x%3E/quality/90/?url=https%3A%2F%2Fatd-brightspot.s3.amazonaws.com%2F90%2F93%2F3b46944543bb926eb6ac855261e4%2Fadobestock-215547070.jpeg" alt="Survey Image">
-    <mat-card-actions class="btn">
-      <!-- <a routerLink="/surveyinfo"> -->
-        <button mat-button="icon" (click)=preview(survey)>
+  </a>
+   <mat-card-actions class="icon">
+         <button mat-icon-button (click)=preview(survey)>
           <mat-icon class="example-icon" aria-hidden="false" aria-label="search icon">open_in_new</mat-icon>
-          </button>
-          <button mat-button="icon" (click)=editQuestions(survey)>
+            </button>
+          <button mat-icon-button (click)=editQuestions(survey)>
             <mat-icon class="example-icon" aria-hidden="false" aria-label="search icon">edit</mat-icon>
             </button>
-        <a href="http://localhost:4200/survey">
-        <button mat-button="icon" (click)="deleteSurvey(survey)">
-        <mat-icon class="example-icon" aria-hidden="false" aria-label="search icon">delete</mat-icon>
-        </button></a>
+        <a href="http://localhost:4200/survey" >
+          <button mat-icon-button (click)="deleteSurvey(survey)">
+          <mat-icon class="example-icon" aria-hidden="false" aria-label="search icon">delete</mat-icon>
+          </button></a>
       </mat-card-actions>
-  </mat-card>
+   
+      <div class="bottom">
+        <div class="responses">{{survey.responses}}</div>
+        <div class="analysis"><a href="#">Analysis</a></div>
+      </div>
+    
+   
+  </mat-card> 
+  
+  
+   <!-- <div class="card" *ngFor="let survey of surveyList">
+      <a (click)=editQuestions(survey)>
+    <div class="draft">{{survey.status}}</div>
+    <div class="image"><img src="https://d19d5sz0wkl0lu.cloudfront.net/dims4/default/2d524ed/2147483647/resize/800x%3E/quality/90/?url=https%3A%2F%2Fatd-brightspot.s3.amazonaws.com%2F90%2F93%2F3b46944543bb926eb6ac855261e4%2Fadobestock-215547070.jpeg" alt="Avatar" style="width:100%"></div>
+    <div class="container">
+      <div class="card-header">
+        <h5>{{survey.name}}</h5>
+        <p>{{survey.description}}</p>
+       </div>
+       <div class="actions">
+       <button (click)=preview(survey)>
+          <button class="btn"><i class="material-icons">
+              edit
+              </i></button>
+          </button>
+          <button (click)=editQuestions(survey)>
+              <button class="btn"><i class="material-icons">
+                  edit
+                  </i></button>
+            </button>
+        <a href="http://localhost:4200/survey">
+        <button  (click)="deleteSurvey(survey)">
+            <button class="btn"><i class="material-icons">
+                delete
+                </i></button>
+        </button></a>
+      </div>
+    </div>
+  </a>
+  </div> -->
+
+  <!-- <div class="card">
+      <div class="draft">Draft</div>
+      <div class="image"><img src="https://d19d5sz0wkl0lu.cloudfront.net/dims4/default/2d524ed/2147483647/resize/800x%3E/quality/90/?url=https%3A%2F%2Fatd-brightspot.s3.amazonaws.com%2F90%2F93%2F3b46944543bb926eb6ac855261e4%2Fadobestock-215547070.jpeg" alt="Avatar" style="width:100%"></div>
+      <div class="container">
+        <h4><b>Jane Doe</b></h4> 
+        <p>Interior Designer</p> 
+      </div>
+    </div>
+    <div class="card">
+        <div class="draft">Draft</div>
+        <div class="image"><img src="https://d19d5sz0wkl0lu.cloudfront.net/dims4/default/2d524ed/2147483647/resize/800x%3E/quality/90/?url=https%3A%2F%2Fatd-brightspot.s3.amazonaws.com%2F90%2F93%2F3b46944543bb926eb6ac855261e4%2Fadobestock-215547070.jpeg" alt="Avatar" style="width:100%"></div>
+        <div class="container">
+          <h4><b>Jane Doe</b></h4> 
+          <p>Interior Designer</p> 
+        </div>
+      </div>
+      <div class="card">
+          <div class="draft">Draft</div>
+          <div class="image"><img src="https://d19d5sz0wkl0lu.cloudfront.net/dims4/default/2d524ed/2147483647/resize/800x%3E/quality/90/?url=https%3A%2F%2Fatd-brightspot.s3.amazonaws.com%2F90%2F93%2F3b46944543bb926eb6ac855261e4%2Fadobestock-215547070.jpeg" alt="Avatar" style="width:100%"></div>
+          <div class="container">
+            <h4><b>Jane Doe</b></h4> 
+            <p>Interior Designer</p> 
+          </div>
+        </div>
+        <div class="card">
+            <div class="draft">Draft</div>
+            <div class="image"><img src="https://d19d5sz0wkl0lu.cloudfront.net/dims4/default/2d524ed/2147483647/resize/800x%3E/quality/90/?url=https%3A%2F%2Fatd-brightspot.s3.amazonaws.com%2F90%2F93%2F3b46944543bb926eb6ac855261e4%2Fadobestock-215547070.jpeg" alt="Avatar" style="width:100%"></div>
+            <div class="container">
+              <h4><b>Jane Doe</b></h4> 
+              <p>Interior Designer</p> 
+            </div>
+          </div>  -->
+
 </div>
 </div>
