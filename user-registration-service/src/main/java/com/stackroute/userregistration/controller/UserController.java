@@ -1,24 +1,13 @@
 package com.stackroute.userregistration.controller;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.stackroute.userregistration.domain.User;
-import com.stackroute.userregistration.repository.UserRepository;
 import com.stackroute.userregistration.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.kafka.core.KafkaTemplate;
-import org.springframework.kafka.support.SendResult;
-import org.springframework.util.concurrent.ListenableFuture;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-import java.util.concurrent.ExecutionException;
-
-import static org.springframework.http.ResponseEntity.ok;
 
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
@@ -49,6 +38,7 @@ private static final String TOPIC = "UserRegistration";
         //Saving the user and returning the user
         User savedUser = userService.saveUser(user);
         this.kafkaTemplate.send(TOPIC, savedUser);
+        System.out.println(savedUser);
         return new ResponseEntity<User>(savedUser, HttpStatus.CREATED);
     }
 
@@ -71,6 +61,17 @@ private static final String TOPIC = "UserRegistration";
     public ResponseEntity<?> updateUser(@RequestBody User user, @PathVariable String id) {
         User updateuser = userService.updateUser(user, id);
         return new ResponseEntity<User>(updateuser, HttpStatus.OK);
+    }
+
+    @GetMapping("user/{id}")
+    public ResponseEntity<?> getUserById(@PathVariable String id) {
+        User user = userService.getUserById(id);
+        return new ResponseEntity<User>(user, HttpStatus.OK);
+    }
+    @GetMapping("userByEmail/{email}")
+    public ResponseEntity<?> getUserByEmail(@PathVariable String email) {
+
+        return new ResponseEntity<>(userService.findUserByEmail(email), HttpStatus.OK);
     }
 }
 

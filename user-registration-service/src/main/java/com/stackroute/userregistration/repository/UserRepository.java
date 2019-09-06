@@ -6,4 +6,6 @@ import org.springframework.stereotype.Repository;
 //Using the mongo repository to store the user details
 @Repository
 public interface UserRepository extends MongoRepository<User,String> {
+
+    public User findUserByEmail(String email);
 }

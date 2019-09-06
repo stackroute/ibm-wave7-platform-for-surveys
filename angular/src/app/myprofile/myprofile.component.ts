@@ -8,8 +8,14 @@ import { LoginUser } from '../modals/Login';
 import { Profile } from 'selenium-webdriver/firefox';
 
 export interface DialogData{
-  email:String
+  email:string;
+  gender:string;
+  agegroup : string;
+  location :string;
+
 }
+
+
 
 @Component({
   selector: 'app-myprofile',
@@ -18,16 +24,22 @@ export interface DialogData{
 })
 export class MyprofileComponent implements OnInit {
   
- name :String;
+ name :string;
   user:User;
-  email:String;
+  
+  email:string;
+  id:string;
+  
+  
   
   
   
   constructor(private registrationService: UserRegistrationService,private dialog: MatDialog) { }
 
   ngOnInit() {
-    this.registrationService.getUser().subscribe((data) =>{
+    console.log(this.user)
+    this.id = this.registrationService.loginCredentials.id;
+    this.registrationService.getUserById(this.id).subscribe((data) =>{
       this.user=data;
       console.log(this.user);
     })
@@ -37,7 +49,7 @@ export class MyprofileComponent implements OnInit {
     this.registrationService.updateUser(user,user.id).subscribe((data)=> {
        this.user = data;
       console.log("result is ", data);
-      this.registrationService.getUser().subscribe((data) => {
+      this.registrationService.getUserById(this.id).subscribe((data) => {
         this.user=data;})
     });
 }
@@ -56,13 +68,7 @@ export class MyprofileComponent implements OnInit {
   }
   
   
-// saveUser(user: User) {
-//   console.log(user);
-//   this.registrationService.saveUser(user).subscribe((data)=> {
-//       this.user = data;
-//     console.log("result is ", user);
-//   });
-// }
+
 
  }
 @Component({
@@ -74,6 +80,7 @@ export class MyprofileComponent implements OnInit {
   user:User;
   email:string;
   name:string;
+  gender:string;
 
   constructor(
     public dialogRef: MatDialogRef<DialogComponent>,

@@ -1,34 +1,124 @@
-<div class="container-wrapper" fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="10px">
-  <div fxFlex="77%">
-    <mat-card *ngFor="let question of questionList">
-      <h3>{{question.questionTag}} <mat-icon (click)=editQuestion(question)>edit</mat-icon><mat-icon (click)=deleteQuestion(question)>delete</mat-icon></h3>
+<div
+  class="example-container"
+  fxLayout="row"
+  fxLayout.xs="column"
+  fxLayoutWrap
+  fxLayoutGap="10px"
+>
+  <div
+    class="example-list"
+    fxFlex="40%"
+    cdkDropList
+    #recommendedQuestions="cdkDropList"
+    [cdkDropListData]="recommendedQuestionList"
+    [cdkDropListConnectedTo]="[surveyQuestions]"
+    (cdkDropListDropped)="drop($event)"
+  >
+    <mat-card
+      class="example-box"
+      *ngFor="let question of recommendedQuestionList"
+      cdkDrag
+    >
+      <h3>
+        {{ question.questionTag
+        }}<mat-icon (click)="editQuestion(question)">edit</mat-icon
+        ><mat-icon (click)="deleteQuestion(question)">delete</mat-icon>
+      </h3>
+      <br />
       <div *ngFor="let choice of question.choices">
-        <mat-radio-button class="choice-radio-button" value="{{choice}}">{{choice}}</mat-radio-button>
+        <mat-radio-button class="choice-radio-button" value="{{ choice }}">{{
+          choice
+        }}</mat-radio-button
+        ><br />
       </div>
     </mat-card>
-
-    <ng-template [ngIf]="condition">
-      <mat-card>
-        <form name="question_card" class="my-form" #questiontemplateform="ngForm" (ngSubmit)="saveQuestion(questiontemplateform.value)">
-          <mat-form-field>
-            <mat-label>Question</mat-label>
-            <textarea matInput placeholder="Question" [(ngModel)]="questionTag" name="questionTag" cols="60"></textarea>
-          </mat-form-field><br>
-          <div *ngFor="let choice of newchoices">
-              <mat-radio-button class="choice-radio-button" value="{{choice}}">{{choice}}</mat-radio-button>
-          </div>
-          <mat-form-field>
-              <input  matInput placeholder="Choice" name="choices" #choiceText>
-            </mat-form-field>
-          <button id="addChoice" mat-mini-fab color="primary" (click)=addChoice(choiceText.value)>+</button>
-          <a routerLink='question-template'><button mat-raised-button type="submit" color="primary">save</button></a>
-        </form>
-      </mat-card>
-    </ng-template>
-    <button mat-raised-button type="submit" color="primary" (click)=addQuestion()>Add Question</button>
-    <!-- <button mat-raised-button type="submit" color="primary"> Save Survey</button> -->
-   <button mat-raised-button type="submit" color="primary" (click)="publish()"> Publish</button>
-   <a routerLink="/survey"><button mat-raised-button color="primary"> Back</button></a>
-    
-   
   </div>
+</div>
+<div
+  class="example-container1"
+  fxLayout="row"
+  fxLayout.xs="column"
+  fxLayoutWrap
+  fxLayoutGap="10px"
+>
+  <div
+    class="example-list"
+    fxFlex="40%"
+    cdkDropList
+    #surveyQuestions="cdkDropList"
+    [cdkDropListConnectedTo]="[recommendedQuestions]"
+    [cdkDropListData]="questionList"
+    (cdkDropListDropped)="drop($event)"
+  >
+    <mat-card class="example-box" *ngFor="let question of questionList" cdkDrag>
+      <h3>
+        {{ question.questionTag
+        }}<mat-icon (click)="editQuestion(question)">edit</mat-icon
+        ><mat-icon (click)="deleteQuestion(question)">delete</mat-icon>
+      </h3>
+      <br />
+      <div *ngFor="let choice of question.choices">
+        <mat-radio-button class="choice-radio-button" value="{{ choice }}">{{
+          choice
+        }}</mat-radio-button
+        ><br />
+      </div>
+    </mat-card>
+  </div>
+</div>
+
+<ng-template [ngIf]="condition">
+  <mat-card>
+    <form name="question_card" class="my-form" #questiontemplateform="ngForm">
+      <mat-form-field>
+        <mat-label>Question</mat-label>
+        <textarea
+          matInput
+          placeholder="Question"
+          [(ngModel)]="questionTag"
+          name="questionTag"
+          cols="60"
+        ></textarea> </mat-form-field
+      ><br />
+      <div *ngFor="let choice of newchoices">
+        <mat-radio-button class="choice-radio-button" value="{{ choice }}">{{
+          choice
+        }}</mat-radio-button>
+      </div>
+      <mat-form-field>
+        <input
+          matInput
+          placeholder="Choice"
+          name="choices"
+          #choiceText
+          id="choiceText"
+        />
+      </mat-form-field>
+      <button
+        id="addChoice"
+        mat-mini-fab
+        color="primary"
+        (click)="addChoice(choiceText.value)"
+      >
+        +
+      </button>
+      <button
+        mat-raised-button
+        type="submit"
+        color="primary"
+        (click)="saveQuestion(questiontemplateform)"
+      >
+        save
+      </button>
+    </form>
+  </mat-card>
+</ng-template>
+<button mat-raised-button type="submit" color="primary" (click)="addQuestion()">
+  Add Question
+</button>
+<button mat-raised-button type="submit" color="primary" (click)="publish()">
+  Publish
+</button>
+<a routerLink="/survey"
+  ><button mat-raised-button color="primary">Back</button></a
+>

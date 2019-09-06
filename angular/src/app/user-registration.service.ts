@@ -5,6 +5,8 @@ import { LoginUser } from "./modals/Login";
 import { environment } from '../environments/environment';
 import { Observable } from 'rxjs';
 import { Guid } from "guid-typescript";
+import { catchError } from 'rxjs/operators';
+import { throwError } from 'rxjs';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -19,6 +21,8 @@ export class UserRegistrationService {
 
   constructor(private httpClient:HttpClient) { }
   public user:User;
+  public loginCredentials : User;
+
   saveUser(user:User):Observable<User>
   {
     user.id = Guid.create().toString();
@@ -35,12 +39,20 @@ public loginuser:LoginUser;
 //   }
 
   authenticateUser(user:LoginUser): Observable<boolean>{
-
-    return this.httpClient.get<boolean>(environment.loginBaseURI+'/authenticate?username='+user.username+'&password='+user.password);
+    this.loginuser = user;
+    return this.httpClient.get<boolean>(environment.loginBaseURI+'/authenticate?username='+user.email+'&password='+user.password)
+    .pipe(
+      catchError((error: any) =>
+      {
+        console.log(error);
+        return throwError(error)
+      }
+    ))
     // return this.httpClient.get<boolean>(environment.loginBaseURI+'/authenticate/?username='+user.username+'&password='+user.password);
   }
 updateUser(user:User,id:String):Observable<User>{
-  var url = "http://localhost:8095/user/105";
+  console.log(user);
+  var url = "http://localhost:8095/user/"+this.loginCredentials.id;
   return this.httpClient.put<User>(url ,user, httpOptions);
 
 }
@@ -52,6 +64,17 @@ getUser():Observable<User>{
   var url = "http://localhost:8095/user";
  
   return this.httpClient.get<User>(url);
+
+}
+
+getUserById(id:string):Observable<User>{
+  var url="http://localhost:8095/user/"+this.loginCredentials.id;
+return this.httpClient.get<User>(url);
+}
+
+getUserByEmail(email : string):Observable<User>{
+ 
+  return this.httpClient.get<User>(environment.signUpBaseURI+"/userByEmail/"+email);
 
 }
 }

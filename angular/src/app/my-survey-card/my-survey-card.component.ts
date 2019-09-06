@@ -39,9 +39,11 @@ export class MySurveyCardComponent implements OnInit {
     let demo;
     this.surveyService.deleteSurvey(survey).subscribe(data=>demo=data);
   }
+
   editQuestions(survey : Survey)
  {
     this.surveyService.surveyId = survey.id;
+    this.surveyService.editSurvey=survey
     this.router.navigateByUrl('question-template');
  }
 
