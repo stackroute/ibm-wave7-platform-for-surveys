@@ -107,7 +107,6 @@ export class QuestionsTemplateComponent implements OnInit {
 
   editQuestion(question) {
     console.log(question);
-
     const dialogRef = this.dialog.open(EditQuestionDialog, {
       width: "250px",
       data: { question }
