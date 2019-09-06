@@ -29,6 +29,7 @@ export class QuestionsTemplateComponent implements OnInit {
   private recommendedQuestionList: Question[];
   private newchoices: string[] = [];
   private url;
+  public userResponse: Response;
 
   constructor(
     private surveyService: SurveyService,
@@ -106,7 +107,6 @@ export class QuestionsTemplateComponent implements OnInit {
 
   editQuestion(question) {
     console.log(question);
-
     const dialogRef = this.dialog.open(EditQuestionDialog, {
       width: "250px",
       data: { question }
@@ -130,6 +130,10 @@ export class QuestionsTemplateComponent implements OnInit {
       console.log("questions : ", this.questionList);
     });
   }
+  
+
+
+  
 }
 
 @Component({

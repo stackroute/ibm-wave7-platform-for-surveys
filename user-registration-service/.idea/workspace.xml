@@ -2,10 +2,26 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1837a211-f7eb-41c7-b243-5416369a1014" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../angular/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../angular/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../angular/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../angular/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../angular/src/app/modals/Response.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../angular/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../angular/src/app/app-routing.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../angular/src/app/header/header.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../angular/src/app/header/header.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../angular/src/app/login/login.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../angular/src/app/login/login.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../angular/src/app/modals/Survey.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../angular/src/app/modals/Survey.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../angular/src/app/my-survey-card/create-survey-dialogue.html" beforeDir="false" afterPath="$PROJECT_DIR$/../angular/src/app/my-survey-card/create-survey-dialogue.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../angular/src/app/my-survey-card/my-survey-card.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../angular/src/app/my-survey-card/my-survey-card.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../angular/src/app/my-survey-card/my-survey-card.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/../angular/src/app/my-survey-card/my-survey-card.component.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../angular/src/app/my-survey-card/my-survey-card.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../angular/src/app/my-survey-card/my-survey-card.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../angular/src/app/myprofile/myprofile.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../angular/src/app/myprofile/myprofile.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../angular/src/app/myprofile/myprofile.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../angular/src/app/myprofile/myprofile.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../angular/src/app/publishedview/publishedview.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../angular/src/app/publishedview/publishedview.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../angular/src/app/publishedview/publishedview.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../angular/src/app/publishedview/publishedview.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../angular/src/app/questions-template/questions-template.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../angular/src/app/questions-template/questions-template.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../angular/src/app/questions/questions.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../angular/src/app/questions/questions.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../angular/src/app/questions/questions.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/../angular/src/app/questions/questions.component.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../angular/src/app/questions/questions.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../angular/src/app/questions/questions.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../angular/src/app/survey.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../angular/src/app/survey.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../angular/src/app/user-registration.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../angular/src/app/user-registration.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/stackroute/userregistration/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stackroute/userregistration/controller/UserController.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />

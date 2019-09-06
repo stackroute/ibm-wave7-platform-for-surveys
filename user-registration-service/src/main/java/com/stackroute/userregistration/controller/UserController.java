@@ -68,7 +68,7 @@ private static final String TOPIC = "UserRegistration";
         User user = userService.getUserById(id);
         return new ResponseEntity<User>(user, HttpStatus.OK);
     }
-    @GetMapping("user/{email}")
+    @GetMapping("userByEmail/{email}")
     public ResponseEntity<?> getUserByEmail(@PathVariable String email) {
 
         return new ResponseEntity<>(userService.findUserByEmail(email), HttpStatus.OK);

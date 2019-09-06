@@ -55,7 +55,7 @@ export class MySurveyCardComponent implements OnInit {
  {
     this.surveyService.surveyId = survey.id;
     this.surveyService.editSurvey=survey
-    this.router.navigateByUrl('question-template');
+    this.router.navigate(['question-template',survey.id]);
  }
 
   openDialog() {
@@ -71,7 +71,7 @@ export class MySurveyCardComponent implements OnInit {
         this.surveyService.createSurvey(result).subscribe(
           (data) => {
             console.log(data);
-            this.router.navigateByUrl('question-template');
+            this.router.navigate(['question-template',data.id]);
             this.getSurveyList();
           })
       }
