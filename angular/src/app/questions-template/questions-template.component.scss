@@ -14,10 +14,9 @@ float:right;
     color: rgba(0, 0, 0, 0.87);
     cursor: move;
     background: white;
-   width:700px;
-   height:300px;
-  }
-  .cdk-drag-preview {
+    width:700px;
+    height:270px;
+    margin-top:1cm;
     box-sizing: border-box;
     border-radius: 4px;
     box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),
