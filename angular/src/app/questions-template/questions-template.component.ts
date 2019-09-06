@@ -131,21 +131,10 @@ export class QuestionsTemplateComponent implements OnInit {
       console.log("questions : ", this.questionList);
     });
   }
-  saveResponse(userResponse: Response) {
-
-    console.log(userResponse); 
-
-this.surveyService.saveResponse(userResponse)
-      .subscribe(
-        data => {
-
-        },
-        error => {
-          alert("error=" + error);
-        });
+  
 
 
-  }
+  
 }
 
 @Component({
