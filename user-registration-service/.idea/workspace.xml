@@ -1,7 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
+<<<<<<< HEAD
+    <list default="true" id="1837a211-f7eb-41c7-b243-5416369a1014" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../survey-service/src/main/java/com/stackroute/surveyservice/configuration/KafkaConfiguration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../survey-service/src/main/java/com/stackroute/surveyservice/listener/KafkaConsumer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../survey-service/src/main/java/com/stackroute/surveyservice/domain/Surveyor.java" beforeDir="false" afterPath="$PROJECT_DIR$/../survey-service/src/main/java/com/stackroute/surveyservice/domain/Surveyor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/stackroute/userregistration/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stackroute/userregistration/controller/UserController.java" afterDir="false" />
+    </list>
+=======
     <list default="true" id="1837a211-f7eb-41c7-b243-5416369a1014" name="Default Changelist" comment="" />
+>>>>>>> 85bf9ebff32335f42cfcb6a7a66a8e9de9018405
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
