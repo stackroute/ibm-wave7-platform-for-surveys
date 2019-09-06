@@ -71,7 +71,7 @@ return this.httpClient.get<User>(url);
 }
 getUserByEmail(email : string):Observable<User>{
  
-  return this.httpClient.get<User>(environment.signUpBaseURI+"/user/"+email);
+  return this.httpClient.get<User>(environment.signUpBaseURI+"/userByEmail/"+email);
 
 }
 }
