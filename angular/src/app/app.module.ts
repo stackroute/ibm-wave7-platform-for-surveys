@@ -74,7 +74,8 @@ import {CdkTreeModule} from '@angular/cdk/tree';
     UserLandingPageComponent,
     SupportPageComponent,
     QuestionsComponent,
-    EditQuestionDialog
+    EditQuestionDialog,
+    
   ],
   imports: [
     MatRadioModule,
@@ -111,7 +112,8 @@ import {CdkTreeModule} from '@angular/cdk/tree';
     CdkTreeModule,
     DragDropModule,
     PortalModule,
-    ScrollingModule
+    ScrollingModule,
+    
 
   ],
   providers: [MyprofileComponent,DialogComponent],

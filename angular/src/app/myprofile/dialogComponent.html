@@ -4,6 +4,7 @@
     </mat-card-header>
     <mat-card-content>
       <div class="example-container">
+          
         <mat-form-field>
           <input matInput type="text" placeholder="enter name" [(ngModel)]="data.name" >
         </mat-form-field>
@@ -12,37 +13,48 @@
         </mat-form-field>
         
         
-        <mat-form-field class="full-width">
-          <mat-label>gender</mat-label>
-          <mat-select [(ngModel)]="data.gender" name="gender">
+        <mat-form-field class="full-width" [class.has-error]="gender.touched && gender.invalid">
+          <mat-label class ="control-label">gender</mat-label>
+          <mat-select [(ngModel)]="data.gender" name="gender" required #gender="ngModel">
             
             <mat-option value="male">Male</mat-option>
             <mat-option value="female">female</mat-option>
           </mat-select>
+          <span class="validations" *ngIf="gender.touched && gender.invalid">
+            gender is required
+          </span>
         </mat-form-field>
 
         <mat-form-field class="hello">
-          <mat-label>location</mat-label>
-          <mat-select [(ngModel)]="data.location" name="location">
+          <mat-label class ="control-label">location</mat-label>
+          <mat-select [(ngModel)]="data.location" name="location" required #location="ngModel">
             
             <mat-option value="hyderabad">hyderabad</mat-option>
-            <mat-option value="bengaluru">bengaluru</mat-option>
+            <mat-option value="bengluru">bengaluru</mat-option>
             <mat-option value="chennai">chennai</mat-option>
             <mat-option value="pune">pune</mat-option>
             <mat-option value="delhi">delhi</mat-option>
             <mat-option value="Mumbai">Mumbai</mat-option>
+            <mat-option value="other">other</mat-option>
+
           </mat-select>
+          <span class="validations" *ngIf="location.touched && location.invalid">
+            location required
+          </span>
         </mat-form-field>
 
         <mat-form-field class="full-width1">
-          <mat-label>age</mat-label>
-          <mat-select [(ngModel)]="data.agegroup" name="agegroup">
+          <mat-label class ="control-label">age</mat-label>
+          <mat-select [(ngModel)]="data.agegroup" name="agegroup" required #agegroup="ngModel">
             
             <mat-option value="children">1 to 16years</mat-option>
             <mat-option value="youth">17 to 30years</mat-option>
             <mat-option value="Middle age">31 to 60years</mat-option>
             <mat-option value="old age">60 above</mat-option>
           </mat-select>
+          <span class="validations" *ngIf="agegroup.touched && agegroup.invalid">
+            age required
+          </span>
         </mat-form-field>
       </div>
     </mat-card-content>
