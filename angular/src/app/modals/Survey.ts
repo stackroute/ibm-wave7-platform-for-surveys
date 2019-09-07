@@ -10,5 +10,8 @@ import { Question } from './Question';
     location:string[]
     gender:string
     age:string
+    status:string
+    responses:number
+    rewardPoints:number
     questionList : Question[];
 }

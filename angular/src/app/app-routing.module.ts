@@ -37,7 +37,7 @@ const routes: Routes = [
     component:LoginComponent,
   },
   {
-    path : 'question-template',
+    path : 'question-template/:surveyId',
     component : QuestionsTemplateComponent
   },
   {
@@ -65,7 +65,7 @@ const routes: Routes = [
     path:'support', component: SupportPageComponent
   },
   {
-    path:'questions', component: QuestionsComponent
+    path:'questions/:surveyId', component: QuestionsComponent
   }
 
 ];
