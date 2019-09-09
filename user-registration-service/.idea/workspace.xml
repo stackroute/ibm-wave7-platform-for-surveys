@@ -1,7 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1837a211-f7eb-41c7-b243-5416369a1014" name="Default Changelist" comment="" />
+    <list default="true" id="1837a211-f7eb-41c7-b243-5416369a1014" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../angular/src/app/sign-up/sign-up.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../angular/src/app/sign-up/sign-up.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../angular/src/app/user-registration.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../angular/src/app/user-registration.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../login-authentication-service/src/main/java/com/stackroute/config/KafkaConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/../login-authentication-service/src/main/java/com/stackroute/config/KafkaConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../survey-service/src/main/java/com/stackroute/surveyservice/configuration/KafkaConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/../survey-service/src/main/java/com/stackroute/surveyservice/configuration/KafkaConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../survey-service/src/main/java/com/stackroute/surveyservice/domain/Surveyor.java" beforeDir="false" afterPath="$PROJECT_DIR$/../survey-service/src/main/java/com/stackroute/surveyservice/domain/Surveyor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../survey-service/src/main/java/com/stackroute/surveyservice/listener/KafkaConsumer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../survey-service/src/main/java/com/stackroute/surveyservice/listener/KafkaConsumer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../survey-service/src/test/java/com/stackroute/surveyservice/controller/SurveyorControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../survey-service/src/test/java/com/stackroute/surveyservice/controller/SurveyorControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../survey-service/src/test/java/com/stackroute/surveyservice/service/SurveyorServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../survey-service/src/test/java/com/stackroute/surveyservice/service/SurveyorServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/stackroute/userregistration/configuration/UserConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stackroute/userregistration/configuration/UserConfiguration.java" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

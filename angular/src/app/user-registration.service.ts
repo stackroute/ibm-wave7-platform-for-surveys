@@ -31,6 +31,7 @@ export class UserRegistrationService {
     {
       console.log(error);
       return throwError(error)
+
     }
   ));
   }
