@@ -8,10 +8,10 @@ import com.stackroute.surveyservice.repository.SurveyRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Optional;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.chrono.ChronoLocalDate;
+import java.util.*;
 
 @Service
 public class SurveyServiceImpl implements SurveyService{
@@ -65,6 +65,16 @@ public class SurveyServiceImpl implements SurveyService{
     @Override
     public List<Question> getRecomendedQuestions(String domainType) {
         return surveyRepository.getRecommendedQuestionBasedOnDomain(domainType);
+    }
+
+    @Override
+    public int surveyExpiryCheck(String id)
+    {
+        LocalDate presentDate=LocalDate.now();
+        String currentDate=presentDate.toString();
+
+    int compare=currentDate.compareTo(surveyRepository.getSurveyById(id).getExpiryDate());
+    return compare;
     }
 
 }

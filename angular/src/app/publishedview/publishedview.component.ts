@@ -10,7 +10,7 @@ export class PublishedviewComponent implements OnInit {
 
   constructor(private surveyService : SurveyService) { }
 
-  private publishedURL : string;
+  private publishedURL : String;
 
   ngOnInit() {
     this.publishedURL = this.surveyService.publishedURL;

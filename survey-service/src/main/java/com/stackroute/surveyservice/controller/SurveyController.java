@@ -87,4 +87,11 @@ public class SurveyController {
         responseEntity = new ResponseEntity<List<Question>>(surveyService.getRecomendedQuestions(id), HttpStatus.OK);
         return responseEntity;
     }
+
+    @GetMapping("expiryCheck")
+    public ResponseEntity<?> surveyExpiryCheck(@RequestParam String id)
+    {
+        responseEntity=new ResponseEntity(surveyService.surveyExpiryCheck(id),HttpStatus.OK);
+        return responseEntity;
+    }
 }

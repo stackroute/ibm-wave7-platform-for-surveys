@@ -4,9 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Question } from '../modals/Question';
 import { Survey } from '../modals/Survey';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { HttpClient } from '@angular/common/http';
-import { Location } from '@angular/common';
-
+import {Mail} from '../mail'
 
 @Component({
   selector: 'app-questions-template',
@@ -23,24 +21,27 @@ export class QuestionsTemplateComponent implements OnInit {
   private survey: Survey;
   private questionList:Question[];
   private newchoices : string[] = [];
-  private url;
+  private email:Mail;
 
-  constructor(private surveyService: SurveyService, private route: ActivatedRoute,
-    private dialog : MatDialog,private location:Location,private httpClient:HttpClient,private router:Router) { }
+  constructor(private surveyService: SurveyService,
+    private dialog : MatDialog,private router:Router) { }
    
    
+
   ngOnInit() {
 
     this.getQuestionList(this.surveyService.surveyId);
-    this.url=window.location.href;
+   this.email={url:"http://172.23.238.147:4200/publishview/questions?surveyId="+this.surveyService.surveyId};
+
+    
   }
   publish()
   {
-    this.surveyService.sendMail(this.url).subscribe(
+    this.surveyService.sendMail(this.email).subscribe(
       (data) =>{
         console.log(data);
       });
-      this.surveyService.publishedURL = this.url;
+      this.surveyService.publishedURL = this.email.url;
         this.router.navigateByUrl('publishview')
   }
 

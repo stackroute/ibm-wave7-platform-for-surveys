@@ -21,15 +21,17 @@ public class MailController {
     @Autowired
     private Mail mail;
 
-    @RequestMapping("send-mail")
-    public String send(@RequestParam String url) {
-        Map<String, Object> model = new HashMap<String, Object>();
-        model.put("url", url);
-        model.put("signature", "Mail to take the survey");
+    @PostMapping("send-mail")
+    public String send(@RequestBody Mail mail) {
+        Map<String, Object> map = new HashMap<String, Object>();
+//        String url=mail.getUrl();
+        System.out.println(mail.getUrl());
+        map.put("url",mail.getUrl());
+        map.put("signature", "Mail to take the survey");
 
 
         try {
-            mailService.sendMail(model);
+            mailService.sendMail(map);
         } catch (MessagingException e) {
             e.printStackTrace();
         } catch (IOException e) {

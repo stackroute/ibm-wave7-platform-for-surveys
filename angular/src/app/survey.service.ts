@@ -6,6 +6,7 @@ import { Survey } from './modals/Survey';
 import { environment } from '../environments/environment'
 import { Question } from './modals/Question';
 import { User } from './modals/User';
+import { Mail } from './mail';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -24,7 +25,7 @@ export class SurveyService {
 
   public loginCredentials : User;
 
-  public publishedURL : string;
+  public publishedURL : String;
 
   createSurvey(survey: Survey): Observable<Survey> {
     //creating a Guid Id
@@ -70,7 +71,17 @@ export class SurveyService {
   getAllQuestions(surveyId : string): Observable<Survey> {
     return this.httpclient.get<Survey>(environment.baseURI + "/survey/" + surveyId);
   }
-  sendMail(url) : Observable<string> {
-    return this.httpclient.post<string>("http://172.23.238.147:8070/send-mail?url=" + url, url);
+  sendMail(mail) {
+    return this.httpclient.post("http://172.23.238.147:8070/send-mail",mail);
   }
+
+
+  expiryCheck()
+  {
+    return this.httpclient.get<number>(environment.baseURI+"/expiryCheck"+"?id="+this.surveyId);
+  }
+
+
+
+  
 }

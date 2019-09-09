@@ -1,6 +1,8 @@
 
 
 <div class="container">
+
+    <div *ngIf="num > 0; else takeSurvey">
         
             <h1>Survey Builder</h1>
             <form novalidate="" ng-controller="PollCtrl" class="survey form ">
@@ -46,4 +48,13 @@
               </form>
            
             </div>
+
+            <ng-template #takeSurvey>
+
+                <button mat-raised-button type="submit" color="primary" (click)="newSurveys()"> Click here to take similar surveys</button>
+
+
+            </ng-template>
+    </div>
+
        
