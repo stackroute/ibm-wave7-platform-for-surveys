@@ -37,7 +37,7 @@ export class QuestionsTemplateComponent implements OnInit {
     private dialog: MatDialog,
     private location: Location,
     private httpClient: HttpClient,
-    private router: Router
+    private router: Router,
   ) {}
 
   ngOnInit() {
@@ -88,9 +88,12 @@ export class QuestionsTemplateComponent implements OnInit {
     this.surveyService.sendMail(this.url).subscribe(data => {
       console.log(data);
     });
+    let surveyId=this.route.snapshot.queryParams["surveyId"];
+    console.log(surveyId);
     this.surveyService.publishedURL = this.url;
-    this.router.navigateByUrl("publishview");
+    this.router.navigate(["publishview",surveyId]);
   }
+
 
   addQuestion() {
     this.condition = true;
@@ -154,11 +157,7 @@ export class QuestionsTemplateComponent implements OnInit {
       this.questionList = data.questionList;
       console.log("questions : ", this.questionList);
     });
-  }
-  
-
-
-  
+  } 
 }
 
 @Component({

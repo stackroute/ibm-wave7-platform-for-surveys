@@ -69,7 +69,7 @@ export class LoginComponent implements OnInit {
       (data) => {
         console.log(data);
         this.isAuthenticated = data;
-
+        console.log(this.userResgistrationService.loginuser.email);
         this.userResgistrationService.getUserByEmail(this.userResgistrationService.loginuser.email).
           subscribe((data) => {
             this.userResgistrationService.loginCredentials = data;
@@ -79,7 +79,7 @@ export class LoginComponent implements OnInit {
             this.surveyService.loginCredentials = data;
             console.log("loginCredentials", data);
             if (this.isAuthenticated && this.user.role == 'Surveyor') {
-              this.router.navigateByUrl('survey');
+              this.router.navigateByUrl('survey'); 
             }
             else if (this.isAuthenticated && this.user.role == 'User') {
               this.router.navigateByUrl('landing');
