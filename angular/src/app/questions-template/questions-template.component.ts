@@ -13,6 +13,10 @@ import { Location } from "@angular/common";
 import {CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag-drop';
 import { NgForm } from '@angular/forms';
 
+import { ChatbotComponent } from '../chatbot/chatbot.component';
+import { MatBottomSheet } from '@angular/material/bottom-sheet';
+
+
 @Component({
   selector: "app-questions-template",
   templateUrl: "./questions-template.component.html",
@@ -37,7 +41,8 @@ export class QuestionsTemplateComponent implements OnInit {
     private dialog: MatDialog,
     private location: Location,
     private httpClient: HttpClient,
-    private router: Router
+    private router: Router,
+    private bottomSheet: MatBottomSheet
   ) {}
 
   ngOnInit() {
@@ -157,6 +162,13 @@ export class QuestionsTemplateComponent implements OnInit {
   }
   
 
+  chat(){
+    //this.router.navigateByUrl('/chat');
+   // this.bottomSheet.open(ChatbotComponent,panelClass: 'custom-width');
+    this.bottomSheet.open(ChatbotComponent, {
+      panelClass: 'custom-width'
+    });
+  }
 
   
 }
@@ -181,4 +193,5 @@ export class EditQuestionDialog {
   onNoClick(): void {
     this.dialogRef.close();
   }
+
 }

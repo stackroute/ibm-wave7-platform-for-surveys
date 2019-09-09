@@ -28,6 +28,9 @@
 		<module>user-response-service</module>
 		<module>login-authentication-service</module>
 		<module>user-registration-service</module>
+		<module>survey-service</module>
+		<module>mail-service</module>
+		<module>track-service</module>
 	</modules>
 	<dependencies>
 		<dependency>
