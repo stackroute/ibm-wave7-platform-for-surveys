@@ -1,51 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1837a211-f7eb-41c7-b243-5416369a1014" name="Default Changelist" comment="">
-
-      <change beforePath="$PROJECT_DIR$/../login-authentication-service/src/main/java/com/stackroute/config/KafkaConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/../login-authentication-service/src/main/java/com/stackroute/config/KafkaConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../login-authentication-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../login-authentication-service/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-
-      <change beforePath="$PROJECT_DIR$/../angular/src/app/sign-up/sign-up.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../angular/src/app/sign-up/sign-up.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../angular/src/app/user-registration.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../angular/src/app/user-registration.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../login-authentication-service/src/main/java/com/stackroute/config/KafkaConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/../login-authentication-service/src/main/java/com/stackroute/config/KafkaConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../survey-service/src/main/java/com/stackroute/surveyservice/configuration/KafkaConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/../survey-service/src/main/java/com/stackroute/surveyservice/configuration/KafkaConfiguration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../survey-service/src/main/java/com/stackroute/surveyservice/domain/Surveyor.java" beforeDir="false" afterPath="$PROJECT_DIR$/../survey-service/src/main/java/com/stackroute/surveyservice/domain/Surveyor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../survey-service/src/main/java/com/stackroute/surveyservice/listener/KafkaConsumer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../survey-service/src/main/java/com/stackroute/surveyservice/listener/KafkaConsumer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../survey-service/src/test/java/com/stackroute/surveyservice/controller/SurveyorControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../survey-service/src/test/java/com/stackroute/surveyservice/controller/SurveyorControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../survey-service/src/test/java/com/stackroute/surveyservice/service/SurveyorServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../survey-service/src/test/java/com/stackroute/surveyservice/service/SurveyorServiceTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/stackroute/userregistration/configuration/UserConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stackroute/userregistration/configuration/UserConfiguration.java" afterDir="false" />
-=======
-
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-
-      <change afterPath="$PROJECT_DIR$/../angular/src/app/modals/Response.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../angular/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../angular/src/app/app-routing.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../angular/src/app/header/header.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../angular/src/app/header/header.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../angular/src/app/login/login.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../angular/src/app/login/login.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../angular/src/app/modals/Survey.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../angular/src/app/modals/Survey.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../angular/src/app/my-survey-card/create-survey-dialogue.html" beforeDir="false" afterPath="$PROJECT_DIR$/../angular/src/app/my-survey-card/create-survey-dialogue.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../angular/src/app/my-survey-card/my-survey-card.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../angular/src/app/my-survey-card/my-survey-card.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../angular/src/app/my-survey-card/my-survey-card.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/../angular/src/app/my-survey-card/my-survey-card.component.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../angular/src/app/my-survey-card/my-survey-card.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../angular/src/app/my-survey-card/my-survey-card.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../angular/src/app/myprofile/myprofile.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../angular/src/app/myprofile/myprofile.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../angular/src/app/myprofile/myprofile.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../angular/src/app/myprofile/myprofile.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../angular/src/app/publishedview/publishedview.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../angular/src/app/publishedview/publishedview.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../angular/src/app/publishedview/publishedview.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../angular/src/app/publishedview/publishedview.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../angular/src/app/questions-template/questions-template.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../angular/src/app/questions-template/questions-template.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../angular/src/app/questions/questions.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../angular/src/app/questions/questions.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../angular/src/app/questions/questions.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/../angular/src/app/questions/questions.component.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../angular/src/app/questions/questions.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../angular/src/app/questions/questions.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../angular/src/app/survey.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../angular/src/app/survey.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../angular/src/app/user-registration.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../angular/src/app/user-registration.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/stackroute/userregistration/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stackroute/userregistration/controller/UserController.java" afterDir="false" />
->>>>>>> 6029c7bce49d5e48efb7b1aa2e405b7a1eaa6b38
->>>>>>> aa6830ade14506522fe841aa66141f448010d366
->>>>>>> 0e714e9b4f3bb5a7be3eea28dd2ca17487148d5e
-    </list>
+    <list default="true" id="1837a211-f7eb-41c7-b243-5416369a1014" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

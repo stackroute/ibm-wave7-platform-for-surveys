@@ -50,6 +50,16 @@ import {ScrollingModule} from '@angular/cdk/scrolling';
 import {CdkStepperModule} from '@angular/cdk/stepper';
 import {CdkTableModule} from '@angular/cdk/table';
 import {CdkTreeModule} from '@angular/cdk/tree';
+import { FusionChartsModule } from 'angular-fusioncharts';
+
+import * as FusionCharts from "fusioncharts";
+import * as Charts from "fusioncharts/fusioncharts.charts";
+
+import * as FusionTheme from "fusioncharts/themes/fusioncharts.theme.fusion";
+import { ResponseAnalysisComponent } from './response-analysis/response-analysis.component';
+
+// Pass the fusioncharts library and chart modules
+FusionChartsModule.fcRoot(FusionCharts, Charts, FusionTheme);
 
 @NgModule({
   declarations: [
@@ -75,6 +85,7 @@ import {CdkTreeModule} from '@angular/cdk/tree';
     SupportPageComponent,
     QuestionsComponent,
     EditQuestionDialog,
+    ResponseAnalysisComponent,
     
   ],
   imports: [
@@ -113,7 +124,7 @@ import {CdkTreeModule} from '@angular/cdk/tree';
     DragDropModule,
     PortalModule,
     ScrollingModule,
-    
+    FusionChartsModule
 
   ],
   providers: [MyprofileComponent,DialogComponent],
