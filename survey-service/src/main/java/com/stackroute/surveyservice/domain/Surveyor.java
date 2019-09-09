@@ -24,7 +24,6 @@ public class Surveyor {
     private String id;
     private String name;
     private String email;
-    private String password;
     private Date timeStamp;
     private String location;
     private String ageGroup;

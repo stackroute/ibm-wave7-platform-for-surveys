@@ -30,7 +30,14 @@ export class UserRegistrationService {
   saveUser(user:User):Observable<User>
   {
     user.id = Guid.create().toString();
-    return this.httpClient.post<User>(environment.signUpBaseURI+"/user", user, httpOptions);
+    return this.httpClient.post<User>(environment.signUpBaseURI+"/user", user, httpOptions)
+    .pipe(catchError((error: any) =>
+    {
+      console.log(error);
+      return throwError(error)
+
+    }
+  ));
   }
 
   setLogin(value: boolean) {
