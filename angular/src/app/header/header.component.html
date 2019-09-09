@@ -13,7 +13,11 @@
         <button mat-menu-item (click)="support()">Support</button>
         
       </mat-menu>
-      <button class="main-button" *ngIf="!globalvariable && url" fxFlex="10%" (click)="login()" mat-button>Login</button>
+      <button class="main-button" *ngIf="loggedIn" fxFlex="10%" (click)="login()" mat-button>Login</button>
+      <button class="main-button" *ngIf="loggedOut" fxFlex="10%" (click)="myprofile()" mat-button>My Profile</button>
+      <button class="main-button" *ngIf="loggedOut" fxFlex="10%" (click)="login()" mat-button>Logout</button>
+      
+
       <!-- <button  fxFlex="10%" (click)="myprofile()" mat-button>myprofile</button> -->
     </mat-toolbar-row>
     
