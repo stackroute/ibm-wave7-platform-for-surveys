@@ -10,8 +10,12 @@ import {
 } from "@angular/material/dialog";
 import { HttpClient } from "@angular/common/http";
 import { Location } from "@angular/common";
-import {CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag-drop';
+import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 import { NgForm } from '@angular/forms';
+
+import { ChatbotComponent } from '../chatbot/chatbot.component';
+import { MatBottomSheet } from '@angular/material/bottom-sheet';
+
 
 @Component({
   selector: "app-questions-template",
@@ -19,7 +23,7 @@ import { NgForm } from '@angular/forms';
   styleUrls: ["./questions-template.component.scss"]
 })
 export class QuestionsTemplateComponent implements OnInit {
-  
+
   private condition: boolean;
   private choiceVisibility: boolean;
   private count: number;
@@ -38,14 +42,15 @@ export class QuestionsTemplateComponent implements OnInit {
     private location: Location,
     private httpClient: HttpClient,
     private router: Router,
-  ) {}
+    private bottomSheet: MatBottomSheet
+  ) { }
 
   ngOnInit() {
     this.getQuestionList(this.surveyService.editSurvey.id);
     this.getRecommendedQuestions(this.surveyService.editSurvey.domain_type);
     this.url = window.location.href;
   }
- 
+
 
   drop(event: CdkDragDrop<Object[]>) {
     console.log(event.previousContainer.data);
@@ -54,9 +59,9 @@ export class QuestionsTemplateComponent implements OnInit {
       moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
     } else {
       transferArrayItem(event.previousContainer.data,
-                        event.container.data,
-                        event.previousIndex,
-                        event.currentIndex);
+        event.container.data,
+        event.previousIndex,
+        event.currentIndex);
       // let droppedQuestion = event.container.data[0];                    
       this.saveDroppedQuestion(event.container.data[event.currentIndex]);
     }
@@ -67,15 +72,14 @@ export class QuestionsTemplateComponent implements OnInit {
       moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
     } else {
       transferArrayItem(event.previousContainer.data,
-                        event.container.data,
-                        event.previousIndex,
-                        event.currentIndex);
+        event.container.data,
+        event.previousIndex,
+        event.currentIndex);
       this.deleteQuestion(event.container.data[event.currentIndex]);
     }
   }
 
-  saveDroppedQuestion(question : any)
-  {
+  saveDroppedQuestion(question: any) {
     console.log("questin from ts", question);
     this.surveyService.saveQuestion(question).subscribe((data) => {
       this.question = data;
@@ -88,10 +92,10 @@ export class QuestionsTemplateComponent implements OnInit {
     this.surveyService.sendMail(this.url).subscribe(data => {
       console.log(data);
     });
-    let surveyId=this.route.snapshot.queryParams["surveyId"];
+    let surveyId = this.route.snapshot.queryParams["surveyId"];
     console.log(surveyId);
     this.surveyService.publishedURL = this.url;
-    this.router.navigate(["publishview",surveyId]);
+    this.router.navigate(["publishview", surveyId]);
   }
 
 
@@ -157,7 +161,18 @@ export class QuestionsTemplateComponent implements OnInit {
       this.questionList = data.questionList;
       console.log("questions : ", this.questionList);
     });
-  } 
+  }
+
+
+  chat() {
+    //this.router.navigateByUrl('/chat');
+    // this.bottomSheet.open(ChatbotComponent,panelClass: 'custom-width');
+    this.bottomSheet.open(ChatbotComponent, {
+      panelClass: 'custom-width'
+    });
+  }
+
+
 }
 
 @Component({
@@ -168,7 +183,7 @@ export class EditQuestionDialog {
   constructor(
     public dialogRef: MatDialogRef<EditQuestionDialog>,
     @Inject(MAT_DIALOG_DATA) public data: Question
-  ) {}
+  ) { }
 
   private editQuestion: Question;
 
@@ -180,4 +195,5 @@ export class EditQuestionDialog {
   onNoClick(): void {
     this.dialogRef.close();
   }
+
 }

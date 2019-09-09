@@ -8,6 +8,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { MatCardModule } from '@angular/material/card';
 import { HttpClientModule } from '@angular/common/http';
+
 import {MatRadioModule} from '@angular/material/radio';
 import { MatInputModule,MatListModule, MatSidenav, MatSidenavContainer, MatSidenavModule} from '@angular/material';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -17,6 +18,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import {MatButtonModule} from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatMenuModule} from '@angular/material/menu';
 import { LoginComponent } from './login/login.component';
@@ -96,6 +98,7 @@ FusionChartsModule.fcRoot(FusionCharts, Charts, FusionTheme);
     MatDialogModule,
     BrowserAnimationsModule,
     MatToolbarModule,
+   
     MatCardModule,
     HttpClientModule,
     MatInputModule,
@@ -113,6 +116,7 @@ FusionChartsModule.fcRoot(FusionCharts, Charts, FusionTheme);
     MatDividerModule,
     RouterModule,
     NgbModule,
+    MatBottomSheetModule,
     MatDialogModule,
     MatTooltipModule,
     MatCheckboxModule,
@@ -127,9 +131,14 @@ FusionChartsModule.fcRoot(FusionCharts, Charts, FusionTheme);
     FusionChartsModule
 
   ],
+ // exports: [ChatbotComponent],
   providers: [MyprofileComponent,DialogComponent],
 
-  entryComponents : [MySurveyCardComponent, CreateSurveyDialogue,DialogComponent, DialogContentComponent, QuestionsTemplateComponent, EditQuestionDialog],
+  entryComponents : [MySurveyCardComponent, CreateSurveyDialogue,DialogComponent, DialogContentComponent, QuestionsTemplateComponent, EditQuestionDialog,ChatbotComponent],
+
+  
+
+
 
 
 
