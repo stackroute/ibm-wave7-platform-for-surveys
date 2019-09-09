@@ -19,8 +19,11 @@ public class KafkaConsumer
 
         @KafkaListener(topics = "UserRegistration", groupId = "group_id")
         public void consume(String surveyor) throws IOException, SurveyorAlreadyExistException {
+
+
            Surveyor obj = new ObjectMapper().readValue(surveyor, Surveyor.class);
-            System.out.print("-------------------------------------------------" + surveyor);
+            System.out.printf("----------------------------------------------------------------"+surveyor);
+
             surveyorService.addSurveyor(obj);
 
         }
