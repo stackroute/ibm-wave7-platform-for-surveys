@@ -17,8 +17,7 @@ import { UserLandingPageComponent } from './user-landing-page/user-landing-page.
 import { AboutUsComponent } from './about-us/about-us.component';
 import { SupportPageComponent } from './support-page/support-page.component';
 import { QuestionsComponent } from './questions/questions.component';
-import { ChatbotComponent } from './chatbot/chatbot.component';
-
+import {ResponseAnalysisComponent} from './response-analysis/response-analysis.component';
 
 const routes: Routes = [
   {
@@ -69,11 +68,9 @@ const routes: Routes = [
     path:'questions/:surveyId', component: QuestionsComponent
   },
   {
-    path:'chat',component:ChatbotComponent
+    path:'response',component:ResponseAnalysisComponent
   }
   
-  
-
 ];
 
 @NgModule({

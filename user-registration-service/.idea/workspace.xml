@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
+<<<<<<< HEAD
+    <list default="true" id="1837a211-f7eb-41c7-b243-5416369a1014" name="Default Changelist" comment="" />
+=======
     <list default="true" id="1837a211-f7eb-41c7-b243-5416369a1014" name="Default Changelist" comment="">
       <change afterPath="$PROJECT_DIR$/../login-authentication-service/Dockerfile" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../user-response-service/Dockerfile" afterDir="false" />
@@ -90,6 +93,7 @@
       <change beforePath="$PROJECT_DIR$/../user-response-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../user-response-service/src/main/resources/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../zuul-api/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../zuul-api/pom.xml" afterDir="false" />
     </list>
+>>>>>>> 339d8c2f44a7b86cece9d38330ed48a6383c63a6
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

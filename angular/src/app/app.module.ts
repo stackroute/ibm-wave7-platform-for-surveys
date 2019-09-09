@@ -52,9 +52,16 @@ import {ScrollingModule} from '@angular/cdk/scrolling';
 import {CdkStepperModule} from '@angular/cdk/stepper';
 import {CdkTableModule} from '@angular/cdk/table';
 import {CdkTreeModule} from '@angular/cdk/tree';
-import { ChatbotComponent } from './chatbot/chatbot.component';
-import { CommonModule } from '@angular/common';
-import { ChatService } from './chat.service';
+import { FusionChartsModule } from 'angular-fusioncharts';
+
+import * as FusionCharts from "fusioncharts";
+import * as Charts from "fusioncharts/fusioncharts.charts";
+
+import * as FusionTheme from "fusioncharts/themes/fusioncharts.theme.fusion";
+import { ResponseAnalysisComponent } from './response-analysis/response-analysis.component';
+
+// Pass the fusioncharts library and chart modules
+FusionChartsModule.fcRoot(FusionCharts, Charts, FusionTheme);
 
 @NgModule({
   declarations: [
@@ -80,7 +87,7 @@ import { ChatService } from './chat.service';
     SupportPageComponent,
     QuestionsComponent,
     EditQuestionDialog,
-    ChatbotComponent,
+    ResponseAnalysisComponent,
     
   ],
   imports: [
@@ -121,14 +128,17 @@ import { ChatService } from './chat.service';
     DragDropModule,
     PortalModule,
     ScrollingModule,
-    CommonModule
-    
+    FusionChartsModule
 
   ],
-  exports: [ChatbotComponent],
-  providers: [MyprofileComponent,DialogComponent,ChatService],
+ // exports: [ChatbotComponent],
+  providers: [MyprofileComponent,DialogComponent],
 
   entryComponents : [MySurveyCardComponent, CreateSurveyDialogue,DialogComponent, DialogContentComponent, QuestionsTemplateComponent, EditQuestionDialog,ChatbotComponent],
+
+  
+
+
 
 
 
