@@ -88,7 +88,9 @@ export class QuestionsTemplateComponent implements OnInit {
     this.surveyService.sendMail(this.url).subscribe(data => {
       console.log(data);
     });
-    let surveyId=this.route.snapshot.queryParams["surveyId"];
+    // let surveyId=this.route.snapshot.queryParams["surveyId"];
+    console.log(this.route.snapshot);
+    let surveyId=this.route.snapshot.paramMap.get('surveyId');
     console.log(surveyId);
     this.surveyService.publishedURL = this.url;
     this.router.navigate(["publishview",surveyId]);

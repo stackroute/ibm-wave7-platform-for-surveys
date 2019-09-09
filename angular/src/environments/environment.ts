@@ -4,9 +4,13 @@
 
 export const environment = {
   production: false,
-  baseURI : "http://172.23.238.186:8090/api/v1",
-  loginBaseURI : "http://172.23.238.186:8085",
-  signUpBaseURI : "http://172.23.238.186:8095"
+  // baseURI : "http://172.23.238.186:8090/api/v1",
+  // loginBaseURI : "http://172.23.238.186:8085",
+  // signUpBaseURI : "http://172.23.238.186:8095"
+
+  baseURI : "http://13.235.226.107:8090/api/v1",
+  loginBaseURI : "http://13.235.226.107:8085",
+  signUpBaseURI : "http://13.235.226.107:8095"
 };
 /*
  * For easier debugging in development mode, you can import the following file

@@ -7,9 +7,17 @@
       {{ question.questionTag }}
     </h3>
     <br />
-    <div *ngFor="let choice of question.choices">
-      <mat-radio-button class="choice-radio-button" value="{{ choice }}">{{choice}}</mat-radio-button><br />
-    </div>
+    <!-- <div *ngFor="let choice of question.choices">
+      <mat-radio-button class="choice-radio-button" name= value="{{ choice }}">{{choice}}</mat-radio-button><br />
+    </div> -->
+
+    <mat-radio-group
+  aria-labelledby="example-radio-group-label"
+  class="example-radio-group">
+  <mat-radio-button class="example-radio-button" *ngFor="let choice of question.choices" [value]="choice">
+    {{choice}}
+  </mat-radio-button>
+</mat-radio-group> 
   </mat-card>
   
 </div>

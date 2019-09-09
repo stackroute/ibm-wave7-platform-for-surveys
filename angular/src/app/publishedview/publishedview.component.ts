@@ -18,7 +18,8 @@ export class PublishedviewComponent implements OnInit {
   }
   getSurveyId()
   {
-    let surveyId=this.route.snapshot.queryParams["surveyId"];
+    // let surveyId=this.route.snapshot.queryParams["surveyId"];
+    let surveyId=this.route.snapshot.paramMap.get('surveyId');
     console.log(surveyId);
     this.router.navigate(['questions',surveyId]);
     
