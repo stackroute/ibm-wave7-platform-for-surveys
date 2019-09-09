@@ -1,0 +1,34 @@
+<div class="rewardscontainer" >
+    <p class="heading" >Survey Reward Points</p>
+        <h1 class="header">Congratulations !! You have Earned 100 coins as Reward-points in your wallet!</h1>
+        <h1 class="header1">Take Survey to earned 100 coins as Rewards!</h1>
+        <h1 class="header2">Complete your user profile to earn 100 coins as Rewards!</h1>
+
+
+    <form novalidate="" class="reward-pointsform" fxLayout="row"
+    (ngSubmit)="rewards()">
+      <mat-card class="reward-card">    
+            <mat-card-header>
+              <div mat-card-avatar class="example-header-image"></div>
+              <mat-card-title>Take Survey</mat-card-title>
+              <mat-card-subtitle>By pollurvey.com</mat-card-subtitle>
+            </mat-card-header>
+            <img mat-card-image src="../../assets/pictures/images.jpeg" alt="Image not found">
+          </mat-card> 
+          <mat-card class="reward-card" >     
+            <mat-card-header>
+              <div mat-card-avatar class="example-header-image"></div>
+              <mat-card-title>Earn rewards</mat-card-title>
+              <mat-card-subtitle>By pollurvey.com</mat-card-subtitle>
+            </mat-card-header>
+             
+            <img mat-card-image src="/assets/pictures/rewards.png" alt="Image not found">
+            <mat-card-content>
+             
+            </mat-card-content>
+            <mat-card-actions>
+              <button id="submit" class="btn btn-success btn-lg" >Redeem</button>
+            </mat-card-actions>
+          </mat-card>
+    </form>
+    </div>

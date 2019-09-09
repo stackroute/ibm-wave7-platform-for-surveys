@@ -57,6 +57,7 @@ import * as Charts from "fusioncharts/fusioncharts.charts";
 import * as FusionTheme from "fusioncharts/themes/fusioncharts.theme.fusion";
 import { ResponseAnalysisComponent } from './response-analysis/response-analysis.component';
 import { ChatbotComponent } from './chatbot/chatbot.component';
+import { RewardPointsComponent } from './reward-points/reward-points.component';
 // Pass the fusioncharts library and chart modules
 FusionChartsModule.fcRoot(FusionCharts, Charts, FusionTheme);
 
@@ -85,8 +86,8 @@ FusionChartsModule.fcRoot(FusionCharts, Charts, FusionTheme);
     QuestionsComponent,
     EditQuestionDialog,
     ResponseAnalysisComponent,
-    ChatbotComponent
-    
+    ChatbotComponent,
+    RewardPointsComponent
   ],
   imports: [
     MatRadioModule,
