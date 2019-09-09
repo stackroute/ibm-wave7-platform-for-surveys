@@ -8,6 +8,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { MatCardModule } from '@angular/material/card';
 import { HttpClientModule } from '@angular/common/http';
+
 import {MatRadioModule} from '@angular/material/radio';
 import { MatInputModule,MatListModule, MatSidenav, MatSidenavContainer, MatSidenavModule} from '@angular/material';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -17,6 +18,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import {MatButtonModule} from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatMenuModule} from '@angular/material/menu';
 import { LoginComponent } from './login/login.component';
@@ -50,6 +52,9 @@ import {ScrollingModule} from '@angular/cdk/scrolling';
 import {CdkStepperModule} from '@angular/cdk/stepper';
 import {CdkTableModule} from '@angular/cdk/table';
 import {CdkTreeModule} from '@angular/cdk/tree';
+import { ChatbotComponent } from './chatbot/chatbot.component';
+import { CommonModule } from '@angular/common';
+import { ChatService } from './chat.service';
 
 @NgModule({
   declarations: [
@@ -75,6 +80,7 @@ import {CdkTreeModule} from '@angular/cdk/tree';
     SupportPageComponent,
     QuestionsComponent,
     EditQuestionDialog,
+    ChatbotComponent,
     
   ],
   imports: [
@@ -85,6 +91,7 @@ import {CdkTreeModule} from '@angular/cdk/tree';
     MatDialogModule,
     BrowserAnimationsModule,
     MatToolbarModule,
+   
     MatCardModule,
     HttpClientModule,
     MatInputModule,
@@ -102,6 +109,7 @@ import {CdkTreeModule} from '@angular/cdk/tree';
     MatDividerModule,
     RouterModule,
     NgbModule,
+    MatBottomSheetModule,
     MatDialogModule,
     MatTooltipModule,
     MatCheckboxModule,
@@ -113,12 +121,14 @@ import {CdkTreeModule} from '@angular/cdk/tree';
     DragDropModule,
     PortalModule,
     ScrollingModule,
+    CommonModule
     
 
   ],
-  providers: [MyprofileComponent,DialogComponent],
+  exports: [ChatbotComponent],
+  providers: [MyprofileComponent,DialogComponent,ChatService],
 
-  entryComponents : [MySurveyCardComponent, CreateSurveyDialogue,DialogComponent, DialogContentComponent, QuestionsTemplateComponent, EditQuestionDialog],
+  entryComponents : [MySurveyCardComponent, CreateSurveyDialogue,DialogComponent, DialogContentComponent, QuestionsTemplateComponent, EditQuestionDialog,ChatbotComponent],
 
 
 

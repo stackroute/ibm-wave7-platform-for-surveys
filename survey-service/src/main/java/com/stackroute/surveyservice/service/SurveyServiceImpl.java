@@ -67,4 +67,9 @@ public class SurveyServiceImpl implements SurveyService{
         return surveyRepository.getRecommendedQuestionBasedOnDomain(domainType);
     }
 
+    @Override
+    public List<Survey> getSurveyByDomainName(String domainType) {
+        return surveyRepository.getRecommendedSurveyBasedOnDomain(domainType);
+    }
+
 }

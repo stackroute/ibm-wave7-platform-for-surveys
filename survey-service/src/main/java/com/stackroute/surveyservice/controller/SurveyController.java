@@ -78,13 +78,19 @@ public class SurveyController {
     public String post()
     {
         // Sending records to topic
-       // kafkaTemplate.send(TOPIC, new Survey(survey.getId(),survey.getName(),survey.getDescription(),survey.getDomain_type()));
+        // kafkaTemplate.send(TOPIC, new Survey(survey.getId(),survey.getName(),survey.getDescription(),survey.getDomain_type()));
         return "published";
     }
     @GetMapping("recommendations/{id}")
     public ResponseEntity<?> getRecomentadions(@PathVariable("id") String id) {
         System.out.println(id);
         responseEntity = new ResponseEntity<List<Question>>(surveyService.getRecomendedQuestions(id), HttpStatus.OK);
+        return responseEntity;
+    }
+    @GetMapping("recommendSurveys/{domain}")
+    public ResponseEntity<?> getRecomentadionsSurveys(@PathVariable("domain") String domain) {
+
+        responseEntity = new ResponseEntity<List<Survey>>(surveyService.getSurveyByDomainName(domain), HttpStatus.OK);
         return responseEntity;
     }
 }

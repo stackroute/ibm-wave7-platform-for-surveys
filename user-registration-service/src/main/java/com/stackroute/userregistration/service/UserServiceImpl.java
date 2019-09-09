@@ -22,13 +22,13 @@ public class UserServiceImpl implements UserService{
     public User saveUser(User user) throws EmailAlreadyExistException {
         User savedUser=null;
         //To save the user to the mongodatabase
-            if(userRepository.findUserByEmail(user.getEmail())==null) {
-                 savedUser = userRepository.save(user);
-            }
-            else
-            {
-                throw new EmailAlreadyExistException("User with email already exist");
-            }//Returning the saved user
+        if(userRepository.findUserByEmail(user.getEmail())==null) {
+            savedUser = userRepository.save(user);
+        }
+        else
+        {
+            throw new EmailAlreadyExistException("User with email already exists");
+        }//Returning the saved user
         return savedUser;
     }
     //This method is get the details of the user

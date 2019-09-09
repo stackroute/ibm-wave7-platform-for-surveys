@@ -1,7 +1,6 @@
 package com.stackroute.userregistration.domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -30,6 +29,6 @@ public class User {
     private String password;
     private String role;
     private String location;
-    private String agegroup;
+    private String ageGroup;
     private String gender;
-    }
+}

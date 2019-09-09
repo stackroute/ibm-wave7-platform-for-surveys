@@ -23,6 +23,7 @@ public class SurveyorServiceImpl implements SurveyorService {
     public Surveyor addSurveyor(Surveyor surveyor) throws SurveyorAlreadyExistException {
         Surveyor savedSurveyor=null;
         if(!surveyorRepository.findById(surveyor.getId()).isPresent()) {
+            System.out.println("In if");
             savedSurveyor = surveyorRepository.save(surveyor);
 
         }
