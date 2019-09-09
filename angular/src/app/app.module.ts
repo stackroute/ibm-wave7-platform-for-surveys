@@ -8,7 +8,6 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { MatCardModule } from '@angular/material/card';
 import { HttpClientModule } from '@angular/common/http';
-
 import {MatRadioModule} from '@angular/material/radio';
 import { MatInputModule,MatListModule, MatSidenav, MatSidenavContainer, MatSidenavModule} from '@angular/material';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -53,13 +52,11 @@ import {CdkStepperModule} from '@angular/cdk/stepper';
 import {CdkTableModule} from '@angular/cdk/table';
 import {CdkTreeModule} from '@angular/cdk/tree';
 import { FusionChartsModule } from 'angular-fusioncharts';
-
 import * as FusionCharts from "fusioncharts";
 import * as Charts from "fusioncharts/fusioncharts.charts";
-
 import * as FusionTheme from "fusioncharts/themes/fusioncharts.theme.fusion";
 import { ResponseAnalysisComponent } from './response-analysis/response-analysis.component';
-
+import { ChatbotComponent } from './chatbot/chatbot.component';
 // Pass the fusioncharts library and chart modules
 FusionChartsModule.fcRoot(FusionCharts, Charts, FusionTheme);
 
@@ -88,6 +85,7 @@ FusionChartsModule.fcRoot(FusionCharts, Charts, FusionTheme);
     QuestionsComponent,
     EditQuestionDialog,
     ResponseAnalysisComponent,
+    ChatbotComponent
     
   ],
   imports: [
@@ -98,7 +96,6 @@ FusionChartsModule.fcRoot(FusionCharts, Charts, FusionTheme);
     MatDialogModule,
     BrowserAnimationsModule,
     MatToolbarModule,
-   
     MatCardModule,
     HttpClientModule,
     MatInputModule,
@@ -131,18 +128,10 @@ FusionChartsModule.fcRoot(FusionCharts, Charts, FusionTheme);
     FusionChartsModule
 
   ],
- // exports: [ChatbotComponent],
+//  exports: [ChatbotComponent],
   providers: [MyprofileComponent,DialogComponent],
 
   entryComponents : [MySurveyCardComponent, CreateSurveyDialogue,DialogComponent, DialogContentComponent, QuestionsTemplateComponent, EditQuestionDialog,ChatbotComponent],
-
-  
-
-
-
-
-
-
 
   bootstrap: [AppComponent]
 })
