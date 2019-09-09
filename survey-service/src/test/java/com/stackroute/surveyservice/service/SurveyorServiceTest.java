@@ -23,11 +23,11 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
 
 public class SurveyorServiceTest {
-    Surveyor surveyor;
+    private Surveyor surveyor;
     @Mock
-    SurveyorRepository surveyorRepository;
+    private SurveyorRepository surveyorRepository;
     @InjectMocks
-    SurveyorServiceImpl surveyorService;
+    private SurveyorServiceImpl surveyorService;
     List<Surveyor> list=null;
 
     @Before

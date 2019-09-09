@@ -18,15 +18,15 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-@Autowired
-private KafkaTemplate<String, User> kafkaTemplate;
+    @Autowired
+    private KafkaTemplate<String, User> kafkaTemplate;
 
     // Declaration and Intialization of topic name
-private static final String TOPIC = "UserRegistration";
+    private static final String TOPIC = "UserRegistration";
     // handling user request with endpoint passing name
 
 
-//Constructor of the controller having the userservice parameter
+    //Constructor of the controller having the userservice parameter
     public UserController(UserService userService) {
         this.userService = userService;
     }

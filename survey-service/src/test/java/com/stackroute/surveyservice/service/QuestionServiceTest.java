@@ -24,11 +24,11 @@ import static org.mockito.Mockito.*;
 
 public class QuestionServiceTest {
 
-    Question question;
+    private Question question;
     @Mock
-    QuestionRepository questionRepository;
+    private QuestionRepository questionRepository;
     @InjectMocks
-    QuestionServiceImpl questionService;
+    private QuestionServiceImpl questionService;
     List<Question> list=null;
 
     @Before
