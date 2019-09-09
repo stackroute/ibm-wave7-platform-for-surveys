@@ -60,7 +60,7 @@ export class UserRegistrationService {
   }
 updateUser(user:User,id:String):Observable<User>{
   console.log(user);
-  var url = "http://localhost:8095/user/"+this.loginCredentials.id;
+  var url = environment.signUpBaseURI+"/user/"+this.loginCredentials.id;
   return this.httpClient.put<User>(url ,user, httpOptions);
 
 }
@@ -76,7 +76,7 @@ getUser():Observable<User>{
 }
 
 getUserById(id:string):Observable<User>{
-  var url="http://localhost:8095/user/"+this.loginCredentials.id;
+  var url=environment.signUpBaseURI+"/user/"+this.loginCredentials.id;
 return this.httpClient.get<User>(url);
 }
 

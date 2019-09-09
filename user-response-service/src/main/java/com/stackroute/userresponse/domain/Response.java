@@ -20,4 +20,8 @@ public class Response {
     private String question_id;
 
     private String response;
+
+    private String user_id;
+    private String servey_id;
+
 }
