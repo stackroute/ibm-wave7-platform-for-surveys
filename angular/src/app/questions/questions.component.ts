@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { SurveyService } from '../survey.service';
 import { Question } from '../modals/Question';
+import { parse } from 'querystring';
 
 @Component({
   selector: 'app-questions',
@@ -10,10 +11,12 @@ import { Question } from '../modals/Question';
 })
 export class QuestionsComponent implements OnInit {
   private questionList: Question[];
-  constructor(private router : Router,    private surveyService: SurveyService,) { }
+  constructor(private router : Router,    private surveyService: SurveyService,private route : ActivatedRoute) { }
 
   ngOnInit() {
-   this.getQuestionList("12ca6f52-4ce8-00d7-48e3-ba09557801ee");
+    
+    let surveyId=this.route.snapshot.queryParams["surveyId"];
+   this.getQuestionList(surveyId);
   }
   submit()
   {
@@ -26,5 +29,23 @@ export class QuestionsComponent implements OnInit {
       console.log("questions : ", this.questionList);
     });
   }
+  saveResponse(userResponse: Response) {
+
+    console.log(userResponse); 
+
+
+    // this.loading = true;
+    this.surveyService.saveResponse(userResponse)
+      .subscribe(
+        data => {
+
+        },
+        error => {
+          alert("error=" + error);
+        });
+
+
+  }
+
 }
 

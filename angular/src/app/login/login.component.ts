@@ -5,6 +5,8 @@ import { Router } from '@angular/router';
 import { ConstantsService } from '../constants.service';
 import { User } from '../modals/User';
 import { FormControl, Validators, FormGroup } from '@angular/forms';
+import { SurveyService } from '../survey.service';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 
 @Component({
@@ -16,12 +18,27 @@ export class LoginComponent implements OnInit {
 
   public user: User;
   public isAuthenticated: boolean;
+  isLoggedIn$:Observable<boolean>;
+  loggedIn: boolean;
+  isLoggedOut$:Observable<boolean>;
+  loggedOut: boolean;
 
-  constructor(private userResgistrationService: UserRegistrationService, private router: Router, public constant: ConstantsService) { }
+
+  constructor(private userResgistrationService: UserRegistrationService, private router: Router, public constant: ConstantsService, private surveyService : SurveyService) { }
 
   ngOnInit() {
-    this.constant.globalvariable = true;
-    console.log(this.constant.globalvariable);
+    this.isLoggedIn$ = this.userResgistrationService.logged;
+    this.userResgistrationService.setLogin(false);
+    this.isLoggedIn$.subscribe(data => {
+      this.loggedIn = data;
+      console.log(this.loggedIn);
+    });
+    this.isLoggedOut$ = this.userResgistrationService.logOut;
+    this.userResgistrationService.setLogout(false);
+    this.isLoggedOut$.subscribe(data => {
+      this.loggedOut = data;
+      console.log(this.loggedOut);
+    });
 
   }
   emailFormControl = new FormControl("", [
@@ -59,6 +76,8 @@ export class LoginComponent implements OnInit {
             console.log(this.userResgistrationService.loginCredentials);
             this.user = data;
             this.user.isAuthenticated = this.isAuthenticated;
+            this.surveyService.loginCredentials = data;
+            console.log("loginCredentials", data);
             if (this.isAuthenticated && this.user.role == 'Surveyor') {
               this.router.navigateByUrl('survey');
             }

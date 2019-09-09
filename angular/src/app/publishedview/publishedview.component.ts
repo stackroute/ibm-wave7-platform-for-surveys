@@ -14,6 +14,7 @@ export class PublishedviewComponent implements OnInit {
 
   ngOnInit() {
     this.publishedURL = this.surveyService.publishedURL;
+  this.publishedURL.substring 
   }
 
 }

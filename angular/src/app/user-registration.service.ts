@@ -3,7 +3,7 @@ import { HttpClient ,HttpHeaders} from "@angular/common/http";
 import { User } from "./modals/User";
 import { LoginUser } from "./modals/Login";
 import { environment } from '../environments/environment';
-import { Observable } from 'rxjs';
+import { Observable, BehaviorSubject } from 'rxjs';
 import { Guid } from "guid-typescript";
 import { catchError } from 'rxjs/operators';
 import { throwError } from 'rxjs';
@@ -22,6 +22,10 @@ export class UserRegistrationService {
   constructor(private httpClient:HttpClient) { }
   public user:User;
   public loginCredentials : User;
+  private loggedIn = new BehaviorSubject<boolean>(false);
+  logged = this.loggedIn.asObservable();
+  private loggedOut = new BehaviorSubject<boolean>(false);
+  logOut = this.loggedOut.asObservable();
 
   saveUser(user:User):Observable<User>
   {
@@ -29,14 +33,18 @@ export class UserRegistrationService {
     return this.httpClient.post<User>(environment.signUpBaseURI+"/user", user, httpOptions);
   }
 
+  setLogin(value: boolean) {
+    this.loggedIn.next(value);
+  }
+  setLogout(value: boolean) {
+    this.loggedOut.next(value);
+  }
 
-public loginuser:LoginUser;
-// login(user:LoginUser): Observable<LoginUser>{
-//     var apiUrl = "http://localhost:8080/login";
-//     // this.authenticateUser(user);
-//     return this.httpClient.post<LoginUser>(apiUrl, this.loginuser, httpOptions);
-
-//   }
+  public loginuser:LoginUser;
+  login(user:LoginUser): Observable<LoginUser>{
+    var apiUrl = "http://localhost:8080/login";
+    return this.httpClient.post<LoginUser>(apiUrl, this.loginuser, httpOptions);
+  }
 
   authenticateUser(user:LoginUser): Observable<boolean>{
     this.loginuser = user;
@@ -52,7 +60,7 @@ public loginuser:LoginUser;
   }
 updateUser(user:User,id:String):Observable<User>{
   console.log(user);
-  var url = "http://localhost:8095/user/"+this.loginCredentials.id;
+  var url = environment.signUpBaseURI+"/user/"+this.loginCredentials.id;
   return this.httpClient.put<User>(url ,user, httpOptions);
 
 }
@@ -68,7 +76,7 @@ getUser():Observable<User>{
 }
 
 getUserById(id:string):Observable<User>{
-  var url="http://localhost:8095/user/"+this.loginCredentials.id;
+  var url=environment.signUpBaseURI+"/user/"+this.loginCredentials.id;
 return this.httpClient.get<User>(url);
 }
 
