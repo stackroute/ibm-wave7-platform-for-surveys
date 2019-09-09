@@ -21,7 +21,7 @@ import java.util.Map;
 
 @EnableKafka
 @ComponentScan(basePackages = "com.stackroute")
-
+@Configuration
 public class KafkaConfig {
 
     @Bean
