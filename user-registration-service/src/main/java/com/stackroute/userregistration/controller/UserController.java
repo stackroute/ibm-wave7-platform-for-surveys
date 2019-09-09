@@ -1,6 +1,7 @@
 package com.stackroute.userregistration.controller;
 
 import com.stackroute.userregistration.domain.User;
+import com.stackroute.userregistration.exception.EmailAlreadyExistException;
 import com.stackroute.userregistration.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -25,7 +26,6 @@ private static final String TOPIC = "UserRegistration";
     // handling user request with endpoint passing name
 
 
-   //User user=new User();
 //Constructor of the controller having the userservice parameter
     public UserController(UserService userService) {
         this.userService = userService;
@@ -33,10 +33,15 @@ private static final String TOPIC = "UserRegistration";
 
     //This method is used to save the user to the database by the url i.e., user
     @PostMapping("user")
-    public ResponseEntity<?> saveUser(@RequestBody User user) {
-        user = user;
+    public ResponseEntity<?> saveUser(@RequestBody User user)  {
+
         //Saving the user and returning the user
-        User savedUser = userService.saveUser(user);
+        User savedUser = null;
+        try {
+            savedUser = userService.saveUser(user);
+        } catch (EmailAlreadyExistException e) {
+            return new ResponseEntity<String>(e.getMessage(), HttpStatus.CONFLICT);
+        }
         this.kafkaTemplate.send(TOPIC, savedUser);
         System.out.println(savedUser);
         return new ResponseEntity<User>(savedUser, HttpStatus.CREATED);
