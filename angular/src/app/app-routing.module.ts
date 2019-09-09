@@ -45,7 +45,7 @@ const routes: Routes = [
     path:'signup',component:SignUpComponent
   },
   {
-    path : 'publishview',
+    path : 'publishview/:surveyId',
     component : PublishedviewComponent
   },
   {

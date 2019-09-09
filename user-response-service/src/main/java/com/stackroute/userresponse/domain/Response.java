@@ -18,10 +18,8 @@ public class Response {
 
     @Id
     private String question_id;
-
     private String response;
-
     private String user_id;
-    private String servey_id;
+    private String survey_id;
 
 }

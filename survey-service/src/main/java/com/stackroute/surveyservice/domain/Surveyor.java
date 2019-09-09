@@ -8,7 +8,6 @@ import lombok.NoArgsConstructor;
 import org.neo4j.ogm.annotation.Id;
 import org.neo4j.ogm.annotation.NodeEntity;
 import org.neo4j.ogm.annotation.Relationship;
-
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -24,7 +23,6 @@ public class Surveyor {
     private String id;
     private String name;
     private String email;
-    private String password;
     private Date timeStamp;
     private String location;
     private String ageGroup;
