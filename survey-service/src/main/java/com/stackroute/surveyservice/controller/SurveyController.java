@@ -78,7 +78,7 @@ public class SurveyController {
     public String post()
     {
         // Sending records to topic
-       // kafkaTemplate.send(TOPIC, new Survey(survey.getId(),survey.getName(),survey.getDescription(),survey.getDomain_type()));
+        // kafkaTemplate.send(TOPIC, new Survey(survey.getId(),survey.getName(),survey.getDescription(),survey.getDomain_type()));
         return "published";
     }
     @GetMapping("recommendations/{id}")

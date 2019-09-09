@@ -1,4 +1,6 @@
 FROM openjdk:11
-COPY ./target/userregistration-0.0.1-SNAPSHOT.jar app.jar
-EXPOSE 8090
-ENTRYPOINT ["java","-jar","app.jar"]
+ADD ./target/user-registration-service-0.0.1-SNAPSHOT.jar /usr/src/user-registration-service-0.0.1-SNAPSHOT.jar
+WORKDIR usr/src
+EXPOSE 8095
+ENTRYPOINT ["java","-jar", "user-registration-service-0.0.1-SNAPSHOT.jar"]
+
