@@ -1,7 +1,7 @@
 
 import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import {Survey} from '../modals/Survey';
+import { Survey } from '../modals/Survey';
 import { SurveyService } from '../survey.service';
 import { Router } from '@angular/router';
 import { AutofillMonitor } from '@angular/cdk/text-field';
@@ -16,12 +16,12 @@ import { Observable } from 'rxjs';
 })
 export class MySurveyCardComponent implements OnInit {
 
-  isLoggedOut$:Observable<boolean>;
+  isLoggedOut$: Observable<boolean>;
   loggedOut: boolean;
 
-  constructor(private userRegistrationService:UserRegistrationService, private dialog: MatDialog, private surveyService : SurveyService, private router : Router ) { }
+  constructor(private userRegistrationService: UserRegistrationService, private dialog: MatDialog, private surveyService: SurveyService, private router: Router) { }
 
-  public surveyList : Survey[];
+  public surveyList: Survey[];
 
   ngOnInit() {
     // this.getSurveyorSurveysList();
@@ -34,46 +34,45 @@ export class MySurveyCardComponent implements OnInit {
     });
   }
 
-  preview(survey){
+  preview(survey) {
     this.surveyService.surveyId = survey.id;
     this.router.navigateByUrl('surveyinfo');
   }
 
-  getSurveyList()
-  {
+  getSurveyList() {
     this.surveyService.getAllSurveys().subscribe(
-      (data) => {this.surveyList = data
-      console.log(this.surveyList)
+      (data) => {
+      this.surveyList = data
+        console.log(this.surveyList)
       })
   }
 
-  getSurveyorSurveysList()
-  {
+  getSurveyorSurveysList() {
     this.surveyService.getSurveysBySurveyor().subscribe(
-      (data) => {this.surveyList = data.surveysList
-      console.log(this.surveyList)
+      (data) => {
+      this.surveyList = data.surveysList
+        console.log(this.surveyList)
       })
   }
 
-  deleteSurvey(survey){
+  deleteSurvey(survey) {
     console.log(survey);
     let demo;
     this.surveyService.deleteSurvey(survey).subscribe(data=>demo=data);
     this.getSurveyList();
   }
 
-  editQuestions(survey : Survey)
- {
+  editQuestions(survey: Survey) {
     this.surveyService.surveyId = survey.id;
-    this.surveyService.editSurvey=survey
-    this.router.navigate(['question-template',survey.id]);
- }
+    this.surveyService.editSurvey = survey
+    this.router.navigate(['question-template', survey.id]);
+  } goToResponseAnalysis() { this.router.navigateByUrl('analysis');}
 
   openDialog() {
     const dialogRef = this.dialog.open(CreateSurveyDialogue,
       {
         width: '300px',
-        height:'auto',
+        height: 'auto',
         data: {}
       });
     dialogRef.afterClosed().subscribe(result => {
@@ -83,7 +82,7 @@ export class MySurveyCardComponent implements OnInit {
           (data) => {
             console.log(data);
             this.surveyService.editSurvey = data;
-            this.router.navigate(['question-template',data.id]);
+            this.router.navigate(['question-template', data.id]);
             this.getSurveyList();
           })
       }
