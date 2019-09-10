@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   // baseURI : "http://172.23.238.186:8090/api/v1",
-  // loginBaseURI : "http://172.23.238.186:8085", 
+  // loginBaseURI : "http://172.23.238.186:8085",
   // signUpBaseURI : "http://172.23.238.186:8095",
   // responseBaseURI : "http://172.23.238.186:8091/api/v1",
 

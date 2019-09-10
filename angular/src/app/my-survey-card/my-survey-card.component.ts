@@ -58,7 +58,8 @@ export class MySurveyCardComponent implements OnInit {
   deleteSurvey(survey) {
     console.log(survey);
     let demo;
-    this.surveyService.deleteSurvey(survey).subscribe(data => demo = data);
+    this.surveyService.deleteSurvey(survey).subscribe(data=>demo=data);
+    this.getSurveyList();
   }
 
   editQuestions(survey: Survey) {
