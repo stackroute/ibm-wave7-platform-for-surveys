@@ -18,6 +18,7 @@ import { AboutUsComponent } from './about-us/about-us.component';
 import { SupportPageComponent } from './support-page/support-page.component';
 import { QuestionsComponent } from './questions/questions.component';
 import {ResponseAnalysisComponent} from './response-analysis/response-analysis.component';
+import { UserWelcomeComponent } from './user-welcome/user-welcome.component';
 
 const routes: Routes = [
   {
@@ -69,7 +70,11 @@ const routes: Routes = [
   },
   {
     path:'analysis',component:ResponseAnalysisComponent
+  },
+  {
+    path:'user-welcome',component:UserWelcomeComponent
   }
+  
   
 ];
 

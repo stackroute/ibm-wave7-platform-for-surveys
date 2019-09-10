@@ -60,6 +60,7 @@ import { FusionChartsModule } from 'angular-fusioncharts';
 import * as FusionCharts from "fusioncharts";
 import * as Charts from "fusioncharts/fusioncharts.charts";
 import * as FusionTheme from "fusioncharts/themes/fusioncharts.theme.fusion";
+import { UserWelcomeComponent } from './user-welcome/user-welcome.component';
 // Pass the fusioncharts library and chart modules
 FusionChartsModule.fcRoot(FusionCharts, Charts, FusionTheme);
 @NgModule({
@@ -87,6 +88,7 @@ FusionChartsModule.fcRoot(FusionCharts, Charts, FusionTheme);
     QuestionsComponent,
     EditQuestionDialog,
     ChatbotComponent,
+    UserWelcomeComponent,
 
 
   ],
@@ -128,7 +130,7 @@ FusionChartsModule.fcRoot(FusionCharts, Charts, FusionTheme);
     PortalModule,
     ScrollingModule,
     CommonModule,
-FusionChartsModule
+    FusionChartsModule
 
 
   ],

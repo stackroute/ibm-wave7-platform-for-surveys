@@ -31,4 +31,5 @@ public class User {
     private String location;
     private String ageGroup;
     private String gender;
+    private String rewardPoints;
 }
