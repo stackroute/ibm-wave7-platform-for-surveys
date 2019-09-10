@@ -69,8 +69,16 @@ public class SurveyServiceImpl implements SurveyService{
 
     @Override
     public List<String> getRelatedSurveysId(String id) {
+        String domain=surveyRepository.getSurveyById(id).getDomain_type();
+        List<String> list=new ArrayList<>();
+        List<Survey> surveyList=surveyRepository.getRecommendedSurveyBasedOnDomain(domain);
+        for(Survey survey:surveyList)
+        {
+            list.add(survey.getId());
+        }
 
-        return null;
+
+        return list;
     }
 
     @Override

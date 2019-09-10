@@ -87,18 +87,22 @@ public class SurveyController {
         responseEntity = new ResponseEntity<List<Question>>(surveyService.getRecomendedQuestions(id), HttpStatus.OK);
         return responseEntity;
     }
-<<<<<<< HEAD
 
     @GetMapping("expiryCheck")
-    public ResponseEntity<?> surveyExpiryCheck(@RequestParam String id)
-    {
-        responseEntity=new ResponseEntity(surveyService.surveyExpiryCheck(id),HttpStatus.OK);
-=======
-    @GetMapping("recommendSurveys/{domain}")
-    public ResponseEntity<?> getRecomentadionsSurveys(@PathVariable("domain") String domain) {
-
-        responseEntity = new ResponseEntity<List<Survey>>(surveyService.getSurveyByDomainName(domain), HttpStatus.OK);
->>>>>>> 17a3f40861f265b2baf36d99dbe67af216e0aad0
-        return responseEntity;
+    public int surveyExpiryCheck(@RequestParam String id) {
+        return surveyService.surveyExpiryCheck(id);
     }
+
+    @GetMapping("relatedSurveys")
+    public List<String> getRelatedSurveys(@RequestParam String id)
+    {
+        return surveyService.getRelatedSurveysId(id);
+    }
+//    @GetMapping("recommendSurveys/{domain}")
+//    public ResponseEntity<?> getRecomentadionsSurveys(@PathVariable("domain") String domain) {
+//
+//        responseEntity = new ResponseEntity<List<Survey>>(surveyService.getSurveyByDomainName(domain), HttpStatus.OK);
+//
+//        return responseEntity;
+
 }

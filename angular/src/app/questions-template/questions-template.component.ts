@@ -1,12 +1,5 @@
-<<<<<<< HEAD
-import { Component, OnInit, Inject } from '@angular/core';
-import { SurveyService } from '../survey.service';
-import { ActivatedRoute, Router } from '@angular/router';
-import { Question } from '../modals/Question';
-import { Survey } from '../modals/Survey';
-import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import {Mail} from '../mail'
-=======
+
+  
 import { Component, OnInit, Inject } from "@angular/core";
 import { SurveyService } from "../survey.service";
 import { ActivatedRoute, Router } from "@angular/router";
@@ -24,8 +17,8 @@ import { NgForm } from '@angular/forms';
 
 import { ChatbotComponent } from '../chatbot/chatbot.component';
 import { MatBottomSheet } from '@angular/material/bottom-sheet';
+import { Mail } from '../mail'
 
->>>>>>> 17a3f40861f265b2baf36d99dbe67af216e0aad0
 
 @Component({
   selector: "app-questions-template",
@@ -39,21 +32,10 @@ export class QuestionsTemplateComponent implements OnInit {
   private count: number;
   private question: Question;
   private survey: Survey;
-<<<<<<< HEAD
-  private questionList:Question[];
-  private newchoices : string[] = [];
-  private email:Mail;
-
-  constructor(private surveyService: SurveyService,
-    private dialog : MatDialog,private router:Router) { }
-   
-   
-
-=======
   private questionList: Question[];
   private recommendedQuestionList: Question[];
   private newchoices: string[] = [];
-  private url;
+  private email:Mail;
   public userResponse: Response;
 
   constructor(
@@ -66,11 +48,10 @@ export class QuestionsTemplateComponent implements OnInit {
     private bottomSheet: MatBottomSheet
   ) { }
 
->>>>>>> 17a3f40861f265b2baf36d99dbe67af216e0aad0
   ngOnInit() {
     this.getQuestionList(this.surveyService.editSurvey.id);
     this.getRecommendedQuestions(this.surveyService.editSurvey.domain_type);
-    this.url = window.location.href;
+    this.email={url:"http://172.23.238.147:4200/questions/:surveyId?id="+this.surveyService.surveyId};
   }
 
 
@@ -101,21 +82,6 @@ export class QuestionsTemplateComponent implements OnInit {
     }
   }
 
-<<<<<<< HEAD
-    this.getQuestionList(this.surveyService.surveyId);
-   this.email={url:"http://172.23.238.147:4200/publishview/questions?surveyId="+this.surveyService.surveyId};
-
-    
-  }
-  publish()
-  {
-    this.surveyService.sendMail(this.email).subscribe(
-      (data) =>{
-        console.log(data);
-      });
-      this.surveyService.publishedURL = this.email.url;
-        this.router.navigateByUrl('publishview')
-=======
   saveDroppedQuestion(question: any) {
     console.log("questin from ts", question);
     this.surveyService.saveQuestion(question).subscribe((data) => {
@@ -126,16 +92,15 @@ export class QuestionsTemplateComponent implements OnInit {
   }
 
   publish() {
-    this.surveyService.sendMail(this.url).subscribe(data => {
+    this.surveyService.sendMail(this.email).subscribe(data => {
       console.log(data);
     });
     // let surveyId=this.route.snapshot.queryParams["surveyId"];
     console.log(this.route.snapshot);
     let surveyId=this.route.snapshot.paramMap.get('surveyId');
     console.log(surveyId);
-    this.surveyService.publishedURL = this.url;
+    this.surveyService.publishedURL = this.email.url;
     this.router.navigate(["publishview", surveyId]);
->>>>>>> 17a3f40861f265b2baf36d99dbe67af216e0aad0
   }
 
 
