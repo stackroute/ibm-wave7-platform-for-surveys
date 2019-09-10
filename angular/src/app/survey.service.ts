@@ -23,7 +23,7 @@ export class SurveyService {
 
   public loginCredentials : User;
 
-  public publishedURL : string;
+  public publishedURL : String;
 
   public editSurvey: Survey;
 
@@ -73,13 +73,31 @@ export class SurveyService {
   getAllQuestions(surveyId : string): Observable<Survey> {
     return this.httpclient.get<Survey>(environment.baseURI + "/survey/" + surveyId);
   }
+
+  sendMail(mail) {
+    return this.httpclient.post("http://172.23.238.147:8070/send-mail",mail);
+  }
+
+
+  expiryCheck()
+  {
+    return this.httpclient.get<number>(environment.baseURI+"/expiryCheck"+"?id="+this.surveyId);
+  }
+
+  getRelatedSurveys()
+  {
+    return this.httpclient.get<String[]>(environment.baseURI+"/relatedSurveys?id="+this.surveyId);
+  }
+
+
+
+  
+
   getRecommendedQuestions(domain:String)
   {
     return this.httpclient.get<Question[]>(environment.baseURI+"/recommendations/"+domain);
   }
-  sendMail(url) : Observable<string> {
-    return this.httpclient.post<string>("http://172.23.238.147:8070/send-mail?url=" + url, url);
-  }
+
   saveResponse(userResponse:Response):Observable<Response>{
     var url="http://172.23.238.200:8091/api/v1/response"
     return this.httpclient.post<Response>(url,userResponse,httpOptions);

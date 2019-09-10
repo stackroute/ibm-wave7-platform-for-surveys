@@ -4,9 +4,13 @@
 
 export const environment = {
   production: false,
-  baseURI : "http://172.23.238.186:8090/api/v1",
-  loginBaseURI : "http://172.23.238.196:8081",
-  signUpBaseURI : "http://172.23.238.196:8095",
+  // baseURI : "http://172.23.238.186:8090/api/v1",
+  // loginBaseURI : "http://172.23.238.186:8085",
+  // signUpBaseURI : "http://172.23.238.186:8095"
+
+  baseURI : "http://172.17.0.1:8090/api/v1",
+  loginBaseURI : "http://172.17.0.1:8085",
+  signUpBaseURI : "http://172.17.0.1:8095",
   dialogflow: {
     chatbot: 'f047460b32b4461ebca432ae15e54b79'
   }

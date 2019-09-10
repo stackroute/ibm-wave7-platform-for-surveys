@@ -1,17 +1,66 @@
 
-<form class="my-form" #userregistrationform="ngForm" (ngSubmit)="saveResponse(userregistrationform.value)">
 
-<div class="example-container">
- <mat-card class="example-box" *ngFor="let question of questionList">
-    <h3>
-      {{ question.questionTag }}
-    </h3>
-    <br />
-    <div *ngFor="let choice of question.choices">
-      <mat-radio-button class="choice-radio-button" value="{{ choice }}">{{choice}}</mat-radio-button><br />
+
+<div class="container">
+
+    <div *ngIf="num > 0; else takeSurvey">
+        
+            <h1>Survey Builder</h1>
+            <form novalidate="" ng-controller="PollCtrl" class="survey form ">
+            <div class="form-group">
+                  <h3>Questions</h3>
+               <p>Q1. Do you know about our company?</p>
+                  <mat-radio-group aria-label="">
+                        <mat-radio-button value="1">Yes</mat-radio-button>
+                        <mat-radio-button value="2">No</mat-radio-button>
+                      </mat-radio-group>
+
+
+                    <p> Q2.From where did you hear about us?</p>
+                      <mat-radio-group aria-label="">
+                            <mat-radio-button value="1">Tv</mat-radio-button>
+                            <mat-radio-button value="2">News Paper</mat-radio-button>
+                            <mat-radio-button value="3">Magazine</mat-radio-button>
+                            <mat-radio-button value="4">Internet</mat-radio-button>
+                          </mat-radio-group> 
+               
+                         <p>Q3.What comes to your mind when you first hear the word ?</p> 
+                          <textarea matInput placeholder="Question"></textarea>
+                   
+                    
+                        <p> Q4.How would you rate the quality of our product on a scale of 10?"</p> 
+                              <textarea matInput placeholder="Question"></textarea>
+    
+
+              <p>Q5. Would you consider buying this product again in the future?</p>
+                                   <mat-radio-group aria-label="">
+                                        <mat-radio-button value="1">Yes</mat-radio-button>
+                                        <mat-radio-button value="2">No </mat-radio-button>
+                                      </mat-radio-group>
+                             
+
+
+
+
+                
+                 
+                </div>
+                <button mat-raised-button type="submit" color="primary" (click)="submit()"> Submit</button>
+              </form>
+           
+            </div>
+
+            <ng-template #takeSurvey>
+
+                <button mat-raised-button type="submit" color="primary" (click)="newSurveys()"> Click here to take similar surveys</button>
+
+              <div *ngFor="let surveyId of id">
+                <p>http://172.23.238.147:4200/questions/:surveyId?id={{surveyId}}</p>
+
+
+              </div>
+            </ng-template>
     </div>
-  </mat-card>
-  
-</div>
-<button mat-raised-button type="submit" color="primary" (click)="submit">Submit</button>
-</form>
+
+       
+

@@ -3,6 +3,7 @@ package com.stackroute.mailservice.controller;
 import com.stackroute.mailservice.model.Mail;
 import com.stackroute.mailservice.service.MailService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.messaging.MessagingException;
 import org.springframework.web.bind.annotation.*;
@@ -21,18 +22,25 @@ public class MailController {
     @Autowired
     private Mail mail;
 
-    @RequestMapping("send-mail")
-    public ResponseEntity<Mail> send(@RequestParam String url) {
-        Map<String, Object> model = new HashMap<String, Object>();
-        model.put("url", url);
-        model.put("signature", "Mail to take the survey");
+
+    @PostMapping("send-mail")
+    public ResponseEntity send(@RequestBody Mail mail) {
+        Map<String, Object> map = new HashMap<String, Object>();
+//        String url=mail.getUrl();
+        System.out.println(mail.getUrl());
+        map.put("url",mail.getUrl());
+        map.put("signature", "Mail to take the survey");
+
+
         try {
-            mailService.sendMail(model);
+            mailService.sendMail(map);
         }
+
         catch (MessagingException | IOException | javax.mail.MessagingException e) {
+
             e.printStackTrace();
         }
 
-        return new ResponseEntity<>();
+        return new ResponseEntity("Mail Sent", HttpStatus.OK);
     }
 }

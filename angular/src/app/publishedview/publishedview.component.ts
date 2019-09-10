@@ -11,14 +11,15 @@ export class PublishedviewComponent implements OnInit {
 
   constructor(private surveyService : SurveyService,private route:ActivatedRoute,private router :Router) { }
 
-  private publishedURL : string;
+  private publishedURL : String;
 
   ngOnInit() {
     this.publishedURL = this.surveyService.publishedURL;
   }
   getSurveyId()
   {
-    let surveyId=this.route.snapshot.queryParams["surveyId"];
+    // let surveyId=this.route.snapshot.queryParams["surveyId"];
+    let surveyId=this.route.snapshot.paramMap.get('surveyId');
     console.log(surveyId);
     this.router.navigate(['questions',surveyId]);
     

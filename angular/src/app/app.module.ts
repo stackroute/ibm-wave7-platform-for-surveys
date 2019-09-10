@@ -59,7 +59,6 @@ import { ResponseAnalysisComponent } from './response-analysis/response-analysis
 import { FusionChartsModule } from 'angular-fusioncharts';
 import * as FusionCharts from "fusioncharts";
 import * as Charts from "fusioncharts/fusioncharts.charts";
-
 import * as FusionTheme from "fusioncharts/themes/fusioncharts.theme.fusion";
 // Pass the fusioncharts library and chart modules
 FusionChartsModule.fcRoot(FusionCharts, Charts, FusionTheme);
@@ -99,7 +98,6 @@ FusionChartsModule.fcRoot(FusionCharts, Charts, FusionTheme);
     MatDialogModule,
     BrowserAnimationsModule,
     MatToolbarModule,
-
     MatCardModule,
     HttpClientModule,
     MatInputModule,
