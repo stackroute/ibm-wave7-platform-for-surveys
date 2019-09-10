@@ -7,7 +7,7 @@
       <form class="my-form" [formGroup]="biodataForm" #userregistrationform="ngForm"
         (ngSubmit)="saveUser(userregistrationform.value)">
         <mat-form-field class="full-width">
-          <mat-label>UserName</mat-label>
+          <mat-label>Username</mat-label>
           <input matInput required placeholder="Username" name="name" [(ngModel)]="name"
             [formControl]="nameFormControl" />
           <mat-error *ngIf="nameFormControl.invalid">{{
@@ -21,7 +21,6 @@
           <mat-error *ngIf="emailFormControl.invalid">{{
             getEmailErrorMessage("email")
           }}</mat-error>
-
 
           <div *ngIf="emailAlredyExist != ''" class="alert alert-danger">
             {{emailAlreadyExist}}

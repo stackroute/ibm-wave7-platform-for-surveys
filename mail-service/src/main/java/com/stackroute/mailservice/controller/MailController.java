@@ -19,8 +19,8 @@ public class MailController {
     @Autowired
     private MailService mailService;
 
-    @Autowired
-    private Mail mail;
+//    @Autowired
+//    private Mail mail;
 
 
     @PostMapping("send-mail")
