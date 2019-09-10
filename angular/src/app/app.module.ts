@@ -58,6 +58,8 @@ import * as FusionTheme from "fusioncharts/themes/fusioncharts.theme.fusion";
 import { ResponseAnalysisComponent } from './response-analysis/response-analysis.component';
 import { ChatbotComponent } from './chatbot/chatbot.component';
 import { RewardPointsComponent } from './reward-points/reward-points.component';
+import { ChatService } from './chat.service';
+import { ResetpasswordComponent } from './resetpassword/resetpassword.component';
 // Pass the fusioncharts library and chart modules
 FusionChartsModule.fcRoot(FusionCharts, Charts, FusionTheme);
 
@@ -87,7 +89,8 @@ FusionChartsModule.fcRoot(FusionCharts, Charts, FusionTheme);
     EditQuestionDialog,
     ResponseAnalysisComponent,
     ChatbotComponent,
-    RewardPointsComponent
+    RewardPointsComponent,
+    ResetpasswordComponent
   ],
   imports: [
     MatRadioModule,
@@ -129,8 +132,8 @@ FusionChartsModule.fcRoot(FusionCharts, Charts, FusionTheme);
     FusionChartsModule
 
   ],
-//  exports: [ChatbotComponent],
-  providers: [MyprofileComponent,DialogComponent],
+  exports: [ChatbotComponent],
+  providers: [MyprofileComponent,DialogComponent,ChatService],
 
   entryComponents : [MySurveyCardComponent, CreateSurveyDialogue,DialogComponent, DialogContentComponent, QuestionsTemplateComponent, EditQuestionDialog,ChatbotComponent],
 

@@ -18,6 +18,8 @@ import { AboutUsComponent } from './about-us/about-us.component';
 import { SupportPageComponent } from './support-page/support-page.component';
 import { QuestionsComponent } from './questions/questions.component';
 import {ResponseAnalysisComponent} from './response-analysis/response-analysis.component';
+import { MypasswordComponent } from './mypassword/mypassword.component';
+import { ResetpasswordComponent } from './resetpassword/resetpassword.component';
 
 const routes: Routes = [
   {
@@ -69,6 +71,12 @@ const routes: Routes = [
   },
   {
     path:'response',component:ResponseAnalysisComponent
+  },
+  {
+    path:'password',component:MypasswordComponent
+  },
+  {
+    path:'resetpassword',component:ResetpasswordComponent
   }
   
 ];
