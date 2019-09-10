@@ -19,8 +19,8 @@ import java.util.List;
 public class SurveyRepositoryTest {
 
     @Autowired
-    SurveyRepository surveyRepository;
-    Survey survey;
+    private SurveyRepository surveyRepository;
+    private Survey survey;
     @Before
     public void setUp(){
         survey=new Survey();

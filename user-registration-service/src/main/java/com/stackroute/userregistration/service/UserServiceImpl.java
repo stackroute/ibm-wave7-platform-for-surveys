@@ -1,6 +1,7 @@
 package com.stackroute.userregistration.service;
 
 import com.stackroute.userregistration.domain.User;
+import com.stackroute.userregistration.exception.EmailAlreadyExistException;
 import com.stackroute.userregistration.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,10 +19,16 @@ public class UserServiceImpl implements UserService{
     }
     //This method is use to save the details of the user to the database
     @Override
-    public User saveUser(User user) {
+    public User saveUser(User user) throws EmailAlreadyExistException {
+        User savedUser=null;
         //To save the user to the mongodatabase
-        User savedUser=userRepository.save(user);
-        //Returning the saved user
+        if(userRepository.findUserByEmail(user.getEmail())==null) {
+            savedUser = userRepository.save(user);
+        }
+        else
+        {
+            throw new EmailAlreadyExistException("User with email already exists");
+        }//Returning the saved user
         return savedUser;
     }
     //This method is get the details of the user
@@ -46,11 +53,22 @@ public class UserServiceImpl implements UserService{
     public User updateUser(User user, String id) {
 
         Optional<User> user1=userRepository.findById(id);
-        //user.setId(user.getId());
-        user.setName(user.getName());
-        user.setEmail(user.getEmail());
+
+
+        user.setId(id);
+
         User modifiedUser=userRepository.save(user);
         return modifiedUser ;
+    }
+
+    @Override
+
+    public User getUserById(String id) {
+        Optional<User> user = userRepository.findById(id);
+        return user.get();
+    }
+    public User findUserByEmail(String email) {
+        return userRepository.findUserByEmail(email);
     }
 
 

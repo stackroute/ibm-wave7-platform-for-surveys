@@ -6,6 +6,8 @@ import { SurveyService } from '../survey.service';
 import { Router } from '@angular/router';
 import { AutofillMonitor } from '@angular/cdk/text-field';
 import { FormControl } from '@angular/forms';
+import { UserRegistrationService } from '../user-registration.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-my-survey-card',
@@ -14,12 +16,22 @@ import { FormControl } from '@angular/forms';
 })
 export class MySurveyCardComponent implements OnInit {
 
-  constructor(private dialog: MatDialog, private surveyService : SurveyService, private router : Router ) { }
+  isLoggedOut$:Observable<boolean>;
+  loggedOut: boolean;
+
+  constructor(private userRegistrationService:UserRegistrationService, private dialog: MatDialog, private surveyService : SurveyService, private router : Router ) { }
 
   public surveyList : Survey[];
 
   ngOnInit() {
+    // this.getSurveyorSurveysList();
     this.getSurveyList();
+    this.isLoggedOut$ = this.userRegistrationService.logOut;
+    this.userRegistrationService.setLogout(true);
+    this.isLoggedOut$.subscribe(data => {
+      this.loggedOut = data;
+      console.log(this.loggedOut);
+    });
   }
 
   preview(survey){
@@ -34,15 +46,26 @@ export class MySurveyCardComponent implements OnInit {
       console.log(this.surveyList)
       })
   }
+
+  getSurveyorSurveysList()
+  {
+    this.surveyService.getSurveysBySurveyor().subscribe(
+      (data) => {this.surveyList = data.surveysList
+      console.log(this.surveyList)
+      })
+  }
+
   deleteSurvey(survey){
     console.log(survey);
     let demo;
     this.surveyService.deleteSurvey(survey).subscribe(data=>demo=data);
   }
+
   editQuestions(survey : Survey)
  {
     this.surveyService.surveyId = survey.id;
-    this.router.navigateByUrl('question-template');
+    this.surveyService.editSurvey=survey
+    this.router.navigate(['question-template',survey.id]);
  }
 
   openDialog() {
@@ -58,7 +81,8 @@ export class MySurveyCardComponent implements OnInit {
         this.surveyService.createSurvey(result).subscribe(
           (data) => {
             console.log(data);
-            this.router.navigateByUrl('question-template');
+            this.surveyService.editSurvey = data;
+            this.router.navigate(['question-template',data.id]);
             this.getSurveyList();
           })
       }

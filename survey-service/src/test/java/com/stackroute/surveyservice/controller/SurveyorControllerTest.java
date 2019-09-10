@@ -50,8 +50,7 @@ public class SurveyorControllerTest {
       surveyor.setId("1");
       surveyor.setName("Rupa");
       surveyor.setEmail("rupa@gmail.com");
-      surveyor.setPassword("Test1234");
-      surveyor.setTimeStamp(new Date());
+           surveyor.setTimeStamp(new Date());
       list=new ArrayList<>();
         list.add(surveyor);
     }

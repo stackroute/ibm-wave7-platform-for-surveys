@@ -17,6 +17,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import {MatButtonModule} from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatMenuModule} from '@angular/material/menu';
 import { LoginComponent } from './login/login.component';
@@ -43,7 +44,22 @@ import { AboutUsComponent } from './about-us/about-us.component';
 import { UserLandingPageComponent } from './user-landing-page/user-landing-page.component';
 import { SupportPageComponent } from './support-page/support-page.component';
 import { QuestionsComponent } from './questions/questions.component';
-
+import {A11yModule} from '@angular/cdk/a11y';
+import {DragDropModule} from '@angular/cdk/drag-drop';
+import {PortalModule} from '@angular/cdk/portal';
+import {ScrollingModule} from '@angular/cdk/scrolling';
+import {CdkStepperModule} from '@angular/cdk/stepper';
+import {CdkTableModule} from '@angular/cdk/table';
+import {CdkTreeModule} from '@angular/cdk/tree';
+import { FusionChartsModule } from 'angular-fusioncharts';
+import * as FusionCharts from "fusioncharts";
+import * as Charts from "fusioncharts/fusioncharts.charts";
+import * as FusionTheme from "fusioncharts/themes/fusioncharts.theme.fusion";
+import { ResponseAnalysisComponent } from './response-analysis/response-analysis.component';
+import { ChatbotComponent } from './chatbot/chatbot.component';
+import { RewardPointsComponent } from './reward-points/reward-points.component';
+// Pass the fusioncharts library and chart modules
+FusionChartsModule.fcRoot(FusionCharts, Charts, FusionTheme);
 
 @NgModule({
   declarations: [
@@ -68,7 +84,10 @@ import { QuestionsComponent } from './questions/questions.component';
     UserLandingPageComponent,
     SupportPageComponent,
     QuestionsComponent,
-    EditQuestionDialog
+    EditQuestionDialog,
+    ResponseAnalysisComponent,
+    ChatbotComponent,
+    RewardPointsComponent
   ],
   imports: [
     MatRadioModule,
@@ -95,19 +114,25 @@ import { QuestionsComponent } from './questions/questions.component';
     MatDividerModule,
     RouterModule,
     NgbModule,
+    MatBottomSheetModule,
     MatDialogModule,
     MatTooltipModule,
     MatCheckboxModule,
-    MatSidenavModule
+    MatSidenavModule,
+    A11yModule,
+    CdkStepperModule,
+    CdkTableModule,
+    CdkTreeModule,
+    DragDropModule,
+    PortalModule,
+    ScrollingModule,
+    FusionChartsModule
 
   ],
+//  exports: [ChatbotComponent],
   providers: [MyprofileComponent,DialogComponent],
 
-  entryComponents : [MySurveyCardComponent, CreateSurveyDialogue,DialogComponent, DialogContentComponent, QuestionsTemplateComponent, EditQuestionDialog],
-
-
-
-
+  entryComponents : [MySurveyCardComponent, CreateSurveyDialogue,DialogComponent, DialogContentComponent, QuestionsTemplateComponent, EditQuestionDialog,ChatbotComponent],
 
   bootstrap: [AppComponent]
 })

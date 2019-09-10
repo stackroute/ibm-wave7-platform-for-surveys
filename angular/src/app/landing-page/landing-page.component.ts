@@ -2,6 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { Route } from '@angular/compiler/src/core';
 import { Router } from '@angular/router';
 import { ConstantsService } from '../constants.service';
+import { Observable } from 'rxjs';
+import { UserRegistrationService } from '../user-registration.service';
+import { SurveyService } from '../survey.service';
+import { Survey } from '../modals/Survey';
 
 @Component({
   selector: 'app-landing-page',
@@ -9,6 +13,13 @@ import { ConstantsService } from '../constants.service';
   styleUrls: ['./landing-page.component.scss']
 })
 export class LandingPageComponent implements OnInit{
+  public surveyList : Survey[];
+  public surveySlides: any = [[]];
+  slides: any = [[]];
+  isLoggedIn$:Observable<boolean>;
+  loggedIn: boolean;
+  isLoggedOut$:Observable<boolean>;
+  loggedOut: boolean;
   images = [1, 2, 3].map(() => `https://picsum.photos/900/500?random&t=${Math.random()}`);
     cards = [
     {
@@ -66,7 +77,41 @@ export class LandingPageComponent implements OnInit{
     //   img: 'https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(34).jpg'
     // },
   ];
-  slides: any = [[]];
+
+  constructor(private userRegistrationService:UserRegistrationService, private router : Router,private surveyService : SurveyService) { }
+
+  ngOnInit() {
+    this.isLoggedIn$ = this.userRegistrationService.logged;
+    this.userRegistrationService.setLogin(true);
+    this.isLoggedIn$.subscribe(data => {
+      this.loggedIn = data;
+      console.log(this.loggedIn);
+    });
+    this.isLoggedOut$ = this.userRegistrationService.logOut;
+    this.userRegistrationService.setLogout(false);
+    this.isLoggedOut$.subscribe(data => {
+      this.loggedOut = data;
+      console.log(this.loggedOut);
+    });
+    this.slides = this.chunk(this.cards, 3);
+    this.getSurveyList();
+
+  }
+
+  getSurveyList()
+  {
+    this.surveyService.getAllSurveys().subscribe(
+      (data) => {
+        this.surveyList = data
+        this.surveySlides = this.surveyChunk(this.surveyList, 3);
+      })
+  }
+
+  login()
+  {
+    this.router.navigateByUrl('login');
+  }
+
   chunk(arr, chunkSize) {
     let R = [];
     for (let i = 0, len = arr.length; i < len; i += chunkSize) {
@@ -74,15 +119,13 @@ export class LandingPageComponent implements OnInit{
     }
     return R;
   }
-  constructor(private router : Router) { }
 
-  ngOnInit() {
-    this.slides = this.chunk(this.cards, 3);
-  }
-
-  login()
-  {
-    this.router.navigateByUrl('login');
+  surveyChunk(arr, chunkSize) {
+    let R = [];
+    for (let i = 0, len = arr.length; i < len; i += chunkSize) {
+      R.push(arr.slice(i, i + chunkSize));
+    }
+    return R;
   }
 
 }

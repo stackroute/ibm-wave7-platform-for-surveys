@@ -22,6 +22,7 @@ public interface SurveyService {
 
     public int surveyExpiryCheck(String id);
 
+    public List<String> getRelatedSurveysId(String id);
 
 
 

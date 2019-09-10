@@ -1,11 +1,4 @@
-.example-card
-{
-    margin-top: 100px;
-    width:300px;
-    min-width: 200px;
-    height:60%;
 
-}
 .a{
     display: flex;
     flex-wrap: wrap;
@@ -19,7 +12,25 @@
  display: block;
  margin-left:auto;
  margin-right:auto;  
+ background-color: grey;
+ color: white;
+border: 2px solid white;
 
+}
+
+.mat-card-actions {
+ display: flex;
+  justify-content: space-evenly;
+ margin-bottom: 8px;
+  padding: 8px 0;
+}
+.mat-card-header {
+  height: 15%;
+}
+.btn:hover{
+  background-color: white;
+ color: black;
+border: 2px solid grey;
 }
 
 .flex-container{
@@ -82,3 +93,51 @@ li{
   ::-webkit-scrollbar-thumb:hover {
     background: #555; 
   }
+
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.1s;
+    border-radius: 5px;
+    margin-top: 100px;
+    width:300px;
+    min-width: 200px;
+    height:60%;
+
+  }
+  
+  .card:hover {
+    box-shadow: 0 8px 25px 0 rgba(0,0,0,0.8);
+    width:330px;
+  }
+  
+  img {
+    border-radius: 5px 5px 0 0;
+  }
+  .draft{
+      margin-top: 20px;
+      border:2px solid white;
+      background-color: black;
+      color: white;
+      opacity: 0.7;
+    position: absolute;
+    height: 8%;
+    padding: 2px;
+    margin-left:0px ;
+    width: 50%;
+    text-align: center;
+    border-radius: 0px 50px 50px 0px;
+  }
+ 
+  .bottom{
+    display: flex;
+   
+    padding: 20px;
+    justify-content: space-around;
+  }
+  a{
+    color:black;
+  }
+  a:hover{
+    color:burlywood;
+  }
+  

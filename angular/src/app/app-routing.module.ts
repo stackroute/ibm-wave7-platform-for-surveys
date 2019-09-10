@@ -17,7 +17,7 @@ import { UserLandingPageComponent } from './user-landing-page/user-landing-page.
 import { AboutUsComponent } from './about-us/about-us.component';
 import { SupportPageComponent } from './support-page/support-page.component';
 import { QuestionsComponent } from './questions/questions.component';
-
+import {ResponseAnalysisComponent} from './response-analysis/response-analysis.component';
 
 const routes: Routes = [
   {
@@ -29,10 +29,6 @@ const routes: Routes = [
   {
     path:'surveyinfo',component:SurveyinfoComponent
   },
-
-  // {
-  //   path:'landing-page', component: LandingPageComponent
-  // },
   {
     path:'',component:LandingPageComponent
   },
@@ -40,20 +36,15 @@ const routes: Routes = [
     path:'login',
     component:LoginComponent,
   },
-  // {
-  //   path:'',
-  //   redirectTo:'/',
-  //   pathMatch:'full'
-  // },
   {
-    path : 'question-template',
+    path : 'question-template/:surveyId',
     component : QuestionsTemplateComponent
   },
   {
     path:'signup',component:SignUpComponent
   },
   {
-    path : 'publishview',
+    path : 'publishview/:surveyId',
     component : PublishedviewComponent
   },
   {
@@ -74,9 +65,12 @@ const routes: Routes = [
     path:'support', component: SupportPageComponent
   },
   {
-    path:'publishview/questions', component: QuestionsComponent
+    path:'questions/:surveyId', component: QuestionsComponent
+  },
+  {
+    path:'response',component:ResponseAnalysisComponent
   }
-
+  
 ];
 
 @NgModule({

@@ -1,57 +1,50 @@
 .body{
-  // width: 100%;
-  // max-width: 100%;
-  // min-width: 100%;
-    //@extendwidth:100%;
-    position: fixed;
-    top:0;
-    z-index: 1;
-    left: 0;
-    right: 0;
-    max-width: 1000px;
-    min-width: 1000px;
+  position: fixed;
+  top:0;
+  z-index: 1;
+  left: 0;
+  right: 0;
+  max-width: 1000px;
+  min-width: 1000px;
 }
 .spacer {
-  flex: 1 1 auto;
+flex: 1 1 auto;
 }
+
 .example-card {
-  max-width: 400px;
-  height: 500px;
-  width: -webkit-fill-available;
-  position: relative;
-  display: inline-block;
-  //overflow: hidden;
-  text-align: center;
-  margin:0.5em 0 0 0.5em;
- }
-
-.example-header-image {
- //background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
-  background-size: cover;
-
+max-width: 300px;
+height: 400px;
+width: -webkit-fill-available;
+position: relative;
+display: inline-block;
+//overflow: hidden;
+text-align: center;
+// margin:0.5em 0 0 0.5em;
+margin-left:1.7cm;
 }
-//  &::-webkit-scrollbar {
-//     width: 0px;
-//     background: transparent;
-// }
+
+.mat-card-avatar{
+width:0px;
+}
+
 
 .slider-container {
-  display: flex;
-  flex-direction: column
+display: flex;
+flex-direction: column
 }
 
 .slides {
-  display: flex;
-  overflow-x: scroll;
-  // This is not supported by all browsers. If you want a different animation, please feel free
-  // to find your own solution.
-  scroll-behavior: smooth;
- }
+display: flex;
+overflow-x: scroll;
+// This is not supported by all browsers. If you want a different animation, please feel free
+// to find your own solution.
+scroll-behavior: smooth;
+}
 
 
 .controls {
-  display: flex;
-  justify-content: center;
+display: flex;
+justify-content: center;
 }
 .mat-button{
 //justify-items: center;
@@ -65,68 +58,52 @@ margin-right: auto;
 display: block;
 }
 .button{
-  color:white;
-  margin-left: 30%;
-  margin-left: 40%;
-  width: 300px;
-  height: 70px;
-  padding-top: 13px;
-  padding-bottom: 7px;
-  text-align:-webkit-center;
-  font-size: x-large;
+color:white;
+margin-left: 30%;
+margin-left: 40%;
+width: 300px;
+height: 70px;
+padding-top: 13px;
+padding-bottom: 7px;
+text-align:-webkit-center;
+font-size: x-large;
 
-  margin-bottom: 100px;
-  // margin-top: 0em;
-  background-color: #000;
-  padding: 0 0 0.2em 0;
-  // z-index: 1;
-  // position: absolute;
-  // display: ruby-base-container;
-  // //width: 100%;
-  //  min-width: 50px;  // add this if you want
-  //  max-width: 300px;
-  // text-decoration: none;
-  // display: table;
+margin-bottom: 100px;
+// margin-top: 0em;
+background-color: #000;
+padding: 0 0 0.2em 0;
+
 }
-// .card-deck
-// {
-//     display: inline-flex;
-// }
-// .card-img-top{
-//    height: 500px;
-//     width: -webkit-fill-available;
-// }
-// .hero {
-//   max-width: fit-content;
-//   min-width: auto;
-// }
+
 .hero
 {
-    display: flex;
-    max-width: 100%;
-    min-width: 100%;
-    align-content: center;
-    order: 1;
-    flex-wrap: wrap;
-    /* width: 100%; */
-    justify-content: space-around;
-  //  margin-top: 100px;
+  display: flex;
+  max-width: 100%;
+  min-width: 100%;
+  align-content: center;
+  order: 1;
+  flex-wrap: wrap;
+  /* width: 100%; */
+  justify-content: space-around;
+//  margin-top: 100px;
 }
 
 @media all and (max-width:30em)
 {
-  .button{
-    //font-size: 12px;
-    // margin-left: 10px;
-    // width: 150px;
-    display: block;
-    //position: -webkit-sticky;
-    margin: 0.4em 0.4em;
-  }
+.button{
+  display: block;
+  margin: 0.4em 0.4em;
 }
-// @media all and (max-width:30em){
-//    .button{
-//     display: block;
-//     margin: 0.4em auto;
-//    }
-//   }
+}
+mat-card-title{
+text-align: left;
+}
+mat-card-subtitle{
+text-align:left;
+}
+h2{
+margin-left:2cm;
+}
+a{
+text-decoration: none;
+}

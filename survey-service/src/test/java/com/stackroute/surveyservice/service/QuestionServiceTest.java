@@ -24,11 +24,11 @@ import static org.mockito.Mockito.*;
 
 public class QuestionServiceTest {
 
-    Question question;
+    private Question question;
     @Mock
-    QuestionRepository questionRepository;
+    private QuestionRepository questionRepository;
     @InjectMocks
-    QuestionServiceImpl questionService;
+    private QuestionServiceImpl questionService;
     List<Question> list=null;
 
     @Before
@@ -51,30 +51,19 @@ public class QuestionServiceTest {
 
 
 //    @Test
-//    public void editQuestion() throws QuestionDoesNotExistsException {
-//        when(questionRepository.save(any())).thenReturn(question);
-//        Question savedTrack=questionService.editQuestion(question);
-//        assertEquals(question,savedTrack);
-//
+//    public void getAllQuestions() {
+//        questionRepository.save(question);
+//        when(questionRepository.findAll()).thenReturn(list);
+//        List<Question> questionList=questionService.getAllQuestions();
+//        Assert.assertEquals(list,questionList);
 //    }
-
-
-
-
-    @Test
-    public void getAllQuestions() {
-        questionRepository.save(question);
-        when(questionRepository.findAll()).thenReturn(list);
-        List<Question> questionList=questionService.getAllQuestions();
-        Assert.assertEquals(list,questionList);
-    }
-
-
-    @Test
-    public void addQuestion() throws QuestionAlreadyExistsException {
-        when(questionRepository.save((Question) any())).thenReturn(question);
-        Question savedQuestion=questionService.addQuestionToSurvey(question,"10");
-        assertEquals(question,savedQuestion);
-        verify(questionRepository,times(1)).save(question);
-    }
-}
+//
+//
+//    @Test
+//    public void addQuestion() throws QuestionAlreadyExistsException {
+//        when(questionRepository.save((Question) any())).thenReturn(question);
+//        Question savedQuestion=questionService.addQuestionToSurvey(question,"10");
+//        assertEquals(question,savedQuestion);
+//        verify(questionRepository,times(1)).save(question);
+//    }
+//}

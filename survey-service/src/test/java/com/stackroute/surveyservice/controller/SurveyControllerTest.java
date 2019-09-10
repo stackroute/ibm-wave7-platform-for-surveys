@@ -36,7 +36,7 @@ public class SurveyControllerTest {
     @Autowired
     private MockMvc mockMvc;
     private Survey survey;
-    @Mock
+    @MockBean
     private SurveyService surveyService;
     @InjectMocks
     private SurveyController surveyController;

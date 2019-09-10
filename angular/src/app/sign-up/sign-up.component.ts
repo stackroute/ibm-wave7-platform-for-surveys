@@ -12,14 +12,15 @@ import { FormControl, Validators, FormGroup } from "@angular/forms";
 })
 export class SignUpComponent implements OnInit {
   public user: User;
+  public emailAlredyExist = "";
 
   constructor(
     private registrationService: UserRegistrationService,
     private route: ActivatedRoute,
     private router: Router
-  ) {}
+  ) { }
 
-  ngOnInit() {}
+  ngOnInit() { }
   nameFormControl = new FormControl("", [Validators.required]);
   emailFormControl = new FormControl("", [
     Validators.required,
@@ -42,9 +43,21 @@ export class SignUpComponent implements OnInit {
     return this.emailFormControl.hasError("required")
       ? "You must enter a value"
       : this.emailFormControl.hasError("email")
-      ? "Not a valid email"
-      : "";
+        ? "Not a valid email"
+        : "";
   }
+
+  // emailCheckUnique() {
+  //   this.ss.emailCheckUnique(this.angForm.controls['s_email'].value).subscribe(res => {
+  //     this.emailCheckUnique = res;
+  //     if (this.emailCheckUnique.length > 0) {
+  //       this.emailAlredyExist = "Email Already Exist";
+  //     }
+  //     else {
+  //       this.emailAlredyExist = "";
+  //     }
+  //   });
+  // }
   getPasswordErrorMessage(field) {
     return this.biodataForm.get(field).hasError("required")
       ? "You must enter a value"

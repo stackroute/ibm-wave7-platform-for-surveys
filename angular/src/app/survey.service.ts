@@ -13,7 +13,6 @@ const httpOptions = {
     'Content-Type': 'application/json',
   })
 };
-
 @Injectable({
   providedIn: 'root'
 })
@@ -27,21 +26,29 @@ export class SurveyService {
 
   public publishedURL : String;
 
+  public editSurvey: Survey;
+
   createSurvey(survey: Survey): Observable<Survey> {
     //creating a Guid Id
     survey.id = Guid.create().toString();
     this.surveyId = survey.id;
     //microservice create survey api link
-    return this.httpclient.post<Survey>(environment.baseURI + "/survey/?surveyorId="+"123", survey, httpOptions);
+    return this.httpclient.post<Survey>(environment.baseURI + "/survey/?surveyorId="+this.loginCredentials.id, survey, httpOptions);
   }
 
   getAllSurveys(): Observable<Survey[]> {
     return this.httpclient.get<Survey[]>(environment.baseURI + "/survey");
   }
 
+  getSurveysBySurveyor(): Observable<User> {
+    return this.httpclient.get<User>(environment.baseURI + "/surveyor/"+this.loginCredentials.id);
+  }
+
+  
   saveQuestion(question: Question) {
     //creating a Guid Id
     question.questionId = Guid.create().toString();
+    question.domainType = this.editSurvey.domain_type;
     //microservice create survey api link
     console.log(question);
     return this.httpclient.post<Question>(environment.baseURI + "/questionToSurvey/?surveyId="+this.surveyId, question, httpOptions)
@@ -64,13 +71,10 @@ export class SurveyService {
     console.log("service" + survey.id)
     return this.httpclient.delete(environment.baseURI+"/survey/" + survey.id);
   }
-  // getAllQuestions() :Observable<Question[]>
-  // {
-  //   return this.httpclient.get<Question[]>(environment.baseURI+"/question");
-  // }
   getAllQuestions(surveyId : string): Observable<Survey> {
     return this.httpclient.get<Survey>(environment.baseURI + "/survey/" + surveyId);
   }
+<<<<<<< HEAD
   sendMail(mail) {
     return this.httpclient.post("http://172.23.238.147:8070/send-mail",mail);
   }
@@ -84,4 +88,21 @@ export class SurveyService {
 
 
   
+=======
+  getRecommendedQuestions(domain:String)
+  {
+    return this.httpclient.get<Question[]>(environment.baseURI+"/recommendations/"+domain);
+  }
+  sendMail(url) : Observable<string> {
+    return this.httpclient.post<string>("http://172.23.238.147:8070/send-mail?url=" + url, url);
+  }
+  saveResponse(userResponse:Response):Observable<Response>{
+    var url="http://172.23.238.200:8091/api/v1/response"
+    return this.httpclient.post<Response>(url,userResponse,httpOptions);
+  }
+  getResponseById(id:string):Observable<Response>{
+    var url="http://172.23.238.200:8091/api/v1/response"+id;
+  return this.httpclient.get<Response>(url);
+  }
+>>>>>>> 17a3f40861f265b2baf36d99dbe67af216e0aad0
 }

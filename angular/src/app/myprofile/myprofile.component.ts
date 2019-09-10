@@ -1,15 +1,20 @@
 import { Component, OnInit,Inject } from '@angular/core';
-import {FormControl} from '@angular/forms';
-import {TooltipPosition} from '@angular/material/tooltip';
+import {FormControl,Validators,FormGroup,FormsModule} from '@angular/forms';
+
 import { UserRegistrationService } from '../user-registration.service';
 import { User } from '../modals/User';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { LoginUser } from '../modals/Login';
-import { Profile } from 'selenium-webdriver/firefox';
+
 
 export interface DialogData{
-  email:String
+  email:string;
+  gender:string;
+  agegroup : string;
+  location :string;
+
 }
+
+
 
 @Component({
   selector: 'app-myprofile',
@@ -18,16 +23,23 @@ export interface DialogData{
 })
 export class MyprofileComponent implements OnInit {
   
- name :String;
+ name :string;
   user:User;
-  email:String;
+  
+  email:string;
+  id:string;
+  
+  
   
   
   
   constructor(private registrationService: UserRegistrationService,private dialog: MatDialog) { }
 
   ngOnInit() {
-    this.registrationService.getUser().subscribe((data) =>{
+    
+    console.log(this.user)
+    this.id = this.registrationService.loginCredentials.id;
+    this.registrationService.getUserById(this.id).subscribe((data) =>{
       this.user=data;
       console.log(this.user);
     })
@@ -37,7 +49,7 @@ export class MyprofileComponent implements OnInit {
     this.registrationService.updateUser(user,user.id).subscribe((data)=> {
        this.user = data;
       console.log("result is ", data);
-      this.registrationService.getUser().subscribe((data) => {
+      this.registrationService.getUserById(this.id).subscribe((data) => {
         this.user=data;})
     });
 }
@@ -56,25 +68,23 @@ export class MyprofileComponent implements OnInit {
   }
   
   
-// saveUser(user: User) {
-//   console.log(user);
-//   this.registrationService.saveUser(user).subscribe((data)=> {
-//       this.user = data;
-//     console.log("result is ", user);
-//   });
-// }
+
 
  }
 @Component({
   selector: 'app-dialogComponent',
   templateUrl: 'dialogComponent.html',
  })
- export class DialogComponent {
+ export class DialogComponent implements OnInit {
   
   user:User;
   email:string;
   name:string;
-
+  gender:string;
+  
+  ngOnInit() {}
+    
+  
   constructor(
     public dialogRef: MatDialogRef<DialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: User,private registrationService: UserRegistrationService) {}

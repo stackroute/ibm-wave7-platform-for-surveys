@@ -22,54 +22,54 @@ import static org.junit.Assert.*;
 
 public class QuestionControllerTest {
 
-    @Autowired
-    private MockMvc mockMvc;
-    private Question question;
-    @MockBean
-    private QuestionService questionService;
-    @InjectMocks
-    private QuestionController questionController;
-    private List<Question> list=null;
-    @Before
-    public void setUp() throws Exception{
-        MockitoAnnotations.initMocks(this);
-        mockMvc= MockMvcBuilders.standaloneSetup(questionController).build();
-        question=new Question();
-        question.setQuestionTag("How are you");
-        question.setQuestionId("1");
-         List<String> choices=new ArrayList<>();
-         choices.add("Good");
-         choices.add("Bad");
-         question.setChoices(choices);
-        list=new ArrayList<>();
-        list.add(question);
-    }
+   @Autowired
+   private MockMvc mockMvc;
+   private Question question;
+   @MockBean
+   private QuestionService questionService;
+   @InjectMocks
+   private QuestionController questionController;
+   private List<Question> list=null;
+   @Before
+   public void setUp() throws Exception{
+       MockitoAnnotations.initMocks(this);
+       mockMvc= MockMvcBuilders.standaloneSetup(questionController).build();
+       question=new Question();
+       question.setQuestionTag("How are you");
+       question.setQuestionId("1");
+        List<String> choices=new ArrayList<>();
+        choices.add("Good");
+        choices.add("Bad");
+        question.setChoices(choices);
+       list=new ArrayList<>();
+       list.add(question);
+   }
 
-    @Test
-    public void saveQuestion() {
+   @Test
+   public void saveQuestion() {
 
-    }
+   }
 
-    @Test
-    public void saveQuestionToSurvey() {
-    }
+   @Test
+   public void saveQuestionToSurvey() {
+   }
 
-    @Test
-    public void getAllQuestions() {
-    }
+   @Test
+   public void getAllQuestions() {
+   }
 
-    @Test
-    public void deleteQuestion() {
-    }
+   @Test
+   public void deleteQuestion() {
+   }
 
-    @Test
-    public void deleteQuestionFromSurvey() {
-    }
+   @Test
+   public void deleteQuestionFromSurvey() {
+   }
 
-    @Test
-    public void updateQuestion() {
-    }
-    @After
-    public void tearDown() throws Exception {
-    }
+   @Test
+   public void updateQuestion() {
+   }
+   @After
+   public void tearDown() throws Exception {
+   }
 }
