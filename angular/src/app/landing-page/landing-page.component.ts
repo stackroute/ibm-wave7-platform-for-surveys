@@ -85,13 +85,13 @@ export class LandingPageComponent implements OnInit{
     this.userRegistrationService.setLogin(true);
     this.isLoggedIn$.subscribe(data => {
       this.loggedIn = data;
-      console.log(this.loggedIn);
+      // console.log(this.loggedIn);
     });
     this.isLoggedOut$ = this.userRegistrationService.logOut;
     this.userRegistrationService.setLogout(false);
     this.isLoggedOut$.subscribe(data => {
       this.loggedOut = data;
-      console.log(this.loggedOut);
+      // console.log(this.loggedOut);
     });
     this.slides = this.chunk(this.cards, 3);
     this.getSurveyList();

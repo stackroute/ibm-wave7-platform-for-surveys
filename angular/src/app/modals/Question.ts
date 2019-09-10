@@ -5,4 +5,5 @@ export interface Question
     choices:string[];
     survey_id:string;
     domainType:string;
+    response : string;
 }

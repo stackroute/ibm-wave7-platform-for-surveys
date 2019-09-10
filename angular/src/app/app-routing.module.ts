@@ -7,12 +7,10 @@ import { SurveyinfoComponent } from './surveyinfo/surveyinfo.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { QuestionsTemplateComponent } from './questions-template/questions-template.component';
 import { HeaderComponent } from './header/header.component';
-
+import { RewardPointsComponent } from './reward-points/reward-points.component';
 import { PublishedviewComponent } from './publishedview/publishedview.component';
-
 import { ThankingDialogBoxComponent } from './thanking-dialog-box/thanking-dialog-box.component';
 import { MyprofileComponent } from './myprofile/myprofile.component';
-
 import { UserLandingPageComponent } from './user-landing-page/user-landing-page.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { SupportPageComponent } from './support-page/support-page.component';
@@ -73,10 +71,15 @@ const routes: Routes = [
     path:'response',component:ResponseAnalysisComponent
   },
   {
+
     path:'password',component:MypasswordComponent
   },
   {
     path:'resetpassword',component:ResetpasswordComponent
+  },
+{
+    path:'rewards',component:RewardPointsComponent
+
   }
   
 ];

@@ -11,7 +11,7 @@ export class PublishedviewComponent implements OnInit {
 
   constructor(private surveyService : SurveyService,private route:ActivatedRoute,private router :Router) { }
 
-  private publishedURL : string;
+  private publishedURL : String;
 
   ngOnInit() {
     this.publishedURL = this.surveyService.publishedURL;
