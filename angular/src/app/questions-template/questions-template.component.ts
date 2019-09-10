@@ -35,7 +35,7 @@ export class QuestionsTemplateComponent implements OnInit {
   private questionList: Question[];
   private recommendedQuestionList: Question[];
   private newchoices: string[] = [];
-  private email:Mail;
+  // private email:Mail;
   public userResponse: Response;
 
   constructor(
@@ -47,11 +47,14 @@ export class QuestionsTemplateComponent implements OnInit {
     private router: Router,
     private bottomSheet: MatBottomSheet
   ) { }
+  email:Mail;
 
   ngOnInit() {
+  
     this.getQuestionList(this.surveyService.editSurvey.id);
     this.getRecommendedQuestions(this.surveyService.editSurvey.domain_type);
-    this.email={url:"http://172.23.238.147:4200/questions/:surveyId?id="+this.surveyService.surveyId};
+    
+
   }
 
 
@@ -92,6 +95,9 @@ export class QuestionsTemplateComponent implements OnInit {
   }
 
   publish() {
+    this.email={"url":"http://172.23.238.147:4200/questions/:surveyId?id="+this.surveyService.surveyId};
+
+    console.log(this.email.url);
     this.surveyService.sendMail(this.email).subscribe(data => {
       console.log(data);
     });
