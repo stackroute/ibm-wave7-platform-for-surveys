@@ -68,7 +68,7 @@ const routes: Routes = [
     path:'questions/:surveyId', component: QuestionsComponent
   },
   {
-    path:'response',component:ResponseAnalysisComponent
+    path:'analysis',component:ResponseAnalysisComponent
   }
   
 ];
