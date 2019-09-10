@@ -1,4 +1,5 @@
 FROM openjdk:11
-ADD  ./target/login-authentication-service-0.0.1-SNAPSHOT.jar /usr/src/login-authentication-service-0.0.1-SNAPSHOT.jar
+ADD  ./target/login-authentication-service-1.0.0.jar /usr/src/login-authentication-service-1.0.0.jar
 WORKDIR usr/src
-ENTRYPOINT ["java","-jar", "login-authentication-service-0.0.1-SNAPSHOT.jar"]
+EXPOSE 8085
+ENTRYPOINT ["java","-jar", "login-authentication-service-1.0.0.jar"]

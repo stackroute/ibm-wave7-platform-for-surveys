@@ -18,9 +18,9 @@ export class SignUpComponent implements OnInit {
     private registrationService: UserRegistrationService,
     private route: ActivatedRoute,
     private router: Router
-  ) { }
+  ) {}
 
-  ngOnInit() { }
+  ngOnInit() {}
   nameFormControl = new FormControl("", [Validators.required]);
   emailFormControl = new FormControl("", [
     Validators.required,
@@ -36,15 +36,15 @@ export class SignUpComponent implements OnInit {
   });
   getRequiredErrorMessage(field) {
     return this.biodataForm.get(field).hasError("required")
-      ? "You must enter a value"
+      ? "you must enter a valid username"
       : "";
   }
   getEmailErrorMessage(field) {
     return this.emailFormControl.hasError("required")
-      ? "You must enter a value"
+      ? "you must enter a valid email"
       : this.emailFormControl.hasError("email")
-        ? "Not a valid email"
-        : "";
+      ? "Not a valid email"
+      : "";
   }
 
   // emailCheckUnique() {
@@ -60,12 +60,12 @@ export class SignUpComponent implements OnInit {
   // }
   getPasswordErrorMessage(field) {
     return this.biodataForm.get(field).hasError("required")
-      ? "You must enter a value"
+      ? "This field is required."
       : "";
   }
   getRoleErrorMessage(field) {
     return this.biodataForm.get(field).hasError("required")
-      ? "You must enter a value"
+      ? "*"
       : "";
   }
   saveUser(user: User) {

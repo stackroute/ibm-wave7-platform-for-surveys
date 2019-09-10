@@ -13,58 +13,50 @@ import { parse } from 'querystring';
 export class QuestionsComponent implements OnInit {
 
   num;
-  id:[];
+  id: [];
 
-
-
-   
   private questionList: Question[];
-  constructor(private router : Router,    private surveyService: SurveyService,private route : ActivatedRoute) { }
+  constructor(private router: Router, private surveyService: SurveyService, private route: ActivatedRoute) { }
 
   ngOnInit() {
-    let surveyId=this.route.snapshot.paramMap.get('surveyId');
-   this.getQuestionList(surveyId);
-   this.surveyService.expiryCheck().subscribe(
-    (num) =>
-    {this.num=num;
-      console.log(window.location.href)
-  });
+    let surveyId = this.route.snapshot.paramMap.get('surveyId');
+    this.getQuestionList(surveyId);
+    this.surveyService.expiryCheck().subscribe(
+      (num) => {
+      this.num = num;
+        console.log(window.location.href)
+      });
   }
-  submit()
-  {
+
+  submit() {
     this.router.navigateByUrl('thankyou')
   }
+
   getQuestionList(surveyId: string) {
-    console.log("questions : ", this.questionList);
     this.surveyService.getAllQuestions(surveyId).subscribe(data => {
       this.questionList = data.questionList;
       console.log("questions : ", this.questionList);
     });
   }
-  saveResponse(userResponse: Response) {
 
-    console.log(userResponse); 
+  saveResponse(responseList: Question[]) {
+    console.log(responseList);
 
+    //   for (let i = 0; i < responseList.length; i++) {
 
-    // this.loading = true;
-    this.surveyService.saveResponse(userResponse)
-      .subscribe(
-        data => {
-
-        },
-        error => {
-          alert("error=" + error);
-        });
-
-
+    //     this.surveyService.saveResponse(responseList[i])
+    //       .subscribe(
+    //         data => {
+    //         },
+    //         error => {
+    //           alert("error=" + error);
+    //         });
+    //   }
   }
 
-
-  newSurveys()
-  {
-    this.surveyService.getRelatedSurveys().subscribe((id:[])=>{this.id=id;})
+  newSurveys() {
+    this.surveyService.getRelatedSurveys().subscribe((id: []) => { this.id = id; })
   }
 
-  
 }
 
