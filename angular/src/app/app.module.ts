@@ -17,6 +17,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import {MatButtonModule} from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatMenuModule} from '@angular/material/menu';
 import { LoginComponent } from './login/login.component';
@@ -50,6 +51,15 @@ import {ScrollingModule} from '@angular/cdk/scrolling';
 import {CdkStepperModule} from '@angular/cdk/stepper';
 import {CdkTableModule} from '@angular/cdk/table';
 import {CdkTreeModule} from '@angular/cdk/tree';
+import { FusionChartsModule } from 'angular-fusioncharts';
+import * as FusionCharts from "fusioncharts";
+import * as Charts from "fusioncharts/fusioncharts.charts";
+import * as FusionTheme from "fusioncharts/themes/fusioncharts.theme.fusion";
+import { ResponseAnalysisComponent } from './response-analysis/response-analysis.component';
+import { ChatbotComponent } from './chatbot/chatbot.component';
+import { RewardPointsComponent } from './reward-points/reward-points.component';
+// Pass the fusioncharts library and chart modules
+FusionChartsModule.fcRoot(FusionCharts, Charts, FusionTheme);
 
 @NgModule({
   declarations: [
@@ -75,7 +85,9 @@ import {CdkTreeModule} from '@angular/cdk/tree';
     SupportPageComponent,
     QuestionsComponent,
     EditQuestionDialog,
-    
+    ResponseAnalysisComponent,
+    ChatbotComponent,
+    RewardPointsComponent
   ],
   imports: [
     MatRadioModule,
@@ -102,6 +114,7 @@ import {CdkTreeModule} from '@angular/cdk/tree';
     MatDividerModule,
     RouterModule,
     NgbModule,
+    MatBottomSheetModule,
     MatDialogModule,
     MatTooltipModule,
     MatCheckboxModule,
@@ -113,16 +126,13 @@ import {CdkTreeModule} from '@angular/cdk/tree';
     DragDropModule,
     PortalModule,
     ScrollingModule,
-    
+    FusionChartsModule
 
   ],
+//  exports: [ChatbotComponent],
   providers: [MyprofileComponent,DialogComponent],
 
-  entryComponents : [MySurveyCardComponent, CreateSurveyDialogue,DialogComponent, DialogContentComponent, QuestionsTemplateComponent, EditQuestionDialog],
-
-
-
-
+  entryComponents : [MySurveyCardComponent, CreateSurveyDialogue,DialogComponent, DialogContentComponent, QuestionsTemplateComponent, EditQuestionDialog,ChatbotComponent],
 
   bootstrap: [AppComponent]
 })

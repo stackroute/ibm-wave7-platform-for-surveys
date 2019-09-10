@@ -17,7 +17,8 @@ import { UserLandingPageComponent } from './user-landing-page/user-landing-page.
 import { AboutUsComponent } from './about-us/about-us.component';
 import { SupportPageComponent } from './support-page/support-page.component';
 import { QuestionsComponent } from './questions/questions.component';
-
+import {ResponseAnalysisComponent} from './response-analysis/response-analysis.component';
+import { RewardPointsComponent } from './reward-points/reward-points.component';
 
 const routes: Routes = [
   {
@@ -66,10 +67,14 @@ const routes: Routes = [
   },
   {
     path:'questions/:surveyId', component: QuestionsComponent
+  },
+  {
+    path:'response',component:ResponseAnalysisComponent
+  },
+  {
+    path:'rewards',component:RewardPointsComponent
   }
   
-  
-
 ];
 
 @NgModule({

@@ -14,7 +14,8 @@ export class QuestionsComponent implements OnInit {
   constructor(private router : Router,    private surveyService: SurveyService,private route : ActivatedRoute) { }
 
   ngOnInit() {
-   this.getQuestionList("e320dc50-5605-84b6-ae4c-bbe90371ddc7");
+    let surveyId=this.route.snapshot.paramMap.get('surveyId');
+   this.getQuestionList(surveyId);
   }
   submit()
   {
