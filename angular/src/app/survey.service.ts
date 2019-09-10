@@ -75,7 +75,9 @@ export class SurveyService {
   }
 
   sendMail(mail) {
+    console.log(mail);
     return this.httpclient.post("http://172.23.238.147:8070/send-mail",mail);
+
   }
 
 
