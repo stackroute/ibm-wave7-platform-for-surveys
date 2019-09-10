@@ -26,11 +26,8 @@
     "angular": "^1.7.8",
     "angular-bootstrap-md": "^8.2.0",
     "angular-cli": "^1.0.0-beta.28.3",
-<<<<<<< HEAD
     "angular-fusioncharts": "^3.0.3",
-=======
     "api-ai-javascript": "^2.0.0-beta.21",
->>>>>>> 339d8c2f44a7b86cece9d38330ed48a6383c63a6
     "bootstrap": "^4.3.1",
     "bootstrap-reboot": "^4.3.1",
     "cli": "^1.0.1",
