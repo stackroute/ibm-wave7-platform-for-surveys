@@ -11,40 +11,36 @@ import { parse } from 'querystring';
 })
 export class QuestionsComponent implements OnInit {
   private questionList: Question[];
-  constructor(private router : Router,    private surveyService: SurveyService,private route : ActivatedRoute) { }
+  constructor(private router: Router, private surveyService: SurveyService, private route: ActivatedRoute) { }
 
   ngOnInit() {
-    let surveyId=this.route.snapshot.paramMap.get('surveyId');
-   this.getQuestionList(surveyId);
+    let surveyId = this.route.snapshot.paramMap.get('surveyId');
+    this.getQuestionList(surveyId);
   }
-  submit()
-  {
+
+  submit() {
     this.router.navigateByUrl('thankyou')
   }
+
   getQuestionList(surveyId: string) {
-    console.log("questions : ", this.questionList);
     this.surveyService.getAllQuestions(surveyId).subscribe(data => {
       this.questionList = data.questionList;
       console.log("questions : ", this.questionList);
     });
   }
-  saveResponse(userResponse: Response) {
 
-    console.log(userResponse); 
+  saveResponse(responseList: Question[]) {
+    console.log(responseList);
 
-
-    // this.loading = true;
-    this.surveyService.saveResponse(userResponse)
-      .subscribe(
-        data => {
-
-        },
-        error => {
-          alert("error=" + error);
-        });
-
-
+  //   for (let i = 0; i < responseList.length; i++) {
+      
+  //     this.surveyService.saveResponse(responseList[i])
+  //       .subscribe(
+  //         data => {
+  //         },
+  //         error => {
+  //           alert("error=" + error);
+  //         });
+  //   }
   }
-
 }
-

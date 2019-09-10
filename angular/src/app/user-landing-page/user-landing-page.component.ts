@@ -11,5 +11,4 @@ export class UserLandingPageComponent implements OnInit {
 
   ngOnInit() {
   }
-
 }

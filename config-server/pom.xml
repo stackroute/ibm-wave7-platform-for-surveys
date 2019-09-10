@@ -8,7 +8,6 @@
 		<version>1.0.0</version>
 	</parent>
 	<artifactId>config-server</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
 	<name>config-server</name>
 	<description>Config Server for services</description>
 
