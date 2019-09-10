@@ -146,8 +146,6 @@ services:
     network_mode: "host"
     hostname: localhost
     restart: always
-    volumes:
-      - /DB/mysql:/var/lib/mysql
     healthcheck:
       test: "exit 0"
 
@@ -160,9 +158,6 @@ services:
     container_name: neo4j
     network_mode: "host"
     hostname: localhost
-    volumes:
-      - /DB/neo4j/data:/data
-      - /DB/neo4j/import:/import
     healthcheck:
       test: "exit 0"
 
@@ -183,14 +178,14 @@ services:
       network_mode: "host"
       hostname: localhost
       ports:
-        - 9092:9092
+        - 8181:8181
       depends_on:
         zookeeper:
           condition: service_healthy
       environment:
         KAFKA_ZOOKEEPER_CONNECT: 'localhost:2181'
-        KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://localhost:9092
-        KAFKA_LISTENERS: PLAINTEXT://localhost:9092
+        KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://localhost:8181
+        KAFKA_LISTENERS: PLAINTEXT://localhost:8181
         KAFKA_CREATE_TOPICS: "UserRegistration"
       restart: always
       healthcheck:
