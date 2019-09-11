@@ -60,8 +60,8 @@ import { FusionChartsModule } from 'angular-fusioncharts';
 import * as FusionCharts from "fusioncharts";
 import * as Charts from "fusioncharts/fusioncharts.charts";
 import * as FusionTheme from "fusioncharts/themes/fusioncharts.theme.fusion";
-import { UserWelcomeComponent } from './user-welcome/user-welcome.component';
 import { RewardPointsComponent } from './reward-points/reward-points.component';
+import { UserWelcomeComponent } from './user-welcome/user-welcome.component';
 
 // Pass the fusioncharts library and chart modules
 FusionChartsModule.fcRoot(FusionCharts, Charts, FusionTheme);
@@ -91,8 +91,8 @@ FusionChartsModule.fcRoot(FusionCharts, Charts, FusionTheme);
     EditQuestionDialog,
     ChatbotComponent,
     UserWelcomeComponent,
-    RewardPointsComponent
-
+    RewardPointsComponent,
+    UserWelcomeComponent
   ],
   imports: [
     MatRadioModule,
@@ -133,17 +133,11 @@ FusionChartsModule.fcRoot(FusionCharts, Charts, FusionTheme);
     ScrollingModule,
     CommonModule,
     FusionChartsModule
-
-
   ],
   exports: [ChatbotComponent],
   providers: [MyprofileComponent, DialogComponent, ChatService],
 
   entryComponents: [MySurveyCardComponent, CreateSurveyDialogue, DialogComponent, DialogContentComponent, QuestionsTemplateComponent, EditQuestionDialog, ChatbotComponent],
-
-
-
-
 
   bootstrap: [AppComponent]
 })
