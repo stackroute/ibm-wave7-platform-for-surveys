@@ -10,6 +10,10 @@ export class UserWelcomeComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-  }
 
+  }
+  onClick()
+{
+  
+}
 }
