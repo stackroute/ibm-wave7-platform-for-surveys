@@ -20,11 +20,11 @@ import static org.mockito.Mockito.*;
 import static org.mockito.Mockito.times;
 
 public class SurveyServiceTest {
-    Survey survey;
+    private Survey survey;
     @Mock
-    SurveyRepository surveyRepository;
+    private SurveyRepository surveyRepository;
     @InjectMocks
-    SurveyServiceImpl surveyService;
+    private SurveyServiceImpl surveyService;
     List<Survey> list=null;
 
     @Before

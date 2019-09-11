@@ -31,28 +31,18 @@
       <div *ngFor="let choice of question.choices">
         <mat-radio-button class="choice-radio-button" value="{{ choice }}">{{
           choice
-        }}</mat-radio-button
-        ><br />
+        }}</mat-radio-button><br />
       </div>
     </mat-card>
+    <button id="more" mat-mini-fab color="primary" (click)=getRecommendedQuestionList()>
+   More
+    </button>
   </div>
 </div>
-<div
-  class="example-container1"
-  fxLayout="row"
-  fxLayout.xs="column"
-  fxLayoutWrap
-  fxLayoutGap="10px"
->
-  <div
-    class="example-list"
-    fxFlex="40%"
-    cdkDropList
-    #surveyQuestions="cdkDropList"
-    [cdkDropListConnectedTo]="[recommendedQuestions]"
-    [cdkDropListData]="questionList"
-    (cdkDropListDropped)="drop($event)"
-  >
+<div class="example-container1" fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="10px">
+  <div class="example-list" fxFlex="40%" cdkDropList #surveyQuestions="cdkDropList"
+    [cdkDropListConnectedTo]="[recommendedQuestions]" [cdkDropListData]="questionList"
+    (cdkDropListDropped)="drop($event)">
     <mat-card class="example-box" *ngFor="let question of questionList" cdkDrag>
       <h4>
         {{ question.questionTag
@@ -64,8 +54,7 @@
       <div *ngFor="let choice of question.choices">
         <mat-radio-button class="choice-radio-button" value="{{ choice }}">{{
           choice
-        }}</mat-radio-button
-        ><br />
+        }}</mat-radio-button><br />
       </div>
     </mat-card>
   </div>
@@ -80,27 +69,15 @@
       <mat-card-content>
       <mat-form-field>
         <mat-label>Question</mat-label>
-        <textarea
-          matInput
-          placeholder="Question"
-          [(ngModel)]="questionTag"
-          name="questionTag"
-          cols="60"
-        ></textarea> </mat-form-field
-      ><br />
+        <textarea matInput placeholder="Question" [(ngModel)]="questionTag" name="questionTag" cols="60"></textarea>
+      </mat-form-field><br />
       <div *ngFor="let choice of newchoices">
         <mat-radio-button class="choice-radio-button" value="{{ choice }}">{{
           choice
         }}</mat-radio-button>
       </div>
       <mat-form-field>
-        <input
-          matInput
-          placeholder="Choice"
-          name="choices"
-          #choiceText
-          id="choiceText"
-        />
+        <input matInput placeholder="Choice" name="choices" #choiceText id="choiceText" />
       </mat-form-field>
     </mat-card-content>
     <mat-card-actions>
@@ -112,12 +89,7 @@
       >
         +
       </button>
-      <button
-        mat-raised-button
-        type="submit"
-        color="primary"
-        (click)="saveQuestion(questiontemplateform)"
-      >
+      <button mat-raised-button type="submit" color="primary" (click)="saveQuestion(questiontemplateform)">
         save
       </button>
       </mat-card-actions>
@@ -131,6 +103,5 @@
 <button mat-raised-button type="submit" color="primary" (click)="publish()">
   Publish
 </button>
-<a routerLink="/survey"
-  ><button mat-raised-button color="primary">Back</button></a
->
+<a routerLink="/survey"><button mat-raised-button color="primary">Back</button></a>
+<mat-icon (click)="chat()"> chat_bubble</mat-icon>

@@ -1,11 +1,10 @@
 import { Component, OnInit,Inject } from '@angular/core';
-import {FormControl} from '@angular/forms';
-import {TooltipPosition} from '@angular/material/tooltip';
+import {FormControl,Validators,FormGroup,FormsModule} from '@angular/forms';
+
 import { UserRegistrationService } from '../user-registration.service';
 import { User } from '../modals/User';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { LoginUser } from '../modals/Login';
-import { Profile } from 'selenium-webdriver/firefox';
+
 
 export interface DialogData{
   email:string;
@@ -37,6 +36,7 @@ export class MyprofileComponent implements OnInit {
   constructor(private registrationService: UserRegistrationService,private dialog: MatDialog) { }
 
   ngOnInit() {
+    
     console.log(this.user)
     this.id = this.registrationService.loginCredentials.id;
     this.registrationService.getUserById(this.id).subscribe((data) =>{
@@ -75,13 +75,16 @@ export class MyprofileComponent implements OnInit {
   selector: 'app-dialogComponent',
   templateUrl: 'dialogComponent.html',
  })
- export class DialogComponent {
+ export class DialogComponent implements OnInit {
   
   user:User;
   email:string;
   name:string;
   gender:string;
-
+  
+  ngOnInit() {}
+    
+  
   constructor(
     public dialogRef: MatDialogRef<DialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: User,private registrationService: UserRegistrationService) {}

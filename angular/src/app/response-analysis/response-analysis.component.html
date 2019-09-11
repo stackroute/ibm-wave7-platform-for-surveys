@@ -1,0 +1,26 @@
+<div class="container">
+   
+   
+</div>
+
+<div class="split left">
+    <div class="questions">
+            <div>
+                    <mat-card class="card" *ngFor="let question of questionList">
+            
+                        <mat-card-header class="questionCard">
+                            <mat-card-title>{{question.questionTag}}</mat-card-title>
+                        </mat-card-header>
+                    </mat-card>
+          </div>
+    </div>
+  </div>
+  
+  <div class="split right">
+    <div class="centered">
+            <div class="chart">
+                    <fusioncharts width="700" height="500" type="Column2d" [dataSource]="dataSource1">
+                    </fusioncharts>
+                </div>
+    </div>
+  </div>

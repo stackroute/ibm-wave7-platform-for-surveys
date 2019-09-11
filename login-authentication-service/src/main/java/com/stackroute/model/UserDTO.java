@@ -1,6 +1,7 @@
 package com.stackroute.model;
 
 public class UserDTO {
+
 	private String username;
 	private String password;
 

@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { ConstantsService } from '../constants.service';
 import { User } from '../modals/User';
 import { FormControl, Validators, FormGroup } from '@angular/forms';
+import { SurveyService } from '../survey.service';
 import { BehaviorSubject, Observable } from 'rxjs';
 
 
@@ -23,7 +24,7 @@ export class LoginComponent implements OnInit {
   loggedOut: boolean;
 
 
-  constructor(private userResgistrationService: UserRegistrationService, private router: Router, public constant: ConstantsService) { }
+  constructor(private userResgistrationService: UserRegistrationService, private router: Router, public constant: ConstantsService, private surveyService : SurveyService) { }
 
   ngOnInit() {
     this.isLoggedIn$ = this.userResgistrationService.logged;
@@ -68,15 +69,17 @@ export class LoginComponent implements OnInit {
       (data) => {
         console.log(data);
         this.isAuthenticated = data;
-
+        console.log(this.userResgistrationService.loginuser.email);
         this.userResgistrationService.getUserByEmail(this.userResgistrationService.loginuser.email).
           subscribe((data) => {
             this.userResgistrationService.loginCredentials = data;
             console.log(this.userResgistrationService.loginCredentials);
             this.user = data;
             this.user.isAuthenticated = this.isAuthenticated;
+            this.surveyService.loginCredentials = data;
+            console.log("loginCredentials", data);
             if (this.isAuthenticated && this.user.role == 'Surveyor') {
-              this.router.navigateByUrl('survey');
+              this.router.navigateByUrl('survey'); 
             }
             else if (this.isAuthenticated && this.user.role == 'User') {
               this.router.navigateByUrl('landing');

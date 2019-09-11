@@ -13,14 +13,17 @@ import java.io.IOException;
 @Service
 public class KafkaConsumer
 {
-        Surveyor surveyor;
+        private Surveyor surveyor;
         @Autowired
-        SurveyorService surveyorService;
+        private SurveyorService surveyorService;
 
         @KafkaListener(topics = "UserRegistration", groupId = "group_id")
         public void consume(String surveyor) throws IOException, SurveyorAlreadyExistException {
-            Surveyor obj = new ObjectMapper().readValue(surveyor, Surveyor.class);
-            System.out.printf(surveyor);
+
+
+           Surveyor obj = new ObjectMapper().readValue(surveyor, Surveyor.class);
+            System.out.printf("----------------------------------------------------------------"+surveyor);
+
             surveyorService.addSurveyor(obj);
 
         }

@@ -1,3 +1,5 @@
+
+  
 import { Component, OnInit, Inject } from "@angular/core";
 import { SurveyService } from "../survey.service";
 import { ActivatedRoute, Router } from "@angular/router";
@@ -10,8 +12,13 @@ import {
 } from "@angular/material/dialog";
 import { HttpClient } from "@angular/common/http";
 import { Location } from "@angular/common";
-import {CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag-drop';
+import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 import { NgForm } from '@angular/forms';
+
+import { ChatbotComponent } from '../chatbot/chatbot.component';
+import { MatBottomSheet } from '@angular/material/bottom-sheet';
+import { Mail } from '../mail'
+
 
 @Component({
   selector: "app-questions-template",
@@ -19,7 +26,7 @@ import { NgForm } from '@angular/forms';
   styleUrls: ["./questions-template.component.scss"]
 })
 export class QuestionsTemplateComponent implements OnInit {
-  
+
   private condition: boolean;
   private choiceVisibility: boolean;
   private count: number;
@@ -28,7 +35,7 @@ export class QuestionsTemplateComponent implements OnInit {
   private questionList: Question[];
   private recommendedQuestionList: Question[];
   private newchoices: string[] = [];
-  private url;
+  // private email:Mail;
   public userResponse: Response;
 
   constructor(
@@ -37,47 +44,87 @@ export class QuestionsTemplateComponent implements OnInit {
     private dialog: MatDialog,
     private location: Location,
     private httpClient: HttpClient,
-    private router: Router
-  ) {}
+    private router: Router,
+    private bottomSheet: MatBottomSheet
+  ) { }
+  email:Mail;
 
   ngOnInit() {
+  
     this.getQuestionList(this.surveyService.editSurvey.id);
     this.getRecommendedQuestions(this.surveyService.editSurvey.domain_type);
-    this.url = window.location.href;
+    
+
   }
- 
+
 
   drop(event: CdkDragDrop<Object[]>) {
-    
+    console.log(event.previousContainer.data);
+    console.log(event.container.data[0]);
     if (event.previousContainer === event.container) {
       moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
     } else {
       transferArrayItem(event.previousContainer.data,
-                        event.container.data,
-                        event.previousIndex,
-                        event.currentIndex);
-      
+        event.container.data,
+        event.previousIndex,
+        event.currentIndex);
+      // let droppedQuestion = event.container.data[0];                    
+      this.saveDroppedQuestion(event.container.data[event.currentIndex]);
     }
   }
 
+  remove(event: CdkDragDrop<Object[]>) {
+    if (event.previousContainer === event.container) {
+      moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
+    } else {
+      transferArrayItem(event.previousContainer.data,
+        event.container.data,
+        event.previousIndex,
+        event.currentIndex);
+      this.deleteQuestion(event.container.data[event.currentIndex]);
+    }
+  }
+
+  saveDroppedQuestion(question: any) {
+    console.log("questin from ts", question);
+    this.surveyService.saveQuestion(question).subscribe((data) => {
+      this.question = data;
+      console.log("result is ", this.question);
+      this.getQuestionList(this.surveyService.editSurvey.id);
+    });
+  }
+
   publish() {
-    this.surveyService.sendMail(this.url).subscribe(data => {
+    this.email={"url":"http://172.23.238.147:4200/questions/:surveyId?id="+this.surveyService.surveyId};
+
+    console.log(this.email.url);
+    this.surveyService.sendMail(this.email).subscribe(data => {
       console.log(data);
     });
-    this.surveyService.publishedURL = this.url;
-    this.router.navigateByUrl("publishview");
+    // let surveyId=this.route.snapshot.queryParams["surveyId"];
+    console.log(this.route.snapshot);
+    let surveyId=this.route.snapshot.paramMap.get('surveyId');
+    console.log(surveyId);
+    this.surveyService.publishedURL = this.email.url;
+    this.router.navigate(["publishview", surveyId]);
+  }
+
+  getFilteredEmails()
+  {
+      
   }
 
   addQuestion() {
     this.condition = true;
   }
 
-  deleteQuestion(question: Question) {
+  deleteQuestion(question: any) {
     this.surveyService.deleteQuestion(question).subscribe(data => {
       console.log(data);
       this.getQuestionList(this.surveyService.editSurvey.id);
     });
   }
+
   getRecommendedQuestions(domain: String) {
     this.surveyService.getRecommendedQuestions(domain).subscribe(data => {
       this.recommendedQuestionList = data;
@@ -130,10 +177,17 @@ export class QuestionsTemplateComponent implements OnInit {
       console.log("questions : ", this.questionList);
     });
   }
-  
 
 
-  
+  chat() {
+    //this.router.navigateByUrl('/chat');
+    // this.bottomSheet.open(ChatbotComponent,panelClass: 'custom-width');
+    this.bottomSheet.open(ChatbotComponent, {
+      panelClass: 'custom-width'
+    });
+  }
+
+
 }
 
 @Component({
@@ -144,7 +198,7 @@ export class EditQuestionDialog {
   constructor(
     public dialogRef: MatDialogRef<EditQuestionDialog>,
     @Inject(MAT_DIALOG_DATA) public data: Question
-  ) {}
+  ) { }
 
   private editQuestion: Question;
 
@@ -156,4 +210,5 @@ export class EditQuestionDialog {
   onNoClick(): void {
     this.dialogRef.close();
   }
+
 }

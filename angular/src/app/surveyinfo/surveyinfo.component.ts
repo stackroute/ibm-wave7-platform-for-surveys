@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { SurveycardService } from '../surveycard.service';
 import { SurveyService } from '../survey.service';
 import { Question } from '../modals/Question';
 
@@ -10,7 +9,7 @@ import { Question } from '../modals/Question';
 })
 export class SurveyinfoComponent implements OnInit {
 
-  constructor(private survey:SurveycardService, private surveyService : SurveyService) {   }
+  constructor(private surveyService : SurveyService) {   }
 
   result:String;
 

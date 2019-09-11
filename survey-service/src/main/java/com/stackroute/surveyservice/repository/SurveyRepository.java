@@ -29,6 +29,8 @@ public interface SurveyRepository extends Neo4jRepository<Survey,String> {
     List<Question> getRecommendedQuestions(String domainType);
     @Query("MATCH (q:Question{domainType:{domainType}})-[:BelongsTo]->(s:Survey) WITH q,count(s) as rels, collect(s) as surveys WHERE rels >= 1 RETURN q ORDER BY rels DESC LIMIT 20")
     List<Question> getRecommendedQuestionBasedOnDomain(String domainType);
+    @Query("Match (s:Survey{domain_type:{domainType}}) return s")
+    List<Survey> getRecommendedSurveyBasedOnDomain(String domainType);
 
 
 }

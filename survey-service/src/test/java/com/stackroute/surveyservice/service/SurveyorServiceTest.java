@@ -23,11 +23,11 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
 
 public class SurveyorServiceTest {
-    Surveyor surveyor;
+    private Surveyor surveyor;
     @Mock
-    SurveyorRepository surveyorRepository;
+    private SurveyorRepository surveyorRepository;
     @InjectMocks
-    SurveyorServiceImpl surveyorService;
+    private SurveyorServiceImpl surveyorService;
     List<Surveyor> list=null;
 
     @Before
@@ -37,8 +37,7 @@ public class SurveyorServiceTest {
         surveyor.setId("56");
         surveyor.setName("Rupa");
         surveyor.setEmail("rupa@gmail.com");
-        surveyor.setPassword("Test1234");
-        surveyor.setTimeStamp(new Date());
+                surveyor.setTimeStamp(new Date());
         list=new ArrayList<>();
         list.add(surveyor);
     }

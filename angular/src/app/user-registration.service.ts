@@ -30,7 +30,22 @@ export class UserRegistrationService {
   saveUser(user:User):Observable<User>
   {
     user.id = Guid.create().toString();
-    return this.httpClient.post<User>(environment.signUpBaseURI+"/user", user, httpOptions);
+    return this.httpClient.post<User>(environment.signUpBaseURI+"/user", user, httpOptions)
+    .pipe(catchError((error: any) =>
+    {
+      console.log(error);
+      return throwError(error)
+
+    }
+  ));
+  }
+
+  saveUserEmail(email)
+  {
+    // this.user={'id':id,'email':email};
+    // this.user.id=id;
+    // this.user.email=email;
+    return this.httpClient.post("http://localhost:8095/username?email="+email,email);
   }
 
   setLogin(value: boolean) {
@@ -60,7 +75,7 @@ export class UserRegistrationService {
   }
 updateUser(user:User,id:String):Observable<User>{
   console.log(user);
-  var url = "http://localhost:8095/user/"+this.loginCredentials.id;
+  var url = environment.signUpBaseURI+"/user/"+this.loginCredentials.id;
   return this.httpClient.put<User>(url ,user, httpOptions);
 
 }
@@ -76,7 +91,7 @@ getUser():Observable<User>{
 }
 
 getUserById(id:string):Observable<User>{
-  var url="http://localhost:8095/user/"+this.loginCredentials.id;
+  var url=environment.signUpBaseURI+"/user/"+this.loginCredentials.id;
 return this.httpClient.get<User>(url);
 }
 

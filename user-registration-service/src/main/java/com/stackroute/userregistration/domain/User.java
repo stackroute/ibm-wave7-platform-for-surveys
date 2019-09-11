@@ -1,14 +1,16 @@
 package com.stackroute.userregistration.domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 //creates the user document in the mongo database
@@ -18,6 +20,7 @@ import javax.persistence.GenerationType;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
+@Configuration
 public class User {
     //It is the id of the user
     @Id
@@ -29,6 +32,8 @@ public class User {
     private String password;
     private String role;
     private String location;
-    private String agegroup;
+    private String ageGroup;
     private String gender;
-    }
+//    private String rewardPoints;
+
+}

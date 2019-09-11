@@ -20,6 +20,9 @@ public interface SurveyService {
 
     public List<Question> getRecomendedQuestions(String domainType);
 
+    public int surveyExpiryCheck(String id);
+
+    public List<String> getRelatedSurveysId(String id);
 
 
 

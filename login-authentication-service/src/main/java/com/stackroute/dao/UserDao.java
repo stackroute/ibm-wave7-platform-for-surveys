@@ -7,7 +7,7 @@ import com.stackroute.model.DAOUser;
 
 @Repository
 public interface UserDao extends CrudRepository<DAOUser, Integer> {
-	
+
 	DAOUser findByUsername(String username);
-	
+
 }

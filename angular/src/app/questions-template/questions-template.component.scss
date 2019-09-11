@@ -16,6 +16,9 @@ float:right;
 background: rgb(199, 191, 191);
     background: linear-gradient(264deg, rgb(165, 160, 160) 0%, rgb(27, 27, 27) 32%, rgb(95, 94, 95) 100%);padding: 0 0 0.2em 0;
 }
+.custom-width {
+  width: 450px;
+}
 .example-box {
     color: rgba(0, 0, 0, 0.87);
     cursor: move;

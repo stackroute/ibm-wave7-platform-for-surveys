@@ -78,7 +78,7 @@ public class SurveyController {
     public String post()
     {
         // Sending records to topic
-       // kafkaTemplate.send(TOPIC, new Survey(survey.getId(),survey.getName(),survey.getDescription(),survey.getDomain_type()));
+        // kafkaTemplate.send(TOPIC, new Survey(survey.getId(),survey.getName(),survey.getDescription(),survey.getDomain_type()));
         return "published";
     }
     @GetMapping("recommendations/{id}")
@@ -87,4 +87,22 @@ public class SurveyController {
         responseEntity = new ResponseEntity<List<Question>>(surveyService.getRecomendedQuestions(id), HttpStatus.OK);
         return responseEntity;
     }
+
+    @GetMapping("expiryCheck")
+    public int surveyExpiryCheck(@RequestParam String id) {
+        return surveyService.surveyExpiryCheck(id);
+    }
+
+    @GetMapping("relatedSurveys")
+    public List<String> getRelatedSurveys(@RequestParam String id)
+    {
+        return surveyService.getRelatedSurveysId(id);
+    }
+//    @GetMapping("recommendSurveys/{domain}")
+//    public ResponseEntity<?> getRecomentadionsSurveys(@PathVariable("domain") String domain) {
+//
+//        responseEntity = new ResponseEntity<List<Survey>>(surveyService.getSurveyByDomainName(domain), HttpStatus.OK);
+//
+//        return responseEntity;
+
 }
