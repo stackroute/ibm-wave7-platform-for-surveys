@@ -89,7 +89,7 @@ FusionChartsModule.fcRoot(FusionCharts, Charts, FusionTheme);
     QuestionsComponent,
     EditQuestionDialog,
     ChatbotComponent,
-    RewardPointsComponent
+    RewardPointsComponent,
     UserWelcomeComponent
   ],
   imports: [
