@@ -6,6 +6,7 @@
 		<groupId>com.stackroute</groupId>
 		<artifactId>ibm-wave7-platform-for-surveys</artifactId>
 		<version>1.0.0</version>
+		<relativePath>../pom.xml</relativePath>
 	</parent>
 	<artifactId>eureka-server</artifactId>
 	<name>eureka-server</name>
