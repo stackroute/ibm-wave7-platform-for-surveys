@@ -61,6 +61,8 @@ import * as FusionCharts from "fusioncharts";
 import * as Charts from "fusioncharts/fusioncharts.charts";
 import * as FusionTheme from "fusioncharts/themes/fusioncharts.theme.fusion";
 import { UserWelcomeComponent } from './user-welcome/user-welcome.component';
+import { RewardPointsComponent } from './reward-points/reward-points.component';
+
 // Pass the fusioncharts library and chart modules
 FusionChartsModule.fcRoot(FusionCharts, Charts, FusionTheme);
 @NgModule({
@@ -89,7 +91,7 @@ FusionChartsModule.fcRoot(FusionCharts, Charts, FusionTheme);
     EditQuestionDialog,
     ChatbotComponent,
     UserWelcomeComponent,
-
+    RewardPointsComponent
 
   ],
   imports: [
