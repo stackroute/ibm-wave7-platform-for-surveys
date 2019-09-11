@@ -1,6 +1,6 @@
 
   
-import { Component, OnInit, Inject } from "@angular/core";
+import { Component, OnInit, Inject, Input } from "@angular/core";
 import { SurveyService } from "../survey.service";
 import { ActivatedRoute, Router } from "@angular/router";
 import { Question } from "../modals/Question";
@@ -37,7 +37,9 @@ export class QuestionsTemplateComponent implements OnInit {
   private newchoices: string[] = [];
   // private email:Mail;
   public userResponse: Response;
-
+  private show:String;
+  private limit: number = 2 ;
+  email:Mail;
   constructor(
     private surveyService: SurveyService,
     private route: ActivatedRoute,
@@ -47,17 +49,19 @@ export class QuestionsTemplateComponent implements OnInit {
     private router: Router,
     private bottomSheet: MatBottomSheet
   ) { }
-  email:Mail;
-
+  
+   
   ngOnInit() {
   
     this.getQuestionList(this.surveyService.editSurvey.id);
     this.getRecommendedQuestions(this.surveyService.editSurvey.domain_type);
-    
-
   }
-
-
+  showMore()
+  {
+    this.limit=40;
+    this.show="less";
+    this.getRecommendedQuestions(this.surveyService.editSurvey.domain_type);
+  }
   drop(event: CdkDragDrop<Object[]>) {
     console.log(event.previousContainer.data);
     console.log(event.container.data[0]);
@@ -111,7 +115,7 @@ export class QuestionsTemplateComponent implements OnInit {
 
   getFilteredEmails()
   {
-      
+
   }
 
   addQuestion() {

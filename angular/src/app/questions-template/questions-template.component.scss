@@ -34,7 +34,8 @@ float:right;
   .cdk-drag-animating {
     transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
   }
-  
+  .more-link p {display: none;}
+  .more-link:active p {display: block;}  
   .example-box:last-child {
     border: none;
   }

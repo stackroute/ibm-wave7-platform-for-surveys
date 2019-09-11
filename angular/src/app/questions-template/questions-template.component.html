@@ -1,8 +1,8 @@
-<div class="example-container" fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="10px">
+<div class="example-container" *ngIf="recommendedQuestionList.length <= limit" fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="10px">
   <div class="example-list" fxFlex="40%" cdkDropList #recommendedQuestions="cdkDropList"
     [cdkDropListData]="recommendedQuestionList" [cdkDropListConnectedTo]="[surveyQuestions]"
     (cdkDropListDropped)="remove($event)">
-    <mat-card class="example-box" *ngFor="let question of recommendedQuestionList" cdkDrag>
+    <mat-card class="example-box"  *ngFor="let question of recommendedQuestionList" cdkDrag>
       <h3>
         {{ question.questionTag}}
       </h3>
@@ -13,13 +13,13 @@
         }}</mat-radio-button><br />
       </div>
     </mat-card>
-    <button id="more" mat-mini-fab color="primary" (click)=getRecommendedQuestionList()>
-   More
-    </button>
+    <button mat-mini-fab color="primary" (click)="showMore()" [ngModel]="show">
+        {{show}}
+        </button>
   </div>
 </div>
 <div class="example-container1" fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="10px">
-  <div class="example-list" fxFlex="40%" cdkDropList #surveyQuestions="cdkDropList"
+  <div class="example-list"  fxFlex="40%" cdkDropList #surveyQuestions="cdkDropList"
     [cdkDropListConnectedTo]="[recommendedQuestions]" [cdkDropListData]="questionList"
     (cdkDropListDropped)="drop($event)">
     <mat-card class="example-box" *ngFor="let question of questionList" cdkDrag>
@@ -35,6 +35,7 @@
         }}</mat-radio-button><br />
       </div>
     </mat-card>
+    
   </div>
 </div>
 <ng-template [ngIf]="condition">
@@ -67,5 +68,6 @@
 <button mat-raised-button type="submit" color="primary" (click)="publish()">
   Publish
 </button>
+
 <a routerLink="/survey"><button mat-raised-button color="primary">Back</button></a>
 <mat-icon (click)="chat()"> chat_bubble</mat-icon>
