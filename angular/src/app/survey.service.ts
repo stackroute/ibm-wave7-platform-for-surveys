@@ -6,6 +6,8 @@ import { Survey } from './modals/Survey';
 import { environment } from '../environments/environment'
 import { Question } from './modals/Question';
 import { User } from './modals/User';
+import { Response } from './modals/Response';
+
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -76,7 +78,9 @@ export class SurveyService {
   }
 
   sendMail(mail) {
+    console.log(mail);
     return this.httpclient.post("http://172.23.238.147:8070/send-mail",mail);
+
   }
 
 
@@ -89,18 +93,14 @@ export class SurveyService {
   {
     return this.httpclient.get<String[]>(environment.baseURI+"/relatedSurveys?id="+this.surveyId);
   }
-
-
-
   
-
   getRecommendedQuestions(domain:String)
   {
     return this.httpclient.get<Question[]>(environment.baseURI+"/recommendations/"+domain);
   }
 
   saveResponse(userResponse:Response):Observable<Response>{
-    var url="http://172.23.238.200:8091/api/v1/response"
+    var url="http://172.23.238.248:8091/api/v1/response"
     return this.httpclient.post<Response>(url,userResponse,httpOptions);
   }
   getResponseById(id:string):Observable<Response>{
