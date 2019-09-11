@@ -1,17 +1,30 @@
-<form class="my-form" #userregistrationform="ngForm">
+<div *ngIf="num > 0; else takeSurvey">
+  <button mat-raised-button type="submit" color="primary" (click)="newSurveys()"> Click here to take similar
+    surveys</button>
+  <div *ngFor="let surveyId of id">
+    <p>http://172.23.238.147:4200/questions/:surveyId?id={{surveyId}}</p>
+  </div>
+</div>
+
+<ng-template #takeSurvey>
 
   <div class="example-container">
-    <mat-card class="example-box" *ngFor="let question of questionList">
-      <h3>
-        {{ question.questionTag }}
-      </h3>
-      <br />
-      <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group">
-        <mat-radio-button class="example-radio-button" *ngFor="let choice of question.choices" [value]="choice" [(ngModel)]="question.response" name="response" ngDefaultControl>
-          {{choice}}
-        </mat-radio-button>  
-      </mat-radio-group>
-    </mat-card>
+
+    <form class="my-form" #userregistrationform="ngForm">
+
+      <mat-card class="example-box" *ngFor="let question of questionList">
+        <h3>
+          {{ question.questionTag }}
+        </h3>
+        <br />
+        <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group">
+          <mat-radio-button class="example-radio-button" *ngFor="let choice of question.choices" [value]="choice"
+            [(ngModel)]="question.response" name="response" ngDefaultControl>
+            {{choice}}
+          </mat-radio-button>
+        </mat-radio-group>
+      </mat-card>
+      <button mat-raised-button type="submit" color="primary" (click)="saveResponse(questionList)">Submit</button>
+    </form>
   </div>
-  <button mat-raised-button type="submit" color="primary" (click)="saveResponse(questionList)">Submit</button>
-</form>
+</ng-template>

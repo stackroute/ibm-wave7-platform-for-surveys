@@ -9,10 +9,10 @@ export const environment = {
   // signUpBaseURI : "http://172.23.238.186:8095",
   // responseBaseURI : "http://172.23.238.186:8091/api/v1",
 
-  baseURI : "http://13.235.226.107:8090/api/v1",
-  loginBaseURI : "http://13.235.226.107:8085",
-  signUpBaseURI : "http://13.235.226.107:8095",
-  responseBaseURI : "http://13.235.226.107:8091/api/v1",
+  baseURI : "http://13.235.226.107:8500/survey-service/api/v1",
+  loginBaseURI : "http://13.235.226.107:8500/login-authentication-service",
+  signUpBaseURI : "http://13.235.226.107:8500/user-registration-service",
+  responseBaseURI : "http://13.235.226.107:8500/user-response-service/api/v1",
   dialogflow: {
     chatbot: 'f047460b32b4461ebca432ae15e54b79'
   }
