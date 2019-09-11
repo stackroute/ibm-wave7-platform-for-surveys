@@ -1,4 +1,27 @@
-<fusioncharts width="700" height="400" type="Column2d" [dataSource]="dataSource">
-</fusioncharts>
-<fusioncharts width="700" height="400" type="Column2d" [dataSource]="dataSource1">
-</fusioncharts>
+<div class="container">
+    <div class="questions">
+        <mat-card class="card" *ngFor="let question of questionList">
+
+            <mat-card-header>
+                <mat-card-title>{{question.questionTag}}</mat-card-title>
+
+            </mat-card-header>
+
+
+
+
+
+
+        </mat-card>
+
+
+
+        <fusioncharts width="700" height="400" type="Column2d" [dataSource]="dataSource">
+        </fusioncharts>
+
+    </div>
+    <div class="chart">
+        <fusioncharts width="700" height="400" type="Column2d" [dataSource]="dataSource1">
+        </fusioncharts>
+    </div>
+</div>

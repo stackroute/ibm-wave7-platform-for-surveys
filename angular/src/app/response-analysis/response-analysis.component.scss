@@ -1,0 +1,21 @@
+.container{
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 90px;
+    background-color: rgba(0,0,0,0.2);
+    width:100%;
+}
+.questions{
+    border:3px solid red;
+    margin-right: 30px;
+   
+}
+.chart{
+    border:3px solid blue;
+  
+}
+
+.container > div{
+    box-shadow: 0 10px 10px 0 rgba(0,0,0,0.2);
+   
+}

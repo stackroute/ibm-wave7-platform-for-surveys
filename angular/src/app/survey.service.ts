@@ -42,6 +42,7 @@ export class SurveyService {
   getSurveysBySurveyor(): Observable<User> {
     return this.httpclient.get<User>(environment.baseURI + "/surveyor/"+this.loginCredentials.id);
   }
+ 
 
   
   saveQuestion(question: Question) {
