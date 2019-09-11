@@ -5,6 +5,7 @@
 		<groupId>com.stackroute</groupId>
 		<artifactId>ibm-wave7-platform-for-surveys</artifactId>
 		<version>1.0.0</version>
+		<relativePath>../pom.xml</relativePath>
 	</parent>
 	<artifactId>user-registration-service</artifactId>
 	<name>user registration service</name>
