@@ -1,3 +1,4 @@
+/*
 package com.stackroute.surveyservice.service;
 
 import com.stackroute.surveyservice.domain.Question;
@@ -66,4 +67,6 @@ public class QuestionServiceTest {
 //        assertEquals(question,savedQuestion);
 //        verify(questionRepository,times(1)).save(question);
 //    }
-}
+<<<<<<< HEAD
+//}*/
+

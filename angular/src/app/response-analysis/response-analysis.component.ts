@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Question } from '../modals/Question';
+import { SurveyService } from '../survey.service';
 
 @Component({
   selector: 'app-response-analysis',
@@ -7,10 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ResponseAnalysisComponent implements OnInit {
   dataSource: Object; dataSource1: Object;
+  private questionList: Question[];
 
-  ngOnInit(){}
   
-  constructor() {
+
+ 
+  
+  constructor(private surveyService: SurveyService,) {
     this.dataSource = {
       chart: {
         caption: "How easy or difficult was it to schedule your appointment at a time that was conveninent for you?",
@@ -79,5 +84,16 @@ export class ResponseAnalysisComponent implements OnInit {
 
       ]
     };
+  }
+  ngOnInit(){
+    console.log(this.surveyService.surveyId);
+    this.getQuestionList("fbc97b14-5269-6a2c-fc2a-9bc39b21d2a4");
+  }
+  getQuestionList(surveyId: string) {
+    console.log(surveyId);
+    this.surveyService.getAllQuestions(surveyId).subscribe(data => {
+      this.questionList = data.questionList;
+      console.log("questions : ", this.questionList);
+    });
   }
 } 
