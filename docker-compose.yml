@@ -35,35 +35,37 @@ services:
     healthcheck:
       test: "exit 0"
     ports:
-      - 8080:8080
+      - 8500:8500
 
   mongo:
-   image: mongo:3.4-jessie
-   ports:
-     - 27017:27017
-   container_name: mongo
-   network_mode: "host"
-   hostname: localhost
-   healthcheck:
-     test: "exit 0"
-   restart: always
+    image: mongo:3.4-jessie
+    ports:
+      - 27017:27017
+    container_name: mongo
+    network_mode: "host"
+    hostname: localhost
+    healthcheck:
+      test: "exit 0"
+    restart: always
 
   survey-service:
-   build: survey-service/
-   restart: always
-   container_name: survey-service
-   depends_on:
-     - neo4j
-     - config-service
-     - eureka-server
-     - zuul-api
-   network_mode: "host"
-   image: survey-service
-   hostname: localhost
-   healthcheck:
-     test: "exit 0"
-   ports:
-     - 8090:8090
+    build: survey-service/
+    restart: always
+    container_name: survey-service
+    depends_on:
+      - neo4j
+      - config-service
+      - eureka-server
+      - zuul-api
+      - zookeeper
+      - kafka
+    network_mode: "host"
+    image: survey-service
+    hostname: localhost
+    healthcheck:
+      test: "exit 0"
+    ports:
+      - 8090:8090
 
   user-registration-service:
     build: user-registration-service/
@@ -74,6 +76,8 @@ services:
       - config-service
       - eureka-server
       - zuul-api
+      - zookeeper
+      - kafka
     network_mode: "host"
     image: user-registration
     hostname: localhost
@@ -91,6 +95,8 @@ services:
       - eureka-server
       - zuul-api
       - survey-service
+      - zookeeper
+      - kafka
     network_mode: "host"
     image: user-response-service
     hostname: localhost
@@ -99,22 +105,22 @@ services:
     ports:
       - 8082:8082
 
-#  mail-service:
-#    build: mail-service/
-#    restart: always
-#    container_name: mail-service
-#    depends_on:
-#      - mongo
-#      - eureka-server
-#      - config-service
-#      - zuul-api
-#    network_mode: "host"
-#    image: mail-service
-#    hostname: localhost
-#    healthcheck:
-#      test: "exit 0"
-#    ports:
-#      - 8083:8083
+  #  mail-service:
+  #    build: mail-service/
+  #    restart: always
+  #    container_name: mail-service
+  #    depends_on:
+  #      - mongo
+  #      - eureka-server
+  #      - config-service
+  #      - zuul-api
+  #    network_mode: "host"
+  #    image: mail-service
+  #    hostname: localhost
+  #    healthcheck:
+  #      test: "exit 0"
+  #    ports:
+  #      - 8083:8083
 
   login-authentication-service:
     build: login-authentication-service/
@@ -125,6 +131,8 @@ services:
       - config-service
       - eureka-server
       - zuul-api
+      - zookeeper
+      - kafka
     network_mode: "host"
     image: login-authentication-service
     hostname: localhost
@@ -173,20 +181,20 @@ services:
       test: "exit 0"
 
   kafka:
-      image: wurstmeister/kafka
-      container_name: kafka
-      network_mode: "host"
-      hostname: localhost
-      ports:
-        - 8181:8181
-      depends_on:
-        zookeeper:
-          condition: service_healthy
-      environment:
-        KAFKA_ZOOKEEPER_CONNECT: 'localhost:2181'
-        KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://localhost:8181
-        KAFKA_LISTENERS: PLAINTEXT://localhost:8181
-        KAFKA_CREATE_TOPICS: "UserRegistration"
-      restart: always
-      healthcheck:
-        test: "exit 0"
+    image: wurstmeister/kafka
+    container_name: kafka
+    network_mode: "host"
+    hostname: localhost
+    ports:
+      - 9092:9092
+    depends_on:
+      zookeeper:
+        condition: service_healthy
+    environment:
+      KAFKA_ZOOKEEPER_CONNECT: 'localhost:2181'
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://localhost:9092
+      KAFKA_LISTENERS: PLAINTEXT://localhost:9092
+      KAFKA_CREATE_TOPICS: "UserRegistration"
+    restart: always
+    healthcheck:
+      test: "exit 0"
