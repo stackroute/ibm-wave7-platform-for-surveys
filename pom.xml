@@ -29,9 +29,15 @@
 		<module>login-authentication-service</module>
 		<module>user-registration-service</module>
 		<module>survey-service</module>
-		<module>mail-service</module>
+<!--		<module>mail-service</module>-->
 	</modules>
 	<dependencies>
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>1.18.8</version>
+			<scope>provided</scope>
+		</dependency>
 		<dependency>
 			<groupId>org.javassist</groupId>
 			<artifactId>javassist</artifactId>
