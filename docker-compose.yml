@@ -181,7 +181,6 @@ services:
       test: "exit 0"
 
   kafka:
-<<<<<<< HEAD
       image: wurstmeister/kafka
       container_name: kafka
       network_mode: "host"
@@ -199,22 +198,3 @@ services:
       restart: always
       healthcheck:
         test: "exit 0"
-=======
-    image: wurstmeister/kafka
-    container_name: kafka
-    network_mode: "host"
-    hostname: localhost
-    ports:
-      - 9092:9092
-    depends_on:
-      zookeeper:
-        condition: service_healthy
-    environment:
-      KAFKA_ZOOKEEPER_CONNECT: 'localhost:2181'
-      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://localhost:9092
-      KAFKA_LISTENERS: PLAINTEXT://localhost:9092
-      KAFKA_CREATE_TOPICS: "UserRegistration"
-    restart: always
-    healthcheck:
-      test: "exit 0"
->>>>>>> 241d06e16091166160d27fd39a0f25dbc3746e06
