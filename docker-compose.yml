@@ -35,7 +35,7 @@ services:
     healthcheck:
       test: "exit 0"
     ports:
-      - 8080:8080
+      - 8500:8500
 
   mongo:
    image: mongo:3.4-jessie
@@ -57,6 +57,8 @@ services:
      - config-service
      - eureka-server
      - zuul-api
+     - zookeeper
+     - kafka
    network_mode: "host"
    image: survey-service
    hostname: localhost
@@ -74,6 +76,8 @@ services:
       - config-service
       - eureka-server
       - zuul-api
+      - zookeeper
+      - kafka
     network_mode: "host"
     image: user-registration
     hostname: localhost
@@ -91,6 +95,8 @@ services:
       - eureka-server
       - zuul-api
       - survey-service
+      - zookeeper
+      - kafka
     network_mode: "host"
     image: user-response-service
     hostname: localhost
@@ -125,6 +131,8 @@ services:
       - config-service
       - eureka-server
       - zuul-api
+      - zookeeper
+      - kafka
     network_mode: "host"
     image: login-authentication-service
     hostname: localhost
