@@ -127,6 +127,6 @@ export class LandingPageComponent implements OnInit{
     }
     return R;
   }
-
+ 
 }
 

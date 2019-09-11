@@ -40,6 +40,14 @@ export class UserRegistrationService {
   ));
   }
 
+  saveUserEmail(email)
+  {
+    // this.user={'id':id,'email':email};
+    // this.user.id=id;
+    // this.user.email=email;
+    return this.httpClient.post("http://localhost:8095/username?email="+email,email);
+  }
+
   setLogin(value: boolean) {
     this.loggedIn.next(value);
   }

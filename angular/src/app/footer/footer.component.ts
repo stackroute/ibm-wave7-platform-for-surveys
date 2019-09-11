@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatIconRegistry } from '@angular/material';
 import { DomSanitizer } from '@angular/platform-browser';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-footer',
@@ -9,7 +10,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 })
 export class FooterComponent implements OnInit {
 
-  constructor(iconRegistry: MatIconRegistry, sanitizer: DomSanitizer) {
+  constructor(iconRegistry: MatIconRegistry, sanitizer: DomSanitizer,private router:Router) {
     iconRegistry.addSvgIcon(
       'facebook',
       sanitizer.bypassSecurityTrustResourceUrl('assets/pictures/facebook.svg')
@@ -30,5 +31,7 @@ export class FooterComponent implements OnInit {
 
   ngOnInit() {
   }
-
+  about() {
+    this.router.navigateByUrl("about");
+  }
 }

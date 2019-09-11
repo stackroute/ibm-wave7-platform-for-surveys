@@ -1,11 +1,33 @@
-<div class="example-container" *ngIf="recommendedQuestionList.length <= limit" fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="10px">
-  <div class="example-list" fxFlex="40%" cdkDropList #recommendedQuestions="cdkDropList"
-    [cdkDropListData]="recommendedQuestionList" [cdkDropListConnectedTo]="[surveyQuestions]"
-    (cdkDropListDropped)="remove($event)">
-    <mat-card class="example-box"  *ngFor="let question of recommendedQuestionList" cdkDrag>
-      <h3>
-        {{ question.questionTag}}
-      </h3>
+<span><h3>Recommended Questions</h3></span>
+<span><h3 class="questions">Your Questions</h3></span>
+
+<div
+  class="example-container"
+  fxLayout="row"
+  fxLayout.xs="column"
+  fxLayoutWrap
+  fxLayoutGap="10px"
+  *ngIf="recommendedQuestionList.length <= limit" 
+>
+  <div
+    class="example-list"
+    fxFlex="40%"
+    cdkDropList
+    #recommendedQuestions="cdkDropList"
+    [cdkDropListData]="recommendedQuestionList"
+    [cdkDropListConnectedTo]="[surveyQuestions]"
+    (cdkDropListDropped)="drop($event)"
+  >
+    <mat-card
+      class="example-box"
+      *ngFor="let question of recommendedQuestionList"
+      cdkDrag
+    >
+      <h4>
+        {{ question.questionTag
+        }}<mat-icon (click)="editQuestion(question)">edit</mat-icon
+        ><mat-icon (click)="deleteQuestion(question)">delete</mat-icon>
+      </h4>
       <br />
       <div *ngFor="let choice of question.choices">
         <mat-radio-button class="choice-radio-button" value="{{ choice }}">{{
@@ -23,11 +45,12 @@
     [cdkDropListConnectedTo]="[recommendedQuestions]" [cdkDropListData]="questionList"
     (cdkDropListDropped)="drop($event)">
     <mat-card class="example-box" *ngFor="let question of questionList" cdkDrag>
-      <h3>
+      <h4>
         {{ question.questionTag
-        }}<mat-icon (click)="editQuestion(question)">edit</mat-icon>
-        <mat-icon (click)="deleteQuestion(question)">delete</mat-icon>
-      </h3>
+        }}
+        <mat-icon (click)="editQuestion(question)">edit</mat-icon
+        ><mat-icon (click)="deleteQuestion(question)">delete</mat-icon>
+      </h4>
       <br />
       <div *ngFor="let choice of question.choices">
         <mat-radio-button class="choice-radio-button" value="{{ choice }}">{{
@@ -38,9 +61,14 @@
     
   </div>
 </div>
-<ng-template [ngIf]="condition">
-  <mat-card>
-    <form name="question_card" class="my-form" #questiontemplateform="ngForm">
+<div class="flex-container" fxLayout="row">
+<ng-template class="question" [ngIf]="condition">
+  <mat-card class="add-question">
+      <mat-card-header>
+          <mat-card-title>New Question</mat-card-title>
+        </mat-card-header>
+      <form name="question_card" class="my-form" #questiontemplateform="ngForm">
+      <mat-card-content>
       <mat-form-field>
         <mat-label>Question</mat-label>
         <textarea matInput placeholder="Question" [(ngModel)]="questionTag" name="questionTag" cols="60"></textarea>
@@ -53,15 +81,24 @@
       <mat-form-field>
         <input matInput placeholder="Choice" name="choices" #choiceText id="choiceText" />
       </mat-form-field>
-      <button id="addChoice" mat-mini-fab color="primary" (click)="addChoice(choiceText.value)">
+    </mat-card-content>
+    <mat-card-actions>
+      <button
+        id="addChoice"
+        mat-mini-fab
+        color="primary"
+        (click)="addChoice(choiceText.value)"
+      >
         +
       </button>
       <button mat-raised-button type="submit" color="primary" (click)="saveQuestion(questiontemplateform)">
         save
       </button>
+      </mat-card-actions>
     </form>
   </mat-card>
 </ng-template>
+</div>
 <button mat-raised-button type="submit" color="primary" (click)="addQuestion()">
   Add Question
 </button>
