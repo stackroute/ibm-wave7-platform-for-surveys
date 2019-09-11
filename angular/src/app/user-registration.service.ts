@@ -71,13 +71,13 @@ updateUser(user:User,id:String):Observable<User>{
   return this.httpClient.put<User>(url ,user, httpOptions);
 
 }
-forgotPassword(login:LoginUser){
-  var apiUrl = "environment.loginBaseURI/forgot-password";
-  return this.httpClient.post(apiUrl,login,httpOptions);
+forgotPassword(login:LoginUser): Observable<any>{
+  var apiUrl = environment.loginBaseURI+"/forgot-password";
+  return this.httpClient.post(apiUrl,httpOptions);
 }
 
  resetpassword(data: LoginUser): Observable<any> {
-   var apiUrl = "environment.loginBaseURI/reset-password";
+   var apiUrl = environment.loginBaseURI+"/reset-password";
    return this.httpClient.put<any>(apiUrl, data);
  }
 getUser():Observable<User>{

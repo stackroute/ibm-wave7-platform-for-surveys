@@ -20,7 +20,7 @@ public class EmailController {
     public String sendEmail() throws javax.mail.MessagingException {
         MimeMessage message=javaMailSender.createMimeMessage();
         MimeMessageHelper helper = new MimeMessageHelper(message, true);
-        helper.setTo("srijak890@gmail.com");
+        helper.setTo("rdevi2850@gmail.com");
         helper.setSubject("SpringBootApplication");
         helper.setText("Hello");
         javaMailSender.send(message);

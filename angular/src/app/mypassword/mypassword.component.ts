@@ -13,7 +13,7 @@ export class MypasswordComponent implements OnInit {
   minPw = 8;
   formGroup: FormGroup
   login:LoginUser
-  private emailId;
+  private email;
   constructor(private formBuilder: FormBuilder,private registrationService: UserRegistrationService) { }
 
   ngOnInit() {
@@ -40,8 +40,8 @@ export class MypasswordComponent implements OnInit {
   //  });
   // }
   reset() {
-    console.log(this.emailId);
-    this.login.name = this.emailId;
+    console.log(this.email);
+    //this.login.email = this.email;
     this.registrationService.forgotPassword(this.login)
     .subscribe(data => {
       console.log(data);
