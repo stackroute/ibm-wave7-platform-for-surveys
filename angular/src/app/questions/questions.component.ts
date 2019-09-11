@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { SurveyService } from '../survey.service';
 import { Question } from '../modals/Question';
+import { Response } from '../modals/Response';
 import { parse } from 'querystring';
 
 @Component({
@@ -42,16 +43,24 @@ export class QuestionsComponent implements OnInit {
   saveResponse(responseList: Question[]) {
     console.log(responseList);
 
-    //   for (let i = 0; i < responseList.length; i++) {
+      for (let i = 0; i < responseList.length; i++) {
 
-    //     this.surveyService.saveResponse(responseList[i])
-    //       .subscribe(
-    //         data => {
-    //         },
-    //         error => {
-    //           alert("error=" + error);
-    //         });
-    //   }
+        let question = responseList[i]
+        let response : Response
+        response.question_id = question.questionId;
+        response.response = question.response;
+        response.servey_id = question.survey_id;
+        response.user_id = this.surveyService.loginCredentials.id;
+        
+        this.surveyService.saveResponse(response)
+          .subscribe(
+            data => {
+              console.log(data);
+            },
+            error => {
+              alert("error=" + error);
+            });
+      }
   }
 
   newSurveys() {

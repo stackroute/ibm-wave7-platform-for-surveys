@@ -16,8 +16,12 @@ import { AboutUsComponent } from './about-us/about-us.component';
 import { SupportPageComponent } from './support-page/support-page.component';
 import { QuestionsComponent } from './questions/questions.component';
 import {ResponseAnalysisComponent} from './response-analysis/response-analysis.component';
+
 import { MypasswordComponent } from './mypassword/mypassword.component';
 import { ResetpasswordComponent } from './resetpassword/resetpassword.component';
+
+import { UserWelcomeComponent } from './user-welcome/user-welcome.component';
+
 
 const routes: Routes = [
   {
@@ -68,6 +72,12 @@ const routes: Routes = [
     path:'questions/:surveyId', component: QuestionsComponent
   },
   {
+
+    path:'analysis',component:ResponseAnalysisComponent
+  },
+  {
+    path:'user-welcome',component:UserWelcomeComponent},
+    {
     path:'response',component:ResponseAnalysisComponent
   },
   {
@@ -81,7 +91,8 @@ const routes: Routes = [
     path:'rewards',component:RewardPointsComponent
 
   }
-  
+
+
 ];
 
 @NgModule({

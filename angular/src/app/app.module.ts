@@ -60,11 +60,15 @@ import { FusionChartsModule } from 'angular-fusioncharts';
 import * as FusionCharts from "fusioncharts";
 import * as Charts from "fusioncharts/fusioncharts.charts";
 import * as FusionTheme from "fusioncharts/themes/fusioncharts.theme.fusion";
+<<<<<<< HEAD
 import { ResponseAnalysisComponent } from './response-analysis/response-analysis.component';
 import { ChatbotComponent } from './chatbot/chatbot.component';
 import { RewardPointsComponent } from './reward-points/reward-points.component';
 import { ChatService } from './chat.service';
 import { ResetpasswordComponent } from './resetpassword/resetpassword.component';
+
+import { RewardPointsComponent } from './reward-points/reward-points.component';
+import { UserWelcomeComponent } from './user-welcome/user-welcome.component';
 // Pass the fusioncharts library and chart modules
 FusionChartsModule.fcRoot(FusionCharts, Charts, FusionTheme);
 @NgModule({
@@ -93,8 +97,13 @@ FusionChartsModule.fcRoot(FusionCharts, Charts, FusionTheme);
     EditQuestionDialog,
     ChatbotComponent,
 
+
     RewardPointsComponent,
     ResetpasswordComponent
+
+    RewardPointsComponent
+    UserWelcomeComponent
+
   ],
   imports: [
     MatRadioModule,
@@ -134,16 +143,11 @@ FusionChartsModule.fcRoot(FusionCharts, Charts, FusionTheme);
     PortalModule,
     ScrollingModule,
     CommonModule,
-FusionChartsModule
-
-
+    FusionChartsModule
   ],
   exports: [ChatbotComponent],
-
-  providers: [MyprofileComponent,DialogComponent,ChatService],
-
-    entryComponents: [MySurveyCardComponent, CreateSurveyDialogue, DialogComponent, DialogContentComponent, QuestionsTemplateComponent, EditQuestionDialog, ChatbotComponent],
-
+  providers: [MyprofileComponent, DialogComponent, ChatService],
+  entryComponents: [MySurveyCardComponent, CreateSurveyDialogue, DialogComponent, DialogContentComponent, QuestionsTemplateComponent, EditQuestionDialog, ChatbotComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
