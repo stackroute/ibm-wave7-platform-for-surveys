@@ -13,6 +13,9 @@
         }}</mat-radio-button><br />
       </div>
     </mat-card>
+    <button id="more" mat-mini-fab color="primary" (click)=getRecommendedQuestionList()>
+   More
+    </button>
   </div>
 </div>
 <div class="example-container1" fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="10px">
@@ -34,7 +37,6 @@
     </mat-card>
   </div>
 </div>
-
 <ng-template [ngIf]="condition">
   <mat-card>
     <form name="question_card" class="my-form" #questiontemplateform="ngForm">
@@ -65,6 +67,5 @@
 <button mat-raised-button type="submit" color="primary" (click)="publish()">
   Publish
 </button>
-
 <a routerLink="/survey"><button mat-raised-button color="primary">Back</button></a>
 <mat-icon (click)="chat()"> chat_bubble</mat-icon>

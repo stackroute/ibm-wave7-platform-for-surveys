@@ -8,7 +8,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatCardModule } from '@angular/material/card';
 import { HttpClientModule } from '@angular/common/http';
-
 import { MatRadioModule } from '@angular/material/radio';
 import { MatInputModule, MatListModule, MatSidenav, MatSidenavContainer, MatSidenavModule } from '@angular/material';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -89,7 +88,7 @@ FusionChartsModule.fcRoot(FusionCharts, Charts, FusionTheme);
     QuestionsComponent,
     EditQuestionDialog,
     ChatbotComponent,
-    RewardPointsComponent
+    RewardPointsComponent,
     UserWelcomeComponent
   ],
   imports: [

@@ -109,6 +109,10 @@ export class QuestionsTemplateComponent implements OnInit {
     this.router.navigate(["publishview", surveyId]);
   }
 
+  getFilteredEmails()
+  {
+      
+  }
 
   addQuestion() {
     this.condition = true;
