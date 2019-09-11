@@ -186,14 +186,14 @@ services:
       network_mode: "host"
       hostname: localhost
       ports:
-        - 8181:8181
+        - 9092:9092
       depends_on:
         zookeeper:
           condition: service_healthy
       environment:
         KAFKA_ZOOKEEPER_CONNECT: 'localhost:2181'
-        KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://localhost:8181
-        KAFKA_LISTENERS: PLAINTEXT://localhost:8181
+        KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://localhost:9092
+        KAFKA_LISTENERS: PLAINTEXT://localhost:9092
         KAFKA_CREATE_TOPICS: "UserRegistration"
       restart: always
       healthcheck:
