@@ -96,12 +96,10 @@ export class QuestionsTemplateComponent implements OnInit {
 
   publish() {
     this.email={"url":"http://172.23.238.147:4200/questions/:surveyId?id="+this.surveyService.surveyId};
-
     console.log(this.email.url);
     this.surveyService.sendMail(this.email).subscribe(data => {
       console.log(data);
     });
-    // let surveyId=this.route.snapshot.queryParams["surveyId"];
     console.log(this.route.snapshot);
     let surveyId=this.route.snapshot.paramMap.get('surveyId');
     console.log(surveyId);
@@ -111,7 +109,15 @@ export class QuestionsTemplateComponent implements OnInit {
 
   getFilteredEmails()
   {
-      
+      this.surveyService.getFilteredEmails().subscribe(
+      (data) =>
+      {
+        console.log(data);
+      }),
+      (error) =>
+      {
+        console.log(error);
+      }    
   }
 
   addQuestion() {
