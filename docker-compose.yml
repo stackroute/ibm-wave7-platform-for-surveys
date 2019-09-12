@@ -170,6 +170,8 @@ services:
   neo4j:
     image: neo4j:latest
     restart: always
+    environment:
+      NEO4J_AUTH: neo4j/<Root@123>
     ports:
       - 7474:7474
       - 7687:7687
