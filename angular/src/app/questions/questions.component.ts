@@ -49,14 +49,13 @@ export class QuestionsComponent implements OnInit {
     console.log(responseList);
 
       for (let i = 0; i < responseList.length; i++) {
-
         let question = responseList[i]
         let response : Response
         response.question_id = question.questionId;
         response.response = question.response;
         response.servey_id = question.survey_id;
         response.user_id = this.surveyService.loginCredentials.id;
-        
+        this.respondents++;
         this.surveyService.saveResponse(response)
           .subscribe(
             data => {
