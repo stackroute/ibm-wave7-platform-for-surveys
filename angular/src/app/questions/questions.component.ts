@@ -14,6 +14,8 @@ import { parse } from 'querystring';
 export class QuestionsComponent implements OnInit {
 
   num;
+  response:Response;
+  
   id: [];
 
   private questionList: Question[];
@@ -42,7 +44,9 @@ export class QuestionsComponent implements OnInit {
 
   saveResponse(responseList: Question[]) {
     console.log(responseList);
-
+     this.response.randomNum=Math.floor(Math.random()*100)+50;
+     console.log(this.response.randomNum);
+    
       for (let i = 0; i < responseList.length; i++) {
 
         let question = responseList[i]

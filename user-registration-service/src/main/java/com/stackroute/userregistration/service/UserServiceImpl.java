@@ -12,8 +12,8 @@ import java.util.Optional;
 @Service
 public class UserServiceImpl implements UserService{
     //Creating the object for the user repository in order to connect with the database
-    @Autowired
     private UserRepository userRepository;
+     @Autowired
     public UserServiceImpl(UserRepository userRepository) {
         this.userRepository = userRepository;
     }

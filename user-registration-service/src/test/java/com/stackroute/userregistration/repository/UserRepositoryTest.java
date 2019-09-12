@@ -9,6 +9,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.data.mongo.DataMongoTest;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
@@ -18,19 +19,21 @@ import java.util.List;
 
 @RunWith(SpringRunner.class)
 @ContextConfiguration(classes = UserRegistrationApplication.class)
+@DataMongoTest
 public class UserRepositoryTest {
     //Autowiring the repository
     @Autowired
     private UserRepository userRepository;
     private User user;
 
-    @Autowired
-    private KafkaTemplate<String, Object> kafkaTemplate;
+//   @Autowired
+//    private KafkaTemplate<String, Object> kafkaTemplate;
+
     @Before
     public void setUp()
     {
         //Sample user details
-        User user = new User("1","Sahithi","sahithi@gmail.com","pwd","Surveyor","Hyderabad","child","Female");
+         user = new User("1","Sahithi","sahithi@gmail.com","pwd","Surveyor","Hyderabad","child","Female");
     }
     @After
     public void tearDown()
@@ -41,9 +44,12 @@ public class UserRepositoryTest {
     //testcase to know the saved user is actually saving the database or not
     public void testSaveUser(){
         //Saving the user
-        userRepository.save(user);
-        User fetchUser = userRepository.findById(this.user.getId()).get();
-        Assert.assertEquals("1",fetchUser.getId());
+//        userRepository.save(user);
+//        User fetchUser = userRepository.findById(this.user.getId()).get();
+//        Assert.assertEquals("1",fetchUser.getId());
+        User savedUser=userRepository.save(user);
+        System.out.println(savedUser.getId());
+        Assert.assertEquals(user,savedUser );
 
     }
     //testcase failure
@@ -51,7 +57,10 @@ public class UserRepositoryTest {
     public void testSaveUserFailure(){
         User user = new User("1","Sahithi","sahithi@gmail.com","pwd","Surveyor","Hyderabad","child","Female");
         userRepository.save(user);
+        System.out.println(user.getId());
+
         User fetchUser = userRepository.findById(user.getId()).get();
+        System.out.println(fetchUser.getId());
         Assert.assertNotSame(fetchUser,user);
     }
 
@@ -71,9 +80,9 @@ public class UserRepositoryTest {
     @Test
     public void testDeleteUser(){
         userRepository.delete(user);
-        List<User> list=userRepository.findAll();
+        //List<User> list=userRepository.findAll();
         List<User> trackList=new ArrayList<>();
-        Assert.assertEquals(trackList,list);
+        Assert.assertEquals(trackList,userRepository.findAll());
     }
 
 }
