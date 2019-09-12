@@ -51,15 +51,22 @@ import { ScrollingModule } from '@angular/cdk/scrolling';
 import { CdkStepperModule } from '@angular/cdk/stepper';
 import { CdkTableModule } from '@angular/cdk/table';
 import { CdkTreeModule } from '@angular/cdk/tree';
-import { ChatbotComponent } from './chatbot/chatbot.component';
+
 import { CommonModule } from '@angular/common';
-import { ChatService } from './chat.service';
-import { ResponseAnalysisComponent } from './response-analysis/response-analysis.component';
+
+
 import { FusionChartsModule } from 'angular-fusioncharts';
 import * as FusionCharts from "fusioncharts";
 import * as Charts from "fusioncharts/fusioncharts.charts";
 import * as FusionTheme from "fusioncharts/themes/fusioncharts.theme.fusion";
+
+import { ResponseAnalysisComponent } from './response-analysis/response-analysis.component';
+import { ChatbotComponent } from './chatbot/chatbot.component';
 import { RewardPointsComponent } from './reward-points/reward-points.component';
+import { ChatService } from './chat.service';
+import { ResetpasswordComponent } from './resetpassword/resetpassword.component';
+
+
 import { UserWelcomeComponent } from './user-welcome/user-welcome.component';
 
 
@@ -90,8 +97,14 @@ FusionChartsModule.fcRoot(FusionCharts, Charts, FusionTheme);
     QuestionsComponent,
     EditQuestionDialog,
     ChatbotComponent,
+
+
     RewardPointsComponent,
+    ResetpasswordComponent,
+
+    
     UserWelcomeComponent
+
   ],
   imports: [
     MatRadioModule,
@@ -134,10 +147,10 @@ FusionChartsModule.fcRoot(FusionCharts, Charts, FusionTheme);
     FusionChartsModule
   ],
   exports: [ChatbotComponent],
-  providers: [MyprofileComponent, DialogComponent, ChatService,SignUpComponent],
+  providers: [MyprofileComponent, DialogComponent, ChatService],
+
 
   entryComponents: [MySurveyCardComponent, CreateSurveyDialogue, DialogComponent, DialogContentComponent, QuestionsTemplateComponent, EditQuestionDialog, ChatbotComponent],
-
   bootstrap: [AppComponent]
 })
 export class AppModule { }

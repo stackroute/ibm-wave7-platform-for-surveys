@@ -21,5 +21,6 @@ public class Response {
     private String response;
     private String user_id;
     private String survey_id;
+    private int randomNum;
 
 }

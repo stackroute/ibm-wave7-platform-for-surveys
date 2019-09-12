@@ -18,13 +18,13 @@ public class ResponseController {
     public ResponseController(ResponseService responseService){
         this.responseService=responseService;
     }
-    @PostMapping("response")
+    @PostMapping("response/{randNum}")
     public ResponseEntity<?>  saveResponse(@RequestBody Response response){
         responseService.saveResponse(response);
         responseEntity=new ResponseEntity<String>("successfully created", HttpStatus.CREATED);
         return responseEntity;
     }
-    //to get all the tracks
+    //to get all the Responses
     @GetMapping("response")
     public ResponseEntity<?> getAllUsers(){
         return new ResponseEntity<List<Response>>(responseService.getAllResponses(),HttpStatus.OK);

@@ -21,7 +21,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-import static org.mockito.ArgumentMatchers.any;
+//import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
 
 public class UserServiceTest {
@@ -51,7 +51,7 @@ public class UserServiceTest {
         Assert.assertEquals(user, savedUser);
         //verify here verifies that userRepository save method is only called once
         verify(userRepository, times(1)).save(Mockito.any(User.class));
-        verifyNoMoreInteractions(userRepository);
+        //verifyNoMoreInteractions(userRepository);
     }
     @Test
     public void getAllUsersTest()

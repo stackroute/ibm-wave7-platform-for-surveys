@@ -19,7 +19,7 @@ import java.util.List;
 import java.util.Optional;
 
 import static org.junit.Assert.*;
-import static org.mockito.ArgumentMatchers.any;
+//import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
 
 public class SurveyorServiceTest {
@@ -43,7 +43,7 @@ public class SurveyorServiceTest {
     }
     @Test
     public void addSurveyor() throws SurveyorAlreadyExistException {
-        when(surveyorRepository.save((Surveyor) any())).thenReturn(surveyor);
+        when(surveyorRepository.save(any())).thenReturn(surveyor);
         Surveyor savedSurveyor=surveyorService.addSurveyor(surveyor);
         assertEquals(surveyor,savedSurveyor);
         verify(surveyorRepository,times(1)).save(surveyor);

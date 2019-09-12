@@ -6,6 +6,7 @@ import { Router } from "@angular/router";
 import { FormControl, Validators, FormGroup } from "@angular/forms";
 import { Mail } from '../mail';
 
+
 @Component({
   selector: "app-sign-up",
   templateUrl: "./sign-up.component.html",
@@ -81,10 +82,5 @@ export class SignUpComponent implements OnInit {
       this.router.navigateByUrl("login");
     });
   }
-
-
-
-
-
 }
 

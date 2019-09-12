@@ -4,5 +4,6 @@ export interface Response {
     response: string;
     user_id: string;
     servey_id: string;
+    randomNum:number;
 
 }
