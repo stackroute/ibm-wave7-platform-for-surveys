@@ -176,7 +176,7 @@ services:
       - 7474:7474
       - 7687:7687
     container_name: neo4j
-    network_mode: "bridge"
+    network_mode: "host"
     hostname: localhost
     healthcheck:
       test: "exit 0"
