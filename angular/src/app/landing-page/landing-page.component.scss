@@ -7,20 +7,26 @@
   max-width: 1000px;
   min-width: 1000px;
 }
+
 .spacer {
 flex: 1 1 auto;
 }
 
+
 .example-card {
-max-width: 300px;
-height: 400px;
-width: -webkit-fill-available;
-position: relative;
-display: inline-block;
+min-width: 200px;
+height: auto;
+// width: -webkit-fill-available;
+// position: relative;
+// display: inline-block;
 //overflow: hidden;
 text-align: center;
 // margin:0.5em 0 0 0.5em;
+// padding:2cm;
 margin-left:1.7cm;
+// border: solid;
+// border-color: rgb(97, 97, 97);
+margin-bottom:1cm;
 }
 
 .mat-card-avatar{
@@ -48,7 +54,7 @@ justify-content: center;
 }
 .mat-button{
 //justify-items: center;
-color: white;
+color:white;
 background-color: #000;
 }
 mat-card-actions {
@@ -70,8 +76,8 @@ font-size: x-large;
 
 margin-bottom: 100px;
 // margin-top: 0em;
-background-color: #000;
-padding: 0 0 0.2em 0;
+background: rgb(255,149,149);
+background: linear-gradient(264deg, rgba(255,149,149,1) 0%, rgba(255,149,149,1) 32%, rgba(33,1,56,1) 100%);padding: 0 0 0.2em 0;
 
 }
 
@@ -103,7 +109,41 @@ text-align:left;
 }
 h2{
 margin-left:2cm;
+// margin-bottom:14cm;
 }
 a{
 text-decoration: none;
 }
+.heroimage{
+  height:400px;
+  width:100%;
+  // margin-left:1cm;
+  margin-bottom:5cm;
+}
+ngb-carousel{
+  margin-bottom:2cm;
+}
+.container-fluid{
+  flex: 1 1 auto;
+}
+.heroimage1{
+  height:400px;
+  width:90%;
+  margin:3cm;
+  margin-top:-2cm;
+  border: solid;
+  border-color: lightcoral;
+}
+.heroimage3{
+  height:60%;
+  width:87%;
+  margin-left:2.5cm;
+  border: solid;
+  border-color: rgb(36, 3, 36);
+}
+.row-no-gutters{
+  margin-top:-8cm;
+  // height:7cm;
+}
+
+

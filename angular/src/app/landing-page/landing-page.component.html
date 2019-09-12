@@ -1,65 +1,34 @@
 <div class="container-fluid">
-  <div class="row row-no-gutters">
+  <div class="row row-no-gutters1">
+    <div class="hero" fxLayout="column" class="col-md-12 col-xs-12 col-sm-12 col-lg-12"></div>
+    <img class="heroimage" src="/assets/pictures/IMG-7004.jpg" alt="hero image" fxLayout="row" />
+  </div>
+</div>
+<div class="container-fluid">
+  <div class="row row-no-gutters2">
+    <div class="hero1" fxLayout="column" class="col-md-12 col-xs-12 col-sm-12 col-lg-12"></div>
+    <img class="heroimage1" src="/assets/pictures/IMG-7007.jpg" alt="hero image" fxLayout="row" />
+  </div>
+</div>
+<div class="container-fluid">
+  <div class="row row-no-gutters3">
     <div class="hero" class="col-md-12 col-xs-12 col-sm-12 col-lg-12">
-      <img
-        src="assets/pictures/POLLUVERY.png"
-        alt="hero image"
-        style="height:500px;width:100%;"
-        fxLayout="row"
-      />
+      <img class="heroimage3"
+        src="/assets/pictures/Reach anyone, anywhere.Connect with people via email, your website, social media, and more. We prove recommendations for quick responses. You can create surveys and polls in minutes!.png"
+        alt="hero image" fxLayout="row" />
     </div>
   </div>
-  <div class="row row-no-gutters">
+</div>
+<div class="heading"><h2>Popular Surveys!</h2></div>
+  <div class="row-no-gutters">
     <div
       class="orientation"
       display="flex"
-      class="col-sm-12 col-md-12 col-xs-12 col-lg-12"
     >
       <ngb-carousel
         *ngIf="images"
-        style="margin: 40px; padding:50px;  background-color: black;"
-      >
-        <ng-template
-          ngbSlide
-          class="card"
-          *ngFor="let item of slides; let i = index">
-          <div fxLayout="row">
-              <div
-                class="col-sm-4 col-md-4 col-xs-4 col-lg-4"
-                *ngFor="let card of item; let cardIndex = index">
-                <mat-card class="example-card" fxFlex="70%">
-                  <mat-card-header>
-                    <div mat-card-avatar class="example-header-image"></div>
-                    <mat-card-title>{{ card.title }}</mat-card-title>
-                    <mat-card-subtitle>Pollurvey</mat-card-subtitle>
-                  </mat-card-header>
-                  <img
-                    mat-card-image
-                    [src]="card.img"
-                    alt="Photo of a Shiba Inu"
-                  />
-                  <mat-card-content>
-                    <p>
-                      {{ card.description }}
-                    </p>
-                  </mat-card-content>
-                </mat-card>
-              </div>
-          </div>
-        </ng-template>
-      </ngb-carousel>
-    </div>
-  </div> 
-  <div class="heading"><h2>Popular Surveys!</h2></div>
-  <div class="row row-no-gutters">
-    <div
-      class="orientation"
-      display="flex"
-      class="col-sm-12 col-md-12 col-xs-12 col-lg-12"
-    >
-      <ngb-carousel
-        *ngIf="images"
-        style="margin: 30px; padding:40px;  background-color: black;"
+        style="height:7cm;padding:100px; background: rgb(255,149,149);
+        background: linear-gradient(264deg, rgba(255,149,149,1) 0%, rgba(33,1,56,1) 89%, rgba(33,1,56,1) 100%);"
       >
         <ng-template
           ngbSlide
@@ -67,12 +36,11 @@
           *ngFor="let item of surveySlides; let i = index">
           <div fxLayout="row">
               <div
-                class="col-sm-4 col-md-4 col-xs-4 col-lg-4"
                 *ngFor="let survey of item; let cardIndex = index">
                 <a routerLink="/login"><mat-card class="example-card" fxFlex="70%">
                   <mat-card-header>
-                    <div mat-card-avatar class="example-header-image"></div>
-                    <mat-card-title>{{ survey.name }}</mat-card-title>
+                     <div mat-card-avatar class="example-header-image"></div>
+                     <mat-card-title>{{ survey.name }}</mat-card-title>
                     <mat-card-subtitle>{{ survey.description }}</mat-card-subtitle>
                   </mat-card-header>
                   <img
@@ -92,12 +60,7 @@
       </ngb-carousel>
     </div>
   </div>
-  <div>
-    <div class="container">
-      <button class="button" mat-raised-button (click)="login()">
-        Create a Survey
-      </button>
-    </div>
-  </div>
-</div>
-
+  <div> 
+    <button class="button" mat-raised-button (click)="login()">
+      Create a Survey
+    </button>
