@@ -7,7 +7,7 @@ import { Response } from '../modals/Response';
 import { parse } from 'querystring';
 import { Survey } from '../modals/Survey';
 import { send } from 'q';
-import { url } from 'inspector';
+//  import { url } from 'inspector';
 
 @Component({
   selector: 'app-questions',
@@ -67,7 +67,7 @@ export class QuestionsComponent implements OnInit {
       }
       if(this.survey.respondants<=this.respondents && this.survey.expiryDate<="1")
       {
-        this.surveyService.sendMail(url);
+        // this.surveyService.sendMail(url);
       }
   }
 
