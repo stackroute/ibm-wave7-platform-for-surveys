@@ -13,7 +13,9 @@ import java.util.Optional;
 public class UserServiceImpl implements UserService{
     //Creating the object for the user repository in order to connect with the database
     private UserRepository userRepository;
-     @Autowired
+
+    User user;
+    @Autowired
     public UserServiceImpl(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
@@ -69,6 +71,13 @@ public class UserServiceImpl implements UserService{
     }
     public User findUserByEmail(String email) {
         return userRepository.findUserByEmail(email);
+    }
+
+    @Override
+    public User saveUserEmail(String email)
+    {
+        user.setEmail(email);
+        return userRepository.save(user);
     }
 
 

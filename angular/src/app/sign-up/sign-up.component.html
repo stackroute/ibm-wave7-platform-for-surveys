@@ -1,4 +1,4 @@
-<div class="flex-container" fxLayout="row">
+<div class="flex-container" fxLayout="row" fxFlex.lt-md="column">
   <mat-card class="example-card">
     <mat-card-header>
       <mat-card-title>Sign Up</mat-card-title>
@@ -8,8 +8,14 @@
         (ngSubmit)="saveUser(userregistrationform.value)">
         <mat-form-field class="full-width">
           <mat-label>Username</mat-label>
-          <input matInput required placeholder="Username" name="name" [(ngModel)]="name"
-            [formControl]="nameFormControl" />
+          <input
+            matInput
+            required
+            placeholder="Username"
+            name="name"
+            [(ngModel)]="name"
+            [formControl]="nameFormControl"
+          />
           <mat-error *ngIf="nameFormControl.invalid">{{
             getRequiredErrorMessage("name")
           }}</mat-error>

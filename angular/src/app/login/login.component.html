@@ -26,7 +26,7 @@
       </mat-card-content>
       <mat-card-actions>
         <button mat-raised-button type="submit" color="primary" [disabled]="loginForm.invalid">Login</button>
-        <button mat-raised-button (click)=signup() color="primary">Not a existing User? signup</button>
+        <a href=signup()><p>Not an existing user ? Sign up</p></a>
       </mat-card-actions>
     </form>
 
@@ -37,8 +37,8 @@
 
 
 
-      <a [routerLink]="['/password']">
-        <p>Forgot password?Click Here</p>
+      <a href="" [routerLink]="['/password']">
+        <p>Forgot password? Click Here</p>
       </a>
     </span>
   </mat-card>

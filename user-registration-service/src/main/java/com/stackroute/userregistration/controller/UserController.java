@@ -77,5 +77,13 @@ public class UserController {
 
         return new ResponseEntity<>(userService.findUserByEmail(email), HttpStatus.OK);
     }
+
+    @GetMapping("username")
+    public ResponseEntity<?> saveUserEmail(@RequestParam String email)
+    {
+//        return ;
+        return new ResponseEntity<User>( userService.saveUserEmail(email),HttpStatus.OK);
+    }
+
 }
 

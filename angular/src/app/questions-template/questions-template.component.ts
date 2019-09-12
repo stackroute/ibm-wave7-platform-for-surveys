@@ -1,6 +1,6 @@
 
   
-import { Component, OnInit, Inject } from "@angular/core";
+import { Component, OnInit, Inject, Input } from "@angular/core";
 import { SurveyService } from "../survey.service";
 import { ActivatedRoute, Router } from "@angular/router";
 import { Question } from "../modals/Question";
@@ -37,7 +37,9 @@ export class QuestionsTemplateComponent implements OnInit {
   private newchoices: string[] = [];
   // private email:Mail;
   public userResponse: Response;
-
+  private show:String;
+  private limit: number = 2 ;
+  email:Mail;
   constructor(
     private surveyService: SurveyService,
     private route: ActivatedRoute,
@@ -47,17 +49,19 @@ export class QuestionsTemplateComponent implements OnInit {
     private router: Router,
     private bottomSheet: MatBottomSheet
   ) { }
-  email:Mail;
-
+  
+   
   ngOnInit() {
   
     this.getQuestionList(this.surveyService.editSurvey.id);
     this.getRecommendedQuestions(this.surveyService.editSurvey.domain_type);
-    
-
   }
-
-
+  showMore()
+  {
+    this.limit=40;
+    this.show="less";
+    this.getRecommendedQuestions(this.surveyService.editSurvey.domain_type);
+  }
   drop(event: CdkDragDrop<Object[]>) {
     console.log(event.previousContainer.data);
     console.log(event.container.data[0]);
@@ -95,13 +99,12 @@ export class QuestionsTemplateComponent implements OnInit {
   }
 
   publish() {
-    this.email={"url":"http://172.23.238.147:4200/questions/:surveyId?id="+this.surveyService.surveyId};
-
+    this.email={"url":"http://172.23.238.245:4200/questions/:surveyId?id="+this.surveyService.surveyId};
     console.log(this.email.url);
     this.surveyService.sendMail(this.email).subscribe(data => {
+
       console.log(data);
     });
-    // let surveyId=this.route.snapshot.queryParams["surveyId"];
     console.log(this.route.snapshot);
     let surveyId=this.route.snapshot.paramMap.get('surveyId');
     console.log(surveyId);
@@ -109,6 +112,18 @@ export class QuestionsTemplateComponent implements OnInit {
     this.router.navigate(["publishview", surveyId]);
   }
 
+  getFilteredEmails()
+  {
+      this.surveyService.getFilteredEmails().subscribe(
+      (data) =>
+      {
+        console.log(data);
+      }),
+      (error) =>
+      {
+        console.log(error);
+      }    
+  }
 
   addQuestion() {
     this.condition = true;

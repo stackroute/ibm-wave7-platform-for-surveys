@@ -45,6 +45,10 @@ const routes: Routes = [
     component : QuestionsTemplateComponent
   },
   {
+    path : 'question-template',
+    component : QuestionsTemplateComponent
+  },
+  {
     path:'signup',component:SignUpComponent
   },
   {
