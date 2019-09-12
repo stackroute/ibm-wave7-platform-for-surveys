@@ -4,6 +4,7 @@ import { UserRegistrationService } from '../user-registration.service';
 import { Router } from "@angular/router";
 import { ActivatedRoute } from "@angular/router";
 import { Guid } from 'guid-typescript';
+import { QuestionsComponent } from '../questions/questions.component';
 
 @Component({
   selector: 'app-user-welcome',
@@ -14,20 +15,27 @@ export class UserWelcomeComponent implements OnInit {
 
   constructor(private userRegistration:UserRegistrationService,
     private router: Router,
-    private route: ActivatedRoute,
+    private route: ActivatedRoute
     ) { }
 
   user:User;
-  id:string;
+  id:String;
 
   ngOnInit() {
 
   }
   onClick(email)
 {
-  // this.user={'email':email,};
-  this.router.navigateByUrl('questions/:surveyId');
+  this.userRegistration.email=email;
+  this.userRegistration.saveUserEmail(email).subscribe((id) => 
+  {
+  id=id;
+  });
+
+
+
+
+  
   // this.id=Guid.create().toString();
-  this.userRegistration.saveUserEmail(email).subscribe();
 }
 }

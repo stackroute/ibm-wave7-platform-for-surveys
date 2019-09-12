@@ -80,10 +80,10 @@ public class UserController {
     }
 
     @GetMapping("username")
-    public ResponseEntity<?> saveUserEmail(@RequestParam String email)
+    public String saveUserEmail(@RequestParam String email)
     {
 //        return ;
-        return new ResponseEntity<User>( userService.saveUserEmail(email),HttpStatus.OK);
+        return userService.saveUserEmail(email);
     }
 
 }

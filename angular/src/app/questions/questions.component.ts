@@ -4,7 +4,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { SurveyService } from '../survey.service';
 import { Question } from '../modals/Question';
 import { Response } from '../modals/Response';
-import { parse } from 'querystring';
+import { ThankingDialogBoxComponent } from '../thanking-dialog-box/thanking-dialog-box.component';
 
 @Component({
   selector: 'app-questions',

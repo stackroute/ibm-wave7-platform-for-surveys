@@ -19,10 +19,7 @@ import {ResponseAnalysisComponent} from './response-analysis/response-analysis.c
 import { UserWelcomeComponent } from './user-welcome/user-welcome.component';
 
 const routes: Routes = [
-  {
-    path:'sign-up',component:SignUpComponent
-  },
-  {
+ {
     path:'survey',component:MySurveyCardComponent
   },
   {
@@ -77,7 +74,11 @@ const routes: Routes = [
   },
   {
     path:'rewards',component:RewardPointsComponent
+  },
+  {
+    path:'thankyou/signup',component:SignUpComponent
   }
+
   
   
 ];
