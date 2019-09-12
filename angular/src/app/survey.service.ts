@@ -45,7 +45,10 @@ export class SurveyService {
     return this.httpclient.get<User>(environment.baseURI + "/surveyor/"+this.loginCredentials.id);
   }
  
-
+  getFilteredEmails() : Observable<String[]>
+  {
+    return this.httpclient.get<String[]>(environment.signUpBaseURI + "/surveyor/"+this.loginCredentials.id); 
+  }
   
   saveQuestion(question: Question) {
     //creating a Guid Id
