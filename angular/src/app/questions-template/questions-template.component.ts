@@ -99,9 +99,10 @@ export class QuestionsTemplateComponent implements OnInit {
   }
 
   publish() {
-    this.email={"url":"http://172.23.238.147:4200/questions/:surveyId?id="+this.surveyService.surveyId};
+    this.email={"url":"http://172.23.238.245:4200/questions/:surveyId?id="+this.surveyService.surveyId};
     console.log(this.email.url);
     this.surveyService.sendMail(this.email).subscribe(data => {
+
       console.log(data);
     });
     console.log(this.route.snapshot);
