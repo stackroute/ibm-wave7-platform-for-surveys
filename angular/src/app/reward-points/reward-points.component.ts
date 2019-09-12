@@ -15,6 +15,7 @@ export class RewardPointsComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.parentData = Math.floor((Math.random() * 50) + 50);
   }
   reward() {
       this.router.navigateByUrl("");
