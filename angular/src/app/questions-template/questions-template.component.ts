@@ -98,10 +98,9 @@ export class QuestionsTemplateComponent implements OnInit {
 
   publish() {
     // this.email= "http://172.23.238.187:4201/questions/"+this.surveyService.surveyId;
-    this.email = "http://172.23.238.187:4200/user-welcome/"+this.surveyService.surveyId;
+    this.email =  "http://172.23.238.187:4200/user-welcome/"+this.surveyService.surveyId;
     console.log(this.email);
     this.surveyService.sendMail(this.email).subscribe(data => {
-
       console.log(data);
     });
     console.log(this.route.snapshot);
@@ -159,7 +158,6 @@ export class QuestionsTemplateComponent implements OnInit {
       form.reset();
       this.newchoices = [];
     });
-
   }
 
   editQuestion(question) {

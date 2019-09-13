@@ -81,11 +81,12 @@ export class SurveyService {
   getAllQuestions(surveyId : string): Observable<Survey> {
     return this.httpclient.get<Survey>(environment.baseURI + "/survey/" + surveyId);
   }
+
   sendMail(mail) {
     console.log(mail);
     return this.httpclient.post(environment.mailURI,mail);
-
   }
+  
   expiryCheck()
   {
     return this.httpclient.get<number>(environment.baseURI+"/expiryCheck"+"?id="+this.surveyId);
