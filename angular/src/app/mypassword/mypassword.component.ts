@@ -33,12 +33,14 @@ export class MypasswordComponent implements OnInit {
      else
        this.password2.setErrors(null);
    }
+
   //  updatePassword(){
   //    this.registrationService.forgotPassword(this.login,this.login.password).subscribe((data)=> {
       
   //     console.log(data);
   //  });
   // }
+  
   reset() {
     console.log(this.email);
     //this.login.email = this.email;

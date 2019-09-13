@@ -14,7 +14,6 @@ export const environment = {
   signUpBaseURI : "http://13.235.226.107:8500/user-registration-service",
   responseBaseURI : "http://13.235.226.107:8500/user-response-service/api/v1",
   dialogflow: {
-
     chatbot: 'f047460b32b4461ebca432ae15e54b79'
   }
 };
