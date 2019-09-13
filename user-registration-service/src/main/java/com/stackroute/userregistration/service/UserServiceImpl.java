@@ -57,12 +57,10 @@ public class UserServiceImpl implements UserService{
     public User updateUser(User user, String id) {
 
         Optional<User> user1=userRepository.findById(id);
-
-
         user.setId(id);
-
         User modifiedUser=userRepository.save(user);
         return modifiedUser ;
+       
     }
 
     @Override
@@ -76,13 +74,13 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
-    public String saveUserEmail(String email)
+    public User saveUserEmail(String email)
     {
         System.out.println("email in service: "+email );
         user.setEmail(email);
-        userRepository.save(user);
-        return user.getId();
+        return userRepository.save(user);
     }
+
 
     @Override
     public List<String> getAllMails()

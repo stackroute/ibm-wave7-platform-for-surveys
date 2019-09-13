@@ -21,7 +21,9 @@ export class QuestionsComponent implements OnInit {
   private survey:Survey;
 
   private questionList: Question[];
+  private responseList : Response[] = [];
   private respondents:number;
+  private surveyId : string;
   constructor(private router: Router, private surveyService: SurveyService, private route: ActivatedRoute) { }
 
   ngOnInit() {
@@ -33,6 +35,13 @@ export class QuestionsComponent implements OnInit {
     //   this.num = num;
     //     console.log(window.location.href)
     //   });
+    // this.surveyId = this.route.snapshot.paramMap.get('surveyId');
+    // this.getQuestionList(this.surveyId);
+    this.surveyService.expiryCheck().subscribe(
+      (num) => {
+      this.num = num;
+        console.log(window.location.href)
+      });
   }
 
   submit() {
@@ -46,32 +55,42 @@ export class QuestionsComponent implements OnInit {
     });
   }
 
-  saveResponse(responseList: Question[]) {
-    console.log(responseList);
-     this.response.randomNum=Math.floor(Math.random()*100)+50;
-     console.log(this.response.randomNum);
+  saveResponse(questionList: Question[]) {
+    // console.log(questionList);
+
+    //  this.response.randomNum=Math.floor(Math.random()*100)+50;
+    //  console.log(this.response.randomNum);
     
-      for (let i = 0; i < responseList.length; i++) {
-        let question = responseList[i]
-        let response : Response
+      for (let i = 0; i < questionList.length; i++) {
+        let question = questionList[i]
+        let response : Response = {
+          question_id: "",
+          response: "",
+          user_id: "",
+          survey_id: "",
+          randomNum:0
+        }
+
         response.question_id = question.questionId;
         response.response = question.response;
-        response.servey_id = question.survey_id;
-        response.user_id = this.surveyService.loginCredentials.id;
-        this.respondents++;
-        this.surveyService.saveResponse(response)
-          .subscribe(
-            data => {
-              console.log(data);
-            },
-            error => {
-              alert("error=" + error);
-            });
+        response.survey_id = this.surveyId;
+        response.user_id = this.surveyService.targetUser.id;
+        // this.respondents++;
+        this.responseList.push(response);
       }
-      if(this.survey.respondants<=this.respondents && this.survey.expiryDate<="1")
-      {
-        // this.surveyService.sendMail(url);
-      }
+
+      this.surveyService.saveResponseList(this.responseList)
+      .subscribe(
+        data => {
+          console.log("saved response" + data);
+        }, 
+        error => {
+          alert("error=" + error);
+        });
+      // if(this.survey.respondants<=this.respondents && this.survey.expiryDate<="1")
+      // {
+      //   // this.surveyService.sendMail(url);
+      // }
   }
 
   newSurveys() {

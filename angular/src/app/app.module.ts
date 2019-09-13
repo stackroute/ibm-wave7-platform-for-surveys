@@ -68,6 +68,7 @@ import { ResetpasswordComponent } from './resetpassword/resetpassword.component'
 
 
 import { UserWelcomeComponent } from './user-welcome/user-welcome.component';
+import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 
 
 // Pass the fusioncharts library and chart modules
@@ -108,6 +109,7 @@ FusionChartsModule.fcRoot(FusionCharts, Charts, FusionTheme);
   ],
   imports: [
     MatRadioModule,
+    FontAwesomeModule,
     BrowserModule,
     MatDialogModule,
     AppRoutingModule,

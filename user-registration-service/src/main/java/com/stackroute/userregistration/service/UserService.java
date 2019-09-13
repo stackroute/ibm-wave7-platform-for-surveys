@@ -17,6 +17,9 @@ public interface UserService {
     public User getUserById(String id);
     public User findUserByEmail(String email);
 
-    public String saveUserEmail(String email);
+
+
     public List<String> getAllMails();
+    public User saveUserEmail(String email);
+
 }

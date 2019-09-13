@@ -1,20 +1,101 @@
-<span class="spacer">
-  <div class="footer">
-    
+ <!-- <div class="footer">
+   <span class="spacer">
     <p class="info"><strong>About us</strong>
       <a routerLink="about"><p>Vision & Goals</p></a>
+    <p class="support"><strong>Contact Us</strong>
+    <a routerLink="about"><mat-icon class="mail">mail</mat-icon><p>abc@gmail.com</p></a></p>
   <mat-divider [inset]="true/false" > … </mat-divider >
     
     <a href="https://www.facebook.com/" target="blank"><mat-icon class="facebook" svgIcon="facebook" aria-hidden="false" aria-label="Example facebook  SVG icon"></mat-icon></a>
     <a href="https://www.twitter.com/" target="blank"><mat-icon svgIcon="twittor" aria-hidden="false" aria-label="Example twittor  SVG icon"></mat-icon></a>
     <a href="https://www.instagram.com/" target="blank"><mat-icon svgIcon="instagram" aria-hidden="false" aria-label="Example instagram  SVG icon"></mat-icon></a>
-    
-    <!-- <p><strong>Copyrights 2019</strong></p> -->
-
- <!-- <div class="copyright">
- <p class="rights">copyrights 2019
- <mat-icon svgIcon="copyright" aria-hidden="false" aria-label="Example copyright  SVG icon"></mat-icon>
- </p>
- </div> -->
- </div>
+    <p class="rights">
+      <mat-icon class="copyrights">copyright</mat-icon><strong>Copyrights 2019</strong></p>
 </span>
+</div> -->
+ <!-- <div class="flex-container">
+  <mat-toolbar class="footer" fxLayout="row" fxLayout.lt-sm="column"> 
+    <mat-toolbar-row>
+      <p><strong>About us</strong></p>
+      <p><strong>Contact us</strong></p>
+    </mat-toolbar-row>
+    <mat-toolbar-row class="icons">
+      <a href="https://www.facebook.com/" target="blank"><mat-icon class="facebook" svgIcon="facebook" aria-hidden="false" aria-label="Example facebook  SVG icon"></mat-icon></a>
+      <a href="https://www.twitter.com/" target="blank"><mat-icon svgIcon="twittor" aria-hidden="false" aria-label="Example twittor  SVG icon"></mat-icon></a>
+      <a href="https://www.instagram.com/" target="blank"><mat-icon svgIcon="instagram" aria-hidden="false" aria-label="Example instagram  SVG icon"></mat-icon></a>
+      </mat-toolbar-row>
+  </mat-toolbar>
+</div> -->
+<!-- <body> -->
+    <!-- <div class="container"></div> -->
+    <footer>
+      <!-- Footer main -->
+      <section class="ft-main" fxLayout="row" fxLayout.lt-sm="column" >
+        <div class="ft-main-item">
+          <h2 class="ft-title">About</h2>
+          <ul>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Portfolio</a></li>
+          </ul>
+        </div>
+        <!-- <div class="ft-main-item">
+          <h2 class="ft-title">Resources</h2>
+          <ul>
+            <li><a href="#">Docs</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">eBooks</a></li>
+            <li><a href="#">Webinars</a></li>
+          </ul>
+        </div> -->
+        <div class="ft-main-item" fxFlex="10%">
+          <h2 class="ft-title">Contact</h2>
+          <ul>
+            <li><a href="#">Help</a></li>
+            <li><a href="#">Support</a></li>
+          </ul>
+        </div>
+        <!-- <div class="ft-main-item">
+          <h2 class="ft-title">Stay Updated</h2>
+          <p>Subscribe to our newsletter to get our latest news.</p>
+          <form>
+            <input type="email" name="email" placeholder="Enter email address">
+            <input type="submit" value="Subscribe">
+          </form>
+        </div> -->
+      </section>
+     
+      <!-- Footer social -->
+      <section class="ft-social">
+        <ul class="ft-social-list">
+          <li><a href="https://www.facebook.com/" target="blank"><fa-icon [icon]="faFacebook"></fa-icon></a></li>
+          <li><a href="https://www.instagram.com/" target="blank"><fa-icon [icon]="faInstagram"></fa-icon></a></li>
+          <li><a href="https://www.pinterest.com/" target="blank"><fa-icon [icon]="faPinterest"></fa-icon></a></li>
+          <li><a href="https://www.linkedin.com/" target="blank"><fa-icon [icon]="faLinkedin"></fa-icon></a></li>
+          <li><a href="https://www.twitter.com/" target="blank"><fa-icon [icon]="faTwitterSquare"></fa-icon></a></li>
+          <!-- <i class="fa fa-spinner fa-spin fa-3x fa-fw"></i>
+<span class="sr-only">Loading...</span>
+
+<i class="fa fa-circle-o-notch fa-spin fa-3x fa-fw"></i>
+<span class="sr-only">Loading...</span>
+
+<i class="fa fa-refresh fa-spin fa-3x fa-fw"></i>
+<span class="sr-only">Loading...</span>
+
+<i class="fa fa-cog fa-spin fa-3x fa-fw"></i>
+<span class="sr-only">Loading...</span>
+
+<i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+<span class="sr-only">Loading...</span> -->
+        </ul>
+      </section>
+     
+      <!-- Footer legal -->
+      <section class="ft-legal">
+        <ul class="ft-legal-list">
+          <li><a href="#">Terms &amp; Conditions</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li>&copy; 2019 Copyright.</li>
+        </ul>
+      </section>
+    </footer>
+<!-- </body> -->

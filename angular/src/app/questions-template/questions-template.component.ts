@@ -14,10 +14,9 @@ import { HttpClient } from "@angular/common/http";
 import { Location } from "@angular/common";
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 import { NgForm } from '@angular/forms';
-
 import { ChatbotComponent } from '../chatbot/chatbot.component';
 import { MatBottomSheet } from '@angular/material/bottom-sheet';
-import { Mail } from '../mail'
+import { Mail } from '../mail';
 
 
 @Component({
@@ -35,12 +34,12 @@ export class QuestionsTemplateComponent implements OnInit {
   private questionList: Question[];
   private recommendedQuestionList: Question[];
   private newchoices: string[] = [];
-  // private email:Mail;
   public userResponse: Response;
   private show:String;
   private limit: number = 2 ;
-  email:Mail;
   emailIds:string[];
+  private email:Mail;
+
   constructor(
     private surveyService: SurveyService,
     private route: ActivatedRoute,
@@ -53,12 +52,12 @@ export class QuestionsTemplateComponent implements OnInit {
   
    
   ngOnInit() {
-  
     this.getQuestionList(this.surveyService.editSurvey.id);
     this.getRecommendedQuestions(this.surveyService.editSurvey.domain_type);
   }
   showMore()
   {
+    console.log("this.recommendedQuestionList");
     this.limit=40;
     this.show="less";
     this.getRecommendedQuestions(this.surveyService.editSurvey.domain_type);

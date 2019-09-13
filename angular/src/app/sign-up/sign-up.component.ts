@@ -4,7 +4,6 @@ import { ActivatedRoute, RouterState, Routes, RouterLink, RouteReuseStrategy } f
 import { User } from "../modals/User";
 import { Router } from "@angular/router";
 import { FormControl, Validators, FormGroup } from "@angular/forms";
-import { Mail } from '../mail';
 
 
 @Component({

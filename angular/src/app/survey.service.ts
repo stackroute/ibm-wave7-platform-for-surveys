@@ -29,6 +29,8 @@ export class SurveyService {
 
   public editSurvey: Survey;
 
+  public targetUser : User;
+
   createSurvey(survey: Survey): Observable<Survey> {
     //creating a Guid Id
     survey.id = Guid.create().toString();
@@ -82,8 +84,7 @@ export class SurveyService {
   sendMail(mail) {
     console.log(mail);
     return this.httpclient.post("http://localhost:8070/send-mail",mail);
-
-  }
+    }
   expiryCheck()
   {
     return this.httpclient.get<number>(environment.baseURI+"/expiryCheck"+"?id="+this.surveyId);
@@ -104,12 +105,14 @@ export class SurveyService {
   }
 
   saveResponse(userResponse:Response):Observable<Response>{
-    
-    var url="http://172.23.238.248:8091/api/v1/response"
-    return this.httpclient.post<Response>(url,userResponse,httpOptions);
+    return this.httpclient.post<Response>(environment.responseBaseURI+"/response",userResponse,httpOptions);
   }
+
+  saveResponseList(responseList:Response[]):Observable<Response[]>{
+    return this.httpclient.post<Response[]>(environment.responseBaseURI+"/responseList",responseList,httpOptions);
+  }
+
   getResponseById(id:string):Observable<Response>{
-    var url="http://172.23.238.200:8091/api/v1/response"+id;
-  return this.httpclient.get<Response>(url);
+    return this.httpclient.get<Response>(environment.responseBaseURI+"/response"+id);
   }
 }

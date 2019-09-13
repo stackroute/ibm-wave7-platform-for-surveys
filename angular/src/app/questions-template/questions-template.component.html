@@ -7,7 +7,7 @@
   fxLayout.xs="column"
   fxLayoutWrap
   fxLayoutGap="10px"
-  *ngIf="recommendedQuestionList.length <= limit" 
+  
 >
   <div
     class="example-list"
@@ -25,10 +25,9 @@
     >
       <h4>
         {{ question.questionTag
-        }}<mat-icon (click)="editQuestion(question)">edit</mat-icon
-        ><mat-icon (click)="deleteQuestion(question)">delete</mat-icon>
+        }}
       </h4>
-      <br />
+      <br/>
       <div *ngFor="let choice of question.choices">
         <mat-radio-button class="choice-radio-button" value="{{ choice }}">{{
           choice
@@ -106,4 +105,6 @@
   Publish
 </button>
 <a routerLink="/survey"><button mat-raised-button color="primary">Back</button></a>
-<mat-icon (click)="chat()"> chat_bubble</mat-icon>
+<div class="bottomright" (click)="chat()">
+  <img class= "chatbot" src="assets/pictures/messenger.png" alt="bot">
+  </div>

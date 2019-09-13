@@ -41,14 +41,10 @@ export class UserRegistrationService {
   ));
   }
 
-  saveUserEmail(email)
+  saveUserEmail(email : string) 
   {
-    // this.user={'id':id,'email':email};
-    // this.user.id=id;
-    // this.user.email=email;
     console.log(email);
     return this.httpClient.get<string>("http://localhost:8095/saveEmail?email="+email);
-    
   }
 
   setLogin(value: boolean) {
@@ -82,9 +78,9 @@ updateUser(user:User,id:String):Observable<User>{
   return this.httpClient.put<User>(url ,user, httpOptions);
 
 }
-forgotPassword(login:LoginUser): Observable<any>{
+forgotPassword(login:User): Observable<any>{
   var apiUrl = environment.loginBaseURI+"/forgot-password";
-  return this.httpClient.post(apiUrl,httpOptions);
+  return this.httpClient.post<any>(apiUrl,login);
 }
 
  resetpassword(data: LoginUser): Observable<any> {

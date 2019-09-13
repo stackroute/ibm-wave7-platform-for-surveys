@@ -1,7 +1,8 @@
-<div class="flex-container">
-  <h2>Please create your survey here....!</h2>
-  <button class="btn" mat-raised-button (click)=openDialog()>+</button>
-   <div class="a">
+  <!-- <h2>Please create your survey here....!</h2> -->
+   <div class="a" fxLayout="row">
+      <span class="spacer" fxLayout="column"><button class="btn" mat-raised-button matTooltip="Create a survey"
+      (click)=openDialog()>+</button></span>
+
     <!-- <h3>1. Decide on your research goals</h3>
       <p> Before you can start your research, you will need to form a clear picture in your mind of the expected outcome.</p>
           <ul>
@@ -75,7 +76,7 @@
         <div class="responses"><a routerLink='' >
             <mat-icon class="example-icon" aria-hidden="false" aria-label="search icon">supervised_user_circle</mat-icon>
             </a></div>
-        <div class="analysis"> <a routerLink='' >
+        <div class="analysis"> <a routerLink='analysis' >
           <mat-icon class="example-icon" aria-hidden="false" aria-label="search icon">assessment</mat-icon>
           </a></div>
       </div>
@@ -148,5 +149,4 @@
             </div>
           </div>  -->
 
-</div>
 </div>

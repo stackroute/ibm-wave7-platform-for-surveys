@@ -1,9 +1,7 @@
 package com.stackroute.controller;
 
-import com.fasterxml.jackson.databind.util.JSONPObject;
-import org.json.JSONObject;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
@@ -60,22 +58,5 @@ public class JwtAuthenticationController {
 			throw new Exception("INVALID_CREDENTIALS", e);
 		}
 	}
-	@RequestMapping(value = "/forgot-password", method = RequestMethod.POST)
-	public ResponseEntity<?> getEmail(@RequestBody String username) throws Exception {
-		System.out.println(username);
-		JSONObject jsonObject = new JSONObject(username);
-		username = jsonObject.getString("username");
-		System.out.println(username);
-		final String userDetails = userDetailsService.forgotPassword(username);
-		return ResponseEntity.ok(userDetails);
-	}
 
-
-	@RequestMapping(value = "/reset-password", method = RequestMethod.PUT)
-	public ResponseEntity<?> getNewPassword(@RequestBody UserDTO userDTO) throws Exception {
-		System.out.println(userDTO);
-		ResponseEntity responseEntity;
-		responseEntity = new ResponseEntity<>(userDetailsService.update(userDTO), HttpStatus.OK);
-		return responseEntity;
-	}
 }
