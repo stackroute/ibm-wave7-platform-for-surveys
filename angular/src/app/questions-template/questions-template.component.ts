@@ -14,11 +14,8 @@ import { HttpClient } from "@angular/common/http";
 import { Location } from "@angular/common";
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 import { NgForm } from '@angular/forms';
-
 import { ChatbotComponent } from '../chatbot/chatbot.component';
 import { MatBottomSheet } from '@angular/material/bottom-sheet';
-import { Mail } from '../mail'
-import { ConstantPool } from '@angular/compiler';
 
 
 @Component({
@@ -36,11 +33,11 @@ export class QuestionsTemplateComponent implements OnInit {
   private questionList: Question[];
   private recommendedQuestionList: Question[];
   private newchoices: string[] = [];
-  // private email:Mail;
   public userResponse: Response;
   private show:String;
   private limit: number = 2 ;
-  email:Mail;
+  private email:string;
+
   constructor(
     private surveyService: SurveyService,
     private route: ActivatedRoute,
@@ -100,8 +97,9 @@ export class QuestionsTemplateComponent implements OnInit {
   }
 
   publish() {
-    this.email={"url":"http://172.23.238.187:4200/questions/:surveyId?id="+this.surveyService.surveyId};
-    console.log(this.email.url);
+    // this.email={"url":"http://172.23.238.187:4200/questions/"+this.surveyService.surveyId};
+    this.email = "http://172.23.238.187:4200/user-welcome/"+this.surveyService.surveyId;
+    console.log(this.email);
     this.surveyService.sendMail(this.email).subscribe(data => {
 
       console.log(data);
@@ -109,7 +107,7 @@ export class QuestionsTemplateComponent implements OnInit {
     console.log(this.route.snapshot);
     let surveyId=this.route.snapshot.paramMap.get('surveyId');
     console.log(surveyId);
-    this.surveyService.publishedURL = this.email.url;
+    this.surveyService.publishedURL = this.email;
     this.router.navigate(["publishview", surveyId]);
   }
 

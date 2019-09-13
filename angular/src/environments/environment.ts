@@ -11,7 +11,7 @@ export const environment = {
   responseBaseURI : "http://13.235.226.107:8500/user-response-service/api/v1",
   mailURI:"http://13.235.226.107:8500/mail-service/send-mail",
   dialogflow: {
-    chatbot: 'f047460b32b4461ebca432ae15e54b79'
+    chatbot: '9dbdf5bcbf4e4b16949d4ee5c9a4fc9c'
   }
 };
 // var url="http://172.23.238.200:8091/api/v1/response"

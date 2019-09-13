@@ -1,41 +1,49 @@
-import { Component, OnInit } from '@angular/core';
-import { User } from '../modals/User';
-import { UserRegistrationService } from '../user-registration.service';
+import { Component, OnInit } from "@angular/core";
+import { User } from "../modals/User";
+import { UserRegistrationService } from "../user-registration.service";
 import { Router } from "@angular/router";
 import { ActivatedRoute } from "@angular/router";
-import { Guid } from 'guid-typescript';
-import { QuestionsComponent } from '../questions/questions.component';
+import { SurveyService } from '../survey.service';
 
 @Component({
-  selector: 'app-user-welcome',
-  templateUrl: './user-welcome.component.html',
-  styleUrls: ['./user-welcome.component.scss']
+  selector: "app-user-welcome",
+  templateUrl: "./user-welcome.component.html",
+  styleUrls: ["./user-welcome.component.scss"]
 })
+
 export class UserWelcomeComponent implements OnInit {
-
-  constructor(private userRegistration:UserRegistrationService,
+  constructor(
+    private userRegistration: UserRegistrationService,
     private router: Router,
-    private route: ActivatedRoute
-    ) { }
+    private route: ActivatedRoute,
+    private surveyService : SurveyService
+  ) {}
 
-  user:User;
-  id:String;
+  private user: User;
+  private surveyId : string;
+  private email : string;
 
   ngOnInit() {
-
+     this.surveyId=this.route.snapshot.paramMap.get('surveyId');
   }
-  onClick(email)
-{
-  this.userRegistration.email=email;
-  this.userRegistration.saveUserEmail(email).subscribe((id) => 
+
+  // onClick(email) {
+  //   this.userRegistration.email = email;
+  //   this.userRegistration.saveUserEmail(email).subscribe(id => {
+  //     id = id;
+  //   });
+  //   // this.id=Guid.create().toString();
+  // }
+
+  takeSurvey()
   {
-  id=id;
-  });
-
-
-
-
-  
-  // this.id=Guid.create().toString();
-}
+    this.userRegistration.email = this.email;
+    this.userRegistration.saveUserEmail(this.email).subscribe(
+      (data) => {
+        this.user = data
+        console.log(data);
+        this.surveyService.targetUser = data;
+        this.router.navigate(['questions',this.surveyId]);
+      });
+  }
 }

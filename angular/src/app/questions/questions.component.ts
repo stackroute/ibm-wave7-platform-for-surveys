@@ -21,13 +21,14 @@ export class QuestionsComponent implements OnInit {
   private survey:Survey;
 
   private questionList: Question[];
-  private responseList : Response[];
+  private responseList : Response[] = [];
   private respondents:number;
+  private surveyId : string;
   constructor(private router: Router, private surveyService: SurveyService, private route: ActivatedRoute) { }
 
   ngOnInit() {
-    let surveyId = this.route.snapshot.paramMap.get('surveyId');
-    this.getQuestionList(surveyId);
+    this.surveyId = this.route.snapshot.paramMap.get('surveyId');
+    this.getQuestionList(this.surveyId);
     this.surveyService.expiryCheck().subscribe(
       (num) => {
       this.num = num;
@@ -47,7 +48,7 @@ export class QuestionsComponent implements OnInit {
   }
 
   saveResponse(questionList: Question[]) {
-    console.log(questionList);
+    // console.log(questionList);
 
     //  this.response.randomNum=Math.floor(Math.random()*100)+50;
     //  console.log(this.response.randomNum);
@@ -58,14 +59,14 @@ export class QuestionsComponent implements OnInit {
           question_id: "",
           response: "",
           user_id: "",
-          servey_id: "",
+          survey_id: "",
           randomNum:0
         }
 
         response.question_id = question.questionId;
         response.response = question.response;
-        response.servey_id = question.survey_id;
-        response.user_id = this.surveyService.loginCredentials.id;
+        response.survey_id = this.surveyId;
+        response.user_id = this.surveyService.targetUser.id;
         // this.respondents++;
         this.responseList.push(response);
       }
@@ -73,7 +74,7 @@ export class QuestionsComponent implements OnInit {
       this.surveyService.saveResponseList(this.responseList)
       .subscribe(
         data => {
-          console.log(data);
+          console.log("saved response" + data);
         }, 
         error => {
           alert("error=" + error);

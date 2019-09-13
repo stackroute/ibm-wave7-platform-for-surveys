@@ -4,11 +4,9 @@
     <h1>Welcoming you to take the survey!</h1>
     <label>Email:
     <!-- <input #text type="email" name="input" ng-model="email.text" required> -->
-    <input #text type=text>
+    <input [(ngModel)]="email" type=text name="email">
     </label>
     <h2>To take survey click here...!</h2>
-    <a routerLink='/questions/:surveyId'><button (click)="onClick(text.value)">Take Survey</button></a>
-   
-
+    <button (click)="takeSurvey()">Take Survey</button>
     </div>
 </div>
