@@ -79,7 +79,7 @@ public class UserController {
     }
 
 
-    @PostMapping("username")
+    @GetMapping("saveEmail")
     public ResponseEntity<?> saveUserEmail(@RequestParam String email)
     {
         User targetUser = userService.saveUserEmail(email);

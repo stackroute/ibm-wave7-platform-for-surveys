@@ -174,7 +174,6 @@ export class QuestionsTemplateComponent implements OnInit {
       form.reset();
       this.newchoices = [];
     });
-
   }
 
   editQuestion(question) {
