@@ -61,6 +61,7 @@ import * as Charts from "fusioncharts/fusioncharts.charts";
 import * as FusionTheme from "fusioncharts/themes/fusioncharts.theme.fusion";
 import { RewardPointsComponent } from './reward-points/reward-points.component';
 import { UserWelcomeComponent } from './user-welcome/user-welcome.component';
+import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 
 
 // Pass the fusioncharts library and chart modules
@@ -95,6 +96,7 @@ FusionChartsModule.fcRoot(FusionCharts, Charts, FusionTheme);
   ],
   imports: [
     MatRadioModule,
+    FontAwesomeModule,
     BrowserModule,
     MatDialogModule,
     AppRoutingModule,
