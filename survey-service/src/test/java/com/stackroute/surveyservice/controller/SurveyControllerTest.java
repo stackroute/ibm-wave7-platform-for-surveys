@@ -12,7 +12,9 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.ContextConfiguration;
@@ -23,7 +25,9 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.mockito.ArgumentMatchers.any;
+//import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Matchers.any;
+import static org.mockito.Matchers.matches;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
@@ -31,12 +35,14 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @RunWith(SpringRunner.class)
 @ContextConfiguration(classes = SurveyServiceApplication.class)
-@WebMvcTest
+//@WebMvcTest
+@AutoConfigureMockMvc
+@SpringBootTest
 public class SurveyControllerTest {
     @Autowired
     private MockMvc mockMvc;
     private Survey survey;
-    @MockBean
+    @Mock
     private SurveyService surveyService;
     @InjectMocks
     private SurveyController surveyController;
@@ -57,7 +63,7 @@ public class SurveyControllerTest {
     }
     @Test
     public void testSaveSurvey() throws Exception{
-        when(surveyService.saveSurvey(any(),"1")).thenReturn(survey);
+        when(surveyService.saveSurvey(any(),matches("1"))).thenReturn(survey);
         mockMvc.perform(post("/api/v1/survey")
                 .contentType(MediaType.APPLICATION_JSON_UTF8)
                 .accept(MediaType.APPLICATION_JSON)

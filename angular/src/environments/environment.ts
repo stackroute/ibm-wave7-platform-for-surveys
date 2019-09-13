@@ -4,6 +4,7 @@
 
 export const environment = {
   production: false,
+
   baseURI : "http://13.235.226.107:8500/survey-service/api/v1",
   loginBaseURI : "http://13.235.226.107:8500/login-authentication-service",
   signUpBaseURI : "http://13.235.226.107:8500/user-registration-service",

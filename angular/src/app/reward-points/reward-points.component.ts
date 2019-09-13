@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Router } from "@angular/router";
 import { ActivatedRoute } from "@angular/router";
 
@@ -8,13 +8,14 @@ import { ActivatedRoute } from "@angular/router";
   styleUrls: ['./reward-points.component.scss']
 })
 export class RewardPointsComponent implements OnInit {
-
+  @Input() public parentData;
   constructor(
     private route: ActivatedRoute,
     private router: Router
   ) { }
 
   ngOnInit() {
+    this.parentData = Math.floor((Math.random() * 50) + 50);
   }
   reward() {
       this.router.navigateByUrl("");
