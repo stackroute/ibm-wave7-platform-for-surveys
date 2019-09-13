@@ -97,9 +97,11 @@ ul {
   padding-left: 0;
 }
 footer {
-  background-color: #555;
+  background-color: rgb(32, 32, 32);
   color: #bbb;
   line-height: 1.5;
+  bottom:0;
+  
 }
 footer a {
   text-decoration: none;
@@ -128,26 +130,25 @@ body {
 .ft-social-list {
   display: flex;
   justify-content: center;
-  border-top: 1px #777 solid; 
+  border-top: 1px rgb(248, 247, 247) solid; 
   padding-top: 1.25rem;
 }
 .ft-social-list li {
-  margin: 0.5rem 1.5rem;
+  margin: 0.5rem 1.5rem 0rem;
   font-size: 1.25rem;
 }
-@media only screen and (min-width: 29.8125rem /*477px*/) {
-  .ft-main {
-      justify-content: space-around;
-  }
-}
-@media only screen and (min-width: 77.5rem /*1240px*/ ) {
-  .ft-main {
-      justify-content: space-evenly;
-  }
-}
+// @media only screen and (min-width: 29.8125rem /*477px*/) {
+//   .ft-main {
+//       justify-content: space-around;
+//   }
+// }
+// @media only screen and (min-width: 77.5rem /*1240px*/ ) {
+//   .ft-main {
+//       justify-content: space-evenly;
+//   }
+// }
 ft-legal {
   padding: 0.9375rem 1.875rem;
-  background-color: rgb(3, 3, 3);
 }
 .ft-legal-list {
   width: 100%;
@@ -178,6 +179,18 @@ input[type="submit"] {
   border: 0;
   padding: 0.625rem 0.9375rem;
   margin-top: 0.3125rem;
+}
+ft-main {
+  padding: 1.25rem 1.875rem;
+  display: flex;
+  flex-wrap: wrap;
+ 
+}
+.ft-main-item {
+  padding: 1.25rem;
+  min-width: 12.5rem /*200px*/;
+  justify-content: center;
+  align-content: center;
 }
 
 

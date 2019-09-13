@@ -8,15 +8,15 @@
 }
 .btn
 {
- float:right;
-//  margin-top:0.8cm;
- display: block;
  background-color: grey;
  color: white;
 border: 2px solid white;
 font-size: 20px;
 margin:0.5cm;
-
+justify-content: right;
+// align-content: center;
+width:70px;
+float:right;
 }
 
 .mat-card-actions {
@@ -128,6 +128,11 @@ li{
     text-overflow: ellipsis; 
     text-align:left;
     // border: 1px solid #000000;
+  }
+  span.spacer{
+    display:flex;
+    float:right;
+    height:2cm;
   }
 
  
