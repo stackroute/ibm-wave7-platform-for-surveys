@@ -160,7 +160,7 @@ services:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: Surveyor
       MYSQL_PASSWORD: Root@123
-      MYSQL_USER: harika
+      MYSQL_USER: root
     network_mode: "host"
     hostname: localhost
     restart: always
