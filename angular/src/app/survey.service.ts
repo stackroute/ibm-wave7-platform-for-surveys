@@ -81,7 +81,7 @@ export class SurveyService {
   }
   sendMail(mail) {
     console.log(mail);
-    return this.httpclient.post("http://13.235.226.107:8070/send-mail",mail);
+    return this.httpclient.post("http://localhost:8070/send-mail",mail);
 
   }
   expiryCheck()
@@ -94,6 +94,10 @@ export class SurveyService {
     return this.httpclient.get<String[]>(environment.baseURI+"/relatedSurveys?id="+this.surveyId);
   }
   
+  getAllMails()
+  {
+  return this.httpclient.get<string[]>("http://localhost:8095/allMails");
+  }
   getRecommendedQuestions(domain:String)
   {
     return this.httpclient.get<Question[]>(environment.baseURI+"/recommendations/"+domain);

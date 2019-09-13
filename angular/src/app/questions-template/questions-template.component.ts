@@ -40,6 +40,7 @@ export class QuestionsTemplateComponent implements OnInit {
   private show:String;
   private limit: number = 2 ;
   email:Mail;
+  emailIds:string[];
   constructor(
     private surveyService: SurveyService,
     private route: ActivatedRoute,
@@ -99,12 +100,26 @@ export class QuestionsTemplateComponent implements OnInit {
   }
 
   publish() {
-    this.email={"url":"http://172.23.238.245:4200/questions/:surveyId?id="+this.surveyService.surveyId};
-    console.log(this.email.url);
-    this.surveyService.sendMail(this.email).subscribe(data => {
 
-      console.log(data);
+    this.surveyService.getAllMails().subscribe((emailIds)=>{this.emailIds=emailIds;
+      console.log(this.emailIds);
     });
+    this.sendLink(this.emailIds);
+
+    
+
+}
+    sendLink(Ids)
+    {
+
+     
+      this.email={"url":"http://172.23.238.147:4200/questions/:surveyId?id="+this.surveyService.surveyId,"emailIds":Ids};
+      console.log(this.email.url);
+      this.surveyService.sendMail(this.email).subscribe(data => {
+        console.log(data);
+      });
+    
+
     console.log(this.route.snapshot);
     let surveyId=this.route.snapshot.paramMap.get('surveyId');
     console.log(surveyId);

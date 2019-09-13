@@ -19,13 +19,14 @@ export class UserWelcomeComponent implements OnInit {
     ) { }
 
   user:User;
-  id:String;
+  id:string;
 
   ngOnInit() {
 
   }
   onClick(email)
 {
+  console.log(email);
   this.userRegistration.email=email;
   this.userRegistration.saveUserEmail(email).subscribe((id) => 
   {

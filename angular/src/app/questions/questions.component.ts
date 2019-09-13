@@ -26,12 +26,13 @@ export class QuestionsComponent implements OnInit {
 
   ngOnInit() {
     let surveyId = this.route.snapshot.paramMap.get('surveyId');
+    console.log(surveyId);
     this.getQuestionList(surveyId);
-    this.surveyService.expiryCheck().subscribe(
-      (num) => {
-      this.num = num;
-        console.log(window.location.href)
-      });
+    // this.surveyService.expiryCheck().subscribe(
+    //   (num) => {
+    //   this.num = num;
+    //     console.log(window.location.href)
+    //   });
   }
 
   submit() {

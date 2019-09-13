@@ -15,7 +15,7 @@ import { Mail } from '../mail';
 export class SignUpComponent implements OnInit {
   public user: User;
   public emailAlredyExist = "";
-  email: Mail;
+  email: string;
 
   constructor(
     private registrationService: UserRegistrationService,
