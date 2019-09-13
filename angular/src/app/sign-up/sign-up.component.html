@@ -1,3 +1,4 @@
+<div *ngIf="router.url === '/thankyou/signup'">
 <div class="flex-container" fxLayout="row" fxFlex.lt-md="column">
   <mat-card class="example-card">
     <mat-card-header>
@@ -23,7 +24,7 @@
         <mat-form-field class="full-width">
           <mat-label>Email</mat-label>
           <input matInput placeholder="Email" name="email" [(ngModel)]="email" required
-            [formControl]="emailFormControl" />
+            [formControl]="emailFormControl"/>
           <mat-error *ngIf="emailFormControl.invalid">{{
             getEmailErrorMessage("email")
           }}</mat-error>
@@ -50,10 +51,11 @@
             <mat-error *ngIf="roleFormControl.invalid">{{
               getRoleErrorMessage("role")
             }}</mat-error>
-            <mat-option value="Surveyor">Surveyor</mat-option>
+            <!-- <mat-option value="Surveyor">Surveyor</mat-option> -->
             <mat-option value="User">User</mat-option>
           </mat-select>
         </mat-form-field>
+      
         <button mat-raised-button type="submit" color="primary" [disabled]="biodataForm.invalid">
           REGISTER
         </button>
@@ -61,3 +63,82 @@
     </mat-card-content>
   </mat-card>
 </div>
+</div>
+
+
+<div *ngIf="router.url === '/signup'">
+  <div class="flex-container" fxLayout="row" fxFlex.lt-md="column">
+    <mat-card class="example-card">
+      <mat-card-header>
+        <mat-card-title>Sign Up</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <form class="my-form" [formGroup]="biodataForm" #userregistrationform="ngForm"
+          (ngSubmit)="saveUser(userregistrationform.value)">
+          <mat-form-field class="full-width">
+            <mat-label>Username</mat-label>
+            <input
+              matInput
+              required
+              placeholder="Username"
+              name="name"
+              [(ngModel)]="name"
+              [formControl]="nameFormControl"
+            />
+            <mat-error *ngIf="nameFormControl.invalid">{{
+              getRequiredErrorMessage("name")
+            }}</mat-error>
+          </mat-form-field>
+          <mat-form-field class="full-width">
+            <mat-label>Email</mat-label>
+            <input matInput placeholder="Email" name="email" [(ngModel)]="email" required
+              [formControl]="emailFormControl" disabled/>
+            <mat-error *ngIf="emailFormControl.invalid">{{
+              getEmailErrorMessage("email")
+            }}</mat-error>
+  
+            <div *ngIf="emailAlredyExist != ''" class="alert alert-danger">
+              {{emailAlreadyExist}}
+            </div>
+          </mat-form-field>
+  
+          <mat-form-field class="full-width">
+            <mat-label>Password</mat-label>
+            <input matInput placeholder="Password" type="password" name="password" [(ngModel)]="password" required
+              [formControl]="passwordFormControl" [type]="hide ? 'password':'text'" />
+            <mat-icon matSuffix (click)="hide = !hide">
+              {{hide ? 'visibility' : 'visibility_off'}}
+            </mat-icon>
+            <mat-error *ngIf="passwordFormControl.invalid">{{
+              getPasswordErrorMessage("password")
+            }}</mat-error>
+          </mat-form-field>
+          <mat-form-field class="full-width">
+            <mat-label>Role</mat-label>
+            <mat-select placeholder="Select role" [(ngModel)]="value" name="role" [formControl]="roleFormControl">
+              <mat-error *ngIf="roleFormControl.invalid">{{
+                getRoleErrorMessage("role")
+              }}</mat-error>
+              <mat-option value="Surveyor" aria-disabled="Role">Surveyor</mat-option>
+              <mat-option value="User">User</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <button mat-raised-button type="submit" color="primary" [disabled]="biodataForm.invalid">
+            REGISTER
+          </button>
+        </form>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  </div>
+  
+  
+  
+  
+  
+    
+
+
+
+
+  

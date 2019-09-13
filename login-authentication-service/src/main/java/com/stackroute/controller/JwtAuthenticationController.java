@@ -1,5 +1,6 @@
 package com.stackroute.controller;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -57,4 +58,5 @@ public class JwtAuthenticationController {
 			throw new Exception("INVALID_CREDENTIALS", e);
 		}
 	}
+
 }

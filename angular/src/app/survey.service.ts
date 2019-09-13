@@ -45,7 +45,10 @@ export class SurveyService {
     return this.httpclient.get<User>(environment.baseURI + "/surveyor/"+this.loginCredentials.id);
   }
  
-
+  getFilteredEmails() : Observable<String[]>
+  {
+    return this.httpclient.get<String[]>(environment.signUpBaseURI + "/surveyor/"+this.loginCredentials.id); 
+  }
   
   saveQuestion(question: Question) {
     //creating a Guid Id
@@ -76,14 +79,11 @@ export class SurveyService {
   getAllQuestions(surveyId : string): Observable<Survey> {
     return this.httpclient.get<Survey>(environment.baseURI + "/survey/" + surveyId);
   }
-
   sendMail(mail) {
     console.log(mail);
-    return this.httpclient.post("http://172.23.238.147:8070/send-mail",mail);
+    return this.httpclient.post(environment.mailURI,mail);
 
   }
-
-
   expiryCheck()
   {
     return this.httpclient.get<number>(environment.baseURI+"/expiryCheck"+"?id="+this.surveyId);
@@ -100,11 +100,14 @@ export class SurveyService {
   }
 
   saveResponse(userResponse:Response):Observable<Response>{
-    var url="http://172.23.238.248:8091/api/v1/response"
-    return this.httpclient.post<Response>(url,userResponse,httpOptions);
+    return this.httpclient.post<Response>(environment.responseBaseURI+"/response",userResponse,httpOptions);
   }
+
+  saveResponseList(responseList:Response[]):Observable<Response[]>{
+    return this.httpclient.post<Response[]>(environment.responseBaseURI+"/responseList",responseList,httpOptions);
+  }
+
   getResponseById(id:string):Observable<Response>{
-    var url="http://172.23.238.200:8091/api/v1/response"+id;
-  return this.httpclient.get<Response>(url);
+    return this.httpclient.get<Response>(environment.responseBaseURI+"/response"+id);
   }
 }

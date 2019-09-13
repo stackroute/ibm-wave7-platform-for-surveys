@@ -1,4 +1,5 @@
 FROM openjdk:11
-COPY target/mail-service-0.0.1-SNAPSHOT.jar app.jar
+ADD ./target/mail-service-1.0.0.jar usr/src/mail-service-1.0.0.jar
 EXPOSE 8070
-ENTRYPOINT ["java","-jar","app.jar"]
+WORKDIR usr/src
+ENTRYPOINT ["java","-jar","mail-service-1.0.0.jar"]

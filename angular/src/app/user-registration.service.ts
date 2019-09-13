@@ -7,6 +7,7 @@ import { Observable, BehaviorSubject } from 'rxjs';
 import { Guid } from "guid-typescript";
 import { catchError } from 'rxjs/operators';
 import { throwError } from 'rxjs';
+import { Mail } from './mail';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -26,6 +27,7 @@ export class UserRegistrationService {
   logged = this.loggedIn.asObservable();
   private loggedOut = new BehaviorSubject<boolean>(false);
   logOut = this.loggedOut.asObservable();
+  email:Mail;
 
   saveUser(user:User):Observable<User>
   {
@@ -45,7 +47,7 @@ export class UserRegistrationService {
     // this.user={'id':id,'email':email};
     // this.user.id=id;
     // this.user.email=email;
-    return this.httpClient.post("http://localhost:8095/username?email="+email,email);
+    return this.httpClient.get<String>("http://localhost:8095/username?email="+email,email);
   }
 
   setLogin(value: boolean) {
@@ -79,10 +81,15 @@ updateUser(user:User,id:String):Observable<User>{
   return this.httpClient.put<User>(url ,user, httpOptions);
 
 }
-forgotPassword(login:LoginUser,password:String){
-  var apiUrl = "http://localhost:8080/authenticate";
-  return this.httpClient.put(apiUrl + "/" + login.password,httpOptions);
+forgotPassword(login:LoginUser): Observable<any>{
+  var apiUrl = environment.loginBaseURI+"/forgot-password";
+  return this.httpClient.post(apiUrl,httpOptions);
 }
+
+ resetpassword(data: LoginUser): Observable<any> {
+   var apiUrl = environment.loginBaseURI+"/reset-password";
+   return this.httpClient.put<any>(apiUrl, data);
+ }
 getUser():Observable<User>{
   var url = "http://localhost:8095/user";
  

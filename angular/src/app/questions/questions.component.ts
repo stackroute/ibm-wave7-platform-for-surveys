@@ -4,7 +4,8 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { SurveyService } from '../survey.service';
 import { Question } from '../modals/Question';
 import { Response } from '../modals/Response';
-import { parse } from 'querystring';
+import { Survey } from '../modals/Survey';
+
 
 @Component({
   selector: 'app-questions',
@@ -14,9 +15,14 @@ import { parse } from 'querystring';
 export class QuestionsComponent implements OnInit {
 
   num;
+  response:Response;
+  
   id: [];
+  private survey:Survey;
 
   private questionList: Question[];
+  private responseList : Response[];
+  private respondents:number;
   constructor(private router: Router, private surveyService: SurveyService, private route: ActivatedRoute) { }
 
   ngOnInit() {
@@ -40,27 +46,42 @@ export class QuestionsComponent implements OnInit {
     });
   }
 
-  saveResponse(responseList: Question[]) {
-    console.log(responseList);
+  saveResponse(questionList: Question[]) {
+    console.log(questionList);
 
-      for (let i = 0; i < responseList.length; i++) {
+    //  this.response.randomNum=Math.floor(Math.random()*100)+50;
+    //  console.log(this.response.randomNum);
+    
+      for (let i = 0; i < questionList.length; i++) {
+        let question = questionList[i]
+        let response : Response = {
+          question_id: "",
+          response: "",
+          user_id: "",
+          servey_id: "",
+          randomNum:0
+        }
 
-        let question = responseList[i]
-        let response : Response
         response.question_id = question.questionId;
         response.response = question.response;
         response.servey_id = question.survey_id;
         response.user_id = this.surveyService.loginCredentials.id;
-        
-        this.surveyService.saveResponse(response)
-          .subscribe(
-            data => {
-              console.log(data);
-            },
-            error => {
-              alert("error=" + error);
-            });
+        // this.respondents++;
+        this.responseList.push(response);
       }
+
+      this.surveyService.saveResponseList(this.responseList)
+      .subscribe(
+        data => {
+          console.log(data);
+        }, 
+        error => {
+          alert("error=" + error);
+        });
+      // if(this.survey.respondants<=this.respondents && this.survey.expiryDate<="1")
+      // {
+      //   // this.surveyService.sendMail(url);
+      // }
   }
 
   newSurveys() {

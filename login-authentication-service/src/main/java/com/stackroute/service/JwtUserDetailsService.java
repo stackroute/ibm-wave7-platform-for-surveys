@@ -3,7 +3,6 @@ package com.stackroute.service;
 import java.util.ArrayList;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -13,7 +12,6 @@ import org.springframework.stereotype.Service;
 import com.stackroute.dao.UserDao;
 import com.stackroute.model.DAOUser;
 import com.stackroute.model.UserDTO;
-
 @Service
 public class JwtUserDetailsService implements UserDetailsService {
 	
@@ -22,6 +20,7 @@ public class JwtUserDetailsService implements UserDetailsService {
 
 	@Autowired
 	private PasswordEncoder bcryptEncoder;
+
 
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
@@ -39,4 +38,5 @@ public class JwtUserDetailsService implements UserDetailsService {
 		newUser.setPassword(bcryptEncoder.encode(user.getPassword()));
 		return userDao.save(newUser);
 	}
+
 }

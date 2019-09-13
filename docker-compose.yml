@@ -23,6 +23,16 @@ services:
     ports:
       - 8888:8888
 
+#  angular:
+#    build: angular/
+#    restart: always
+#    network_mode: "host"
+#    hostname: localhost
+#    ports:
+#      - 4200:4200
+#    healthcheck:
+#      test: "exit 0"
+
   zuul-api:
     build: zuul-api/
     depends_on:
@@ -105,22 +115,22 @@ services:
     ports:
       - 8082:8082
 
-  #  mail-service:
-  #    build: mail-service/
-  #    restart: always
-  #    container_name: mail-service
-  #    depends_on:
-  #      - mongo
-  #      - eureka-server
-  #      - config-service
-  #      - zuul-api
-  #    network_mode: "host"
-  #    image: mail-service
-  #    hostname: localhost
-  #    healthcheck:
-  #      test: "exit 0"
-  #    ports:
-  #      - 8083:8083
+  mail-service:
+    build: mail-service/
+    restart: always
+    container_name: mail-service
+    depends_on:
+      - mongo
+      - eureka-server
+      - config-service
+      - zuul-api
+    network_mode: "host"
+    image: mail-service
+    hostname: localhost
+    healthcheck:
+      test: "exit 0"
+    ports:
+      - 8070:8070
 
   login-authentication-service:
     build: login-authentication-service/
@@ -150,7 +160,8 @@ services:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: Surveyor
       MYSQL_PASSWORD: Root@123
-      MYSQL_USER: root
+      MYSQL_USER:
+        harika
     network_mode: "host"
     hostname: localhost
     restart: always
@@ -160,6 +171,8 @@ services:
   neo4j:
     image: neo4j:latest
     restart: always
+    environment:
+      NEO4J_AUTH: neo4j/<Root@123>
     ports:
       - 7474:7474
       - 7687:7687

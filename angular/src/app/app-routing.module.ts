@@ -16,13 +16,15 @@ import { AboutUsComponent } from './about-us/about-us.component';
 import { SupportPageComponent } from './support-page/support-page.component';
 import { QuestionsComponent } from './questions/questions.component';
 import {ResponseAnalysisComponent} from './response-analysis/response-analysis.component';
+
+import { MypasswordComponent } from './mypassword/mypassword.component';
+import { ResetpasswordComponent } from './resetpassword/resetpassword.component';
+
 import { UserWelcomeComponent } from './user-welcome/user-welcome.component';
 
+
 const routes: Routes = [
-  {
-    path:'sign-up',component:SignUpComponent
-  },
-  {
+ {
     path:'survey',component:MySurveyCardComponent
   },
   {
@@ -37,6 +39,10 @@ const routes: Routes = [
   },
   {
     path : 'question-template/:surveyId',
+    component : QuestionsTemplateComponent
+  },
+  {
+    path : 'question-template',
     component : QuestionsTemplateComponent
   },
   {
@@ -76,11 +82,21 @@ const routes: Routes = [
     path:'response',component:ResponseAnalysisComponent
   },
   {
+
+    path:'password',component:MypasswordComponent
+  },
+  {
+    path:'resetpassword',component:ResetpasswordComponent
+  },
+{
     path:'rewards',component:RewardPointsComponent
+  },
+  {
+    path:'thankyou/signup',component:SignUpComponent
   }
+
   
-  
-];
+]
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

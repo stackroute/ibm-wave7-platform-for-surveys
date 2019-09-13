@@ -21,5 +21,12 @@ public class Response {
     private String response;
     private String user_id;
     private String survey_id;
+    private int randomNum;
 
+    public Response(String question_id, String response, String user_id, String survey_id) {
+        this.question_id = question_id;
+        this.response = response;
+        this.user_id = user_id;
+        this.survey_id = survey_id;
+    }
 }

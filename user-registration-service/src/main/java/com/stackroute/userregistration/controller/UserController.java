@@ -12,12 +12,11 @@ import java.util.List;
 
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
-@ControllerAdvice(basePackages = "com.stackroute.userregistration")
 public class UserController {
-    //creating the object of the user service to invoke all the methods in the service
-    @Autowired
-    private UserService userService;
 
+    //creating the object of the user service to invoke all the methods in the service
+
+    private UserService userService;
     @Autowired
     private KafkaTemplate<String, User> kafkaTemplate;
 
@@ -25,8 +24,8 @@ public class UserController {
     private static final String TOPIC = "UserRegistration";
     // handling user request with endpoint passing name
 
-
     //Constructor of the controller having the userservice parameter
+   @Autowired
     public UserController(UserService userService) {
         this.userService = userService;
     }
@@ -36,13 +35,13 @@ public class UserController {
     public ResponseEntity<?> saveUser(@RequestBody User user)  {
 
         //Saving the user and returning the user
-        User savedUser = null;
-        try {
+        User savedUser;
+       try {
             savedUser = userService.saveUser(user);
-        } catch (EmailAlreadyExistException e) {
+       } catch (EmailAlreadyExistException e) {
             return new ResponseEntity<String>(e.getMessage(), HttpStatus.CONFLICT);
         }
-        this.kafkaTemplate.send(TOPIC, savedUser);
+       this.kafkaTemplate.send(TOPIC, savedUser);
         System.out.println(savedUser);
         return new ResponseEntity<User>(savedUser, HttpStatus.CREATED);
     }
@@ -80,10 +79,10 @@ public class UserController {
     }
 
     @GetMapping("username")
-    public ResponseEntity<?> saveUserEmail(@RequestParam String email)
+    public String saveUserEmail(@RequestParam String email)
     {
 //        return ;
-        return new ResponseEntity<User>( userService.saveUserEmail(email),HttpStatus.OK);
+        return userService.saveUserEmail(email);
     }
 
 }
