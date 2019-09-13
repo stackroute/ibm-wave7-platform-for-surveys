@@ -60,22 +60,22 @@ public class JwtAuthenticationController {
 			throw new Exception("INVALID_CREDENTIALS", e);
 		}
 	}
-	@RequestMapping(value = "/forgot-password", method = RequestMethod.POST)
-	public ResponseEntity<?> getEmail(@RequestBody String username) throws Exception {
-		System.out.println(username);
-		JSONObject jsonObject = new JSONObject(username);
-		username = jsonObject.getString("username");
-		System.out.println(username);
-		final String userDetails = userDetailsService.forgotPassword(username);
-		return ResponseEntity.ok(userDetails);
-	}
-
-
-	@RequestMapping(value = "/reset-password", method = RequestMethod.PUT)
-	public ResponseEntity<?> getNewPassword(@RequestBody UserDTO userDTO) throws Exception {
-		System.out.println(userDTO);
-		ResponseEntity responseEntity;
-		responseEntity = new ResponseEntity<>(userDetailsService.update(userDTO), HttpStatus.OK);
-		return responseEntity;
-	}
+//	@RequestMapping(value = "/forgot-password", method = RequestMethod.POST)
+//	public ResponseEntity<?> getEmail(@RequestBody String username) throws Exception {
+//		System.out.println(username);
+//		JSONObject jsonObject = new JSONObject(username);
+//		username = jsonObject.getString("username");
+//		System.out.println(username);
+//		final String userDetails = userDetailsService.forgotPassword(username);
+//		return ResponseEntity.ok(userDetails);
+//	}
+//
+//
+//	@RequestMapping(value = "/reset-password", method = RequestMethod.PUT)
+//	public ResponseEntity<?> getNewPassword(@RequestBody UserDTO userDTO) throws Exception {
+//		System.out.println(userDTO);
+//		ResponseEntity responseEntity;
+//		responseEntity = new ResponseEntity<>(userDetailsService.update(userDTO), HttpStatus.OK);
+//		return responseEntity;
+//	}
 }
