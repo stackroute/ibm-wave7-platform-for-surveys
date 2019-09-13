@@ -18,6 +18,7 @@ import { NgForm } from '@angular/forms';
 import { ChatbotComponent } from '../chatbot/chatbot.component';
 import { MatBottomSheet } from '@angular/material/bottom-sheet';
 import { Mail } from '../mail'
+import { ConstantPool } from '@angular/compiler';
 
 
 @Component({
@@ -52,12 +53,12 @@ export class QuestionsTemplateComponent implements OnInit {
   
    
   ngOnInit() {
-  
     this.getQuestionList(this.surveyService.editSurvey.id);
     this.getRecommendedQuestions(this.surveyService.editSurvey.domain_type);
   }
   showMore()
   {
+    console.log("this.recommendedQuestionList");
     this.limit=40;
     this.show="less";
     this.getRecommendedQuestions(this.surveyService.editSurvey.domain_type);
@@ -99,7 +100,7 @@ export class QuestionsTemplateComponent implements OnInit {
   }
 
   publish() {
-    this.email={"url":"http://172.23.238.245:4200/questions/:surveyId?id="+this.surveyService.surveyId};
+    this.email={"url":"http://172.23.238.187:4200/questions/:surveyId?id="+this.surveyService.surveyId};
     console.log(this.email.url);
     this.surveyService.sendMail(this.email).subscribe(data => {
 

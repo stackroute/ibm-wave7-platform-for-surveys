@@ -81,7 +81,7 @@ export class SurveyService {
   }
   sendMail(mail) {
     console.log(mail);
-    return this.httpclient.post("http://13.235.226.107:8070/send-mail",mail);
+    return this.httpclient.post(environment.mailURI,mail);
 
   }
   expiryCheck()
