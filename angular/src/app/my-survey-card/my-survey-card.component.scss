@@ -4,18 +4,18 @@
     flex-wrap: wrap;
     justify-content:space-around;
     text-align: left;
+  
 }
 .btn
 {
- margin-right:90vh;
+ float:right;
 //  margin-top:0.8cm;
  display: block;
- margin-left:auto;
- margin-right:auto;  
  background-color: grey;
  color: white;
 border: 2px solid white;
 font-size: 20px;
+margin:0.5cm;
 
 }
 
@@ -34,19 +34,10 @@ font-size: 20px;
 border: 2px solid grey;
 }
 
-.flex-container{
-    background-color:grey;
-    width:100%;
-    height:3cm;
-    left:0cm;
-    display: block;
-    margin-left:auto;
-    margin-right:auto;  
-}
 .a{ 
     margin-left:auto;
     margin-right:auto;
-    margin-top:0.3cm;
+    // margin-top:0.8cm;
     margin-bottom:auto;
     padding-left: 3cm;
     padding-right:3cm;
@@ -54,6 +45,7 @@ border: 2px solid grey;
     height:auto;
     background: rgb(255,149,149);
     background: linear-gradient(264deg, rgba(255,149,149,1) 0%, rgba(255,149,149,1) 32%, rgba(33,1,56,1) 100%);padding: 0 0 0.2em 0;
+    
 }
 h2{
     margin-top:1.7cm;
@@ -79,23 +71,24 @@ li{
     // box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     // transition: 0.1s;
     border-radius: 5px;
-    // margin-top: 100px;
+    padding:0.2cm;
+    margin:2cm;
     width:150px;
     min-width: 180px;
     height:8cm;
-    margin:1cm;
     // padding:1cm;
     white-space: nowrap; 
-    width: 50px; 
+    width: 80px; 
     overflow: hidden;
     text-overflow: ellipsis; 
     border: 1px solid #000000;
+    
 
   }
   
   .card:hover {
     box-shadow: 0 8px 25px 0 rgba(0,0,0,0.8);
-    width:200px;
+    width:190px;
   }
   
   img {
@@ -130,10 +123,11 @@ li{
   }
   mat-card-title,mat-card-subtitle{
     white-space: nowrap; 
-    width: 70px; 
+    width: 80px; 
     overflow: hidden;
     text-overflow: ellipsis; 
     text-align:left;
     // border: 1px solid #000000;
   }
+
  

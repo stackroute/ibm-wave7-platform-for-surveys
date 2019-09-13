@@ -1,25 +1,11 @@
-<header>
-  <mat-toolbar fxLayout.xs="column">
+<!-- <header  fxLayout="row"fxLayout.lt-sm="column"> -->
+  <mat-toolbar class="flex-container">
     <mat-toolbar-row>
-      <!-- <a routerLink="">
-        <span fxFlex="10%" class="header">SURVEY</span></a> -->
       <a routerLink=''><p><strong>POLLURVEY</strong></p></a>
-      
       <span class="spacer"></span>
-      <!-- <button class="main-button" fxFlex="10%" mat-button [matMenuTriggerFor]="menu">Help</button>
-       <button mat-button [matMenuTriggerFor]="menu">Menu</button> -->
-      <!-- <mat-menu #menu="matMenu">
-        <button mat-menu-item (click) = "about()">About Us</button>
-        <button mat-menu-item (click)="support()">Support</button> -->
-        
-      <!-- </mat-menu>  -->
-      <button class="main-button1" fxFlex="20%" *ngIf="loggedIn" fxFlex="10%" (click)="login()" mat-button>LOGIN</button>
-      <button class="main-button" *ngIf="loggedOut" fxFlex="10%" (click)="myprofile()" mat-button>My Profile</button>
-      <button class="main-button" *ngIf="loggedOut" fxFlex="10%" (click)="login()" mat-button>Logout</button>
-      
-
-      <!-- <button  fxFlex="10%" (click)="myprofile()" mat-button>myprofile</button> -->
-    </mat-toolbar-row>
-    
+      <button class="main-button1"  *ngIf="loggedIn"  (click)="login()" mat-button>LOGIN</button>
+      <button class="main-button" *ngIf="loggedOut" (click)="myprofile()" mat-button>My Profile</button>
+      <button class="main-button" *ngIf="loggedOut"(click)="login()" mat-button>Logout</button>
+      </mat-toolbar-row> 
   </mat-toolbar>
-</header>
+<!-- </header> -->
