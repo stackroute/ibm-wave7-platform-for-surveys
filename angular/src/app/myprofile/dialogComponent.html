@@ -1,4 +1,4 @@
-<div class="bcolor">
+
 <mat-card class="example-card">
     <mat-card-header>
       <mat-card-title>Myprofile Edit</mat-card-title>
@@ -19,8 +19,8 @@
           <mat-label class ="control-label">Gender</mat-label>
           <mat-select [(ngModel)]="data.gender" name="gender" required #gender="ngModel">
             
-            <mat-option value="male">Male</mat-option>
-            <mat-option value="female">Female</mat-option>
+            <mat-option value="Male">Male</mat-option>
+            <mat-option value="Female">Female</mat-option>
           </mat-select>
           <span class="validations" *ngIf="gender.touched && gender.invalid">
             gender is required
@@ -31,13 +31,13 @@
           <mat-label class ="control-label">Location</mat-label>
           <mat-select [(ngModel)]="data.location" name="location" required #location="ngModel">
             
-            <mat-option value="hyderabad">Hyderabad</mat-option>
-            <mat-option value="bengluru">Bangalore</mat-option>
-            <mat-option value="chennai">Chennai</mat-option>
-            <mat-option value="pune">Pune</mat-option>
-            <mat-option value="delhi">Delhi</mat-option>
+            <mat-option value="Hyderabad">Hyderabad</mat-option>
+            <mat-option value="Bangalore">Bangalore</mat-option>
+            <mat-option value="Chennai">Chennai</mat-option>
+            <mat-option value="Pune">Pune</mat-option>
+            <mat-option value="Delhi">Delhi</mat-option>
             <mat-option value="Mumbai">Mumbai</mat-option>
-            <mat-option value="other">Other</mat-option>
+            <mat-option value="Other">Other</mat-option>
 
           </mat-select>
           <span class="validations" *ngIf="location.touched && location.invalid">
@@ -49,10 +49,10 @@
           <mat-label class ="control-label">age</mat-label>
           <mat-select [(ngModel)]="data.ageGroup" name="ageGroup" required #ageGroup="ngModel">
             
-            <mat-option value="children">1 to 16</mat-option>
-            <mat-option value="youth">17 to 30</mat-option>
-            <mat-option value="Middle age">31 to 60</mat-option>
-            <mat-option value="old age">Old age</mat-option>
+            <mat-option value="Children">1 to 16</mat-option>
+            <mat-option value="Youth">17 to 30</mat-option>
+            <mat-option value="Middle Age">31 to 60</mat-option>
+            <mat-option value="Old Age">Old age</mat-option>
           </mat-select>
           <span class="validations" *ngIf="ageGroup.touched && ageGroup.invalid">
             age required
@@ -63,14 +63,14 @@
       </div>
       
     </mat-card-content>
-    <button mat-raised-button color="primary" [mat-dialog-close]="data" cdkFocusInitial>Save</button>
+    
+    <mat-card-actions>
+        <button mat-raised-button color="primary" [mat-dialog-close]="data" cdkFocusInitial>Save</button>
       
         <button mat-raised-button (click)="onNoClick()" color="primary">Cancel</button>
-    <mat-card-actions>
-       
     </mat-card-actions>
   </mat-card>
-  </div>
+  
 
 
   
