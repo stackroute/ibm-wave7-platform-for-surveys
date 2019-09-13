@@ -17,6 +17,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class Response {
 
     @Id
+    private String response_id;
     private String question_id;
     private String response;
     private String user_id;
