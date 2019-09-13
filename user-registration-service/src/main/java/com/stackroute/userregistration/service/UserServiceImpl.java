@@ -72,10 +72,11 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
-    public User saveUserEmail(String email)
+    public String saveUserEmail(String email)
     {
         user.setEmail(email);
-        return userRepository.save(user);
+        userRepository.save(user);
+        return user.getId();
     }
 
 

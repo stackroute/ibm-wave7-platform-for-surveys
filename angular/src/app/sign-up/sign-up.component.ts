@@ -1,9 +1,10 @@
 import { Component, OnInit } from "@angular/core";
 import { UserRegistrationService } from "../user-registration.service";
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute, RouterState, Routes, RouterLink, RouteReuseStrategy } from "@angular/router";
 import { User } from "../modals/User";
 import { Router } from "@angular/router";
 import { FormControl, Validators, FormGroup } from "@angular/forms";
+import { Mail } from '../mail';
 
 
 @Component({
@@ -14,14 +15,18 @@ import { FormControl, Validators, FormGroup } from "@angular/forms";
 export class SignUpComponent implements OnInit {
   public user: User;
   public emailAlredyExist = "";
+  email: Mail;
 
   constructor(
     private registrationService: UserRegistrationService,
     private route: ActivatedRoute,
     private router: Router
-  ) {}
+  ) { }
 
-  ngOnInit() {}
+  ngOnInit() { 
+    this.email=this.registrationService.email;
+    console.log(this.email);    // this.getMail(this.email);
+  }
   nameFormControl = new FormControl("", [Validators.required]);
   emailFormControl = new FormControl("", [
     Validators.required,
@@ -44,8 +49,8 @@ export class SignUpComponent implements OnInit {
     return this.emailFormControl.hasError("required")
       ? "you must enter a valid email"
       : this.emailFormControl.hasError("email")
-      ? "Not a valid email"
-      : "";
+        ? "Not a valid email"
+        : "";
   }
 
   // emailCheckUnique() {
@@ -77,5 +82,5 @@ export class SignUpComponent implements OnInit {
       this.router.navigateByUrl("login");
     });
   }
-  
 }
+

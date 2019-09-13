@@ -27,21 +27,33 @@ export class MypasswordComponent implements OnInit {
   //  get password2() { return this.formGroup.get('password2'); }
  
    /* Called on each input in either password field */
+
   //  onPasswordInput() {
   //    if (this.formGroup.hasError('passwordMismatch'))
   //      this.password2.setErrors([{'passwordMismatch': true}]);
   //    else
   //      this.password2.setErrors(null);
   //  }
+
+  //  onPasswordInput() {
+  //    if (this.formGroup.hasError('passwordMismatch'))
+  //      this.password2.setErrors([{'passwordMismatch': true}]);
+  //    else
+  //      this.password2.setErrors(null);
+  //  }
+
+// >>>>>>> 10c626aef4921303766efd2ba136750cf09c9115
   //  updatePassword(){
   //    this.registrationService.forgotPassword(this.login,this.login.password).subscribe((data)=> {
       
   //     console.log(data);
   //  });
   // }
+  
   reset() {
     console.log(this.email);
-    //this.login.name = this.email;
+    this.login.email = this.email;
+    console.log(this.email);
     this.registrationService.forgotPassword(this.login)
     .subscribe(data => {
       console.log(data);

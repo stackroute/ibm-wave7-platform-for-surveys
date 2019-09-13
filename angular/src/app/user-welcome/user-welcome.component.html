@@ -7,9 +7,8 @@
     <input #text type=text>
     </label>
     <h2>To take survey click here...!</h2>
-    <button (click)="onClick(text.value)">Take Survey</button>
-    <!-- <a routerLink='questions/:surveyId' > -->
-    <!-- </a> -->
+    <a routerLink='/questions/:surveyId'><button (click)="onClick(text.value)">Take Survey</button></a>
+   
 
     </div>
 </div>

@@ -148,6 +148,8 @@ FusionChartsModule.fcRoot(FusionCharts, Charts, FusionTheme);
   ],
   exports: [ChatbotComponent],
   providers: [MyprofileComponent, DialogComponent, ChatService],
+
+
   entryComponents: [MySurveyCardComponent, CreateSurveyDialogue, DialogComponent, DialogContentComponent, QuestionsTemplateComponent, EditQuestionDialog, ChatbotComponent],
   bootstrap: [AppComponent]
 })

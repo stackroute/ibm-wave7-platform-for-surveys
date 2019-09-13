@@ -34,7 +34,7 @@ public class MailService {
         Context context = new Context();
         context.setVariables(map);
         String html = springTemplateEngine.process("MailTemplate", context);
-        helper.setTo("vishnuchandana96@gmail.com");
+        helper.setTo(recipientList);
         helper.setText(html, true);
         helper.setSubject("Take the survey and get amazing reward points");
         helper.setFrom("agha.zafeer@gmail.com");

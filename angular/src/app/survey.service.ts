@@ -81,7 +81,7 @@ export class SurveyService {
   }
   sendMail(mail) {
     console.log(mail);
-    return this.httpclient.post("http://13.235.226.107:8070/send-mail",mail);
+    return this.httpclient.post(environment.mailURI,mail);
 
   }
   expiryCheck()
@@ -100,12 +100,14 @@ export class SurveyService {
   }
 
   saveResponse(userResponse:Response):Observable<Response>{
-    
-    var url="http://172.23.238.248:8091/api/v1/response"
-    return this.httpclient.post<Response>(url,userResponse,httpOptions);
+    return this.httpclient.post<Response>(environment.responseBaseURI+"/response",userResponse,httpOptions);
   }
+
+  saveResponseList(responseList:Response[]):Observable<Response[]>{
+    return this.httpclient.post<Response[]>(environment.responseBaseURI+"/responseList",responseList,httpOptions);
+  }
+
   getResponseById(id:string):Observable<Response>{
-    var url="http://172.23.238.200:8091/api/v1/response"+id;
-  return this.httpclient.get<Response>(url);
+    return this.httpclient.get<Response>(environment.responseBaseURI+"/response"+id);
   }
 }
