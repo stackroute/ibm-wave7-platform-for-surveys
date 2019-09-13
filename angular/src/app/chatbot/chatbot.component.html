@@ -1,23 +1,13 @@
-<h1>Angular Bot</h1>
-
-<ng-container *ngFor="let message of messages | async">
-
-  <div class="message" [ngClass]="{ 'from': message.sentBy === 'bot',
+<div class="container">
+  <div class="bot">
+    <ng-container *ngFor="let message of messages | async">
+      <div class="message" [ngClass]="{ 'from': message.sentBy === 'bot',
                                     'to':   message.sentBy === 'user' }">
-    {{ message.content }}
+        {{ message.content }}
+      </div>
+    </ng-container>
+    <label for="nameField">Your Message</label>
+    <input [(ngModel)]="formValue" (keyup.enter)="sendMessage()" type="text">
+    <button (click)="sendMessage()">Send</button>
   </div>
-
-</ng-container>
-
-
-<label for="nameField">Your Message</label>
-
-
-<input [(ngModel)]="formValue" (keyup.enter)="sendMessage()" type="text">
-
-<button (click)="sendMessage()">Send</button>
-<!-- CSS Reset -->
-<link rel="stylesheet" href="//cdn.rawgit.com/necolas/normalize.css/master/normalize.css">
-  
-  <!-- Milligram CSS minified -->
-<link rel="stylesheet" href="//cdn.rawgit.com/milligram/milligram/master/dist/milligram.min.css">
+ </div>
