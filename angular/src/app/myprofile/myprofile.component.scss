@@ -1,6 +1,12 @@
 .example-card{
-    padding-top:130px;
+    padding-top:50px;
     padding-left: 60px;
+padding-bottom: 80px;
+min-width:100px;
+
+    }
+    mat-card{
+        min-width:50px;
     }
     .example-container{
     font-family: arial;
@@ -24,4 +30,8 @@
     }
     .mat-raised-button {
         float: left;
+        margin-bottom: 50px;
+    }
+    .flex-container{
+        background-color:white;
     }

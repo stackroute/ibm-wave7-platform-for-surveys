@@ -9,7 +9,7 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dial
 export interface DialogData{
   email:string;
   gender:string;
-  agegroup : string;
+  ageGroup : string;
   location :string;
 
 }
@@ -46,6 +46,9 @@ export class MyprofileComponent implements OnInit {
   }
   updateUser(user:User){
     //console.log(user);
+    user.password=this.user.password;
+    user.role=this.user.role;
+    user.email=this.user.email;
     this.registrationService.updateUser(user,user.id).subscribe((data)=> {
        this.user = data;
       console.log("result is ", data);
@@ -81,13 +84,13 @@ export class MyprofileComponent implements OnInit {
   email:string;
   name:string;
   gender:string;
-  
+  ageGroup:string;
   ngOnInit() {}
     
   
   constructor(
     public dialogRef: MatDialogRef<DialogComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: User,private registrationService: UserRegistrationService) {}
+    @Inject(MAT_DIALOG_DATA) public data,private registrationService: UserRegistrationService) {}
     onNoClick(): void {
       this.dialogRef.close();
     }

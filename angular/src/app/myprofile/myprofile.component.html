@@ -1,22 +1,24 @@
-<div class="example-card">
-    <mat-card-header>
-      <mat-card-title> MyProfile</mat-card-title>
-    </mat-card-header>
-    <mat-card-content>
-      <div class="example-container" >
-  
-         <h6>User Name  : {{user?.name}} </h6> <br>
- 
-        <h6> Email Id:{{user?.email}}  </h6><br>
-       
-  
-  
-  
-      </div>
-    </mat-card-content>
-    <mat-card-actions>
-      <button mat-raised-button color="primary" (click)=openDialog()>Edit</button>
-      <button mat-raised-button color="primary" id="button1" >change password</button>
-    </mat-card-actions>
-  </div>
-  
+<div class="flex-container">
+<div class="example-card" fxLayout="column">
+  <mat-card>
+  <mat-card-header>
+    <mat-card-title> MyProfile</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <div class="example-container">
+
+      <h6>Username : {{user?.name}} </h6> <br>
+
+      <h6>Email Id:{{user?.email}} </h6><br>
+      <h6>Age :{{user?.ageGroup}}</h6><br>
+      <h6>Gender :{{user?.gender}}</h6><br>
+      <h6>Location :{{user?.location}}</h6><br>
+    </div>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-raised-button color="primary" (click)=openDialog()>Edit</button>
+    <!-- <button mat-raised-button color="primary" id="button1" >change password</button> -->
+  </mat-card-actions>
+  </mat-card>
+</div>
+</div>
