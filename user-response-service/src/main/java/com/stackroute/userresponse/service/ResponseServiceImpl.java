@@ -18,7 +18,6 @@ public class ResponseServiceImpl implements ResponseService {
         this.responseRepository=responseRepository;
     }
 
-
     @Override
     public Response saveResponse(Response response) {
         Response savedResponse=responseRepository.save(response);

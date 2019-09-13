@@ -74,12 +74,9 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
-    public String saveUserEmail(String email)
+    public User saveUserEmail(String email)
     {
         user.setEmail(email);
-        userRepository.save(user);
-        return user.getId();
+        return userRepository.save(user);
     }
-
-
 }

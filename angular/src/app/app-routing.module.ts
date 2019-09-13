@@ -77,7 +77,7 @@ const routes: Routes = [
     path:'analysis',component:ResponseAnalysisComponent
   },
   {
-    path:'user-welcome',component:UserWelcomeComponent},
+    path:'user-welcome/:surveyId',component:UserWelcomeComponent},
     {
     path:'response',component:ResponseAnalysisComponent
   },

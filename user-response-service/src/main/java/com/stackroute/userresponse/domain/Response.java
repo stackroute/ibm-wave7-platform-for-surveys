@@ -20,14 +20,14 @@ public class Response {
     private String response_id;
     private String question_id;
     private String response;
-    private String user_id;
+    private String email;
     private String survey_id;
     private int randomNum;
 
-    public Response(String question_id, String response, String user_id, String survey_id) {
+    public Response(String question_id, String response, String email, String survey_id) {
         this.question_id = question_id;
         this.response = response;
-        this.user_id = user_id;
+        this.email = email;
         this.survey_id = survey_id;
     }
 }

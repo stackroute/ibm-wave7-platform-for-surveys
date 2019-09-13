@@ -78,11 +78,11 @@ public class UserController {
         return new ResponseEntity<>(userService.findUserByEmail(email), HttpStatus.OK);
     }
 
-    @GetMapping("username")
-    public String saveUserEmail(@RequestParam String email)
+    @PostMapping("username")
+    public ResponseEntity<?> saveUserEmail(@RequestParam String email)
     {
-//        return ;
-        return userService.saveUserEmail(email);
+        User targetUser = userService.saveUserEmail(email);
+        return new ResponseEntity<User>(targetUser, HttpStatus.OK);
     }
 
 }

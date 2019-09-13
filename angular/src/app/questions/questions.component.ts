@@ -66,7 +66,7 @@ export class QuestionsComponent implements OnInit {
         response.question_id = question.questionId;
         response.response = question.response;
         response.survey_id = this.surveyId;
-        // response.user_id = this.surveyService.loginCredentials.id;
+        response.user_id = this.surveyService.targetUser.id;
         // this.respondents++;
         this.responseList.push(response);
       }

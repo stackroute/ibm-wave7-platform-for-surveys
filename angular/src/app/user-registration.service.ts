@@ -7,7 +7,6 @@ import { Observable, BehaviorSubject } from 'rxjs';
 import { Guid } from "guid-typescript";
 import { catchError } from 'rxjs/operators';
 import { throwError } from 'rxjs';
-import { Mail } from './mail';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -27,7 +26,7 @@ export class UserRegistrationService {
   logged = this.loggedIn.asObservable();
   private loggedOut = new BehaviorSubject<boolean>(false);
   logOut = this.loggedOut.asObservable();
-  email:Mail;
+  email:string;
 
   saveUser(user:User):Observable<User>
   {
@@ -42,12 +41,9 @@ export class UserRegistrationService {
   ));
   }
 
-  saveUserEmail(email)
+  saveUserEmail(email : string) : Observable<User>
   {
-    // this.user={'id':id,'email':email};
-    // this.user.id=id;
-    // this.user.email=email;
-    return this.httpClient.get<String>("http://localhost:8095/username?email="+email,email);
+    return this.httpClient.get<User>("http://localhost:8095/username?email="+email);
   }
 
   setLogin(value: boolean) {

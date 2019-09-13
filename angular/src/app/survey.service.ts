@@ -29,6 +29,8 @@ export class SurveyService {
 
   public editSurvey: Survey;
 
+  public targetUser : User;
+
   createSurvey(survey: Survey): Observable<Survey> {
     //creating a Guid Id
     survey.id = Guid.create().toString();
