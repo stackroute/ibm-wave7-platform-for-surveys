@@ -8,6 +8,7 @@ import { Guid } from "guid-typescript";
 import { catchError } from 'rxjs/operators';
 import { throwError } from 'rxjs';
 import { Mail } from './mail';
+import { Users } from './modals/Users';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -81,7 +82,7 @@ updateUser(user:User,id:String):Observable<User>{
   return this.httpClient.put<User>(url ,user, httpOptions);
 
 }
-forgotPassword(login:LoginUser): Observable<any>{
+forgotPassword(login:Users): Observable<any>{
   var apiUrl = environment.loginBaseURI+"/forgot-password";
   return this.httpClient.post<any>(apiUrl,login);
 }

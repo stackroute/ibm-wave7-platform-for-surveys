@@ -15,10 +15,12 @@ import org.springframework.stereotype.Service;
 import com.stackroute.dao.UserDao;
 import com.stackroute.model.DAOUser;
 import com.stackroute.model.UserDTO;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 import javax.mail.internet.MimeMessage;
 
 @Service
+@CrossOrigin(origins = "*")
 public class JwtUserDetailsService implements UserDetailsService {
 	
 	@Autowired
