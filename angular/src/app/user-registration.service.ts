@@ -81,7 +81,7 @@ updateUser(user:User,id:String):Observable<User>{
 }
 forgotPassword(login:LoginUser): Observable<any>{
   var apiUrl = environment.loginBaseURI+"/forgot-password";
-  return this.httpClient.post(apiUrl,httpOptions);
+  return this.httpClient.post<any>(apiUrl,login);
 }
 
  resetpassword(data: LoginUser): Observable<any> {

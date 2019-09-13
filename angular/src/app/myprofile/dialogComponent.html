@@ -6,19 +6,19 @@
       <div class="example-container">
           
         <mat-form-field>
-          <input matInput type="text" placeholder="enter name" [(ngModel)]="data.name" >
+          <input matInput type="text" placeholder="Enter Username" [(ngModel)]="data.name" >
         </mat-form-field>
         <!-- <mat-form-field>
           <input matInput type="text" placeholder="enter email" [(ngModel)]="data.email" >
-        </mat-form-field> -->
-        
+        </mat-form-field>
+         -->
         
         <mat-form-field class="full-width" [class.has-error]="gender.touched && gender.invalid">
-          <mat-label class ="control-label">gender</mat-label>
+          <mat-label class ="control-label">Gender</mat-label>
           <mat-select [(ngModel)]="data.gender" name="gender" required #gender="ngModel">
             
             <mat-option value="male">Male</mat-option>
-            <mat-option value="female">female</mat-option>
+            <mat-option value="female">Female</mat-option>
           </mat-select>
           <span class="validations" *ngIf="gender.touched && gender.invalid">
             gender is required
@@ -26,16 +26,16 @@
         </mat-form-field>
 
         <mat-form-field class="hello">
-          <mat-label class ="control-label">location</mat-label>
+          <mat-label class ="control-label">Location</mat-label>
           <mat-select [(ngModel)]="data.location" name="location" required #location="ngModel">
             
-            <mat-option value="hyderabad">hyderabad</mat-option>
-            <mat-option value="bengluru">bengaluru</mat-option>
-            <mat-option value="chennai">chennai</mat-option>
-            <mat-option value="pune">pune</mat-option>
-            <mat-option value="delhi">delhi</mat-option>
+            <mat-option value="hyderabad">Hyderabad</mat-option>
+            <mat-option value="bengluru">Bangalore</mat-option>
+            <mat-option value="chennai">Chennai</mat-option>
+            <mat-option value="pune">Pune</mat-option>
+            <mat-option value="delhi">Delhi</mat-option>
             <mat-option value="Mumbai">Mumbai</mat-option>
-            <mat-option value="other">other</mat-option>
+            <mat-option value="other">Other</mat-option>
 
           </mat-select>
           <span class="validations" *ngIf="location.touched && location.invalid">

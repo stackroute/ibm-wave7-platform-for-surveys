@@ -17,22 +17,22 @@ export class MypasswordComponent implements OnInit {
   constructor(private formBuilder: FormBuilder,private registrationService: UserRegistrationService) { }
 
   ngOnInit() {
-    this.formGroup = this.formBuilder.group({
-      password: ['', [Validators.required, Validators.minLength(this.minPw)]],
-      password2: ['', [Validators.required]]
-    });
+    // this.formGroup = this.formBuilder.group({
+    //   password: ['', [Validators.required, Validators.minLength(this.minPw)]],
+    //   password2: ['', [Validators.required]]
+    // });
   }
    /* Shorthands for form controls (used from within template) */
-   get password() { return this.formGroup.get('password'); }
-   get password2() { return this.formGroup.get('password2'); }
+  //  get password() { return this.formGroup.get('password'); }
+  //  get password2() { return this.formGroup.get('password2'); }
  
    /* Called on each input in either password field */
-   onPasswordInput() {
-     if (this.formGroup.hasError('passwordMismatch'))
-       this.password2.setErrors([{'passwordMismatch': true}]);
-     else
-       this.password2.setErrors(null);
-   }
+  //  onPasswordInput() {
+  //    if (this.formGroup.hasError('passwordMismatch'))
+  //      this.password2.setErrors([{'passwordMismatch': true}]);
+  //    else
+  //      this.password2.setErrors(null);
+  //  }
   //  updatePassword(){
   //    this.registrationService.forgotPassword(this.login,this.login.password).subscribe((data)=> {
       
@@ -41,11 +41,11 @@ export class MypasswordComponent implements OnInit {
   // }
   reset() {
     console.log(this.email);
-    //this.login.email = this.email;
+    //this.login.name = this.email;
     this.registrationService.forgotPassword(this.login)
     .subscribe(data => {
       console.log(data);
     });
-
+console.log(this.email);
   }
   }
