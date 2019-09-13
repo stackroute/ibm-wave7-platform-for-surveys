@@ -78,7 +78,7 @@ public class UserController {
         return new ResponseEntity<>(userService.findUserByEmail(email), HttpStatus.OK);
     }
 
-    @GetMapping("username")
+    @PostMapping("username")
     public ResponseEntity<?> saveUserEmail(@RequestParam String email)
     {
         User targetUser = userService.saveUserEmail(email);

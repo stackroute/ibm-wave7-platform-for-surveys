@@ -44,7 +44,7 @@ export class UserRegistrationService {
 
   saveUserEmail(email : string) : Observable<User>
   {
-    return this.httpClient.post<User>(environment.signUpBaseURI+"/username?email="+email,'',httpOptions);
+    return this.httpClient.get<User>(environment.signUpBaseURI+"/username?email="+email);
   }
 
   setLogin(value: boolean) {
