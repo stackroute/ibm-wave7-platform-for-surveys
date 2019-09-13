@@ -100,7 +100,7 @@ export class QuestionsTemplateComponent implements OnInit {
   }
 
   publish() {
-    this.email={"url":"http://172.23.238.187:4200/questions/:surveyId?id="+this.surveyService.surveyId};
+    this.email={"url":"http://172.23.238.187:4200/questions/"+this.surveyService.surveyId};
     console.log(this.email.url);
     this.surveyService.sendMail(this.email).subscribe(data => {
 
