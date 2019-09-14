@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { UserRegistrationService } from '../user-registration.service';
 import { LoginUser } from '../modals/Login';
 import { Observable } from 'rxjs';
+import { User} from '../modals/User'
 
 @Component({
   selector: 'app-mypassword',
@@ -12,6 +13,7 @@ import { Observable } from 'rxjs';
 export class MypasswordComponent implements OnInit {
   minPw = 8;
   formGroup: FormGroup
+//  private user=new Users();
   private email;
   constructor(private formBuilder: FormBuilder,private registrationService: UserRegistrationService) { }
 
@@ -49,14 +51,14 @@ export class MypasswordComponent implements OnInit {
   //  });
   // }
   
-  reset() {
-    console.log(this.email);
-    // this.user.email = this.email;
+  // reset() {
+  //   console.log(this.email);
+  //   this.user.email = this.email;
     
-    // this.registrationService.forgotPassword(this.user)
-    // .subscribe(data => {
-    //   console.log(data);
-    // });
+  //   this.registrationService.forgotPassword(this.user)
+  //   .subscribe(data => {
+  //     console.log(data);
+  //   });
 
-  }
+  // }
   }

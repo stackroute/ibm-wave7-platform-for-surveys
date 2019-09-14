@@ -9,6 +9,7 @@ import java.util.List;
 public class Mail {
 
     private String url;
+
     private String[] emailIds;
 
     public String getUrl() {
@@ -18,7 +19,6 @@ public class Mail {
     public void setUrl(String url) {
         this.url = url;
     }
-
 
     public String[] getEmailIds() {
         return emailIds;

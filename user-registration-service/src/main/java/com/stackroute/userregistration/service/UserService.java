@@ -20,6 +20,6 @@ public interface UserService {
 
 
     public List<String> getAllMails();
-    public User saveUserEmail(String email);
+    public User saveUserEmail(User user);
 
 }

@@ -1,5 +1,5 @@
   <!-- <h2>Please create your survey here....!</h2> -->
-   <div class="a" fxLayout="row">
+   <div class="a" fxLayout="row" fxLayout.col-lg="row">
       <span class="spacer" fxLayout="column"><button class="btn" mat-raised-button matTooltip="Create a survey"
       (click)=openDialog()>+</button></span>
   <mat-card class="card" *ngFor="let survey of surveyList">
@@ -28,9 +28,9 @@
         <div class="responses"><a routerLink='' >
             <mat-icon class="example-icon" aria-hidden="false" aria-label="search icon">supervised_user_circle</mat-icon>
             </a></div>
-        <div class="analysis"> <a routerLink='analysis' >
-          <mat-icon class="example-icon" aria-hidden="false" aria-label="search icon">assessment</mat-icon>
-          </a></div>
+        <div class="analysis"> 
+          <mat-icon class="example-icon" aria-hidden="false" aria-label="search icon" (click)="analyze(survey)">assessment</mat-icon>
+          </div>
       </div>
     
    
