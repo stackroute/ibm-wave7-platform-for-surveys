@@ -70,7 +70,7 @@ export class QuestionsTemplateComponent implements OnInit {
         event.container.data,
         event.previousIndex,
         event.currentIndex);
-      // let droppedQuestion = event.container.data[0];                    
+      let droppedQuestion = event.container.data[0];                    
       this.saveDroppedQuestion(event.container.data[event.currentIndex]);
     }
   }
@@ -101,7 +101,6 @@ export class QuestionsTemplateComponent implements OnInit {
     this.email = "http://172.23.238.187:4200/user-welcome/"+this.surveyService.surveyId;
     console.log(this.email);
     this.surveyService.sendMail(this.email).subscribe(data => {
-
       console.log(data);
     });
     console.log(this.route.snapshot);

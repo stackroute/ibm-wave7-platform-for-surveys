@@ -11,11 +11,8 @@ export class ResponseAnalysisComponent implements OnInit {
   dataSource: Object; dataSource1: Object;
   private questionList: Question[];
 
-  
 
- 
-  
-  constructor(private surveyService: SurveyService,) {
+ constructor(private surveyService: SurveyService,) {
     this.dataSource = {
       chart: {
         caption: "How easy or difficult was it to schedule your appointment at a time that was conveninent for you?",
@@ -87,7 +84,7 @@ export class ResponseAnalysisComponent implements OnInit {
   }
   ngOnInit(){
     console.log(this.surveyService.surveyId);
-    this.getQuestionList("fbc97b14-5269-6a2c-fc2a-9bc39b21d2a4");
+    this.getQuestionList(this.surveyService.editSurvey.id);
   }
   getQuestionList(surveyId: string) {
     console.log(surveyId);
