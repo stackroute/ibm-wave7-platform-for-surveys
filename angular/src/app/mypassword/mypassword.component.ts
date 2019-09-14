@@ -53,12 +53,12 @@ export class MypasswordComponent implements OnInit {
   
   reset() {
     console.log(this.email);
-    this.user.email = this.email;
+    // this.user.email = this.email;
     
-    this.registrationService.forgotPassword(this.user)
-    .subscribe(data => {
-      console.log(data);
-    });
+    // this.registrationService.forgotPassword(this.user)
+    // .subscribe(data => {
+    //   console.log(data);
+    // });
 
   }
   }
