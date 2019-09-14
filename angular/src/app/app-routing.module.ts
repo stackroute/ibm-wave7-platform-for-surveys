@@ -15,7 +15,7 @@ import { UserLandingPageComponent } from './user-landing-page/user-landing-page.
 import { AboutUsComponent } from './about-us/about-us.component';
 import { SupportPageComponent } from './support-page/support-page.component';
 import { QuestionsComponent } from './questions/questions.component';
-import {ResponseAnalysisComponent} from './response-analysis/response-analysis.component';
+import { ResponseAnalysisComponent } from './response-analysis/response-analysis.component';
 
 import { MypasswordComponent } from './mypassword/mypassword.component';
 import { ResetpasswordComponent } from './resetpassword/resetpassword.component';
@@ -24,78 +24,69 @@ import { UserWelcomeComponent } from './user-welcome/user-welcome.component';
 
 
 const routes: Routes = [
- {
-    path:'survey',component:MySurveyCardComponent
+  {
+    path: 'survey', component: MySurveyCardComponent
   },
   {
-    path:'surveyinfo',component:SurveyinfoComponent
+    path: 'surveyinfo', component: SurveyinfoComponent
   },
   {
-    path:'',component:LandingPageComponent
+    path: '', component: LandingPageComponent
   },
   {
-    path:'login',
-    component:LoginComponent,
+    path: 'login',component: LoginComponent,
   },
   {
-    path : 'question-template/:surveyId',
-    component : QuestionsTemplateComponent
+    path: 'question-template/:surveyId',component: QuestionsTemplateComponent
   },
   {
-    path : 'question-template',
-    component : QuestionsTemplateComponent
+    path: 'question-template',component: QuestionsTemplateComponent
   },
   {
-    path:'signup',component:SignUpComponent
+    path: 'signup', component: SignUpComponent
   },
   {
-    path : 'publishview/:surveyId',
-    component : PublishedviewComponent
+    path: 'publishview/:surveyId',component: PublishedviewComponent
   },
   {
-
-    path:'landing',component:UserLandingPageComponent
+    path: 'landing', component: UserLandingPageComponent
   },
   {
-    path:'thankyou',component:ThankingDialogBoxComponent
+    path: 'thankyou', component: ThankingDialogBoxComponent
   },
   {
-    path:'myprofile',
-    component:MyprofileComponent
+    path: 'myprofile',component: MyprofileComponent
   },
   {
-    path:'about', component: AboutUsComponent
+    path: 'about', component: AboutUsComponent
   },
   {
-    path:'support', component: SupportPageComponent
+    path: 'support', component: SupportPageComponent
   },
   {
-    path:'questions/:surveyId', component: QuestionsComponent
+    path: 'questions/:surveyId', component: QuestionsComponent
   },
   {
-
-    path:'analysis',component:ResponseAnalysisComponent
+    path: 'analysis', component: ResponseAnalysisComponent
   },
   {
-    path:'user-welcome/:surveyId',component:UserWelcomeComponent},
-    {
-    path:'response',component:ResponseAnalysisComponent
+    path: 'user-welcome/:surveyId', component: UserWelcomeComponent
   },
   {
-
-    path:'password',component:MypasswordComponent
+    path: 'response', component: ResponseAnalysisComponent
   },
   {
-    path:'resetpassword',component:ResetpasswordComponent
-  },
-{
-    path:'rewards',component:RewardPointsComponent
+    path: 'password', component: MypasswordComponent
   },
   {
-    path:'thankyou/signup',component:SignUpComponent
+    path: 'resetpassword', component: ResetpasswordComponent
+  },
+  {
+    path: 'rewards', component: RewardPointsComponent
+  },
+  {
+    path: 'thankyou/signup', component: SignUpComponent
   }
-
-  
 ]
 
 @NgModule({

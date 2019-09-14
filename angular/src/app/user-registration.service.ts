@@ -44,7 +44,7 @@ export class UserRegistrationService {
   saveUserEmail(email : string) 
   {
     console.log(email);
-    return this.httpClient.get<string>("http://localhost:8095/saveEmail?email="+email);
+    return this.httpClient.get<User>(environment.signUpBaseURI+"/saveEmail?email="+email);
   }
 
   setLogin(value: boolean) {
@@ -96,7 +96,13 @@ getUser():Observable<User>{
 
 getUserById(id:string):Observable<User>{
   var url=environment.signUpBaseURI+"/user/"+this.loginCredentials.id;
-return this.httpClient.get<User>(url);
+  return this.httpClient.get<User>(url);
+}
+
+
+getTargetUserById(id:string):Observable<User>{
+  var url=environment.signUpBaseURI+"/user/"+id;
+  return this.httpClient.get<User>(url);
 }
 
 getUserByEmail(email : string):Observable<User>{

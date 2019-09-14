@@ -74,10 +74,8 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
-    public User saveUserEmail(String email)
+    public User saveUserEmail(User user)
     {
-        System.out.println("email in service: "+email );
-        user.setEmail(email);
         return userRepository.save(user);
     }
 
@@ -93,6 +91,4 @@ public class UserServiceImpl implements UserService{
         }
         return emails;
     }
-
-
 }
