@@ -44,7 +44,9 @@ export class UserRegistrationService {
   saveUserEmail(email : string) 
   {
     console.log(email);
-    return this.httpClient.get<User>(environment.signUpBaseURI+"/saveEmail?email="+email);
+    let targetUser : User;
+    targetUser.email = email
+    return this.httpClient.post<User>(environment.signUpBaseURI+"/saveEmail",targetUser,httpOptions);
   }
 
   setLogin(value: boolean) {
