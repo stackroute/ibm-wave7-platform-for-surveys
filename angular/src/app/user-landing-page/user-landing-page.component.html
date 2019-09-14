@@ -1,26 +1,40 @@
-<div class="flex-container">
-    <h2>Take your survey here....!</h2>
-     <div class="a">
-     <mat-card class="card" *ngFor="let survey of surveyList">
-     <a> 
-       <div class="draft">Draft</div>
-       <div class="image">
-          <img mat-card-image src="https://d19d5sz0wkl0lu.cloudfront.net/dims4/default/2d524ed/2147483647/resize/800x%3E/quality/90/?url=https%3A%2F%2Fatd-brightspot.s3.amazonaws.com%2F90%2F93%2F3b46944543bb926eb6ac855261e4%2Fadobestock-215547070.jpeg" alt="Survey Image">
-       </div>
-       <mat-card-header >
-        <mat-card-title>{{survey.name}}</mat-card-title>
-      </mat-card-header>
-    </a>
-     <mat-card-actions class="icon">
-           <button mat-icon-button (click)=preview(survey)>
-            <mat-icon class="example-icon" aria-hidden="false" aria-label="search icon">open_in_new</mat-icon>
-              </button>
-        </mat-card-actions>
-     
-        <div class="bottom">
-          <div class="responses">{{survey.responses}}</div>
-        </div>
- 
-    </mat-card>  
+<div class="a" fxLayout="row">
+<mat-card class="card" *ngFor="let survey of surveyList">
+<a (click)=editQuestions(survey)> 
+ <div class="draft">Draft</div>
+ <div class="image">
+    <img mat-card-image src="https://d19d5sz0wkl0lu.cloudfront.net/dims4/default/2d524ed/2147483647/resize/800x%3E/quality/90/?url=https%3A%2F%2Fatd-brightspot.s3.amazonaws.com%2F90%2F93%2F3b46944543bb926eb6ac855261e4%2Fadobestock-215547070.jpeg" alt="Survey Image">
+ </div>
+ <mat-card-header >
+  <mat-card-title>{{survey.name}}</mat-card-title>
+  <!-- <mat-card-subtitle>{{survey.description}}</mat-card-subtitle> -->
+</mat-card-header>
+</a>
+<mat-card-actions class="icon">
+     <button mat-icon-button (click)=preview(survey)>
+      <mat-icon class="example-icon" aria-hidden="false" aria-label="search icon">open_in_new</mat-icon>
+        </button>
+      <button mat-icon-button (click)=editQuestions(survey)>
+        <mat-icon class="example-icon" aria-hidden="false" aria-label="search icon">edit</mat-icon>
+        </button>
+    <a href="http://localhost:4200/survey" >
+      <button mat-icon-button (click)="deleteSurvey(survey)">
+      <mat-icon class="example-icon" aria-hidden="false" aria-label="search icon">delete</mat-icon>
+      </button></a>
+  </mat-card-actions>
+
+  <div class="bottom">
+    <div class="responses"><a routerLink='' >
+        <mat-icon class="example-icon" aria-hidden="false" aria-label="search icon">supervised_user_circle</mat-icon>
+        </a></div>
+    <div class="analysis"> <a routerLink='analysis' >
+      <mat-icon class="example-icon" aria-hidden="false" aria-label="search icon">assessment</mat-icon>
+      </a></div>
   </div>
-  </div>
+
+
+</mat-card>
+
+</div>
+
+
