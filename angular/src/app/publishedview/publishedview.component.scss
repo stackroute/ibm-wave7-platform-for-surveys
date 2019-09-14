@@ -1,16 +1,14 @@
-body, html {
-    height: 100%;
-}
 
 /* The hero image */
 .hero-image {
-  background-image: url("/assets/pictures/3.png");
-  height: 50%;
+  height: 100%;
   /* Position and center the image to scale nicely on all screens */
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
+  background: rgb(255,149,149);
+    background: linear-gradient(264deg, rgba(255,149,149,1) 0%, rgba(255,149,149,1) 32%, rgba(33,1,56,1) 100%);padding: 0 0 0.2em 0;
 }
 
 /* Place text in the middle of the image */
@@ -20,14 +18,14 @@ body, html {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  color:black;
+  color:rgb(252, 249, 249);
 }
 .hero-text button {
     border: none;
     outline: 0;
     display: inline-block;
     padding: 10px 25px;
-    color: black;
+    color: rgb(248, 245, 245);
     background-color: #ddd;
     text-align: center;
     cursor: pointer;
