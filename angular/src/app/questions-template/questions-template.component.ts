@@ -102,8 +102,9 @@ export class QuestionsTemplateComponent implements OnInit {
 
     this.surveyService.getAllMails().subscribe((emailIds)=>{this.emailIds=emailIds;
       console.log(this.emailIds);
+      this.sendLink(this.emailIds);
     });
-    this.sendLink(this.emailIds);
+ 
 
     
 

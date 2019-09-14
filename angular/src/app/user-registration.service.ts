@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
 import { HttpClient ,HttpHeaders} from "@angular/common/http";
-import { User } from "./modals/User";
 import { LoginUser } from "./modals/Login";
 import { environment } from '../environments/environment';
 import { Observable, BehaviorSubject } from 'rxjs';
 import { Guid } from "guid-typescript";
 import { catchError } from 'rxjs/operators';
 import { throwError } from 'rxjs';
+import { User } from './modals/User';
 
 const httpOptions = {
   headers: new HttpHeaders({

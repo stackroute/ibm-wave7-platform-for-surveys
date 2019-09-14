@@ -26,8 +26,9 @@ export class UserWelcomeComponent implements OnInit {
   private email : string;
 
   ngOnInit() {
-     this.surveyId=this.route.snapshot.paramMap.get('surveyId');
+    //  this.surveyId=this.route.snapshot.paramMap.get('surveyId');
   }
+  
   onClick(email)
 {
   console.log(email);
@@ -36,9 +37,10 @@ export class UserWelcomeComponent implements OnInit {
   {
   id=id;
   console.log(id);
-  this.router.navigate(['questions',this.surveyId]);
-
   });
+  this.router.navigateByUrl("questions"+this.surveyId);
+}
+}
 // this.userRegistration.email = this.email;
 //     this.userRegistration.saveUserEmail(this.email).subscribe(
 //       (data) => {
@@ -48,5 +50,4 @@ export class UserWelcomeComponent implements OnInit {
 //         this.router.navigate(['questions',this.surveyId]);
 //       });
 //   }
-}
-}
+

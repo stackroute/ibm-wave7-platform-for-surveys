@@ -69,6 +69,7 @@ public class UserServiceImpl implements UserService{
         Optional<User> user = userRepository.findById(id);
         return user.get();
     }
+
     public User findUserByEmail(String email) {
         return userRepository.findUserByEmail(email);
     }
@@ -77,8 +78,14 @@ public class UserServiceImpl implements UserService{
     public User saveUserEmail(String email)
     {
         System.out.println("email in service: "+email );
+        User user1=userRepository.findUserByEmail(email);
+        if(user1==null)
+        {
         user.setEmail(email);
         return userRepository.save(user);
+        }
+        else
+            return user1;
     }
 
 
