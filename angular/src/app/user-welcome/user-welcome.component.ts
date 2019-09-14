@@ -19,8 +19,6 @@ export class UserWelcomeComponent implements OnInit {
     private surveyService: SurveyService
   ) { }
 
-
-
   private user: User;
   private surveyId: string;
   private email: string;

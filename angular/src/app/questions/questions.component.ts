@@ -73,7 +73,7 @@ export class QuestionsComponent implements OnInit {
           survey_id: "",
           randomNum:0
         }
-
+        this.survey.status="Open";
         response.question_id = question.questionId;
         response.response = question.response;
         response.survey_id = this.surveyId;

@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { UserRegistrationService } from '../user-registration.service';
 import { LoginUser } from '../modals/Login';
 import { Observable } from 'rxjs';
+import { User} from '../modals/User'
 
 @Component({
   selector: 'app-mypassword',

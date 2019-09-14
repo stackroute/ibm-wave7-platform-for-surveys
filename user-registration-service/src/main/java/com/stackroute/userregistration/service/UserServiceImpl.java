@@ -69,6 +69,7 @@ public class UserServiceImpl implements UserService{
         Optional<User> user = userRepository.findById(id);
         return user.get();
     }
+
     public User findUserByEmail(String email) {
         return userRepository.findUserByEmail(email);
     }
@@ -76,7 +77,13 @@ public class UserServiceImpl implements UserService{
     @Override
     public User saveUserEmail(User user)
     {
-        return userRepository.save(user);
+        User user1=userRepository.findUserByEmail(user.getEmail());
+        if(user1==null)
+        {
+            return userRepository.save(user);
+        }
+        else
+            return user1;
     }
 
 

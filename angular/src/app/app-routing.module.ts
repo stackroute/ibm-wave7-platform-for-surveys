@@ -21,6 +21,7 @@ import { MypasswordComponent } from './mypassword/mypassword.component';
 import { ResetpasswordComponent } from './resetpassword/resetpassword.component';
 
 import { UserWelcomeComponent } from './user-welcome/user-welcome.component';
+import { ChatbotComponent } from './chatbot/chatbot.component';
 
 
 const routes: Routes = [
