@@ -19,6 +19,8 @@ export class UserWelcomeComponent implements OnInit {
     private surveyService : SurveyService
   ) {}
 
+
+
   private user: User;
   private surveyId : string;
   private email : string;
@@ -26,24 +28,25 @@ export class UserWelcomeComponent implements OnInit {
   ngOnInit() {
      this.surveyId=this.route.snapshot.paramMap.get('surveyId');
   }
-
-  // onClick(email) {
-  //   this.userRegistration.email = email;
-  //   this.userRegistration.saveUserEmail(email).subscribe(id => {
-  //     id = id;
-  //   });
-  //   // this.id=Guid.create().toString();
-  // }
-
-  takeSurvey()
+  onClick(email)
+{
+  console.log(email);
+  this.userRegistration.email=email;
+  this.userRegistration.saveUserEmail(email).subscribe((id) => 
   {
-    this.userRegistration.email = this.email;
-    this.userRegistration.saveUserEmail(this.email).subscribe(
-      (data) => {
-        this.user = data
-        console.log(data);
-        this.surveyService.targetUser = data;
-        this.router.navigate(['questions',this.surveyId]);
-      });
-  }
+  id=id;
+  console.log(id);
+  this.router.navigate(['questions',this.surveyId]);
+
+  });
+// this.userRegistration.email = this.email;
+//     this.userRegistration.saveUserEmail(this.email).subscribe(
+//       (data) => {
+//         this.user = data
+//         console.log(data);
+//         this.surveyService.targetUser = data;
+//         this.router.navigate(['questions',this.surveyId]);
+//       });
+//   }
+}
 }

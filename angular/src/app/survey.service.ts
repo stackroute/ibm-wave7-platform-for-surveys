@@ -81,11 +81,11 @@ export class SurveyService {
   getAllQuestions(surveyId : string): Observable<Survey> {
     return this.httpclient.get<Survey>(environment.baseURI + "/survey/" + surveyId);
   }
+
   sendMail(mail) {
     console.log(mail);
-    return this.httpclient.post(environment.mailURI,mail);
-
-  }
+    return this.httpclient.post("http://localhost:8070/send-mail",mail);
+    }
   expiryCheck()
   {
     return this.httpclient.get<number>(environment.baseURI+"/expiryCheck"+"?id="+this.surveyId);
@@ -96,6 +96,10 @@ export class SurveyService {
     return this.httpclient.get<String[]>(environment.baseURI+"/relatedSurveys?id="+this.surveyId);
   }
   
+  getAllMails()
+  {
+  return this.httpclient.get<string[]>("http://localhost:8095/allMails");
+  }
   getRecommendedQuestions(domain:String)
   {
     return this.httpclient.get<Question[]>(environment.baseURI+"/recommendations/"+domain);

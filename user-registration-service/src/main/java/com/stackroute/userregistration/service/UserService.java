@@ -16,6 +16,10 @@ public interface UserService {
     public User updateUser(User user,String id);
     public User getUserById(String id);
     public User findUserByEmail(String email);
+
+
+
+    public List<String> getAllMails();
     public User saveUserEmail(String email);
 
 }
