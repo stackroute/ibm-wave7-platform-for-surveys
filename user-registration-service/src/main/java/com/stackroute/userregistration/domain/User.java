@@ -34,4 +34,15 @@ public class User {
     private String ageGroup;
     private String gender;
     private String rewardPoints;
+
+    public User(String id, String name, String email, String password, String role, String location, String ageGroup, String gender) {
+        this.id = id;
+        this.name = name;
+        this.email = email;
+        this.password = password;
+        this.role = role;
+        this.location = location;
+        this.ageGroup = ageGroup;
+        this.gender = gender;
+    }
 }
