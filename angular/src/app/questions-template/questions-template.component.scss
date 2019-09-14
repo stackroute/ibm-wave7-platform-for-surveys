@@ -15,7 +15,7 @@ width: 50%;
 padding:1cm;
 float:right;
 background: rgb(199, 191, 191);
-    background: linear-gradient(264deg, rgb(165, 160, 160) 0%, rgb(27, 27, 27) 32%, rgb(95, 94, 95) 100%);padding: 0 0 0.2em 0;
+background: linear-gradient(264deg, rgb(165, 160, 160) 0%, rgb(27, 27, 27) 32%, rgb(95, 94, 95) 100%);padding: 0 0 0.2em 0;
 }
 .custom-width {
   width: 450px;
@@ -33,8 +33,7 @@ background: rgb(199, 191, 191);
     box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),
                 0 8px 10px 1px rgba(0, 0, 0, 0.14),
                 0 3px 14px 2px rgba(0, 0, 0, 0.12);
-  }
-  
+  }  
   .cdk-drag-placeholder {
     opacity: 0;
   }
