@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.mail.MessagingException;
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @RestController
@@ -26,9 +27,15 @@ public class MailController {
 
     @PostMapping("send-mail")
     public ResponseEntity send(@RequestBody Mail mail) {
-        Map<String, Object> map = new HashMap<String, Object>();
+        Map<Object, Object> map = new HashMap<>();
         System.out.println(mail.getUrl());
+        for(int i=0;i<mail.getEmailIds().length;i++)
+        {
+            System.out.println(mail.getEmailIds()[i]);
+        }
+//        System.out.println(mail.getEmailIds());
         map.put("url",mail.getUrl());
+        map.put("emailIds",mail.getEmailIds());
         try {
             mailService.sendMail(map);
         }

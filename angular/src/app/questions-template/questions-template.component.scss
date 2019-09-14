@@ -6,7 +6,12 @@ float: left;
 padding:1cm;
 background: rgb(255,149,149);
 background: linear-gradient(264deg, rgba(255,149,149,1) 0%, rgba(255,149,149,1) 32%, rgba(33,1,56,1) 100%);padding: 0 0 0.2em 0;
-overflow: auto;
+color: white;
+padding: 15px;
+width: 50%;
+height: 70%;
+overflow: scroll;
+border: 1px solid #ccc;
 }
 .example-container1
 {
@@ -16,6 +21,12 @@ padding:1cm;
 float:right;
 background: rgb(199, 191, 191);
     background: linear-gradient(264deg, rgb(165, 160, 160) 0%, rgb(27, 27, 27) 32%, rgb(95, 94, 95) 100%);padding: 0 0 0.2em 0;
+    color: white;
+padding: 15px;
+width: 50%;
+height: 70%;
+overflow: scroll;
+border: 1px solid #ccc;
 }
 .custom-width {
   width: 450px;
@@ -25,7 +36,6 @@ background: rgb(199, 191, 191);
     cursor: move;
     background: white;
    width:700px;
-   height:270px;
    margin-top:1cm;
    margin-left:0.5cm;
     box-sizing: border-box;
@@ -57,13 +67,9 @@ background: rgb(199, 191, 191);
     // margin-bottom:5cm;
   }
   .add-question{
-    width:6cm;
-    height:7cm;
+    min-width:700px;
+    height:auto;
     margin-top:35cm;
-  }
-  ::-webkit-scrollbar{
-    width:0px;
-    background: transparent;
   }
   h3{
     margin-top:2cm;
@@ -72,9 +78,13 @@ background: rgb(199, 191, 191);
   .questions{
     margin-left:25cm;
     margin-top:-1.1cm;
+
   }
   mat-icon{
     float:right;
+  }
+  .chatbot{
+    height:50px;
   }
 
  

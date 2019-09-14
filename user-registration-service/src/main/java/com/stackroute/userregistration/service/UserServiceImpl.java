@@ -6,6 +6,7 @@ import com.stackroute.userregistration.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -14,7 +15,8 @@ public class UserServiceImpl implements UserService{
     //Creating the object for the user repository in order to connect with the database
     private UserRepository userRepository;
 
-    User user;
+    @Autowired
+    private User user;
     @Autowired
     public UserServiceImpl(UserRepository userRepository) {
         this.userRepository = userRepository;
@@ -67,17 +69,33 @@ public class UserServiceImpl implements UserService{
         Optional<User> user = userRepository.findById(id);
         return user.get();
     }
+
     public User findUserByEmail(String email) {
         return userRepository.findUserByEmail(email);
     }
 
     @Override
-    public String saveUserEmail(String email)
+    public User saveUserEmail(User user)
     {
-        user.setEmail(email);
-        userRepository.save(user);
-        return user.getId();
+        User user1=userRepository.findUserByEmail(user.getEmail());
+        if(user1==null)
+        {
+            return userRepository.save(user);
+        }
+        else
+            return user1;
     }
 
 
+    @Override
+    public List<String> getAllMails()
+    {
+        List<User> users = getUsers();
+        List<String> emails=new ArrayList<>();
+        for(User user:users)
+        {
+            emails.add(user.getEmail());
+        }
+        return emails;
+    }
 }

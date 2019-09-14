@@ -4,7 +4,6 @@ import { ActivatedRoute, RouterState, Routes, RouterLink, RouteReuseStrategy } f
 import { User } from "../modals/User";
 import { Router } from "@angular/router";
 import { FormControl, Validators, FormGroup } from "@angular/forms";
-import { Mail } from '../mail';
 
 
 @Component({
@@ -15,7 +14,7 @@ import { Mail } from '../mail';
 export class SignUpComponent implements OnInit {
   public user: User;
   public emailAlredyExist = "";
-  email: Mail;
+  email: string;
 
   constructor(
     private registrationService: UserRegistrationService,

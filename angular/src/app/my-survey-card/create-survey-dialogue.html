@@ -1,3 +1,4 @@
+<h5>Please fill your survey Details</h5>
 <div mat-dialog-content>
   <mat-form-field>
     <input matInput placeholder="Survey Name" [(ngModel)]="data.name">
@@ -22,7 +23,7 @@
     <input matInput type="date" placeholder="expiry Date" [(ngModel)]="data.expiryDate">
   </mat-form-field>
   <mat-form-field>
-    <mat-select placeholder="Location" [formControl]="location" multiple [(ngModel)]="data.location">
+    <mat-select placeholder="Demography" [formControl]="location" multiple [(ngModel)]="data.location">
       <mat-select-trigger>
         {{location.value ? location.value[0] : ''}}
         <span *ngIf="location.value?.length > 1" class="example-additional-selection">
@@ -43,15 +44,13 @@
   </mat-form-field>
   <mat-form-field>
     <mat-select placeholder="Age group" [(ngModel)]="data.age">
-      <mat-option value="Child">Child</mat-option>
-      <mat-option value="Youth">Youth</mat-option>
-      <mat-option value="Middle">Middle Age</mat-option>
-      <mat-option value="Old">Old Age</mat-option>
+      <mat-option value="Child">Child(0-17)</mat-option>
+      <mat-option value="Youth">Youth(17-30)</mat-option>
+      <mat-option value="Middle">Middle Age(30-50)</mat-option>
+      <mat-option value="Old">Old Age(50+)</mat-option>
     </mat-select>
     <mat-hint align="end"></mat-hint>
   </mat-form-field>
-
-
 </div>
 <div mat-dialog-actions>
   <button mat-raised-button color="Primary" [mat-dialog-close]="data" cdkFocusInitial>create</button>

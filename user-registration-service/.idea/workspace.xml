@@ -2,16 +2,34 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1837a211-f7eb-41c7-b243-5416369a1014" name="Default Changelist" comment="">
-
+      <change beforePath="$PROJECT_DIR$/../angular/src/app/footer/footer.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../angular/src/app/footer/footer.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../angular/src/app/footer/footer.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/../angular/src/app/footer/footer.component.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../angular/src/app/login/login.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/../angular/src/app/login/login.component.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../angular/src/app/user-landing-page/user-landing-page.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../angular/src/app/user-landing-page/user-landing-page.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../angular/src/app/user-landing-page/user-landing-page.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/../angular/src/app/user-landing-page/user-landing-page.component.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../angular/src/styles.scss" beforeDir="false" afterPath="$PROJECT_DIR$/../angular/src/styles.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+=======
       <change beforePath="$PROJECT_DIR$/../angular/src/app/landing-page/landing-page.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../angular/src/app/landing-page/landing-page.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../angular/src/app/landing-page/landing-page.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/../angular/src/app/landing-page/landing-page.component.scss" afterDir="false" />
-
+      <change beforePath="$PROJECT_DIR$/../angular/src/app/mail.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../angular/src/app/mail.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../angular/src/app/questions-template/questions-template.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../angular/src/app/questions-template/questions-template.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../angular/src/app/questions/questions.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../angular/src/app/questions/questions.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../angular/src/app/sign-up/sign-up.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../angular/src/app/sign-up/sign-up.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../angular/src/app/survey.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../angular/src/app/survey.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../angular/src/app/user-registration.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../angular/src/app/user-registration.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../angular/src/app/user-welcome/user-welcome.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../angular/src/app/user-welcome/user-welcome.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../angular/src/app/user-welcome/user-welcome.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../angular/src/app/user-welcome/user-welcome.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mail-service/src/main/java/com/stackroute/mailservice/controller/MailController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../mail-service/src/main/java/com/stackroute/mailservice/controller/MailController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mail-service/src/main/java/com/stackroute/mailservice/model/Mail.java" beforeDir="false" afterPath="$PROJECT_DIR$/../mail-service/src/main/java/com/stackroute/mailservice/model/Mail.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mail-service/src/main/java/com/stackroute/mailservice/service/MailService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../mail-service/src/main/java/com/stackroute/mailservice/service/MailService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/stackroute/userregistration/UserRegistrationApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stackroute/userregistration/UserRegistrationApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/stackroute/userregistration/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stackroute/userregistration/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/stackroute/userregistration/domain/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stackroute/userregistration/domain/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/stackroute/userregistration/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stackroute/userregistration/repository/UserRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/stackroute/userregistration/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stackroute/userregistration/service/UserService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/stackroute/userregistration/service/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stackroute/userregistration/service/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -57,7 +75,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.UserRegistrationApplication (1)">
+  <component name="RunManager" selected="Application.UserRegistrationApplication">
     <configuration name="UserRegistrationApplication (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.stackroute.userregistration.UserRegistrationApplication" />
       <module name="user-registration-service" />
@@ -72,8 +90,10 @@
       </method>
     </configuration>
     <configuration name="UserRegistrationApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="11" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="com.stackroute.userregistration.UserRegistrationApplication" />
-      <module name="userregistration" />
+      <module name="user-registration-service" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.stackroute.userregistration.*" />
@@ -132,8 +152,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.UserRegistrationApplication (1)" />
         <item itemvalue="Application.UserRegistrationApplication" />
+        <item itemvalue="Application.UserRegistrationApplication (1)" />
         <item itemvalue="JUnit.UserRepositoryTest" />
         <item itemvalue="JUnit.UserRepositoryTest.testSaveUser" />
         <item itemvalue="JUnit.UserServiceTest" />

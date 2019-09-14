@@ -5,6 +5,8 @@ import { SurveyService } from '../survey.service';
 import { Question } from '../modals/Question';
 import { Response } from '../modals/Response';
 import { Survey } from '../modals/Survey';
+import { User } from '../modals/User';
+import { UserRegistrationService } from '../user-registration.service';
 
 
 @Component({
@@ -24,11 +26,24 @@ export class QuestionsComponent implements OnInit {
   private responseList : Response[] = [];
   private respondents:number;
   private surveyId : string;
-  constructor(private router: Router, private surveyService: SurveyService, private route: ActivatedRoute) { }
+  private targetUser : User;
+
+  constructor(private router: Router, 
+    private surveyService: SurveyService,
+     private route: ActivatedRoute,
+     private userRegistrationservce : UserRegistrationService) { }
 
   ngOnInit() {
-    this.surveyId = this.route.snapshot.paramMap.get('surveyId');
-    this.getQuestionList(this.surveyId);
+    let surveyId = this.route.snapshot.paramMap.get('surveyId');
+    console.log(surveyId);
+    this.getQuestionList(surveyId);
+    // this.surveyService.expiryCheck().subscribe(
+    //   (num) => {
+    //   this.num = num;
+    //     console.log(window.location.href)
+    //   });
+    // this.surveyId = this.route.snapshot.paramMap.get('surveyId');
+    // this.getQuestionList(this.surveyId);
     this.surveyService.expiryCheck().subscribe(
       (num) => {
       this.num = num;
@@ -48,11 +63,7 @@ export class QuestionsComponent implements OnInit {
   }
 
   saveResponse(questionList: Question[]) {
-    // console.log(questionList);
 
-    //  this.response.randomNum=Math.floor(Math.random()*100)+50;
-    //  console.log(this.response.randomNum);
-    
       for (let i = 0; i < questionList.length; i++) {
         let question = questionList[i]
         let response : Response = {
@@ -62,11 +73,11 @@ export class QuestionsComponent implements OnInit {
           survey_id: "",
           randomNum:0
         }
-
+        this.survey.status="Open";
         response.question_id = question.questionId;
         response.response = question.response;
         response.survey_id = this.surveyId;
-        // response.user_id = this.surveyService.loginCredentials.id;
+        response.user_id = this.surveyService.targetUser.id;
         // this.respondents++;
         this.responseList.push(response);
       }
@@ -75,6 +86,17 @@ export class QuestionsComponent implements OnInit {
       .subscribe(
         data => {
           console.log("saved response" + data);
+          let randomNum=Math.floor(Math.random()*100)+50;
+          console.log(randomNum);
+          this.userRegistrationservce.getTargetUserById(this.surveyService.targetUser.id)
+          .subscribe((data) => {
+              this.targetUser = data,
+              this.targetUser.rewardPoints = randomNum;
+              this.userRegistrationservce.updateUser(this.targetUser, this.targetUser.id)
+              .subscribe((data) => {
+                  console.log(data);
+              })
+          })
         }, 
         error => {
           alert("error=" + error);

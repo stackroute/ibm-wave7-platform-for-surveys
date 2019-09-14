@@ -37,10 +37,7 @@
         <mat-form-field class="full-width">
           <mat-label>Password</mat-label>
           <input matInput placeholder="Password" type="password" name="password" [(ngModel)]="password" required
-            [formControl]="passwordFormControl" [type]="hide ? 'password':'text'" />
-          <mat-icon matSuffix (click)="hide = !hide">
-            {{hide ? 'visibility' : 'visibility_off'}}
-          </mat-icon>
+            [formControl]="passwordFormControl" />
           <mat-error *ngIf="passwordFormControl.invalid">{{
             getPasswordErrorMessage("password")
           }}</mat-error>
@@ -51,8 +48,8 @@
             <mat-error *ngIf="roleFormControl.invalid">{{
               getRoleErrorMessage("role")
             }}</mat-error>
-            <!-- <mat-option value="Surveyor">Surveyor</mat-option> -->
-            <mat-option value="User">User</mat-option>
+            <mat-option value="Surveyor">Surveyor</mat-option>
+            <mat-option value="User">Respondent</mat-option>
           </mat-select>
         </mat-form-field>
       
@@ -105,11 +102,8 @@
           <mat-form-field class="full-width">
             <mat-label>Password</mat-label>
             <input matInput placeholder="Password" type="password" name="password" [(ngModel)]="password" required
-              [formControl]="passwordFormControl" [type]="hide ? 'password':'text'" />
-            <mat-icon matSuffix (click)="hide = !hide">
-              {{hide ? 'visibility' : 'visibility_off'}}
-            </mat-icon>
-            <mat-error *ngIf="passwordFormControl.invalid">{{
+              [formControl]="passwordFormControl"/>
+                    <mat-error *ngIf="passwordFormControl.invalid">{{
               getPasswordErrorMessage("password")
             }}</mat-error>
           </mat-form-field>
@@ -120,7 +114,7 @@
                 getRoleErrorMessage("role")
               }}</mat-error>
               <mat-option value="Surveyor" aria-disabled="Role">Surveyor</mat-option>
-              <mat-option value="User">User</mat-option>
+              <mat-option value="User">Respondent</mat-option>
             </mat-select>
           </mat-form-field>
           <button mat-raised-button type="submit" color="primary" [disabled]="biodataForm.invalid">
@@ -131,7 +125,9 @@
     </mat-card>
   </div>
   </div>
-  
+
+
+      
   
   
   
