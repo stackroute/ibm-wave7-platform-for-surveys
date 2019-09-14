@@ -21,6 +21,8 @@ import { MypasswordComponent } from './mypassword/mypassword.component';
 import { ResetpasswordComponent } from './resetpassword/resetpassword.component';
 
 import { UserWelcomeComponent } from './user-welcome/user-welcome.component';
+import { ServicespageComponent } from './servicespage/servicespage.component';
+import { ContactUsComponent } from './contact-us/contact-us.component';
 
 
 const routes: Routes = [
@@ -93,6 +95,12 @@ const routes: Routes = [
   },
   {
     path:'thankyou/signup',component:SignUpComponent
+  },
+  {
+   path:'services',component:ServicespageComponent
+  },
+  {
+   path:'contact',component:ContactUsComponent
   }
 
   
