@@ -69,6 +69,7 @@ import { ResetpasswordComponent } from './resetpassword/resetpassword.component'
 
 import { UserWelcomeComponent } from './user-welcome/user-welcome.component';
 import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
+import { SpeechRecognitionService } from './speech-recognition.service';
 
 
 // Pass the fusioncharts library and chart modules
@@ -149,7 +150,7 @@ FusionChartsModule.fcRoot(FusionCharts, Charts, FusionTheme);
     FusionChartsModule
   ],
   exports: [ChatbotComponent],
-  providers: [MyprofileComponent, DialogComponent, ChatService],
+  providers: [MyprofileComponent, DialogComponent, ChatService,SpeechRecognitionService],
 
 
   entryComponents: [MySurveyCardComponent, CreateSurveyDialogue, DialogComponent, DialogContentComponent, QuestionsTemplateComponent, EditQuestionDialog, ChatbotComponent],

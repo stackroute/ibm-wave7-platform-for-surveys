@@ -27,8 +27,16 @@ export class QuestionsComponent implements OnInit {
   constructor(private router: Router, private surveyService: SurveyService, private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.surveyId = this.route.snapshot.paramMap.get('surveyId');
-    this.getQuestionList(this.surveyId);
+    let surveyId = this.route.snapshot.paramMap.get('surveyId');
+    console.log(surveyId);
+    this.getQuestionList(surveyId);
+    // this.surveyService.expiryCheck().subscribe(
+    //   (num) => {
+    //   this.num = num;
+    //     console.log(window.location.href)
+    //   });
+    // this.surveyId = this.route.snapshot.paramMap.get('surveyId');
+    // this.getQuestionList(this.surveyId);
     this.surveyService.expiryCheck().subscribe(
       (num) => {
       this.num = num;
@@ -62,7 +70,7 @@ export class QuestionsComponent implements OnInit {
           survey_id: "",
           randomNum:0
         }
-
+        this.survey.status="Open";
         response.question_id = question.questionId;
         response.response = question.response;
         response.survey_id = this.surveyId;

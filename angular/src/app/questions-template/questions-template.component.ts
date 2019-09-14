@@ -16,6 +16,7 @@ import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/dr
 import { NgForm } from '@angular/forms';
 import { ChatbotComponent } from '../chatbot/chatbot.component';
 import { MatBottomSheet } from '@angular/material/bottom-sheet';
+import { Mail } from '../mail';
 
 
 @Component({
@@ -36,7 +37,8 @@ export class QuestionsTemplateComponent implements OnInit {
   public userResponse: Response;
   private show:String;
   private limit: number = 2 ;
-  private email:string;
+  emailIds:string[];
+  private email:Mail;
 
   constructor(
     private surveyService: SurveyService,
@@ -70,7 +72,7 @@ export class QuestionsTemplateComponent implements OnInit {
         event.container.data,
         event.previousIndex,
         event.currentIndex);
-      // let droppedQuestion = event.container.data[0];                    
+      let droppedQuestion = event.container.data[0];                    
       this.saveDroppedQuestion(event.container.data[event.currentIndex]);
     }
   }
@@ -97,17 +99,31 @@ export class QuestionsTemplateComponent implements OnInit {
   }
 
   publish() {
-    // this.email={"url":"http://172.23.238.187:4200/questions/"+this.surveyService.surveyId};
-    this.email = "http://172.23.238.187:4200/user-welcome/"+this.surveyService.surveyId;
-    console.log(this.email);
-    this.surveyService.sendMail(this.email).subscribe(data => {
 
-      console.log(data);
+    this.surveyService.getAllMails().subscribe((emailIds)=>{this.emailIds=emailIds;
+      console.log(this.emailIds);
+      this.sendLink(this.emailIds);
     });
+ 
+
+    
+
+}
+    sendLink(Ids)
+    {
+
+     
+      this.email={"url":"http://172.23.238.147:4200/questions/:surveyId?id="+this.surveyService.surveyId,"emailIds":Ids};
+      console.log(this.email.url);
+      this.surveyService.sendMail(this.email).subscribe(data => {
+        console.log(data);
+      });
+    
+
     console.log(this.route.snapshot);
     let surveyId=this.route.snapshot.paramMap.get('surveyId');
     console.log(surveyId);
-    this.surveyService.publishedURL = this.email;
+    this.surveyService.publishedURL = this.email.url;
     this.router.navigate(["publishview", surveyId]);
   }
 
@@ -159,7 +175,6 @@ export class QuestionsTemplateComponent implements OnInit {
       form.reset();
       this.newchoices = [];
     });
-
   }
 
   editQuestion(question) {

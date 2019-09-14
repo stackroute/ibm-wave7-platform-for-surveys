@@ -1,13 +1,12 @@
 import { Injectable } from '@angular/core';
 import { HttpClient ,HttpHeaders} from "@angular/common/http";
-import { User } from "./modals/User";
 import { LoginUser } from "./modals/Login";
 import { environment } from '../environments/environment';
 import { Observable, BehaviorSubject } from 'rxjs';
 import { Guid } from "guid-typescript";
 import { catchError } from 'rxjs/operators';
 import { throwError } from 'rxjs';
-import { Users } from './modals/Users';
+import { User } from './modals/User';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -42,9 +41,10 @@ export class UserRegistrationService {
   ));
   }
 
-  saveUserEmail(email : string) : Observable<User>
+  saveUserEmail(email : string) 
   {
-    return this.httpClient.get<User>("http://localhost:8095/username?email="+email);
+    console.log(email);
+    return this.httpClient.get<string>("http://localhost:8095/saveEmail?email="+email);
   }
 
   setLogin(value: boolean) {
@@ -78,7 +78,7 @@ updateUser(user:User,id:String):Observable<User>{
   return this.httpClient.put<User>(url ,user, httpOptions);
 
 }
-forgotPassword(login:Users): Observable<any>{
+forgotPassword(login:User): Observable<any>{
   var apiUrl = environment.loginBaseURI+"/forgot-password";
   return this.httpClient.post<any>(apiUrl,login);
 }

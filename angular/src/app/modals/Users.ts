@@ -1,4 +1,4 @@
-export class Users
+export interface Users
 {
-    email:string;
+    email:string
 }

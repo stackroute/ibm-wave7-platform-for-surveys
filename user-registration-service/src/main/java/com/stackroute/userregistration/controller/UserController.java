@@ -78,11 +78,20 @@ public class UserController {
         return new ResponseEntity<>(userService.findUserByEmail(email), HttpStatus.OK);
     }
 
-    @PostMapping("username")
+
+
+    @GetMapping("saveEmail")
     public ResponseEntity<?> saveUserEmail(@RequestParam String email)
     {
         User targetUser = userService.saveUserEmail(email);
         return new ResponseEntity<User>(targetUser, HttpStatus.OK);
+
+    }
+
+    @GetMapping("allMails")
+    public ResponseEntity<?> getAllMails()
+    {
+        return new ResponseEntity<List<String>>( userService.getAllMails(),HttpStatus.OK);
     }
 
 }
