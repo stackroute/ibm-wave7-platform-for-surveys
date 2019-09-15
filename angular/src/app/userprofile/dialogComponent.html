@@ -1,0 +1,76 @@
+
+<mat-card class="example-card">
+    <mat-card-header>
+      <mat-card-title>Edit your profile</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      
+   <div class="example-container">
+          
+        <mat-form-field>
+          <input matInput type="text" placeholder="Enter Username" [(ngModel)]="data.name" >
+        </mat-form-field>
+        <!-- <mat-form-field>
+          <input matInput type="text" placeholder="enter email" [(ngModel)]="data.email" >
+        </mat-form-field> -->
+        
+        
+        <mat-form-field class="full-width" [class.has-error]="gender.touched && gender.invalid">
+          <mat-label class ="control-label">Gender</mat-label>
+          <mat-select [(ngModel)]="data.gender" name="gender" required #gender="ngModel">
+            
+            <mat-option value="Male">Male</mat-option>
+            <mat-option value="Female">Female</mat-option>
+          </mat-select>
+          <span class="validations" *ngIf="gender.touched && gender.invalid">
+            gender is required
+          </span>
+        </mat-form-field>
+
+        <mat-form-field class="hello">
+          <mat-label class ="control-label">Location</mat-label>
+          <mat-select [(ngModel)]="data.location" name="location" required #location="ngModel">
+            
+            <mat-option value="Hyderabad">Hyderabad</mat-option>
+            <mat-option value="Bangalore">Bangalore</mat-option>
+            <mat-option value="Chennai">Chennai</mat-option>
+            <mat-option value="Pune">Pune</mat-option>
+            <mat-option value="Delhi">Delhi</mat-option>
+            <mat-option value="Mumbai">Mumbai</mat-option>
+            <mat-option value="Other">Other</mat-option>
+
+          </mat-select>
+          <span class="validations" *ngIf="location.touched && location.invalid">
+            location required
+          </span>
+        </mat-form-field>
+
+        <mat-form-field class="full-width1">
+          <mat-label class ="control-label">Age</mat-label>
+          <mat-select [(ngModel)]="data.ageGroup" name="ageGroup" required #ageGroup="ngModel">
+            
+            <mat-option value="Children">1 to 16</mat-option>
+            <mat-option value="Youth">17 to 30</mat-option>
+            <mat-option value="Middle Age">31 to 60</mat-option>
+            <mat-option value="Old Age">Old age</mat-option>
+          </mat-select>
+          <span class="validations" *ngIf="ageGroup.touched && ageGroup.invalid">
+            age required
+          </span>
+         
+        </mat-form-field>
+        
+      </div>
+      
+    </mat-card-content>
+    
+    <mat-card-actions>
+        <button mat-raised-button color="primary" [mat-dialog-close]="data" cdkFocusInitial>Save</button>
+      
+        <button mat-raised-button (click)="onNoClick()" color="primary">Cancel</button>
+    </mat-card-actions>
+  </mat-card>
+  
+
+
+  

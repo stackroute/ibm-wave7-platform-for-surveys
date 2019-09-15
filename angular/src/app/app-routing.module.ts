@@ -24,6 +24,7 @@ import { UserWelcomeComponent } from './user-welcome/user-welcome.component';
 import { ServicespageComponent } from './servicespage/servicespage.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { ChatbotComponent } from './chatbot/chatbot.component';
+import { UserprofileComponent } from './userprofile/userprofile.component';
 
 
 const routes: Routes = [
@@ -95,6 +96,9 @@ const routes: Routes = [
   },
   {
    path:'contact',component:ContactUsComponent
+    },
+    {
+      path:'userprofile',component:UserprofileComponent
     }
 ]
 
