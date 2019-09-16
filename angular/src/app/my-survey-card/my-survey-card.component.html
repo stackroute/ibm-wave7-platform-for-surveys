@@ -1,6 +1,6 @@
   <!-- <h2>Please create your survey here....!</h2> -->
    <div class="a" fxLayout="row" fxLayout.col-lg="row">
-      <span class="spacer" fxLayout="column"><button class="btn" mat-raised-button matTooltip="Create a survey"
+      <span class="spacer" fxLayout="column"><button class="btn" matTooltip="Create a survey"
       (click)=openDialog()>+</button></span>
   <mat-card class="card" *ngFor="let survey of surveyList">
    <a (click)=editQuestions(survey)> 
@@ -19,10 +19,9 @@
           <button mat-icon-button (click)=editQuestions(survey)>
             <mat-icon class="example-icon" aria-hidden="false" aria-label="search icon">edit</mat-icon>
             </button>
-        <a href="http://localhost:4200/survey" >
           <button mat-icon-button (click)="deleteSurvey(survey)">
           <mat-icon class="example-icon" aria-hidden="false" aria-label="search icon">delete</mat-icon>
-          </button></a>
+          </button>
       </mat-card-actions>
       <div class="bottom">
         <div class="responses"><a routerLink='' >

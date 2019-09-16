@@ -33,7 +33,7 @@
         }}</mat-radio-button><br />
       </div>
     </mat-card>
-    <button mat-mini-fab color="primary" (click)="showMore()" [ngModel]="show">
+    <button mat-mini-fab color="primary" (click)="showMore()" ([ngModel])="show">
         {{show}}
         </button>
   </div>
@@ -83,7 +83,6 @@
     <mat-card-actions>
       <button
         id="addChoice"
-        class="add"
         mat-mini-fab
         color="primary"
         (click)="addChoice(choiceText.value)"
