@@ -1,11 +1,15 @@
 <div class="container">
+<<<<<<< HEAD
 
 
 
+=======
+</div>
+>>>>>>> f8415be327a08c9fc3e2245147abd8109bad220b
 <div class="split left">
   <div class="questions">
     <div>
-      <mat-card class="card" *ngFor="let question of questionList">
+      <mat-card class="card" *ngFor="let question of questionList" (click)="getAnalysis(question)">
         <mat-card-header class="questionCard">
           <mat-card-title>{{question.questionTag}}</mat-card-title>
         </mat-card-header>
@@ -14,13 +18,18 @@
   </div>
 </div>
 
-<div class="split right">
+<div class="split right" *ngIf="OverallChart">
   <div class="centered">
     <div class="chart" *ngFor="let Source of dataSourceList">
       <fusioncharts width="700" height="500" type="Column2d" [dataSource]="Source">
       </fusioncharts>
-    </div>
-  </div>
+    </div> 
+  </div>  
 </div>
 </div>
 
+
+<div class="chart" *ngIf="showChart">
+  <fusioncharts width="700" height="500" type="Column2d" [dataSource]="questionChart">
+  </fusioncharts>
+</div> 

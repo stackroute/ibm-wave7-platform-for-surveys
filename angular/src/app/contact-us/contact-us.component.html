@@ -1,5 +1,6 @@
-<div class="container-fluid" fxLayout fxLayout.xs="column" fxLayoutAlign="left" fxLayoutGap="10px"
-            fxLayoutGap.xs="0">
+<div class="flex-container" fxLayout="row" fxFlex.lt-md="column">
+ <div class="container-fluid" fxLayout fxLayout.xs="column" fxLayoutAlign="left" fxLayoutGap="10px" 
+             fxLayoutGap.xs="0"> 
     <div class="item item-2">
         <h4>ContactUs</h4>
         <p>We are happy to answer any questions you have or provide you with an estimate.just send
@@ -28,10 +29,11 @@
                   <label for="subject">Subject</label>
                   <textarea id="subject" name="subject" placeholder="Write something.." style="height:100px"></textarea>
               
-                  <input type="submit" value="Submit">
+                  <input type="submit" value="Submit" (click)=onsubmit()>
               
                 </form>
               </div>
        
     </div>
     </div>
+</div>

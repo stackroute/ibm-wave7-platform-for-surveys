@@ -1,6 +1,6 @@
   <!-- <h2>Please create your survey here....!</h2> -->
    <div class="a" fxLayout="row" fxLayout.col-lg="row">
-      <span class="spacer" fxLayout="column"><button class="btn" mat-raised-button matTooltip="Create a survey"
+      <span class="spacer" fxLayout="column"><button class="btn" matTooltip="Create a survey"
       (click)=openDialog()>+</button></span>
   <mat-card class="card" *ngFor="let survey of surveyList">
    <a (click)=editQuestions(survey)> 
@@ -19,10 +19,9 @@
           <button mat-icon-button (click)=editQuestions(survey)>
             <mat-icon class="example-icon" aria-hidden="false" aria-label="search icon">edit</mat-icon>
             </button>
-        <a href="http://localhost:4200/survey" >
           <button mat-icon-button (click)="deleteSurvey(survey)">
           <mat-icon class="example-icon" aria-hidden="false" aria-label="search icon">delete</mat-icon>
-          </button></a>
+          </button>
       </mat-card-actions>
       <div class="bottom">
         <div class="responses"><a routerLink='' >
@@ -34,71 +33,5 @@
       </div>
     
    
-  </mat-card> 
-  
-  
-   <!-- <div class="card" *ngFor="let survey of surveyList">
-      <a (click)=editQuestions(survey)>
-    <div class="draft">{{survey.status}}</div>
-    <div class="image"><img src="https://d19d5sz0wkl0lu.cloudfront.net/dims4/default/2d524ed/2147483647/resize/800x%3E/quality/90/?url=https%3A%2F%2Fatd-brightspot.s3.amazonaws.com%2F90%2F93%2F3b46944543bb926eb6ac855261e4%2Fadobestock-215547070.jpeg" alt="Avatar" style="width:100%"></div>
-    <div class="container">
-      <div class="card-header">
-        <h5>{{survey.name}}</h5>
-        <p>{{survey.description}}</p>
-       </div>
-       <div class="actions">
-       <button (click)=preview(survey)>
-          <button class="btn"><i class="material-icons">
-              edit
-              </i></button>
-          </button>
-          <button (click)=editQuestions(survey)>
-              <button class="btn"><i class="material-icons">
-                  edit
-                  </i></button>
-            </button>
-        <a href="http://localhost:4200/survey">
-        <button  (click)="deleteSurvey(survey)">
-            <button class="btn"><i class="material-icons">
-                delete
-                </i></button>
-        </button></a>
-      </div>
-    </div>
-  </a>
-  </div> -->
-
-  <!-- <div class="card">
-      <div class="draft">Draft</div>
-      <div class="image"><img src="https://d19d5sz0wkl0lu.cloudfront.net/dims4/default/2d524ed/2147483647/resize/800x%3E/quality/90/?url=https%3A%2F%2Fatd-brightspot.s3.amazonaws.com%2F90%2F93%2F3b46944543bb926eb6ac855261e4%2Fadobestock-215547070.jpeg" alt="Avatar" style="width:100%"></div>
-      <div class="container">
-        <h4><b>Jane Doe</b></h4> 
-        <p>Interior Designer</p> 
-      </div>
-    </div>
-    <div class="card">
-        <div class="draft">Draft</div>
-        <div class="image"><img src="https://d19d5sz0wkl0lu.cloudfront.net/dims4/default/2d524ed/2147483647/resize/800x%3E/quality/90/?url=https%3A%2F%2Fatd-brightspot.s3.amazonaws.com%2F90%2F93%2F3b46944543bb926eb6ac855261e4%2Fadobestock-215547070.jpeg" alt="Avatar" style="width:100%"></div>
-        <div class="container">
-          <h4><b>Jane Doe</b></h4> 
-          <p>Interior Designer</p> 
-        </div>
-      </div>
-      <div class="card">
-          <div class="draft">Draft</div>
-          <div class="image"><img src="https://d19d5sz0wkl0lu.cloudfront.net/dims4/default/2d524ed/2147483647/resize/800x%3E/quality/90/?url=https%3A%2F%2Fatd-brightspot.s3.amazonaws.com%2F90%2F93%2F3b46944543bb926eb6ac855261e4%2Fadobestock-215547070.jpeg" alt="Avatar" style="width:100%"></div>
-          <div class="container">
-            <h4><b>Jane Doe</b></h4> 
-            <p>Interior Designer</p> 
-          </div>
-        </div>
-        <div class="card">
-            <div class="draft">Draft</div>
-            <div class="image"><img src="https://d19d5sz0wkl0lu.cloudfront.net/dims4/default/2d524ed/2147483647/resize/800x%3E/quality/90/?url=https%3A%2F%2Fatd-brightspot.s3.amazonaws.com%2F90%2F93%2F3b46944543bb926eb6ac855261e4%2Fadobestock-215547070.jpeg" alt="Avatar" style="width:100%"></div>
-            <div class="container">
-              <h4><b>Jane Doe</b></h4> 
-              <p>Interior Designer</p> 
-            </div>
-          </div>  -->
-
+  </mat-card>
 </div>

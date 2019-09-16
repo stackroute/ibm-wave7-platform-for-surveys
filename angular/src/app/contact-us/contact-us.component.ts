@@ -11,5 +11,8 @@ export class ContactUsComponent implements OnInit {
 
   ngOnInit() {
   }
+  onsubmit(){
+    alert("Thank you for your Response.We wii reach you soon");
+  }
 
 }
