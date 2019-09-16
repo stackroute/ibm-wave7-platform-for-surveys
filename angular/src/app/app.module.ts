@@ -135,6 +135,7 @@ FusionChartsModule.fcRoot(FusionCharts, Charts, FusionTheme);
     MatSelectModule,
     FlexLayoutModule,
     MatListModule,
+    
     MatButtonModule,
     MatIconModule,
     MatMenuModule,

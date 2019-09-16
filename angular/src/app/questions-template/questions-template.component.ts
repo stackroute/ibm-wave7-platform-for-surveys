@@ -98,21 +98,21 @@ export class QuestionsTemplateComponent implements OnInit {
   }
 
   publish() {
-    this.surveyService.editSurvey.status = "Open";
-    this.surveyService.editSurveyById(this.surveyService.editSurvey).subscribe((data) => {
-      console.log(data);
+    // this.surveyService.editSurvey.status = "Open";
+    // this.surveyService.editSurveyById(this.surveyService.editSurvey).subscribe((data) => {
+    //   console.log(data);
       this.surveyService.getAllMails().subscribe((emailIds) => {
         this.emailIds = emailIds;
         console.log(this.emailIds);
         this.sendLink(this.emailIds);
       });
-    })
+    // })
   }
 
   sendLink(Ids) {
     this.email = {
-      "url": "http://172.23.239.186:4200/user-welcome/" + this.surveyService.surveyId,
-      "emailIds": ["harikapabbisetty610@gmail.com","sahithimpc@gmail.com"]
+      "url": "http://172.23.238.147:4200/user-welcome/" + this.surveyService.surveyId,
+      "emailIds": Ids
     };
     console.log(this.email.url);
     this.surveyService.sendMail(this.email).subscribe(data => {
@@ -122,6 +122,7 @@ export class QuestionsTemplateComponent implements OnInit {
     let surveyId = this.route.snapshot.paramMap.get('surveyId');
     console.log(surveyId);
     this.surveyService.publishedURL = this.email.url;
+    this.surveyService.emailIds=Ids;
     this.router.navigate(["publishview", surveyId]);
   }
 
