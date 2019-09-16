@@ -89,7 +89,8 @@ public class SurveyController {
     }
 
     @GetMapping("expiryCheck")
-    public int surveyExpiryCheck(@RequestParam String id) {
+    public int surveyExpiryCheck(@RequestParam String id)
+    {
         return surveyService.surveyExpiryCheck(id);
     }
 

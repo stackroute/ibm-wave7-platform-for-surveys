@@ -19,12 +19,12 @@ import java.util.Map;
 public class KafkaConfiguration {
 
         @Bean
-        public ConsumerFactory<String,String> consumerFactory() {
+        public ConsumerFactory<String,Surveyor> consumerFactory() {
 
             Map<String, Object> config = new HashMap<>();
 
 
-            config.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, "localhost:9092");
+            config.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, "13.235.226.107:9092");
 
 
             config.put(ConsumerConfig.GROUP_ID_CONFIG, "group_id");
@@ -33,8 +33,8 @@ public class KafkaConfiguration {
             return new DefaultKafkaConsumerFactory<>(config);
         }
         @Bean
-        public ConcurrentKafkaListenerContainerFactory<String,String> kafkaListenerContainerFactory() {
-            ConcurrentKafkaListenerContainerFactory<String,String> factory = new ConcurrentKafkaListenerContainerFactory();
+        public ConcurrentKafkaListenerContainerFactory<String,Surveyor> kafkaListenerContainerFactory() {
+            ConcurrentKafkaListenerContainerFactory<String,Surveyor> factory = new ConcurrentKafkaListenerContainerFactory();
             factory.setConsumerFactory(consumerFactory());
             return factory;
         }
