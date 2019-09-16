@@ -118,7 +118,9 @@ FusionChartsModule.fcRoot(FusionCharts, Charts, FusionTheme);
     ContactUsComponent,
 
     
-    UserprofileComponent
+    UserprofileComponent,
+
+    
 
   ],
   imports: [

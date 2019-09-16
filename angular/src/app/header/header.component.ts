@@ -35,7 +35,14 @@ export class HeaderComponent implements OnInit {
     this.navbarOpen = !this.navbarOpen;
   }
   myprofile() {
-    this.router.navigateByUrl("myprofile");
+    if(this.userRegistrationService.loginCredentials.role=="Surveyor"){
+      this.router.navigateByUrl("myprofile");
+      }
+      else
+      {
+        this.router.navigateByUrl("userprofile");
+      }
+
   }
 
  
