@@ -30,14 +30,4 @@ public class Surveyor {
     @Relationship(type = "Creates", direction = Relationship.UNDIRECTED)
     List<Survey> SurveysList = new ArrayList<>();
 
-    public Surveyor(String id, String name, String email, String location, String role, String ageGroup, String gender, List<Survey> surveysList) {
-        this.id = id;
-        this.name = name;
-        this.email = email;
-        this.location = location;
-        this.role = role;
-        this.ageGroup = ageGroup;
-        this.gender = gender;
-        SurveysList = surveysList;
-    }
 }
