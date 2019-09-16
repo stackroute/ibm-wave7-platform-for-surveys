@@ -15,7 +15,7 @@ export class HeaderComponent implements OnInit {
   isLoggedOut$:Observable<boolean>;
   loggedOut: boolean;
   public url: string = "http://localhost:4200/login";
-  constructor(private userRegistrationService:UserRegistrationService, private router: Router) {}
+  constructor(private userRegistrationService:UserRegistrationService, private router: Router,) {}
 
   ngOnInit() {
     this.isLoggedIn$ = this.userRegistrationService.logged;

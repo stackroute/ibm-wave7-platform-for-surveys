@@ -93,7 +93,7 @@ export class LandingPageComponent implements OnInit{
       this.loggedOut = data;
       // console.log(this.loggedOut);
     });
-    this.slides = this.chunk(this.cards, 3);
+    this.slides = this.chunk(this.cards, 4);
     this.getSurveyList();
 
   }

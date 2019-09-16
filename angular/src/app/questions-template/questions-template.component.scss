@@ -3,15 +3,15 @@
 width:50%;
 // margin-top: 2cm;
 float: left;
-padding:1cm;
-background: rgb(255,149,149);
-background: linear-gradient(264deg, rgba(255,149,149,1) 0%, rgba(255,149,149,1) 32%, rgba(33,1,56,1) 100%);padding: 0 0 0.2em 0;
-color: white;
+padding:3cm;
+// background: rgb(255,149,149);
+// background: linear-gradient(264deg, rgba(255,149,149,1) 0%, rgba(255,149,149,1) 32%, rgba(33,1,56,1) 100%);padding: 0 0 0.2em 0;
+// color: white;
 padding: 15px;
 width: 50%;
-height: 70%;
+height: auto;
 overflow: scroll;
-border: 1px solid #ccc;
+border: 1px solid rgb(41, 1, 39);
 }
 .example-container1
 {
@@ -21,7 +21,7 @@ padding:1cm;
 float:right;
 background: rgb(199, 191, 191);
     background: linear-gradient(264deg, rgb(165, 160, 160) 0%, rgb(27, 27, 27) 32%, rgb(95, 94, 95) 100%);padding: 0 0 0.2em 0;
-    color: white;
+
 padding: 15px;
 width: 50%;
 height: 70%;
@@ -40,10 +40,11 @@ border: 1px solid #ccc;
    margin-left:0.5cm;
     box-sizing: border-box;
     border-radius: 4px;
-    box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),
-                0 8px 10px 1px rgba(0, 0, 0, 0.14),
-                0 3px 14px 2px rgba(0, 0, 0, 0.12);
-  }  
+}
+.example-box:hover{
+   box-shadow: 0 8px 25px 0 rgba(0,0,0,0.8);
+  }
+  
   .cdk-drag-placeholder {
     opacity: 0;
   }
@@ -68,7 +69,10 @@ border: 1px solid #ccc;
   .add-question{
     min-width:700px;
     height:auto;
-    margin-top:35cm;
+    margin-top:32cm;
+  }
+    .add-question:hover{
+      box-shadow: 0 8px 25px 0 rgba(0,0,0,0.8);
   }
   h3{
     margin-top:2cm;
@@ -85,7 +89,10 @@ border: 1px solid #ccc;
   .chatbot{
     height:50px;
   }
-
+  .add
+{
+  float: right;
+}
  
 
   
