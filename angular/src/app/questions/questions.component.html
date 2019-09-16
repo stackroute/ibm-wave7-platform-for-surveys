@@ -5,18 +5,14 @@
     <p>http://172.23.238.147:4200/questions/:surveyId?id={{surveyId}}</p>
   </div>
 </div>
-
 <ng-template #takeSurvey>
-
   <div class="example-container">
-
     <form class="my-form" #userregistrationform="ngForm">
-
       <mat-card class="example-box" *ngFor="let question of questionList">
         <h3>
           {{ question.questionTag }}
         </h3>
-        <br />
+        <br/>
         <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group">
           <mat-radio-button class="example-radio-button" *ngFor="let choice of question.choices" [value]="choice"
             [(ngModel)]="question.response" name="response" ngDefaultControl>
@@ -30,4 +26,3 @@
   </div>
 </ng-template>
 <a routerLink="/survey"><button mat-raised-button color="primary">Back</button></a>
-<!-- <app-reward-points [parentData]="randomNum"></app-reward-points> -->
