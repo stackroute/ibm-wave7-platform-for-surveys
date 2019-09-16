@@ -1,11 +1,4 @@
 
-// .container{
-//     display: flex;
-//     justify-content: space-evenly;
-//     margin: 90px 10px 10px 10px;
-//     border: 4px;
-//     width:100%;
-// }
 .split {
     height: 100%;
     width: 50%;
@@ -14,16 +7,17 @@
     top: 0;
     overflow-x: hidden;
     padding-top: 20px;
+    
   }
   
   .left {
     left: 0;
-    //background-color: #111;
+    background-color: #111;
   }
   
   .right {
     right: 0;
-    //background-color: red;
+    background-color: red;
   }
   
   .centered {
@@ -37,7 +31,7 @@
 .questions{
   
     position: absolute;
-    top: 15%;
+    
     
    
 }
@@ -60,13 +54,13 @@
     box-shadow: 0 8px 25px 0 rgba(0,0,0,0.8);
     
   }
-// .chart{
-    
-//     width: 50%;
-  
-// }
-
-// container > div{
-//    // box-shadow: 0 10px 10px 0 rgba(0,0,0,0.2);
-   
-// }
+  .split-right{
+    float:right;
+    background-color: #111;
+  }
+  .split-left{
+    float: left;
+  }
+  .chart{
+    float:right;
+  }
