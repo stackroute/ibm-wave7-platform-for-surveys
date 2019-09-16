@@ -1,5 +1,5 @@
 
-  
+
 import { Component, OnInit, Inject, Input } from "@angular/core";
 import { SurveyService } from "../survey.service";
 import { ActivatedRoute, Router } from "@angular/router";
@@ -35,10 +35,10 @@ export class QuestionsTemplateComponent implements OnInit {
   private recommendedQuestionList: Question[];
   private newchoices: string[] = [];
   public userResponse: Response;
-  private show:String;
-  private limit: number = 2 ;
-  emailIds:string[];
-  private email:Mail;
+  private show: String;
+  private limit: number = 2;
+  emailIds: string[];
+  private email: Mail;
 
   constructor(
     private surveyService: SurveyService,
@@ -49,17 +49,16 @@ export class QuestionsTemplateComponent implements OnInit {
     private router: Router,
     private bottomSheet: MatBottomSheet
   ) { }
-  
-   
+
+
   ngOnInit() {
     this.getQuestionList(this.surveyService.editSurvey.id);
     this.getRecommendedQuestions(this.surveyService.editSurvey.domain_type);
   }
-  showMore()
-  {
+  showMore() {
     console.log("this.recommendedQuestionList");
-    this.limit=40;
-    this.show="less";
+    this.limit = 40;
+    this.show = "less";
     this.getRecommendedQuestions(this.surveyService.editSurvey.domain_type);
   }
   drop(event: CdkDragDrop<Object[]>) {
@@ -99,45 +98,41 @@ export class QuestionsTemplateComponent implements OnInit {
   }
 
   publish() {
-
-    this.surveyService.getAllMails().subscribe((emailIds)=>{this.emailIds=emailIds;
-      console.log(this.emailIds);
-      this.sendLink(this.emailIds);
-    });
- 
-
-    
-
-}
-    sendLink(Ids)
-    {
-
-     
-      this.email={"url":"http://172.23.238.147:4200/questions/:surveyId?id="+this.surveyService.surveyId,"emailIds":Ids};
-      console.log(this.email.url);
-      this.surveyService.sendMail(this.email).subscribe(data => {
-        console.log(data);
+    this.surveyService.editSurvey.status = "Open";
+    this.surveyService.editSurveyById(this.surveyService.editSurvey).subscribe((data) => {
+      console.log(data);
+      this.surveyService.getAllMails().subscribe((emailIds) => {
+        this.emailIds = emailIds;
+        console.log(this.emailIds);
+        this.sendLink(this.emailIds);
       });
-    
+    })
+  }
 
+  sendLink(Ids) {
+    this.email = {
+      "url": "http://172.23.239.186:4200/user-welcome/" + this.surveyService.surveyId,
+      "emailIds": ["harikapabbisetty610@gmail.com","sahithimpc@gmail.com"]
+    };
+    console.log(this.email.url);
+    this.surveyService.sendMail(this.email).subscribe(data => {
+      console.log(data);
+    });
     console.log(this.route.snapshot);
-    let surveyId=this.route.snapshot.paramMap.get('surveyId');
+    let surveyId = this.route.snapshot.paramMap.get('surveyId');
     console.log(surveyId);
     this.surveyService.publishedURL = this.email.url;
     this.router.navigate(["publishview", surveyId]);
   }
 
-  getFilteredEmails()
-  {
-      this.surveyService.getFilteredEmails().subscribe(
-      (data) =>
-      {
+  getFilteredEmails() {
+    this.surveyService.getFilteredEmails().subscribe(
+      (data) => {
         console.log(data);
       }),
-      (error) =>
-      {
+      (error) => {
         console.log(error);
-      }    
+      }
   }
 
   addQuestion() {
@@ -211,8 +206,6 @@ export class QuestionsTemplateComponent implements OnInit {
       panelClass: 'custom-width'
     });
   }
-
-
 }
 
 @Component({

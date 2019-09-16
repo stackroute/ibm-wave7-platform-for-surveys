@@ -11,10 +11,7 @@ export interface DialogData{
   gender:string;
   ageGroup : string;
   location :string;
-
 }
-
-
 
 @Component({
   selector: 'app-myprofile',
@@ -29,14 +26,9 @@ export class MyprofileComponent implements OnInit {
   email:string;
   id:string;
   
-  
-  
-  
-  
   constructor(private registrationService: UserRegistrationService,private dialog: MatDialog) { }
 
   ngOnInit() {
-    
     console.log(this.user)
     this.id = this.registrationService.loginCredentials.id;
     this.registrationService.getUserById(this.id).subscribe((data) =>{
@@ -44,6 +36,7 @@ export class MyprofileComponent implements OnInit {
       console.log(this.user);
     })
   }
+  
   updateUser(user:User){
     //console.log(user);
     user.password=this.user.password;

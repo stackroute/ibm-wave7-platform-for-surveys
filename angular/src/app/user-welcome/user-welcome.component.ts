@@ -16,38 +16,33 @@ export class UserWelcomeComponent implements OnInit {
     private userRegistration: UserRegistrationService,
     private router: Router,
     private route: ActivatedRoute,
-    private surveyService : SurveyService
-  ) {}
-
-
+    private surveyService: SurveyService
+  ) { }
 
   private user: User;
-  private surveyId : string;
-  private email : string;
+  private surveyId: string;
+  private email: string;
 
   ngOnInit() {
-    //  this.surveyId=this.route.snapshot.paramMap.get('surveyId');
+    this.surveyId = this.route.snapshot.paramMap.get('surveyId');
   }
-  
-  onClick(email)
-{
-  console.log(email);
-  this.userRegistration.email=email;
-  this.userRegistration.saveUserEmail(email).subscribe((id) => 
-  {
-  id=id;
-  console.log(id);
-  });
-  this.router.navigateByUrl("questions"+this.surveyId);
-}
-}
-// this.userRegistration.email = this.email;
-//     this.userRegistration.saveUserEmail(this.email).subscribe(
-//       (data) => {
-//         this.user = data
-//         console.log(data);
-//         this.surveyService.targetUser = data;
-//         this.router.navigate(['questions',this.surveyId]);
-//       });
-//   }
 
+  takeSurvey() {
+    console.log(this.email);
+    // this.userRegistration.email = email;
+    this.userRegistration.saveUserEmail(this.email).subscribe(
+      (data) => {
+        console.log(data);
+      });
+      this.router.navigate(['questions', this.surveyId]);
+    // this.userRegistration.email = this.email;
+    //     this.userRegistration.saveUserEmail(this.email).subscribe(
+    //       (data) => {
+    //         this.user = data
+    //         console.log(data);
+    //         this.surveyService.targetUser = data;
+    //         this.router.navigate(['questions',this.surveyId]);
+    //       });
+    //   }
+  }
+}

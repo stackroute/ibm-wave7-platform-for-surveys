@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Question } from '../modals/Question';
 import { SurveyService } from '../survey.service';
+import { Datasource } from '../modals/Datasource';
 
 @Component({
   selector: 'app-response-analysis',
@@ -8,89 +9,72 @@ import { SurveyService } from '../survey.service';
   styleUrls: ['./response-analysis.component.scss']
 })
 export class ResponseAnalysisComponent implements OnInit {
-  dataSource: Object; dataSource1: Object;
+
+  dataSource: any;
+  dataSourceList: Datasource[] = [];
   private questionList: Question[];
 
+  constructor(private surveyService: SurveyService) { }
 
- constructor(private surveyService: SurveyService,) {
+  ngOnInit() {
+    console.log(this.surveyService.surveyId);
+    this.getQuestionList(this.surveyService.editSurvey.id);
+    this.loadDataSources();
+  }
+
+  getQuestionList(surveyId: string) {
+    console.log(surveyId);
+    this.surveyService.getAllQuestions(surveyId).subscribe(data => {
+      this.questionList = data.questionList;
+      console.log("questions : ", this.questionList);
+      for (let i = 0; i < this.questionList.length; i++) {
+        let question = this.questionList[i];
+        this.dataSourceList[i] = this.dataSource;
+        this.dataSourceList[i].chart.caption = question.questionTag;
+        this.dataSourceList[i].chart.subCaption = "Which option is most answered";
+        this.dataSourceList[i].chart.xAxisName = "Options";
+        this.dataSourceList[i].chart.yAxisName = "no of users opted";
+        this.dataSourceList[i].chart.theme = "fusion";
+        for (let j = 0; j < question.choices.length; j++) {
+          this.dataSourceList[i].data[i].label = question.choices[i];
+          this.dataSourceList[i].data[i].value = j.toString();
+        }
+      }
+    });
+  }
+
+  loadDataSources() {
     this.dataSource = {
       chart: {
         caption: "How easy or difficult was it to schedule your appointment at a time that was conveninent for you?",
         subCaption: "Which option is most answered",
         xAxisName: "Options",
         yAxisName: "no of users opted",
-
         theme: "fusion"
       },
       // Chart Data
       data: [
         {
-          label: "Very Easy",
-          value: "10"
+          label: "",
+          value: ""
         },
         {
-          label: "Some What Difficult",
-          value: "5"
+          label: "",
+          value: ""
         },
         {
-          label: "Some what easy",
-          value: "3"
+          label: "",
+          value: ""
         },
         {
-          label: "Very difficult",
-          value: "2"
+          label: "",
+          value: ""
         },
-
         {
-          label: "Neither easy nor difficult",
-          value: "0"
+          label: "",
+          value: ""
         }
-
-      ]
-
-    };
-    this.dataSource1 = {
-      chart: {
-        caption: "How often do you visit One Plus Store?",
-        subCaption: "Which option is most answered",
-        xAxisName: "Options",
-        yAxisName: "no of users opted",
-
-        theme: "fusion"
-      },
-      // Chart Data
-      data: [
-        {
-          label: "Once in a month",
-          value: "3"
-        },
-        {
-          label: "Once in a year",
-          value: "100"
-        },
-        {
-          label: "Once in a month",
-          value: "3"
-        },
-        {
-          label: "Once in a day",
-          value: "2"
-        }
-
-
-
       ]
     };
   }
-  ngOnInit(){
-    console.log(this.surveyService.surveyId);
-    this.getQuestionList(this.surveyService.editSurvey.id);
-  }
-  getQuestionList(surveyId: string) {
-    console.log(surveyId);
-    this.surveyService.getAllQuestions(surveyId).subscribe(data => {
-      this.questionList = data.questionList;
-      console.log("questions : ", this.questionList);
-    });
-  }
-} 
+}

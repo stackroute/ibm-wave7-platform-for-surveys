@@ -17,15 +17,13 @@
   <input [(ngModel)]="formValue" (keyup.enter)="sendMessage()" type="text">
   
   <button (click)="sendMessage()">Send</button>
-  <button class="btn btn-info btn-fill btn-wd" name="btnActivateSpeechSearch" 
+  <button  mat-button class="btn btn-info btn-fill btn-wd" name="btnActivateSpeechSearch" 
     id="btnActivateSpeechSearch" (click)="activateSpeechSearch()"
-    [disabled]="!startListenButton">
-    Start Listening
+    [disabled]="!startListenButton"><mat-icon>mic</mat-icon>
   </button>
-  <button class="btn btn-info btn-fill btn-wd" name="btnDeactivateSpeechSearch" 
+  <button mat-button class="btn btn-info btn-fill btn-wd" name="btnDeactivateSpeechSearch" 
     id="btnDeactivateSpeechSearch" (click)="deActivateSpeechSearch()"
-    [disabled]="startListenButton">
-    Stop Listening
+    [disabled]="startListenButton"><mat-icon>mic_off</mat-icon>
   </button>
   
   </div>

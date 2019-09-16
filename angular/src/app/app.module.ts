@@ -69,6 +69,8 @@ import { ResetpasswordComponent } from './resetpassword/resetpassword.component'
 
 import { UserWelcomeComponent } from './user-welcome/user-welcome.component';
 import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
+import { ServicespageComponent } from './servicespage/servicespage.component';
+import { ContactUsComponent } from './contact-us/contact-us.component';
 import { SpeechRecognitionService } from './speech-recognition.service';
 
 
@@ -105,7 +107,13 @@ FusionChartsModule.fcRoot(FusionCharts, Charts, FusionTheme);
     ResetpasswordComponent,
 
     
-    UserWelcomeComponent
+    UserWelcomeComponent,
+
+    
+    ServicespageComponent,
+
+    
+    ContactUsComponent
 
   ],
   imports: [

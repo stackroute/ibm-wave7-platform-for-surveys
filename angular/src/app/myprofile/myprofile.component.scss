@@ -2,11 +2,16 @@
     padding-top:50px;
     padding-left: 60px;
 padding-bottom: 80px;
-min-width:100px;
 
-    }
+}
     mat-card{
-        min-width:50px;
+        min-width:400px;
+       // margin:60px 60px 50px 50px;
+       display: block;
+       margin-top: 1cm;
+        margin-left:auto;
+         margin-right:auto;
+         align-content: center;
     }
     .example-container{
     font-family: arial;
@@ -14,14 +19,15 @@ min-width:100px;
     h6{
     padding-top:20px;
     }
-    #button1{
-        width: 200px;
-        height: 40px;
-        margin-right: 150px;
+    // #button1{
+    //     width: 200px;
+    //     height: 40px;
+    //     margin-right: 150px;
         
-    }
+    // }
     mat-card-actions{
         text-align: center;
+        padding-bottom: 20px;
         
     }
     .mat-raised-.mat-card-actions .mat-button, .mat-card-actions .mat-raised-button{
@@ -29,9 +35,29 @@ min-width:100px;
         
     }
     .mat-raised-button {
-        float: left;
+    //    float: left;
+    
         margin-bottom: 50px;
+        margin-left:auto;
+        margin-right:auto;
+       
     }
     .flex-container{
-        background-color:white;
-    }
+        background: rgb(255,149,149);
+    
+        background: linear-gradient(264deg, rgba(255,149,149,1) 0%, rgba(255,149,149,1) 32%, rgba(33,1,56,1) 100%);
+        }
+//         mat-card-header{
+//             text-align: center;
+//         }
+   
+//   mat-card-title
+//   {
+//       margin-right: auto;
+//   }
+  mat-card-header.mat-card-header
+  {
+      //text-align: center;
+      justify-content: center;
+      
+  }

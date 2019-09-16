@@ -13,7 +13,7 @@ import { User} from '../modals/User'
 export class MypasswordComponent implements OnInit {
   minPw = 8;
   formGroup: FormGroup
- private user:User
+//  private user=new Users();
   private email;
   constructor(private formBuilder: FormBuilder,private registrationService: UserRegistrationService) { }
 
@@ -51,14 +51,14 @@ export class MypasswordComponent implements OnInit {
   //  });
   // }
   
-  reset() {
-    console.log(this.email);
-    // this.user.email = this.email;
+  // reset() {
+  //   console.log(this.email);
+  //   this.user.email = this.email;
     
-    // this.registrationService.forgotPassword(this.user)
-    // .subscribe(data => {
-    //   console.log(data);
-    // });
+  //   this.registrationService.forgotPassword(this.user)
+  //   .subscribe(data => {
+  //     console.log(data);
+  //   });
 
-  }
+  // }
   }

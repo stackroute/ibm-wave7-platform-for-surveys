@@ -1,25 +1,26 @@
 .welcome{
-    text-align: center;
-        background-color:lightgray;
-        opacity:1;
-        height: 100%;
+    background: rgb(255,149,149);
+    background: linear-gradient(264deg, rgba(255,149,149,1) 0%, rgba(255,149,149,1) 32%, rgba(33,1,56,1) 100%);
+    opacity:1;
+    height: 100%;
+    width: 100%;
 }
 h1{
-   
-    color:black;
+    color:white;
 }
 h2{
-    // margin-top:7cm;
-    color: blue;
+    color: white;
 }
 a{
-    color: black;
+    color: white;
 }
 label{
-    color: black;
+    color: white;
 }
 .welcomedetails{
-    margin-top:10cm;
-    // padding:15cm;
-    margin-left:12cm;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: auto;
 }
