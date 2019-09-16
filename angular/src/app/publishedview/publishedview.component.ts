@@ -12,9 +12,11 @@ export class PublishedviewComponent implements OnInit {
   constructor(private surveyService : SurveyService,private route:ActivatedRoute,private router :Router) { }
 
   private publishedURL : String;
+  private emailIds : string [];
 
   ngOnInit() {
     this.publishedURL = this.surveyService.publishedURL;
+    this.emailIds=this.surveyService.emailIds;
   }
 
   getSurveyId()

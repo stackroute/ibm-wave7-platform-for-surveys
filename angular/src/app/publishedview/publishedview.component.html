@@ -1,6 +1,15 @@
 <div class="hero-image">
   <div class="hero-text">
-    <h2>Your survey have been published successfully.You can distribute your survey using this link</h2>
+    <h2>Your survey has been published successfully.You can distribute your survey using this link</h2>
     <button (click)="getSurveyId()"><a>{{ publishedURL }}</a></button>
+  </div>">
+      <mat-card>      
+      <h2>Your Link has been published to these EmailIds</h2></div>
+    <div *ngFor="let id of emailIds">
+    <p>{{id}}</p>
   </div>
+  </mat-card>
+    </div>
 </div>
+
+

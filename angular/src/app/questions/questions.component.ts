@@ -111,6 +111,5 @@ export class QuestionsComponent implements OnInit {
   newSurveys() {
     this.surveyService.getRelatedSurveys().subscribe((id: []) => { this.id = id; })
   }
-
 }
 

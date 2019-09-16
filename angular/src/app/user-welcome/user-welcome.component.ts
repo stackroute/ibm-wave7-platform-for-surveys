@@ -25,6 +25,7 @@ export class UserWelcomeComponent implements OnInit {
 
   ngOnInit() {
     this.surveyId = this.route.snapshot.paramMap.get('surveyId');
+    console.log(this.surveyId);
   }
 
   takeSurvey() {
@@ -35,6 +36,7 @@ export class UserWelcomeComponent implements OnInit {
         console.log(data);
         this.surveyService.targetUser = data;
       });
+      console.log(this.surveyId);
       this.router.navigate(['questions', this.surveyId]);
     // this.userRegistration.email = this.email;
     //     this.userRegistration.saveUserEmail(this.email).subscribe(

@@ -3,11 +3,12 @@
 <div class="hero-text">
     <mat-card>
         <mat-card-content>
-<h3>Thanking you for taking the survey</h3>
-<p>To reedem your reward points sign-up here...!</p>
-<a routerLink='/thankyou/signup'><button (click)="sendMail()">Sign-up</button></a>
+<h3>Thanks, we really appreciate your feedback...!!!</h3>
+<p>To redeem your reward points sign-up here...!</p>
+<a routerLink='/thankyou/signup'><button mat-raised-button (click)="sendMail()" color=primary>Sign-up</button></a>
 <br>
-<a routerLink='/rewards'>Click here to get rewards!</a>
+<mat-divider></mat-divider>
+<a routerLink='/rewards'><p class="reward"> Click here to know your rewardpoints!</p></a>
 </mat-card-content>
 </mat-card>
 </div> 

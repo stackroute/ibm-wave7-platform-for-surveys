@@ -35,6 +35,22 @@ public class User {
     private String gender;
     private String rewardPoints;
 
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
     public User(String id, String name, String email, String password, String role, String location, String ageGroup, String gender) {
         this.id = id;
         this.name = name;
@@ -45,4 +61,6 @@ public class User {
         this.ageGroup = ageGroup;
         this.gender = gender;
     }
+
+
 }

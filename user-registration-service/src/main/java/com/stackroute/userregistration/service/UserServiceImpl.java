@@ -4,6 +4,8 @@ import com.stackroute.userregistration.domain.User;
 import com.stackroute.userregistration.exception.EmailAlreadyExistException;
 import com.stackroute.userregistration.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
