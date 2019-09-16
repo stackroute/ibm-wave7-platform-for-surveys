@@ -37,7 +37,6 @@ public class SurveyorServiceTest {
         surveyor.setId("56");
         surveyor.setName("Rupa");
         surveyor.setEmail("rupa@gmail.com");
-                surveyor.setTimeStamp(new Date());
         list=new ArrayList<>();
         list.add(surveyor);
     }
