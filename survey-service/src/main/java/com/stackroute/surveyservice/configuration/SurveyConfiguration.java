@@ -1,3 +1,4 @@
+/*
 package com.stackroute.surveyservice.configuration;
 
 import com.stackroute.surveyservice.domain.Survey;
@@ -33,4 +34,7 @@ public class SurveyConfiguration {
     {
         return new KafkaTemplate<>(producerFactory());
     }
+
+
 }
+*/

@@ -23,10 +23,11 @@ public class Surveyor {
     private String id;
     private String name;
     private String email;
-    private Date timeStamp;
     private String location;
+    private String role;
     private String ageGroup;
     private String gender;
     @Relationship(type = "Creates", direction = Relationship.UNDIRECTED)
     List<Survey> SurveysList = new ArrayList<>();
+
 }

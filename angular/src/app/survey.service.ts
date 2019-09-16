@@ -32,6 +32,8 @@ export class SurveyService {
 
   public targetUser: User;
 
+  public emailIds : string[];
+
   createSurvey(survey: Survey): Observable<Survey> {
     //creating a Guid Id
     survey.id = Guid.create().toString();
@@ -89,11 +91,11 @@ export class SurveyService {
 
   sendMail(mail: Mail) {
     console.log(mail);
-    return this.httpclient.post(environment.mailURI, mail);
+    return this.httpclient.post("http://172.23.238.147:8070/send-mail", mail);
   }
 
   expiryCheck() {
-    return this.httpclient.get<number>(environment.baseURI + "/expiryCheck?id=" + this.surveyId);
+    return this.httpclient.get<number>(environment.baseURI + "/expiryCheck?id=" + this.editSurvey.id);
   }
 
   getRelatedSurveys() {
@@ -101,7 +103,7 @@ export class SurveyService {
   }
 
   getAllMails() {
-    return this.httpclient.get<string[]>(environment.signUpBaseURI + "/allMails");
+    return this.httpclient.get<string[]>("http://172.23.238.147:8095" + "/allMails");
   }
   getRecommendedQuestions(domain: String) {
     return this.httpclient.get<Question[]>(environment.baseURI + "/recommendations/" + domain);
