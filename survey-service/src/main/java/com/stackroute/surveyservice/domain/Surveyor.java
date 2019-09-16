@@ -23,11 +23,21 @@ public class Surveyor {
     private String id;
     private String name;
     private String email;
-    private Date timeStamp;
     private String location;
     private String role;
     private String ageGroup;
     private String gender;
     @Relationship(type = "Creates", direction = Relationship.UNDIRECTED)
     List<Survey> SurveysList = new ArrayList<>();
+
+    public Surveyor(String id, String name, String email, String location, String role, String ageGroup, String gender, List<Survey> surveysList) {
+        this.id = id;
+        this.name = name;
+        this.email = email;
+        this.location = location;
+        this.role = role;
+        this.ageGroup = ageGroup;
+        this.gender = gender;
+        SurveysList = surveysList;
+    }
 }
