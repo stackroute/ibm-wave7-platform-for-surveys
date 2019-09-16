@@ -93,7 +93,7 @@ export class SurveyService {
   }
 
   expiryCheck() {
-    return this.httpclient.get<number>(environment.baseURI + "/expiryCheck?id=" + this.surveyId);
+    return this.httpclient.get<number>(environment.baseURI + "/expiryCheck?id=" + this.editSurvey.id);
   }
 
   getRelatedSurveys() {
