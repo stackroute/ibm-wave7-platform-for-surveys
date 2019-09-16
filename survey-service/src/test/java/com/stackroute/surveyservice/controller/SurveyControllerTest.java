@@ -64,7 +64,7 @@ public class SurveyControllerTest {
     @Test
     public void testSaveSurvey() throws Exception{
         when(surveyService.saveSurvey(any(),matches("1"))).thenReturn(survey);
-        mockMvc.perform(post("/api/v1/survey")
+        mockMvc.perform(post("/api/v1/survey").param("surveyorId","1")
                 .contentType(MediaType.APPLICATION_JSON_UTF8)
                 .accept(MediaType.APPLICATION_JSON)
                 .content((asJsonString(survey))))

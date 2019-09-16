@@ -41,13 +41,7 @@ public class SurveyServiceTest {
     @After
     public void tearDown() throws Exception {
     }
-    @Test
-    public void saveSurveyTest() throws Exception {
-        when(surveyRepository.save((Survey) any())).thenReturn(survey);
-        Survey savedSurvey=surveyService.saveSurvey(survey,"1");
-        assertEquals(survey,savedSurvey);
-        verify(surveyRepository,times(1)).save(survey);
-    }
+
     @Test
     public void getAllSurveys(){
         surveyRepository.save(survey);
@@ -65,11 +59,5 @@ public class SurveyServiceTest {
 
     }
 
-    @Test
-    public void getSurveyById() {
-        when(surveyRepository.save((Survey) any())).thenReturn(survey);
-        Survey savedSurvey=surveyService.getSurveyById("1");
-        assertEquals(savedSurvey,survey);
-        verify(surveyRepository,times(1)).save(survey);
-    }
+
 }

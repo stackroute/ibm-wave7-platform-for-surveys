@@ -34,7 +34,7 @@ public class SurveyorServiceTest {
     public void setUp(){
         MockitoAnnotations.initMocks(this);
         surveyor=new Surveyor();
-        surveyor.setId("56");
+        surveyor.setId("66");
         surveyor.setName("Rupa");
         surveyor.setEmail("rupa@gmail.com");
                 surveyor.setTimeStamp(new Date());
@@ -59,12 +59,7 @@ public class SurveyorServiceTest {
 
 
     @Test
-    public void getSurveyorById() throws SurveyorDoesNotExistsException {
-        when(surveyorRepository.save((Surveyor) any())).thenReturn(surveyor);
-        Surveyor surveyorById=surveyorService.getSurveyorById(surveyor.getId());
-        assertEquals(surveyor,surveyorById);
-        verify(surveyorRepository,times(1)).save(surveyor);
-    }
+
     @After
     public void tearDown() throws Exception {
     }

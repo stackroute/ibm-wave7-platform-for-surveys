@@ -22,7 +22,8 @@ public class SurveyorServiceImpl implements SurveyorService {
     @Override
     public Surveyor addSurveyor(Surveyor surveyor) throws SurveyorAlreadyExistException {
         Surveyor savedSurveyor=null;
-        if(!surveyorRepository.findById(surveyor.getId()).isPresent()) {
+
+        if(surveyorRepository.findById(surveyor.getId())==null) {
             System.out.println("In if");
             savedSurveyor = surveyorRepository.save(surveyor);
 
@@ -34,8 +35,8 @@ public class SurveyorServiceImpl implements SurveyorService {
     public Surveyor editSurveyor(Surveyor surveyor)  throws SurveyorDoesNotExistsException {
 
         Surveyor updatedSurveyor = null;
-        System.out.println(surveyorRepository.findById(surveyor.getId()).isPresent());
-        if(surveyorRepository.findById(surveyor.getId()).isPresent()) {
+
+        if(surveyorRepository.findById(surveyor.getId())==null) {
             updatedSurveyor = surveyorRepository.save(surveyor);
 
         }

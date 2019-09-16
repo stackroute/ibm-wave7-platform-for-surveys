@@ -90,7 +90,7 @@ public class SurveyorControllerTest {
     @Test
     public void getSurveyorById() throws Exception {
         when(surveyorService.getSurveyorById(any())).thenReturn(surveyor);
-        mockMvc.perform(put("/api/v1/surveyor/1")
+        mockMvc.perform(put("/api/v1/surveyor").pathInfo("/1")
                 .contentType(MediaType.APPLICATION_JSON_UTF8)
                 .accept(MediaType.APPLICATION_JSON)
                 .content(asJsonString(surveyor)))
