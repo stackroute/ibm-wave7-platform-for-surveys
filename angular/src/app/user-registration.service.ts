@@ -1,13 +1,12 @@
 import { Injectable } from '@angular/core';
 import { HttpClient ,HttpHeaders} from "@angular/common/http";
-import { User } from "./modals/User";
 import { LoginUser } from "./modals/Login";
 import { environment } from '../environments/environment';
 import { Observable, BehaviorSubject } from 'rxjs';
 import { Guid } from "guid-typescript";
 import { catchError } from 'rxjs/operators';
 import { throwError } from 'rxjs';
-import { Mail } from './mail';
+import { User } from './modals/User';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -27,7 +26,7 @@ export class UserRegistrationService {
   logged = this.loggedIn.asObservable();
   private loggedOut = new BehaviorSubject<boolean>(false);
   logOut = this.loggedOut.asObservable();
-  email:Mail;
+  email:string;
 
   saveUser(user:User):Observable<User>
   {
@@ -42,12 +41,12 @@ export class UserRegistrationService {
   ));
   }
 
-  saveUserEmail(email)
+  saveUserEmail(email : string) 
   {
-    // this.user={'id':id,'email':email};
-    // this.user.id=id;
-    // this.user.email=email;
-    return this.httpClient.get<String>("http://localhost:8095/username?email="+email,email);
+    console.log(email);
+    let targetUser : User;
+    targetUser.email = email
+    return this.httpClient.post<User>(environment.signUpBaseURI+"/saveEmail",targetUser,httpOptions);
   }
 
   setLogin(value: boolean) {
@@ -81,9 +80,9 @@ updateUser(user:User,id:String):Observable<User>{
   return this.httpClient.put<User>(url ,user, httpOptions);
 
 }
-forgotPassword(login:LoginUser): Observable<any>{
+forgotPassword(login:User): Observable<any>{
   var apiUrl = environment.loginBaseURI+"/forgot-password";
-  return this.httpClient.post(apiUrl,httpOptions);
+  return this.httpClient.post<any>(apiUrl,login);
 }
 
  resetpassword(data: LoginUser): Observable<any> {
@@ -99,7 +98,13 @@ getUser():Observable<User>{
 
 getUserById(id:string):Observable<User>{
   var url=environment.signUpBaseURI+"/user/"+this.loginCredentials.id;
-return this.httpClient.get<User>(url);
+  return this.httpClient.get<User>(url);
+}
+
+
+getTargetUserById(id:string):Observable<User>{
+  var url=environment.signUpBaseURI+"/user/"+id;
+  return this.httpClient.get<User>(url);
 }
 
 getUserByEmail(email : string):Observable<User>{

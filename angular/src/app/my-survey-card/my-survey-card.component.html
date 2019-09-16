@@ -1,54 +1,7 @@
   <!-- <h2>Please create your survey here....!</h2> -->
-   <div class="a">
-      <div class="flex-container" fxLayout="column">
-      <button class="btn" mat-raised-button matTooltip="Create a survey"
-      (click)=openDialog()>+</button></div>
-
-    <!-- <h3>1. Decide on your research goals</h3>
-      <p> Before you can start your research, you will need to form a clear picture in your mind of the expected outcome.</p>
-          <ul>
-            <li>Do you need feedback on a product or your service?</li>
-            <li>Is the information you are looking for of a general nature or very specific? </li>
-            <li>Do you have a particular audience in mind, or will you be sending out online surveys to the general public? </li>
-            <li>The answers to these questions will help you to decide how to target your survey.</li></ul>
-        
-        <h3>2. Create a list of questions</h3>
-        <p>There are many different types of questions that can be used on a survey.</p>
-        <ul>
-          <li>open questions</li> 
-          <li>closed questions</li>
-          <li>matrix table questions</li>
-          <li>single- or multi-response questions</li></ul>
-           <p>Most people who take part in surveys prefer short multiple-choice questions. 
-           When writing the questions, keep the language very simple and avoid ambiguity or double negations. 
-           One of the benefits of designing an online survey is that participants don't have to fill in questions that are not relevant to them. 
-           Based on their answers subsequent questions can be skipped using logic and piping, improving response rates.</p>
-        
-        <h3>3. Invite the participants</h3>
-        <p>There are many ways to invite people to take part in your online survey.
-           Who you want to take part in your survey will help you to decide on the best contact method.
-            You can send an email to your subscriber list, post your survey on Facebook, send surveys by sms or design a banner that can be displayed on other websites if you wish to cast a wider net. 
-            If your research goals require targeting a specific audience you can buy responses from a dedicated consumer panel.</p>
-        
-       <h3>4. Gather your responses</h3>
-        <p>It is important to monitor your response rate, as your final sample size will depend on how many participants complete your survey. 
-          In many cases you can increase the response rate by offering an incentive to the participant, for example, you can offer a gift, the chance of winning something in a lottery, a donation to charity, or a points accumulation system where participant can save up points that can be exchanged for gifts. 
-          Another way of increasing the response rate of your survey is by promising to share the results with your participants.</p>
-        
-        <h3>5. Analyse the results</h3>
-        <p>Visualise your data by presenting the results in charts and graphs, as this will help you quickly reference your results in reports.
-           You can also make use of text analysis and word clouds on open ended questions to pick out common response trends. 
-           You can also print out the data in the form of a spreadsheet, which can then be exported for further analysis. 
-           With online surveys the gathered data is stored automatically, so you can start analyzing the results straight away. 
-           In most cases, you can already see preliminary results when the survey is still open.</p>
-        
-        <h3>6. Write a report</h3>
-        <p>The final step in conducting online surveys is to write a report explaining your findings and whether they have met your research goals. 
-        A successful survey will provide reliable answers to the questions you had about your business, product or service. 
-        Allowing you to take data-driven actions based on hard evidence. 
-        Used correctly online surveys can effectively measure customer satisfaction, get feedback on products or services, and reveal key influences in your area of research.
-        The process for conducting an online survey is easy and inexpensive.
-        The results, on the other hand, are priceless because they will help you make important decisions about your business.</p> -->
+   <div class="a" fxLayout="row" fxLayout.col-lg="row">
+      <span class="spacer" fxLayout="column"><button class="btn" mat-raised-button matTooltip="Create a survey"
+      (click)=openDialog()>+</button></span>
   <mat-card class="card" *ngFor="let survey of surveyList">
    <a (click)=editQuestions(survey)> 
      <div class="draft">Draft</div>
@@ -57,7 +10,6 @@
      </div>
      <mat-card-header >
       <mat-card-title>{{survey.name}}</mat-card-title>
-      <!-- <mat-card-subtitle>{{survey.description}}</mat-card-subtitle> -->
     </mat-card-header>
   </a>
    <mat-card-actions class="icon">
@@ -72,14 +24,13 @@
           <mat-icon class="example-icon" aria-hidden="false" aria-label="search icon">delete</mat-icon>
           </button></a>
       </mat-card-actions>
-   
       <div class="bottom">
         <div class="responses"><a routerLink='' >
             <mat-icon class="example-icon" aria-hidden="false" aria-label="search icon">supervised_user_circle</mat-icon>
             </a></div>
-        <div class="analysis"> <a routerLink='analysis' >
-          <mat-icon class="example-icon" aria-hidden="false" aria-label="search icon">assessment</mat-icon>
-          </a></div>
+        <div class="analysis"> 
+          <mat-icon class="example-icon" aria-hidden="false" aria-label="search icon" (click)="analyze(survey)">assessment</mat-icon>
+          </div>
       </div>
     
    

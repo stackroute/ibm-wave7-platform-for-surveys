@@ -10,7 +10,8 @@
     </parent>
 
     <artifactId>login-authentication-service</artifactId>
-    <description>login authentication service</description>
+    <description>login auth
+        entication service</description>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

@@ -46,7 +46,6 @@ public class UserController {
         return new ResponseEntity<User>(savedUser, HttpStatus.CREATED);
     }
 
-
     //To get all the users from the database
     @GetMapping("user")
     public ResponseEntity<?> getAllUsers() {
@@ -78,11 +77,17 @@ public class UserController {
         return new ResponseEntity<>(userService.findUserByEmail(email), HttpStatus.OK);
     }
 
-    @GetMapping("username")
-    public String saveUserEmail(@RequestParam String email)
+    @PostMapping("saveEmail")
+    public ResponseEntity<?> saveUserEmail(@RequestBody User user)
     {
-//        return ;
-        return userService.saveUserEmail(email);
+        User targetUser = userService.saveUserEmail(user);
+        return new ResponseEntity<User>(targetUser, HttpStatus.OK);
+    }
+
+    @GetMapping("allMails")
+    public ResponseEntity<?> getAllMails()
+    {
+        return new ResponseEntity<List<String>>( userService.getAllMails(),HttpStatus.OK);
     }
 
 }

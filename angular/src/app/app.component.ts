@@ -8,5 +8,5 @@ import { User } from './modals/User';
 })
 export class AppComponent {
   public user:User;
-  title = 'login';
+  title = 'Pollurvey';
 }

@@ -14,19 +14,26 @@ flex: 1 1 auto;
 
 
 .example-card {
+  // display: flex;
 min-width: 200px;
+flex-wrap: wrap;
+justify-content: center;
+align-content: center;
 height: auto;
-// width: -webkit-fill-available;
+width: -webkit-fill-available;
 // position: relative;
-// display: inline-block;
+display: inline-block;
 //overflow: hidden;
 text-align: center;
-// margin:0.5em 0 0 0.5em;
+margin:0.5em 0 0.5em;
 // padding:2cm;
-margin-left:1.7cm;
-// border: solid;
+margin-left:1cm;
+border: solid;
 // border-color: rgb(97, 97, 97);
 margin-bottom:1cm;
+overflow: hidden;
+text-overflow: ellipsis; 
+
 }
 
 .mat-card-avatar{
@@ -103,6 +110,7 @@ background: linear-gradient(264deg, rgba(255,149,149,1) 0%, rgba(255,149,149,1) 
 }
 mat-card-title{
 text-align: left;
+white-space: nowrap;
 }
 mat-card-subtitle{
 text-align:left;
@@ -121,7 +129,8 @@ text-decoration: none;
   margin-bottom:2cm;
 }
 ngb-carousel{
-  margin-bottom:2cm;
+  margin-bottom:1cm;
+  // margin: 1cm;
 }
 .container-fluid{
   flex: 1 1 auto;
