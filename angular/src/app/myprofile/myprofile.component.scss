@@ -5,7 +5,7 @@ padding-bottom: 80px;
 
 }
     mat-card{
-        min-width:400px;
+        min-width:auto;
        // margin:60px 60px 50px 50px;
        display: block;
        margin-top: 1cm;
@@ -47,14 +47,7 @@ padding-bottom: 80px;
     
         background: linear-gradient(264deg, rgba(255,149,149,1) 0%, rgba(255,149,149,1) 32%, rgba(33,1,56,1) 100%);
         }
-//         mat-card-header{
-//             text-align: center;
-//         }
-   
-//   mat-card-title
-//   {
-//       margin-right: auto;
-//   }
+
   mat-card-header.mat-card-header
   {
       //text-align: center;

@@ -1,9 +1,9 @@
 .welcome{
-    background: rgb(255,149,149);
-    background: linear-gradient(264deg, rgba(255,149,149,1) 0%, rgba(255,149,149,1) 32%, rgba(33,1,56,1) 100%);
-    opacity:1;
+    background-image: url("/assets/pictures/52_blog_19_Purple.jpg");
+    opacity:3;
     height: 100%;
     width: 100%;
+    // background-repeat: no-repeat;
 }
 h1{
     color:white;
@@ -23,4 +23,10 @@ label{
     flex-direction: column;
     justify-content: center;
     margin: auto;
+}
+button{
+    background:white;
+}
+button:hover{
+    background:rgb(4, 4, 172);
 }
