@@ -111,7 +111,7 @@ export class QuestionsTemplateComponent implements OnInit {
 
   sendLink(Ids) {
     this.email = {
-      "url": "http://172.23.238.245:4200/user-welcome/" + this.surveyService.surveyId,
+      "url": "http://172.23.238.187:4200/user-welcome/" + this.surveyService.surveyId,
       "emailIds": ["harikapabbisetty610@gmail.com","sahithimpc@gmail.com"]
     };
     console.log(this.email.url);
