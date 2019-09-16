@@ -1,6 +1,4 @@
-import { Component, OnInit,Inject } from '@angular/core';
-import {FormControl,Validators,FormGroup,FormsModule} from '@angular/forms';
-
+import { Component, OnInit, Inject } from '@angular/core';
 import { UserRegistrationService } from '../user-registration.service';
 import { User } from '../modals/User';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
@@ -14,18 +12,16 @@ export interface DialogData{
 }
 
 @Component({
-  selector: 'app-myprofile',
-  templateUrl: './myprofile.component.html',
-  styleUrls: ['./myprofile.component.scss']
+  selector: 'app-userprofile',
+  templateUrl: './userprofile.component.html',
+  styleUrls: ['./userprofile.component.scss']
 })
-export class MyprofileComponent implements OnInit {
-  
- name :string;
+export class UserprofileComponent implements OnInit {
+  name :string;
   user:User;
   
   email:string;
   id:string;
-  
   constructor(private registrationService: UserRegistrationService,private dialog: MatDialog) { }
 
   ngOnInit() {
@@ -36,7 +32,6 @@ export class MyprofileComponent implements OnInit {
       console.log(this.user);
     })
   }
-  
   updateUser(user:User){
     //console.log(user);
     user.password=this.user.password;
@@ -51,7 +46,7 @@ export class MyprofileComponent implements OnInit {
 }
   data;
   openDialog(user:User) {
-    const dialogRef = this.dialog.open(DialogComponent,
+    const dialogRef = this.dialog.open(DialogComponents,
       {
         width : '250px',
         data : {}
@@ -64,7 +59,6 @@ export class MyprofileComponent implements OnInit {
   }
   
   
-  
 
 
  }
@@ -72,7 +66,7 @@ export class MyprofileComponent implements OnInit {
   selector: 'app-dialogComponent',
   templateUrl: 'dialogComponent.html',
  })
- export class DialogComponent implements OnInit {
+ export class DialogComponents implements OnInit {
   
   user:User;
   email:string;
@@ -83,11 +77,10 @@ export class MyprofileComponent implements OnInit {
     
   
   constructor(
-    public dialogRef: MatDialogRef<DialogComponent>,
+    public dialogRef: MatDialogRef<DialogComponents>,
     @Inject(MAT_DIALOG_DATA) public data,private registrationService: UserRegistrationService) {}
     onNoClick(): void {
       this.dialogRef.close();
     }
   
-    
- }
+}

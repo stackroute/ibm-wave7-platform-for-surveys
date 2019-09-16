@@ -118,4 +118,9 @@ export class SurveyService {
   getResponseById(id: string): Observable<Response> {
     return this.httpclient.get<Response>(environment.responseBaseURI + "/response" + id);
   }
+
+  getResponseList(): Observable<Response[]> {
+    return this.httpclient.get<Response[]>(environment.responseBaseURI + "/response" );
+  }
+
 }

@@ -7,7 +7,7 @@
     <input [(ngModel)]="email" #text type=text name="email">
     </label>
     <h2>To take survey click here...!</h2>
-    <a routerLink='/questions/:surveyId'><button mat-raised-button type="submit" color="primary"(click)="onClick(text.value)">Take Survey</button></a>
+    <a routerLink='/questions/:surveyId'><button mat-raised-button type="submit"(click)="onClick(text.value)">Take Survey</button></a>
     <!-- <button (click)="takeSurvey()">Take Survey</button> -->
     </div>
 </div>
