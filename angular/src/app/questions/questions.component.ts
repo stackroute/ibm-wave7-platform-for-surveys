@@ -34,9 +34,9 @@ export class QuestionsComponent implements OnInit {
      private userRegistrationservce : UserRegistrationService) { }
 
   ngOnInit() {
-    let surveyId = this.route.snapshot.paramMap.get('surveyId');
-    console.log(surveyId);
-    this.getQuestionList(surveyId);
+     this.surveyId = this.route.snapshot.paramMap.get('surveyId');
+    console.log(this.surveyId);
+    this.getQuestionList(this.surveyId);
     // this.surveyService.expiryCheck().subscribe(
     //   (num) => {
     //   this.num = num;
@@ -69,15 +69,16 @@ export class QuestionsComponent implements OnInit {
         let response : Response = {
           question_id: "",
           response: "",
-          user_id: "",
+          email: "",
           survey_id: "",
           randomNum:0
         }
-        this.survey.status="Open";
+
+        // this.surveyService.editSurvey.status="Open";
         response.question_id = question.questionId;
         response.response = question.response;
         response.survey_id = this.surveyId;
-        response.user_id = this.surveyService.targetUser.id;
+        response.email = this.surveyService.targetUser.email;
         // this.respondents++;
         this.responseList.push(response);
       }
@@ -85,7 +86,7 @@ export class QuestionsComponent implements OnInit {
       this.surveyService.saveResponseList(this.responseList)
       .subscribe(
         data => {
-          console.log("saved response" + data);
+          console.log("saved response" , data);
           let randomNum=Math.floor(Math.random()*100)+50;
           console.log(randomNum);
           this.userRegistrationservce.getTargetUserById(this.surveyService.targetUser.id)
