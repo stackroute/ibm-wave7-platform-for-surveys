@@ -28,5 +28,6 @@ button{
     background:white;
 }
 button:hover{
-    background:rgb(4, 4, 172);
+    box-shadow: 0 8px 25px 0 white(0,0,0,0.8);
+    width:120px;
 }
