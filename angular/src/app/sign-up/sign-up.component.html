@@ -102,8 +102,9 @@
           <mat-form-field class="full-width">
             <mat-label>Password</mat-label>
             <input matInput placeholder="Password" type="password" name="password" [(ngModel)]="password" required
-              [formControl]="passwordFormControl"/>
-                    <mat-error *ngIf="passwordFormControl.invalid">{{
+              [formControl]="passwordFormControl" />
+        
+            <mat-error *ngIf="passwordFormControl.invalid">{{
               getPasswordErrorMessage("password")
             }}</mat-error>
           </mat-form-field>

@@ -1,0 +1,39 @@
+<div class="flex-container" fxLayout="row" fxFlex.lt-md="column">
+ <div class="container-fluid" fxLayout fxLayout.xs="column" fxLayoutAlign="left" fxLayoutGap="10px" 
+             fxLayoutGap.xs="0"> 
+    <div class="item item-2">
+        <h4>ContactUs</h4>
+        <p>We are happy to answer any questions you have or provide you with an estimate.just send
+            us a message in the form below with any questions you may have.or you may reachout below details
+            </p>
+        Email:<a href="">accounts@pollurvey.com</a><br>
+        Telephone:<a href="">+30 6977 447 033</a>
+        <div class="container">
+                <form action="action_page.php">
+              
+                  <label for="fname">First Name</label>
+                  <input type="text" id="fname" name="firstname" placeholder="Your name..">
+              
+                  <label for="lname">Last Name</label>
+                  <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+              
+                  <label for="country">Country</label>
+                  <select id="country" name="country">
+                      <option value="India">India</option>
+                    <option value="australia">Australia</option>
+                    <option value="canada">Canada</option>
+                    <option value="usa">USA</option>
+                    <option value="other">Other</option>
+                  </select>
+              
+                  <label for="subject">Subject</label>
+                  <textarea id="subject" name="subject" placeholder="Write something.." style="height:100px"></textarea>
+              
+                  <input type="submit" value="Submit" (click)=onsubmit()>
+              
+                </form>
+              </div>
+       
+    </div>
+    </div>
+</div>

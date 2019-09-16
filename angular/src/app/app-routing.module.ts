@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { LoginComponent } from './login/login.component';
@@ -21,7 +21,10 @@ import { MypasswordComponent } from './mypassword/mypassword.component';
 import { ResetpasswordComponent } from './resetpassword/resetpassword.component';
 
 import { UserWelcomeComponent } from './user-welcome/user-welcome.component';
+import { ServicespageComponent } from './servicespage/servicespage.component';
+import { ContactUsComponent } from './contact-us/contact-us.component';
 import { ChatbotComponent } from './chatbot/chatbot.component';
+import { UserprofileComponent } from './userprofile/userprofile.component';
 
 
 const routes: Routes = [
@@ -86,8 +89,18 @@ const routes: Routes = [
     path: 'rewards', component: RewardPointsComponent
   },
   {
-    path: 'thankyou/signup', component: SignUpComponent
-  }
+    path:'thankyou/signup',component:SignUpComponent
+  },
+  {
+   path:'services',component:ServicespageComponent
+  },
+  {
+   path:'contact',component:ContactUsComponent
+    },
+    {
+      path:'userprofile',component:UserprofileComponent
+    }
+    
 ]
 
 @NgModule({

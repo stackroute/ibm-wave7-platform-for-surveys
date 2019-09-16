@@ -69,7 +69,10 @@ import { ResetpasswordComponent } from './resetpassword/resetpassword.component'
 
 import { UserWelcomeComponent } from './user-welcome/user-welcome.component';
 import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
+import { ServicespageComponent } from './servicespage/servicespage.component';
+import { ContactUsComponent } from './contact-us/contact-us.component';
 import { SpeechRecognitionService } from './speech-recognition.service';
+import { UserprofileComponent, DialogComponents } from './userprofile/userprofile.component';
 
 
 // Pass the fusioncharts library and chart modules
@@ -99,13 +102,25 @@ FusionChartsModule.fcRoot(FusionCharts, Charts, FusionTheme);
     QuestionsComponent,
     EditQuestionDialog,
     ChatbotComponent,
+    DialogComponents,
 
 
     RewardPointsComponent,
     ResetpasswordComponent,
 
     
-    UserWelcomeComponent
+    UserWelcomeComponent,
+
+    
+    ServicespageComponent,
+
+    
+    ContactUsComponent,
+
+    
+    UserprofileComponent,
+
+    
 
   ],
   imports: [
@@ -153,7 +168,7 @@ FusionChartsModule.fcRoot(FusionCharts, Charts, FusionTheme);
   providers: [MyprofileComponent, DialogComponent, ChatService,SpeechRecognitionService],
 
 
-  entryComponents: [MySurveyCardComponent, CreateSurveyDialogue, DialogComponent, DialogContentComponent, QuestionsTemplateComponent, EditQuestionDialog, ChatbotComponent],
+  entryComponents: [MySurveyCardComponent, CreateSurveyDialogue, DialogComponent, DialogContentComponent, QuestionsTemplateComponent, EditQuestionDialog, ChatbotComponent,DialogComponents],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
