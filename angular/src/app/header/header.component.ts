@@ -15,7 +15,7 @@ export class HeaderComponent implements OnInit {
   isLoggedOut$:Observable<boolean>;
   loggedOut: boolean;
   public url: string = "http://localhost:4200/login";
-  constructor(private userRegistrationService:UserRegistrationService, private router: Router) {}
+  constructor(private userRegistrationService:UserRegistrationService, private router: Router,) {}
 
   ngOnInit() {
     this.isLoggedIn$ = this.userRegistrationService.logged;
@@ -35,7 +35,13 @@ export class HeaderComponent implements OnInit {
     this.navbarOpen = !this.navbarOpen;
   }
   myprofile() {
+    if(this.userRegistrationService.loginCredentials.role=="Surveyor"){
     this.router.navigateByUrl("myprofile");
+    }
+    else
+    {
+      this.router.navigateByUrl("userprofile");
+    }
   }
 
  
