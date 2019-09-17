@@ -1,5 +1,3 @@
-
-
 import { Component, OnInit, Inject, Input } from "@angular/core";
 import { SurveyService } from "../survey.service";
 import { ActivatedRoute, Router } from "@angular/router";
@@ -52,6 +50,7 @@ export class QuestionsTemplateComponent implements OnInit {
 
 
   ngOnInit() {
+    this.survey=this.surveyService.editSurvey;
     this.getQuestionList(this.surveyService.editSurvey.id);
     this.getRecommendedQuestions(this.surveyService.editSurvey.domain_type);
   }

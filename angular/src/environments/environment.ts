@@ -9,7 +9,7 @@ export const environment = {
   loginBaseURI : "http://13.235.226.107:8500/login-authentication-service",
   signUpBaseURI : "http://13.235.226.107:8500/user-registration-service",
   responseBaseURI : "http://13.235.226.107:8500/user-response-service/api/v1",
-  mailURI:"http://13.235.226.107:8500/mail-service/send-mail",
+  mailURI:"http://13.235.226.107:8500/mail-service/",
   dialogflow: {
     chatbot: '9dbdf5bcbf4e4b16949d4ee5c9a4fc9c'
   }

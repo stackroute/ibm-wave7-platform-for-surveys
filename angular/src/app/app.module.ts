@@ -166,7 +166,7 @@ FusionChartsModule.fcRoot(FusionCharts, Charts, FusionTheme);
     FusionChartsModule
   ],
   exports: [ChatbotComponent],
-  providers: [MyprofileComponent, DialogComponent, ChatService,SpeechRecognitionService],
+  providers: [MyprofileComponent, DialogComponent, ChatService,SpeechRecognitionService, QuestionsTemplateComponent],
 
 
   entryComponents: [MySurveyCardComponent, CreateSurveyDialogue, DialogComponent, DialogContentComponent, QuestionsTemplateComponent, EditQuestionDialog, ChatbotComponent,DialogComponents],
