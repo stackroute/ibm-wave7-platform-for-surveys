@@ -50,6 +50,7 @@ export class QuestionsTemplateComponent implements OnInit {
 
 
   ngOnInit() {
+    this.survey=this.surveyService.editSurvey;
     this.getQuestionList(this.surveyService.editSurvey.id);
     this.getRecommendedQuestions(this.surveyService.editSurvey.domain_type);
   }

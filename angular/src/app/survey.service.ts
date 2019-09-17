@@ -91,7 +91,7 @@ export class SurveyService {
 
   sendMail(mail: Mail) {
     console.log(mail);
-    return this.httpclient.post("http://172.23.238.147:8070/send-mail", mail);
+    return this.httpclient.post(environment.mailURI+"/send-mail", mail);
   }
 
   expiryCheck() {
@@ -103,7 +103,7 @@ export class SurveyService {
   }
 
   getAllMails() {
-    return this.httpclient.get<string[]>("http://172.23.238.147:8095" + "/allMails");
+    return this.httpclient.get<string[]>(environment.signUpBaseURI + "/allMails");
   }
   getRecommendedQuestions(domain: String) {
     return this.httpclient.get<Question[]>(environment.baseURI + "/recommendations/" + domain);

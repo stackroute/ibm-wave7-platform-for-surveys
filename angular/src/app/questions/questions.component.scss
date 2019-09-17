@@ -1,26 +1,31 @@
 .example-container
 {
-  max-height: 10cm;
-  margin-top: 2cm;
+  height: 100%;
+  background: rgb(255,149,149);
+  background: linear-gradient(264deg, rgba(255,149,149,1) 0%, rgba(255,149,149,1) 32%, rgba(33,1,56,1) 100%);
 }
 .example-box
 {
-  width: 500px;
-  height: 350px;
-  margin-bottom: 10px;
+  
+  border:solid;
   border-color: rgb(53, 1, 53);
+  margin:1cm;
 }
 .example-radio-group {
   display: flex;
-  flex-direction: column;
-  margin: 15px 0;
+  flex-direction:column;
 }
 
 .example-radio-button {
   margin: 10px;
 }
-mat-raised-button
-{
-  margin-left:2cm;
-  margin-top:auto;
+h1{
+ text-align: center;
+  color: white;
+  padding-top:0.5cm;
 }
+.conatiner{
+ display:flex;
+ flex-direction: row;
+}
+
