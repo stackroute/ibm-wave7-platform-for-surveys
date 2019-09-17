@@ -1,5 +1,3 @@
-
-
 import { Component, OnInit, Inject, Input } from "@angular/core";
 import { SurveyService } from "../survey.service";
 import { ActivatedRoute, Router } from "@angular/router";
