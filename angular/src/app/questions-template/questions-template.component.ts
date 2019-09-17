@@ -33,8 +33,6 @@ export class QuestionsTemplateComponent implements OnInit {
   private recommendedQuestionList: Question[];
   private newchoices: string[] = [];
   public userResponse: Response;
-  private show: string;
-  private limit: number = 2;
   emailIds: string[];
   private email: Mail;
 
@@ -52,12 +50,6 @@ export class QuestionsTemplateComponent implements OnInit {
   ngOnInit() {
     this.survey=this.surveyService.editSurvey;
     this.getQuestionList(this.surveyService.editSurvey.id);
-    this.getRecommendedQuestions(this.surveyService.editSurvey.domain_type);
-  }
-  showMore() {
-    console.log("this.recommendedQuestionList");
-    this.limit = 40;
-    this.show = "less";
     this.getRecommendedQuestions(this.surveyService.editSurvey.domain_type);
   }
   drop(event: CdkDragDrop<Object[]>) {
