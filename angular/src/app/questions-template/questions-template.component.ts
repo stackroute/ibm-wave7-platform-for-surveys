@@ -33,7 +33,7 @@ export class QuestionsTemplateComponent implements OnInit {
   private recommendedQuestionList: Question[];
   private newchoices: string[] = [];
   public userResponse: Response;
-  private show: String;
+  private show: string;
   private limit: number = 2;
   emailIds: string[];
   private email: Mail;
@@ -145,7 +145,7 @@ export class QuestionsTemplateComponent implements OnInit {
     });
   }
 
-  getRecommendedQuestions(domain: String) {
+  getRecommendedQuestions(domain: string) {
     this.surveyService.getRecommendedQuestions(domain).subscribe(data => {
       this.recommendedQuestionList = data;
       console.log("Recommended Questions : ", this.recommendedQuestionList);

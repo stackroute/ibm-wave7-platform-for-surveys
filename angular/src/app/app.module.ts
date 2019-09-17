@@ -166,10 +166,10 @@ FusionChartsModule.fcRoot(FusionCharts, Charts, FusionTheme);
     FusionChartsModule
   ],
   exports: [ChatbotComponent],
-  providers: [MyprofileComponent, DialogComponent, ChatService,SpeechRecognitionService, QuestionsTemplateComponent],
+  providers: [MyprofileComponent, DialogComponent, ChatService,SpeechRecognitionService],
 
 
-  entryComponents: [MySurveyCardComponent, CreateSurveyDialogue, DialogComponent, DialogContentComponent, QuestionsTemplateComponent, EditQuestionDialog, ChatbotComponent,DialogComponents],
+  entryComponents: [MySurveyCardComponent, CreateSurveyDialogue, DialogComponent, DialogContentComponent, QuestionsTemplateComponent, EditQuestionDialog,DialogComponents,ChatbotComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
