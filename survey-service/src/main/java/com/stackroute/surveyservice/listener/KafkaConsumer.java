@@ -22,7 +22,7 @@ public class KafkaConsumer
 
 
            Surveyor obj = new ObjectMapper().readValue(surveyor, Surveyor.class);
-            System.out.printf("----------------------------------------------------------------"+surveyor);
+            System.out.printf("-------------------------------------------"+surveyor);
 
             surveyorService.addSurveyor(obj);
 
