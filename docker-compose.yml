@@ -12,31 +12,33 @@ services:
     ports:
       - 8761:8761
 
-  config-service:
+  config-server:
     build: config-server/
     restart: always
     network_mode: "host"
-    image: config-service
+    image: config-server
+    depends_on:
+      - eureka-server
     hostname: localhost
     healthcheck:
       test: "exit 0"
     ports:
       - 8888:8888
 
-#  angular:
-#    build: angular/
-#    restart: always
-#    network_mode: "host"
-#    hostname: localhost
-#    ports:
-#      - 4200:4200
-#    healthcheck:
-#      test: "exit 0"
+  angular:
+    build: angular/
+    restart: always
+    network_mode: "host"
+    hostname: localhost
+    ports:
+      - 4200:4200
+    healthcheck:
+      test: "exit 0"
 
   zuul-api:
     build: zuul-api/
     depends_on:
-      - config-service
+      - config-server
       - eureka-server
     restart: always
     network_mode: "host"
@@ -52,6 +54,8 @@ services:
     ports:
       - 27017:27017
     container_name: mongo
+    depends_on:
+      - config-server
     network_mode: "host"
     hostname: localhost
     healthcheck:
@@ -64,7 +68,7 @@ services:
     container_name: survey-service
     depends_on:
       - neo4j
-      - config-service
+      - config-server
       - eureka-server
       - zuul-api
       - zookeeper
@@ -83,7 +87,7 @@ services:
     container_name: user-registration-service
     depends_on:
       - mongo
-      - config-service
+      - config-server
       - eureka-server
       - zuul-api
       - zookeeper
@@ -101,7 +105,7 @@ services:
     container_name: user-response-service
     depends_on:
       - mongo
-      - config-service
+      - config-server
       - eureka-server
       - zuul-api
       - survey-service
@@ -122,7 +126,7 @@ services:
     depends_on:
       - mongo
       - eureka-server
-      - config-service
+      - config-server
       - zuul-api
     network_mode: "host"
     image: mail-service
@@ -138,7 +142,7 @@ services:
     container_name: login-authentication-service
     depends_on:
       - mysql
-      - config-service
+      - config-server
       - eureka-server
       - zuul-api
       - zookeeper
@@ -161,6 +165,8 @@ services:
       MYSQL_DATABASE: Surveyor
       MYSQL_PASSWORD: Root@123
       MYSQL_USER: harika
+    depends_on:
+      - config-server
     network_mode: "host"
     hostname: localhost
     restart: always
@@ -176,6 +182,8 @@ services:
       - 7474:7474
       - 7687:7687
     container_name: neo4j
+    depends_on:
+      - config-server
     network_mode: "host"
     hostname: localhost
     healthcheck:
@@ -185,6 +193,8 @@ services:
     image: wurstmeister/zookeeper
     restart: always
     container_name: zookeeper
+    depends_on:
+      - config-server
     network_mode: "host"
     hostname: localhost
     ports:
@@ -200,6 +210,8 @@ services:
       ports:
         - 9092:9092
       depends_on:
+        config-server:
+          condition: service_healthy
         zookeeper:
           condition: service_healthy
       environment:
