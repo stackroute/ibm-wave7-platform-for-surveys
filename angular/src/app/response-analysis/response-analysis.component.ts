@@ -3,9 +3,6 @@ import { Question } from '../modals/Question';
 import { SurveyService } from '../survey.service';
 import { Datasource } from '../modals/Datasource';
 import { Response } from '../modals/Response';
-import { from } from 'rxjs/observable/from';
-import { groupBy, mergeMap, toArray } from 'rxjs/operators';
-
 
 @Component({
   selector: 'app-response-analysis',
@@ -22,31 +19,24 @@ export class ResponseAnalysisComponent implements OnInit {
   private responseList: Response[];
   private showChart: boolean = false;
   private OverallChart : boolean = false;
+  private analyzeSurveyId : string;
   
   constructor(private surveyService: SurveyService) {
 
   }
 
   ngOnInit() {
+    this.analyzeSurveyId = this.surveyService.editSurvey.id;
     console.log(this.surveyService.editSurvey.id);
-   
     this.loadDataSources();
     this.getResponseList();
   }
 
   getResponseList() {
     this.surveyService.getResponseList().subscribe((data) => {
-      console.log(data)
-      this.responseList = data;
+      this.responseList = data.filter(x => x.survey_id == this.surveyService.editSurvey.id);
+      console.log(this.responseList)
       this.getQuestionList(this.surveyService.editSurvey.id);
-      //this.responseList
-
-      // const result = from(this.responseList).pipe(
-      //   groupBy(x => x.question_id, x => x.response),
-      //   // return each item in group as array
-      //   mergeMap(group => group.count)
-      // );
-      // const subscribe = result.subscribe(val => console.log(val));
     })
   }
 
@@ -60,28 +50,22 @@ export class ResponseAnalysisComponent implements OnInit {
   }
 
   getQuestionList(surveyId: string) {
-    console.log("tempSource ..................",this.tempDatasource);
     this.surveyService.getAllQuestions(surveyId).subscribe(data => {
       this.questionList = data.questionList;
       console.log("questions : ", this.questionList);
       for (let i = 0; i < this.questionList.length; i++) {
         let question = this.questionList[i];
         this.loadDataSources();
-        console.log("Question is............................",question)
-        console.log("tempSource ..................", this.tempDatasource);
         this.tempDatasource.chart.caption = question.questionTag;
         this.tempDatasource.chart.subCaption = "Which option is most answered";
         this.tempDatasource.chart.xAxisName = "Options";
         this.tempDatasource.chart.yAxisName = "no of users opted";
         this.tempDatasource.chart.theme = "fusion";
-        console.log("tempSource ..................", this.tempDatasource);
         for (let j = 0; j < question.choices.length; j++) {
           this.tempDatasource.data[j].label = question.choices[j];
          this.tempDatasource.data[j].value =
-            this.responseList.filter(x => x.question_id == question.questionId && x.response == question.choices[j] && x.survey_id == question.survey_id).length.toString();
+            this.responseList.filter(x => x.question_id == question.questionId && x.response == question.choices[j] && x.survey_id == this.analyzeSurveyId).length.toString();
         }
-        console.log("tempSource ..................", this.tempDatasource);
-
         this.dataSourceList.push(this.tempDatasource);
         this.tempDatasource=null;
       }

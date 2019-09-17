@@ -16,7 +16,6 @@ import { ChatbotComponent } from '../chatbot/chatbot.component';
 import { MatBottomSheet } from '@angular/material/bottom-sheet';
 import { Mail } from '../mail';
 
-
 @Component({
   selector: "app-questions-template",
   templateUrl: "./questions-template.component.html",
@@ -62,7 +61,6 @@ export class QuestionsTemplateComponent implements OnInit {
         event.container.data,
         event.previousIndex,
         event.currentIndex);
-      let droppedQuestion = event.container.data[0];                    
       this.saveDroppedQuestion(event.container.data[event.currentIndex]);
     }
   }
