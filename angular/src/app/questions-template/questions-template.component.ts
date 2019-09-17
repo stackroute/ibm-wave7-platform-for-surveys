@@ -110,7 +110,7 @@ export class QuestionsTemplateComponent implements OnInit {
 
   sendLink(Ids) {
     this.email = {
-      "url": "http://172.23.238.147:4200/user-welcome/" + this.surveyService.surveyId,
+      "url": "http://172.23.238.245:4200/user-welcome/" + this.surveyService.surveyId,
       "emailIds": Ids
     };
     console.log(this.email.url);

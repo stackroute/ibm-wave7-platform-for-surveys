@@ -25,15 +25,6 @@ services:
     ports:
       - 8888:8888
 
-  angular:
-    build: angular/
-    restart: always
-    network_mode: "host"
-    hostname: localhost
-    ports:
-      - 4200:4200
-    healthcheck:
-      test: "exit 0"
 
   zuul-api:
     build: zuul-api/
@@ -222,3 +213,13 @@ services:
       restart: always
       healthcheck:
         test: "exit 0"
+
+  angular:
+    build: angular/
+    restart: always
+    network_mode: "host"
+    hostname: localhost
+    ports:
+      - 4200:4200
+    healthcheck:
+      test: "exit 0"
