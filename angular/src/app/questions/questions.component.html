@@ -7,6 +7,7 @@
 </div>
 <ng-template #takeSurvey>
   <div class="example-container">
+    <h1>Survey Feedback</h1>
     <form class="my-form" #userregistrationform="ngForm">
       <mat-card class="example-box" *ngFor="let question of questionList">
         <h3>
@@ -20,9 +21,11 @@
           </mat-radio-button>
         </mat-radio-group>
       </mat-card>
+      <div class="container">
       <a routerLink='/thankyou'>
       <button mat-raised-button type="submit" color="primary" (click)="saveResponse(questionList)">Submit</button></a>
-   </form>
+      <a routerLink="/survey"><button mat-raised-button color="primary">Back</button></a>
+      </div>
+    </form>
   </div>
 </ng-template>
-<a routerLink="/survey"><button mat-raised-button color="primary">Back</button></a>

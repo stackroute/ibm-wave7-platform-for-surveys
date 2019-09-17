@@ -28,11 +28,7 @@ export class UserLandingPageComponent implements OnInit {
   ngOnInit() {
     this.getSurveyList();
   }
-  preview(survey){
-    this.surveyService.surveyId = survey.id;
-    this.router.navigateByUrl('surveyinfo');
-  }
-
+  
   getSurveyList()
   {
     this.surveyService.getAllSurveys().subscribe(
@@ -40,17 +36,10 @@ export class UserLandingPageComponent implements OnInit {
       console.log(this.surveyList)
       })
   }
-  deleteSurvey(survey){
-    console.log(survey);
-    let demo;
-    this.surveyService.deleteSurvey(survey).subscribe(data=>demo=data);
+  
+  takeSurvey(survey : Survey)
+  {
+    this.router.navigate(["questions",survey.id]);
   }
-
-  editQuestions(survey : Survey)
- {
-    this.surveyService.surveyId = survey.id;
-    this.surveyService.editSurvey=survey
-    this.router.navigate(['question-template',survey.id]);
- }
 
 }

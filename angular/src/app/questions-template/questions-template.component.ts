@@ -50,6 +50,7 @@ export class QuestionsTemplateComponent implements OnInit {
 
 
   ngOnInit() {
+    this.survey=this.surveyService.editSurvey;
     this.getQuestionList(this.surveyService.editSurvey.id);
     this.getRecommendedQuestions(this.surveyService.editSurvey.domain_type);
   }
@@ -96,15 +97,15 @@ export class QuestionsTemplateComponent implements OnInit {
   }
 
   publish() {
-    // this.surveyService.editSurvey.status = "Open";
-    // this.surveyService.editSurveyById(this.surveyService.editSurvey).subscribe((data) => {
-    //   console.log(data);
+    this.surveyService.editSurvey.status = "Open";
+    this.surveyService.editSurveyById(this.surveyService.editSurvey).subscribe((data) => {
+      console.log(data);
       this.surveyService.getAllMails().subscribe((emailIds) => {
         this.emailIds = emailIds;
         console.log(this.emailIds);
         this.sendLink(this.emailIds);
       });
-    // })
+    })
   }
 
   sendLink(Ids) {
