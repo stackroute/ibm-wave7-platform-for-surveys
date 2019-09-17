@@ -78,7 +78,7 @@ export class ResponseAnalysisComponent implements OnInit {
         for (let j = 0; j < question.choices.length; j++) {
           this.tempDatasource.data[j].label = question.choices[j];
          this.tempDatasource.data[j].value =
-            this.responseList.filter(x => x.question_id == question.questionId && x.response == question.choices[j]).length.toString();
+            this.responseList.filter(x => x.question_id == question.questionId && x.response == question.choices[j] && x.survey_id == question.survey_id).length.toString();
         }
         console.log("tempSource ..................", this.tempDatasource);
 

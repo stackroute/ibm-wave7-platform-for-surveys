@@ -17,7 +17,7 @@ public class KafkaConsumer
         @Autowired
         private SurveyorService surveyorService;
 
-        @KafkaListener(topics = "UserRegistration", groupId = "group_id")
+        @KafkaListener(topics = "UserRegistration", groupId = "group_id1")
         public void consume(String surveyor) throws IOException, SurveyorAlreadyExistException {
 
 
