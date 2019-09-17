@@ -24,8 +24,11 @@ h1{
   color: white;
   padding-top:0.5cm;
 }
-.conatiner{
+.container{
  display:flex;
- flex-direction: row;
+ justify-content: center;
+}
+button{
+  margin:0.5cm;
 }
 

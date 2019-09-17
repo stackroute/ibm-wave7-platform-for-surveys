@@ -59,10 +59,7 @@ border: 1px solid #ccc;
   .example-list.cdk-drop-list-dragging .example-box:not(.cdk-drag-placeholder) {
     transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
   }
-  mat-form-field{
-    width: 300px ! important;
-    
-  }
+  
   .add-question{
     min-width:700px;
     height:auto;
@@ -70,6 +67,9 @@ border: 1px solid #ccc;
   }
     .add-question:hover{
       box-shadow: 0 8px 25px 0 rgba(0,0,0,0.8);
+  }
+  .Question{
+    width: 500px! important;
   }
   h3{
     // margin-top:2cm;
