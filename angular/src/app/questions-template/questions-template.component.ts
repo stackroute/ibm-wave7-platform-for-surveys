@@ -97,15 +97,15 @@ export class QuestionsTemplateComponent implements OnInit {
   }
 
   publish() {
-    // this.surveyService.editSurvey.status = "Open";
-    // this.surveyService.editSurveyById(this.surveyService.editSurvey).subscribe((data) => {
-    //   console.log(data);
+    this.surveyService.editSurvey.status = "Open";
+    this.surveyService.editSurveyById(this.surveyService.editSurvey).subscribe((data) => {
+      console.log(data);
       this.surveyService.getAllMails().subscribe((emailIds) => {
         this.emailIds = emailIds;
         console.log(this.emailIds);
         this.sendLink(this.emailIds);
       });
-    // })
+    })
   }
 
   sendLink(Ids) {
