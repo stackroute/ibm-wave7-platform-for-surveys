@@ -16,7 +16,7 @@
 }
    
   mat-card{
-      width: 30%;
+      width: 20%;
       align-content: center;
       margin-top: 4cm;
       height:auto;
@@ -24,6 +24,7 @@
       display: block;
       margin-left:auto;
       margin-right:auto;
+      padding:0.5cm;
   }
   mat-card-actions{
       text-align: center;
@@ -53,4 +54,7 @@
     0 8px 8px 0 rgba(0,0,0,1), 
     0 8px 8px 0 rgba(0,0,0,1);
     opacity: 0.97;
+}
+mat-card-header{
+    text-align: center;
 }

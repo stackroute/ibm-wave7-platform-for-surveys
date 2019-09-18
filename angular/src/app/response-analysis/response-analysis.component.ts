@@ -72,7 +72,7 @@ export class ResponseAnalysisComponent implements OnInit {
         this.tempDatasource.chart.caption = question.questionTag;
         this.tempDatasource.chart.subCaption = "Which option is most answered";
         this.tempDatasource.chart.xAxisName = "Options";
-        this.tempDatasource.chart.yAxisName = "no of users opted";
+        this.tempDatasource.chart.yAxisName = "No of users opted";
         this.tempDatasource.chart.theme = "fusion";
         console.log("tempSource ..................", this.tempDatasource);
         for (let j = 0; j < question.choices.length; j++) {

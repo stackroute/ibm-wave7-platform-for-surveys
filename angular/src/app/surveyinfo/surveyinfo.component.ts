@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SurveyService } from '../survey.service';
 import { Question } from '../modals/Question';
+import { Survey } from '../modals/Survey';
 
 @Component({
   selector: 'app-surveyinfo',
@@ -12,10 +13,12 @@ export class SurveyinfoComponent implements OnInit {
   constructor(private surveyService : SurveyService) {   }
 
   result:String;
+  private survey:Survey;
 
   private questionList : Question[];
 
   ngOnInit() {
+    this.survey=this.surveyService.editSurvey;
     console.log(this.surveyService.surveyId);
     this.getQuestionList(this.surveyService.surveyId);
     // this.survey.surveydata().subscribe(data=>{this.result=data;
