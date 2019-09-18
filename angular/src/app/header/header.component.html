@@ -5,7 +5,7 @@
       <span class="spacer"></span>
       <button class="main-button1"  *ngIf="loggedIn"  (click)="login()" mat-button>LOGIN</button>
       <button class="main-button" *ngIf="loggedOut" (click)="myprofile()" mat-button>My Profile</button>
-      <button class="main-button" *ngIf="loggedOut"(click)="login()" mat-button>Logout</button>
+      <button class="main-button" *ngIf="loggedOut"(click)="logOut()" mat-button>Logout</button>
       </mat-toolbar-row> 
   </mat-toolbar>
 <!-- </header> -->

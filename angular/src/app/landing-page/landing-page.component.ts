@@ -103,7 +103,7 @@ export class LandingPageComponent implements OnInit{
     this.surveyService.getAllSurveys().subscribe(
       (data) => {
         this.surveyList = data
-        this.surveySlides = this.surveyChunk(this.surveyList, 3);
+        this.surveySlides = this.surveyChunk(this.surveyList, 5);
       })
   }
 
