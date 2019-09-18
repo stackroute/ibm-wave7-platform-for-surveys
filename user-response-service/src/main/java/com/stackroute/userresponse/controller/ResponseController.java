@@ -35,18 +35,7 @@ public class ResponseController {
 
     //to get all the Responses
     @GetMapping("response")
-    public ResponseEntity<?> getAllUsers(){
+    public ResponseEntity<?> getAllResponses(){
         return new ResponseEntity<List<Response>>(responseService.getAllResponses(),HttpStatus.OK);
     }
-
-    @GetMapping("response/{id}")
-    //handler to get Responses by id
-    public ResponseEntity<?> getResponse(@PathVariable String id) {
-        try {
-            return new ResponseEntity<>(responseService.getResponseById(id), HttpStatus.OK);
-        } catch (Exception e) {
-            return new ResponseEntity<>(e.getMessage(), HttpStatus.CONFLICT);
-        }
-    }
-
 }

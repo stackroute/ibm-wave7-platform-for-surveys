@@ -40,17 +40,16 @@ export class QuestionsTemplateComponent implements OnInit {
     private route: ActivatedRoute,
     private dialog: MatDialog,
     private location: Location,
-    private httpClient: HttpClient,
     private router: Router,
     private bottomSheet: MatBottomSheet
   ) { }
-
 
   ngOnInit() {
     this.survey=this.surveyService.editSurvey;
     this.getQuestionList(this.surveyService.editSurvey.id);
     this.getRecommendedQuestions(this.surveyService.editSurvey.domain_type);
   }
+
   drop(event: CdkDragDrop<Object[]>) {
     console.log(event.previousContainer.data);
     console.log(event.container.data[0]);

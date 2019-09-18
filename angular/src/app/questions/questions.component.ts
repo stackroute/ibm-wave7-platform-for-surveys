@@ -24,7 +24,6 @@ export class QuestionsComponent implements OnInit {
 
   private questionList: Question[];
   private responseList : Response[] = [];
-  private respondents:number;
   private surveyId : string;
   private targetUser : User;
 
@@ -38,13 +37,6 @@ export class QuestionsComponent implements OnInit {
      this.surveyId = this.route.snapshot.paramMap.get('surveyId');
     console.log(this.surveyId);
     this.getQuestionList(this.surveyId);
-    // this.surveyService.expiryCheck().subscribe(
-    //   (num) => {
-    //   this.num = num;
-    //     console.log(window.location.href)
-    //   });
-    // this.surveyId = this.route.snapshot.paramMap.get('surveyId');
-    // this.getQuestionList(this.surveyId);
     this.surveyService.expiryCheck().subscribe(
       (num) => {
       this.num = num;
@@ -75,12 +67,10 @@ export class QuestionsComponent implements OnInit {
           randomNum:0
         }
 
-        // this.surveyService.editSurvey.status="Open";
         response.question_id = question.questionId;
         response.response = question.response;
         response.survey_id = this.surveyId;
-        response.email = this.surveyService.targetUser.email;
-        // this.respondents++;
+        response.email = localStorage.getItem('respondentEmail');
         this.responseList.push(response);
       }
 
@@ -90,13 +80,13 @@ export class QuestionsComponent implements OnInit {
           console.log("saved response" , data);
           let randomNum=Math.floor(Math.random()*100)+50;
           console.log(randomNum);
-          this.userRegistrationservce.getTargetUserById(this.surveyService.targetUser.id)
+          this.userRegistrationservce.getTargetUserById(localStorage.getItem('loggedInUserId'))
           .subscribe((data) => {
               this.targetUser = data,
-              this.targetUser.rewardPoints = randomNum;
+              this.targetUser.rewardPoints = this.targetUser.rewardPoints + randomNum;
               this.userRegistrationservce.updateUser(this.targetUser, this.targetUser.id)
               .subscribe((data) => {
-                  console.log(data);
+                  // this.surveyService.targetUser = data
               })
           })
         }, 
