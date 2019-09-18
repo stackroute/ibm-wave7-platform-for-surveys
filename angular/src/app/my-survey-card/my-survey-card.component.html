@@ -6,7 +6,8 @@
   >
   <mat-card class="card" *ngFor="let survey of surveyList">
     <a (click)="preview(survey)">
-      <div class="draft">{{ survey.status }}</div>
+      <div class="draft" *ngIf="survey.status == 'Draft'">{{ survey.status }}</div>
+      <div class="draft2" *ngIf="survey.status == 'Open'">{{ survey.status }}</div>
       <div class="image" *ngIf="survey.domain_type == 'Product'">
         <img
           mat-card-image
