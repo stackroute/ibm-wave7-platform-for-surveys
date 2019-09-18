@@ -97,9 +97,9 @@ export class ChatbotComponent implements OnInit {
   }
 
   //SpeechRecognition related implementations below
-  ngOnDestroy() {
-    this.speechRecognitionService.DestroySpeechObject();
-  }
+  // ngOnDestroy() {
+  //   this.speechRecognitionService.DestroySpeechObject();
+  // }
 
   activateSpeechSearch(): void {
     this.startListenButton = false;
