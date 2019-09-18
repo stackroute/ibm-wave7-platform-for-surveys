@@ -22,10 +22,15 @@
             <mat-option value="Male">Male</mat-option>
             <mat-option value="Female">Female</mat-option>
           </mat-select>
-          <span class="validations" *ngIf="gender.touched && gender.invalid">
-            gender is required
-          </span>
+          <!-- <span class="validations" *ngIf="gender.touched && gender.invalid">
+            required
+          </span> -->
+        
         </mat-form-field>
+        <span class="validations" style="color: red;" *ngIf="gender.touched && gender.invalid">
+          required
+        </span>
+      
 
         <mat-form-field class="hello">
           <mat-label class ="control-label">Location</mat-label>
@@ -40,13 +45,14 @@
             <mat-option value="Other">Other</mat-option>
 
           </mat-select>
-          <span class="validations" *ngIf="location.touched && location.invalid">
-            location required
-          </span>
+           
         </mat-form-field>
+        <span class="validations"  style="color: red;" *ngIf="location.touched && location.invalid">
+          required
+       </span> 
 
         <mat-form-field class="full-width1">
-          <mat-label class ="control-label">Age</mat-label>
+          <mat-label class ="control-label">Agegroup</mat-label>
           <mat-select [(ngModel)]="data.ageGroup" name="ageGroup" required #ageGroup="ngModel">
             
             <mat-option value="Children">1 to 16</mat-option>
@@ -54,11 +60,12 @@
             <mat-option value="Middle Age">31 to 60</mat-option>
             <mat-option value="Old Age">Old age</mat-option>
           </mat-select>
-          <span class="validations" *ngIf="ageGroup.touched && ageGroup.invalid">
-            age required
-          </span>
+          
          
         </mat-form-field>
+        <span class="validations" style="color: red;" *ngIf="ageGroup.touched && ageGroup.invalid">
+          required
+        </span>
         
       </div>
       

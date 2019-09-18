@@ -13,6 +13,10 @@ padding-bottom: 80px;
          margin-right:auto;
          align-content: center;
     }
+    // label{
+    //     padding-right: 20px;
+    //     justify-content: center; 
+    // }
     .example-container{
     font-family: arial;
     }
@@ -51,6 +55,8 @@ padding-bottom: 80px;
   mat-card-header.mat-card-header
   {
       //text-align: center;
-      justify-content: center;
-      
+      justify-content: center; 
   }
+ label{
+    padding-left: 20px;
+ }
