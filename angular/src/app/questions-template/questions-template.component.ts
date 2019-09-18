@@ -118,10 +118,10 @@ export class QuestionsTemplateComponent implements OnInit {
     this.surveyService.getFilteredEmails().subscribe(
       (data) => {
         console.log(data);
-      }),
+      },
       (error) => {
         console.log(error);
-      }
+      })
   }
 
   addQuestion() {
@@ -202,7 +202,7 @@ export class QuestionsTemplateComponent implements OnInit {
   }
  }
 
- 
+
 @Component({
   selector: "editQuestionDialog",
   templateUrl: "editQuestionDialog.html"
