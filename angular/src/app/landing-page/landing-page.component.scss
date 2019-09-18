@@ -14,7 +14,7 @@ flex: 1 1 auto;
 
 
 .example-card {
-  // display: flex;
+
 min-width: 200px;
 flex-wrap: wrap;
 justify-content: center;
@@ -29,7 +29,6 @@ border: solid;
 margin-bottom:1cm;
 overflow: hidden;
 text-overflow: ellipsis; 
-
 }
 
 .mat-card-avatar{
