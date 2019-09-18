@@ -69,7 +69,7 @@ export class LoginComponent implements OnInit {
         console.log(this.userResgistrationService.loginuser.email);
         this.userResgistrationService.getUserByEmail(this.userResgistrationService.loginuser.email).
           subscribe((data) => {
-            // this.userResgistrationService.loginCredentials = data;
+            console.log(data);            // this.userResgistrationService.loginCredentials = data;
             // console.log(this.userResgistrationService.loginCredentials);
             this.user = data;
             this.user.isAuthenticated = this.isAuthenticated;

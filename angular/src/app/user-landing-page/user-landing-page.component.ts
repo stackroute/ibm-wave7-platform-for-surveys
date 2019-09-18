@@ -32,7 +32,8 @@ export class UserLandingPageComponent implements OnInit {
   getSurveyList()
   {
     this.surveyService.getAllSurveys().subscribe(
-      (data) => {this.surveyList = data
+      (data) => {
+        this.surveyList = data.filter(x => x.status == "Open")
       console.log(this.surveyList)
       })
   }
