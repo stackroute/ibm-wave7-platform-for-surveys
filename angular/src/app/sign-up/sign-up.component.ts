@@ -41,28 +41,16 @@ export class SignUpComponent implements OnInit {
   });
   getRequiredErrorMessage(field) {
     return this.biodataForm.get(field).hasError("required")
-      ? "you must enter a valid username"
+      ? "You must enter a valid username"
       : "";
   }
   getEmailErrorMessage(field) {
     return this.emailFormControl.hasError("required")
-      ? "you must enter a valid email"
+      ? "You must enter a valid email"
       : this.emailFormControl.hasError("email")
-        ? "Not a valid email"
+        ? "This is not a valid email"
         : "";
   }
-
-  // emailCheckUnique() {
-  //   this.ss.emailCheckUnique(this.angForm.controls['s_email'].value).subscribe(res => {
-  //     this.emailCheckUnique = res;
-  //     if (this.emailCheckUnique.length > 0) {
-  //       this.emailAlredyExist = "Email Already Exist";
-  //     }
-  //     else {
-  //       this.emailAlredyExist = "";
-  //     }
-  //   });
-  // }
   getPasswordErrorMessage(field) {
     return this.biodataForm.get(field).hasError("required")
       ? "This field is required."

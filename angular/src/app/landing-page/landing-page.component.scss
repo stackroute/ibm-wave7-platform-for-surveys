@@ -115,10 +115,6 @@ white-space: nowrap;
 mat-card-subtitle{
 text-align:left;
 }
-h2{
-margin-left:2cm;
-// margin-bottom:14cm;
-}
 a{
 text-decoration: none;
 }
@@ -166,4 +162,8 @@ ngb-carousel{
   justify-content: center;
   padding:1cm;
   // align-items: center;
+}
+.heading{
+  text-align: center;
+  flex-direction: row;
 }

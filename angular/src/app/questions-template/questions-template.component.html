@@ -1,5 +1,6 @@
 <div class="main">
-  <h2>{{survey.name}}</h2>
+    <a routerLink="/survey"><button class="back" mat-raised-button><mat-icon>arrow_back</mat-icon></button></a>
+    <h2>{{survey.name}}</h2>
 <span><h3>Recommended Questions</h3></span>
 <span><h3 class="questions">Your Questions</h3></span>
 <div
@@ -8,7 +9,6 @@
   fxLayout.xs="column"
   fxLayoutWrap
   fxLayoutGap="10px"
-  
 >
   <div
     class="example-list"
@@ -35,9 +35,6 @@
         }}</mat-radio-button><br />
       </div>
     </mat-card>
-    <button mat-mini-fab color="primary" (click)="showMore()" ([ngModel])="show">
-        {{show}}
-        </button>
   </div>
 </div>
 <div class="example-container1" fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="10px">
@@ -106,7 +103,6 @@
 <button class="save" mat-raised-button type="submit" color="primary" (click)="publish()">
   Publish
 </button>
-<a routerLink="/survey"><button class="save"mat-raised-button color="primary">Back</button></a>
 <div class="bottomright" (click)="chat()">
   <img class= "chatbot" src="assets/pictures/messenger.png" alt="bot">
   </div>

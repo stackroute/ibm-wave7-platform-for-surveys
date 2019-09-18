@@ -33,20 +33,10 @@ export class MySurveyCardComponent implements OnInit {
       console.log(this.loggedOut);
     });
   }
-
   preview(survey) {
     this.surveyService.surveyId = survey.id;
     this.router.navigateByUrl('surveyinfo');
   }
-
-  // getSurveyList() {
-  //   this.surveyService.getAllSurveys().subscribe(
-  //     (data) => {
-  //       this.surveyList = data
-  //       console.log(this.surveyList)
-  //     })
-  // }
-
   getSurveyorSurveysList() {
     this.surveyService.getSurveysBySurveyor().subscribe(
       (data) => {

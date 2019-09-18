@@ -32,8 +32,6 @@ export class QuestionsTemplateComponent implements OnInit {
   private recommendedQuestionList: Question[];
   private newchoices: string[] = [];
   public userResponse: Response;
-  private show: string;
-  private limit: number = 2;
   emailIds: string[];
   private email: Mail;
 
@@ -42,7 +40,6 @@ export class QuestionsTemplateComponent implements OnInit {
     private route: ActivatedRoute,
     private dialog: MatDialog,
     private location: Location,
-    private httpClient: HttpClient,
     private router: Router,
     private bottomSheet: MatBottomSheet
   ) { }
@@ -53,13 +50,6 @@ export class QuestionsTemplateComponent implements OnInit {
     this.getRecommendedQuestions(this.surveyService.editSurvey.domain_type);
   }
 
-  showMore() {
-    console.log("this.recommendedQuestionList");
-    this.limit = 40;
-    this.show = "less";
-    this.getRecommendedQuestions(this.surveyService.editSurvey.domain_type);
-  }
-  
   drop(event: CdkDragDrop<Object[]>) {
     console.log(event.previousContainer.data);
     console.log(event.container.data[0]);
@@ -109,7 +99,7 @@ export class QuestionsTemplateComponent implements OnInit {
 
   sendLink(Ids) {
     this.email = {
-      "url": "http://172.23.238.245:4200/user-welcome/" + this.surveyService.surveyId,
+      "url": "http://172.23.238.187:4200/user-welcome/" + this.surveyService.surveyId,
       "emailIds": Ids
     };
     console.log(this.email.url);
