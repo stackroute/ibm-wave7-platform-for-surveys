@@ -11,24 +11,23 @@
     </div>
   </ng-container>
   <label for="nameField">Your Message</label>
-  <input [(ngModel)]="formValue" (keyup.enter)="sendMessage()" type="text" />
+  <input  [(ngModel)]="formValue" (keyup.enter)="sendMessage()" type="text">
+  <div class="alignment">
   <button (click)="sendMessage()">Send</button>
-  <button
-    class="btn btn-info btn-fill btn-wd"
-    name="btnActivateSpeechSearch"
-    id="btnActivateSpeechSearch"
-    (click)="activateSpeechSearch()"
-    [disabled]="!startListenButton"
-  >
-    Start Listening
+  <button class="btn btn-info btn-fill btn-wd" name="btnActivateSpeechSearch"
+    id="btnActivateSpeechSearch" (click)="activateSpeechSearch()"
+    [disabled]="!startListenButton">
+   <mat-icon>mic</mat-icon>
   </button>
-  <button
-    class="btn btn-info btn-fill btn-wd"
-    name="btnDeactivateSpeechSearch"
-    id="btnDeactivateSpeechSearch"
-    (click)="deActivateSpeechSearch()"
-    [disabled]="startListenButton"
-  >
-    Stop Listening
+  <button class="btn btn-info btn-fill btn-wd" name="btnDeactivateSpeechSearch"
+    id="btnDeactivateSpeechSearch" (click)="deActivateSpeechSearch()"
+    [disabled]="startListenButton">
+    <mat-icon>mic_off</mat-icon>
   </button>
-</div>
+  </div>
+  </div>
+
+  <link rel="stylesheet" href="//cdn.rawgit.com/necolas/normalize.css/master/normalize.css">
+  
+  <!-- Milligram CSS minified -->
+<link rel="stylesheet" href="//cdn.rawgit.com/milligram/milligram/master/dist/milligram.min.css">

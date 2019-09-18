@@ -48,8 +48,8 @@ export class ChatbotComponent implements OnInit {
 
 
   sendMessage() {
-    if(this.formValue.length<1)
-    return;
+    // if(this.formValue.length<1)
+    // return;
     
     
 

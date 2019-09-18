@@ -194,9 +194,15 @@ export class QuestionsTemplateComponent implements OnInit {
     this.bottomSheet.open(ChatbotComponent, {
       panelClass: 'custom-width'
     });
+    this.bottomSheet._openedBottomSheetRef.afterDismissed().subscribe(data => {
+      this.surveyService.getAllQuestions(this.survey.id).subscribe(data => {
+      this.questionList = data.questionList;
+      });
+    });
   }
-}
+ }
 
+ 
 @Component({
   selector: "editQuestionDialog",
   templateUrl: "editQuestionDialog.html"
