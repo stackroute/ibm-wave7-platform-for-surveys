@@ -53,7 +53,7 @@ public class SurveyServiceImpl implements SurveyService{
 
     @Override
     public Survey updateSurvey(Survey survey){
-       return surveyRepository.save(survey);
+        return surveyRepository.save(survey);
     }
 
     @Override
@@ -76,8 +76,6 @@ public class SurveyServiceImpl implements SurveyService{
         {
             list.add(survey.getId());
         }
-
-
         return list;
     }
 
@@ -88,11 +86,8 @@ public class SurveyServiceImpl implements SurveyService{
         LocalDate presentDate=LocalDate.now();
         String currentDate=presentDate.toString();
 
-    int compare=currentDate.compareTo(surveyRepository.getSurveyById(id).getExpiryDate());
-    return compare;
-
-
-
+        int compare=currentDate.compareTo(surveyRepository.getSurveyById(id).getExpiryDate());
+        return compare;
     }
 
 }

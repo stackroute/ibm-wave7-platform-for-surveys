@@ -12,6 +12,8 @@ import { Response } from '../modals/Response';
 export class ResponseAnalysisComponent implements OnInit {
 
   dataSource: any;
+  width:string;
+  height:string;
   dataSourceList: Datasource[] = [];
   questionChart: Datasource;
   private tempDatasource :any;
@@ -22,21 +24,23 @@ export class ResponseAnalysisComponent implements OnInit {
   private analyzeSurveyId : string;
   
   constructor(private surveyService: SurveyService) {
+    this.width="90%";
+    this.height="500";
 
   }
 
   ngOnInit() {
-    this.analyzeSurveyId = this.surveyService.editSurvey.id;
-    console.log(this.surveyService.editSurvey.id);
+    this.analyzeSurveyId = localStorage.getItem('EditingSurveyId');
+    console.log(this.analyzeSurveyId);
     this.loadDataSources();
     this.getResponseList();
   }
 
   getResponseList() {
     this.surveyService.getResponseList().subscribe((data) => {
-      this.responseList = data.filter(x => x.survey_id == this.surveyService.editSurvey.id);
+      this.responseList = data.filter(x => x.survey_id == this.analyzeSurveyId);
       console.log(this.responseList)
-      this.getQuestionList(this.surveyService.editSurvey.id);
+      this.getQuestionList(this.analyzeSurveyId);
     })
   }
 
@@ -79,7 +83,7 @@ export class ResponseAnalysisComponent implements OnInit {
         caption: "How easy or difficult was it to schedule your appointment at a time that was conveninent for you?",
         subCaption: "Which option is most answered",
         xAxisName: "Options",
-        yAxisName: "no of users opted",
+        yAxisName: "No of users opted",
         theme: "fusion"
       },
       // Chart Data

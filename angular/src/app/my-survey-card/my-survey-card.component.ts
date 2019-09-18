@@ -32,10 +32,12 @@ export class MySurveyCardComponent implements OnInit {
       console.log(this.loggedOut);
     });
   }
+
   preview(survey) {
-    this.surveyService.surveyId = survey.id;
+    localStorage.setItem('EditingSurveyId',survey.id);
     this.router.navigateByUrl('surveyinfo');
   }
+
   getSurveyorSurveysList() {
     this.surveyService.getSurveysBySurveyor().subscribe(
       (data) => {
@@ -54,13 +56,15 @@ export class MySurveyCardComponent implements OnInit {
   }
 
   editQuestions(survey: Survey) {
-    this.surveyService.surveyId = survey.id;
-    this.surveyService.editSurvey = survey
+    // this.surveyService.surveyId = survey.id;
+    localStorage.setItem('EditingSurveyId',survey.id);
+    // this.surveyService.editSurvey = survey
     this.router.navigate(['question-template', survey.id]);
   }
 
   analyze(survey: Survey) {
-    this.surveyService.editSurvey = survey;
+    localStorage.setItem('EditingSurveyId',survey.id);
+    // this.surveyService.editSurvey = survey;
     this.router.navigateByUrl('analysis');
   }
 
@@ -77,7 +81,8 @@ export class MySurveyCardComponent implements OnInit {
         this.surveyService.createSurvey(result).subscribe(
           (data) => {
             console.log(data);
-            this.surveyService.editSurvey = data;
+            // this.surveyService.editSurvey = data;
+            localStorage.setItem('EditingSurveyId',data.id);
             this.router.navigate(['question-template', data.id]);
             this.getSurveyorSurveysList();
           })

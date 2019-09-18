@@ -33,7 +33,7 @@ export class QuestionsComponent implements OnInit {
      private userRegistrationservce : UserRegistrationService) { }
 
   ngOnInit() {
-    this.survey=this.surveyService.editSurvey;
+    // this.survey=this.surveyService.editSurvey;
      this.surveyId = this.route.snapshot.paramMap.get('surveyId');
     console.log(this.surveyId);
     this.getQuestionList(this.surveyId);
