@@ -45,9 +45,11 @@ export class QuestionsTemplateComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.survey=this.surveyService.editSurvey;
-    this.getQuestionList(this.surveyService.editSurvey.id);
-    this.getRecommendedQuestions(this.surveyService.editSurvey.domain_type);
+    this.surveyService.getSurveysBySurveyor().subscribe((data) => {
+      this.survey = data.surveysList.filter(x => x.id == localStorage.getItem('EditingSurveyId'))[0]
+      this.getQuestionList(localStorage.getItem('EditingSurveyId'));
+      this.getRecommendedQuestions(this.survey.domain_type);
+    })
   }
 
   drop(event: CdkDragDrop<Object[]>) {
@@ -78,16 +80,16 @@ export class QuestionsTemplateComponent implements OnInit {
 
   saveDroppedQuestion(question: any) {
     console.log("questin from ts", question);
-    this.surveyService.saveQuestion(question).subscribe((data) => {
+    this.surveyService.saveQuestion(question, this.survey.domain_type).subscribe((data) => {
       this.question = data;
       console.log("result is ", this.question);
-      this.getQuestionList(this.surveyService.editSurvey.id);
+      this.getQuestionList(localStorage.getItem('EditingSurveyId'));
     });
   }
 
   publish() {
-    this.surveyService.editSurvey.status = "Open";
-    this.surveyService.editSurveyById(this.surveyService.editSurvey).subscribe((data) => {
+    this.survey.status = "Open";
+    this.surveyService.editSurveyById(this.survey).subscribe((data) => {
       console.log(data);
       this.surveyService.getAllMails().subscribe((emailIds) => {
         this.emailIds = emailIds;
@@ -99,7 +101,7 @@ export class QuestionsTemplateComponent implements OnInit {
 
   sendLink(Ids) {
     this.email = {
-      "url": "http://172.23.238.187:4200/user-welcome/" + this.surveyService.surveyId,
+      "url": "http://172.23.238.245:4200/user-welcome/" + localStorage.getItem('EditingSurveyId'),
       "emailIds": Ids
     };
     console.log(this.email.url);
@@ -131,7 +133,7 @@ export class QuestionsTemplateComponent implements OnInit {
   deleteQuestion(question: any) {
     this.surveyService.deleteQuestion(question).subscribe(data => {
       console.log(data);
-      this.getQuestionList(this.surveyService.editSurvey.id);
+      this.getQuestionList(this.survey.id);
     });
   }
 
@@ -151,10 +153,10 @@ export class QuestionsTemplateComponent implements OnInit {
     let question = form.value;
     question.choices = this.newchoices;
     console.log("questin from ts", question);
-    this.surveyService.saveQuestion(question).subscribe((data) => {
+    this.surveyService.saveQuestion(question, this.survey.domain_type).subscribe((data) => {
       this.question = data;
       console.log("result is ", this.question);
-      this.getQuestionList(this.surveyService.editSurvey.id);
+      this.getQuestionList(this.survey.id);
       this.condition = false;
       form.reset();
       this.newchoices = [];
@@ -174,7 +176,7 @@ export class QuestionsTemplateComponent implements OnInit {
         this.surveyService.editQuestion(result.question).subscribe(data => {
           console.log(data);
           console.log("Choices", data.choices);
-          this.getQuestionList(this.surveyService.surveyId);
+          this.getQuestionList(localStorage.getItem('EditingSurveyId'));
         });
       }
     });

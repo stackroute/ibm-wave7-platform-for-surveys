@@ -26,17 +26,17 @@ export class ResponseAnalysisComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.analyzeSurveyId = this.surveyService.editSurvey.id;
-    console.log(this.surveyService.editSurvey.id);
+    this.analyzeSurveyId = localStorage.getItem('EditingSurveyId');
+    console.log(this.analyzeSurveyId);
     this.loadDataSources();
     this.getResponseList();
   }
 
   getResponseList() {
     this.surveyService.getResponseList().subscribe((data) => {
-      this.responseList = data.filter(x => x.survey_id == this.surveyService.editSurvey.id);
+      this.responseList = data.filter(x => x.survey_id == this.analyzeSurveyId);
       console.log(this.responseList)
-      this.getQuestionList(this.surveyService.editSurvey.id);
+      this.getQuestionList(this.analyzeSurveyId);
     })
   }
 
