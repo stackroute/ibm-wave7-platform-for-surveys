@@ -8,6 +8,7 @@ import { AutofillMonitor } from '@angular/cdk/text-field';
 import { FormControl } from '@angular/forms';
 import { UserRegistrationService } from '../user-registration.service';
 import { Observable } from 'rxjs';
+import { Response } from '../modals/Response';
 
 @Component({
   selector: 'app-my-survey-card',
@@ -23,6 +24,8 @@ export class MySurveyCardComponent implements OnInit {
 
   public surveyList: Survey[];
 
+  private responseList : Response[] = []; 
+  
   ngOnInit() {
     this.getSurveyorSurveysList();
     this.isLoggedOut$ = this.userRegistrationService.logOut;
@@ -38,12 +41,26 @@ export class MySurveyCardComponent implements OnInit {
     this.router.navigateByUrl('surveyinfo');
   }
 
+  getResponseList() {
+    this.surveyService.getResponseList().subscribe((data) => {
+      this.responseList = data;
+      console.log(this.responseList)
+    })
+  }
+
   getSurveyorSurveysList() {
     this.surveyService.getSurveysBySurveyor().subscribe(
       (data) => {
         if (data != null) {
           this.surveyList = data.surveysList
           console.log(this.surveyList)
+          this.getResponseList();
+          for(let i=0 ; i< this.surveyList.length ; i++)
+          {
+            console.log(this.responseList);
+            console.log(this.surveyList[i].id);
+             this.surveyList[i].respondants = this.responseList.filter(x => x.survey_id == this.surveyList[i].id).length
+          }
         }
       })
   }
@@ -53,6 +70,7 @@ export class MySurveyCardComponent implements OnInit {
     this.surveyService.deleteSurvey(survey).subscribe(data =>
     this.getSurveyorSurveysList()
     );
+    this.getSurveyorSurveysList()
   }
 
   editQuestions(survey: Survey) {

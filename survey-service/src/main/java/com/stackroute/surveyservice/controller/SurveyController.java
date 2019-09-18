@@ -51,8 +51,8 @@ public class SurveyController {
     @DeleteMapping("survey/{id}")
     public ResponseEntity<?> deleteSurvey(@PathVariable("id") String id) {
         try {
-            surveyService.deleteSurvey(id);
-            responseEntity = new ResponseEntity<String>("successfully deleted", HttpStatus.OK);
+            Survey deletedSurvey = surveyService.deleteSurvey(id);
+            responseEntity = new ResponseEntity<Survey>(deletedSurvey, HttpStatus.OK);
         } catch (Exception e) {
             responseEntity = new ResponseEntity<String>(e.getMessage(), HttpStatus.OK);
         }

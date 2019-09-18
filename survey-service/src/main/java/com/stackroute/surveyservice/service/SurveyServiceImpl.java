@@ -40,10 +40,11 @@ public class SurveyServiceImpl implements SurveyService{
     }
 
     @Override
-    public boolean deleteSurvey(String id) {
+    public Survey deleteSurvey(String id) {
+        Optional<Survey> deletedSurvey = surveyRepository.findById(id);
         surveyRepository.delete(id);
         surveyRepository.deleteById(id);
-        return false;
+        return deletedSurvey.get();
     }
 
     @Override
