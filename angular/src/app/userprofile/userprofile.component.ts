@@ -48,7 +48,7 @@ export class UserprofileComponent implements OnInit {
   openDialog(user:User) {
     const dialogRef = this.dialog.open(DialogComponents,
       {
-        width : '250px',
+        width : '300px',
         data : {}
       });
     dialogRef.afterClosed().subscribe(result => {
