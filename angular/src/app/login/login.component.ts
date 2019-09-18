@@ -31,13 +31,11 @@ export class LoginComponent implements OnInit {
     this.userResgistrationService.setLogin(false);
     this.isLoggedIn$.subscribe(data => {
       this.loggedIn = data;
-      console.log(this.loggedIn);
     });
     this.isLoggedOut$ = this.userResgistrationService.logOut;
     this.userResgistrationService.setLogout(false);
     this.isLoggedOut$.subscribe(data => {
       this.loggedOut = data;
-      console.log(this.loggedOut);
     });
 
   }
