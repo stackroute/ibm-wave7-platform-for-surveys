@@ -11,7 +11,7 @@ ENV PATH /app/node_modules/.bin:$PATH
 # install and cache app dependencies
 COPY /package.json /app/package.json
 
-RUN ng set --global warnings.packageDeprecation=false
+# RUN ng set --global warnings.packageDeprecation=false
 RUN npm install
 #RUN npm install node-sass --save-dev
 RUN npm install -g @angular/cli@8.3.4
