@@ -1,10 +1,8 @@
 .example-container
 {
-// margin-top: 2cm;
 float: left;
 background: white;
-// background: linear-gradient(264deg, rgba(255,149,149,1) 0%, rgba(255,149,149,1) 32%, rgba(33,1,56,1) 100%);padding: 0 0 0.2em 0;
-// color: white;
+// background: linear-gradient(264deg, rgba(255,149,149,1) 0%, rgba(255,149,149,1) 32%, rgba(33,1,56,1) 100%);
 padding: 15px;
 width: 50%;
 height:800px;
@@ -13,17 +11,19 @@ border: 1px solid rgb(41, 1, 39);
 }
 .example-container1
 {
-padding:1cm;
 float:right;
-background: rgb(199, 191, 191);
-    background: linear-gradient(264deg, rgb(165, 160, 160) 0%, rgb(27, 27, 27) 32%, rgb(95, 94, 95) 100%);padding: 0 0 0.2em 0;
-
+background: rgb(199, 191, 191); background: linear-gradient(264deg, rgb(165, 160, 160) 0%, rgb(27, 27, 27) 32%, rgb(95, 94, 95) 100%);
 padding: 15px;
 width: 50%;
 height: 800px;
 overflow: scroll;
 border: 1px solid #ccc;
 }
+img {
+  width:7cm;
+  height: 4cm;;
+ }
+   
 .custom-width {
   width: 450px;
 }
@@ -31,11 +31,12 @@ border: 1px solid #ccc;
     color: rgba(0, 0, 0, 0.87);
     cursor: move;
     background: white;
-   width:700px;
-   margin-top:1cm;
-   margin-left:0.5cm;
+    width:700px;
+    margin-top:1cm;
+    margin-left:0.5cm;
     box-sizing: border-box;
     border-radius: 4px;
+    padding:0.4cm;
 }
 .example-box:hover{
    box-shadow: 0 8px 25px 0 rgba(0,0,0,0.8);
@@ -48,8 +49,6 @@ border: 1px solid #ccc;
   .cdk-drag-animating {
     transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
   }
-  .more-link p {display: none;}
-  .more-link:active p {display: block;}  
   .example-box:last-child {
     border: none;
   }
@@ -59,7 +58,7 @@ border: 1px solid #ccc;
   }
   
   .add-question{
-    min-width:700px;
+    min-width:750px;
     height:auto;
     margin-top:23cm;
   }
@@ -67,12 +66,13 @@ border: 1px solid #ccc;
       box-shadow: 0 8px 25px 0 rgba(0,0,0,0.8);
   }
   .Question{
-    width: 500px! important;
+    width: 600px! important;
   }
   h3{
-    //  margin-top:2cm;
+
     margin-left:5cm;
     color: white;
+    margin-bottom:0.5cm;
   }
   .questions{
     margin-left:25cm;
@@ -87,12 +87,11 @@ border: 1px solid #ccc;
     height:50px;
   }
  .save{
-   margin-top:0.2cm;
-   margin-bottom:0.2cm;
-   margin-left:0.2cm;
-   margin-right:0.2cm;
+   margin-top:0.5cm;
+   margin-bottom:0.5cm;
+   margin-left:0.5cm;
+   margin-right:0.5cm;
    float: right;
-   color: #999;
  }
  .choice
  {
@@ -105,7 +104,6 @@ border: 1px solid #ccc;
   background: linear-gradient(264deg, rgba(255,149,149,1) 0%, rgba(255,149,149,1) 32%, rgba(33,1,56,1) 100%);
  }
  h2{
-
    text-align: center;
   color: white;
  }
