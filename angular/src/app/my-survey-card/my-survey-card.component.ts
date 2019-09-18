@@ -24,7 +24,6 @@ export class MySurveyCardComponent implements OnInit {
   public surveyList: Survey[];
 
   ngOnInit() {
-    console.log("local storage ", localStorage.getItem('loggedInUser'));
     this.getSurveyorSurveysList();
     this.isLoggedOut$ = this.userRegistrationService.logOut;
     this.userRegistrationService.setLogout(true);

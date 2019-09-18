@@ -97,11 +97,10 @@ li{
     border-radius: 5px 5px 0 0;
   }
   .draft{
-      margin-top: 20px;
-      border:2px solid white;
-      background-color: black;
+      // margin-top: 20px;
+      // border:2px solid white;
+      background-color: #fdde30;
       color: white;
-      opacity: 0.7;
     position: absolute;
     height: 8%;
     padding: 2px;
@@ -110,10 +109,22 @@ li{
     text-align: center;
     border-radius: 0px 50px 50px 0px;
   }
+  .draft2{
+    // margin-top: 20px;
+    // border:2px solid white;
+    background-color: #40c046;
+    color: white;
+  position: absolute;
+  height: 8%;
+  padding: 2px;
+  margin-left:0px ;
+  width: 50%;
+  text-align: center;
+  border-radius: 0px 50px 50px 0px;
+}
  
   .bottom{
     display: flex;
-   
     padding: 20px;
     justify-content: space-around;
   }

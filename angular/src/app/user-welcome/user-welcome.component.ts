@@ -34,7 +34,10 @@ export class UserWelcomeComponent implements OnInit {
     this.userRegistration.saveUserEmail(this.email).subscribe(
       (data) => {
         console.log(data);
-        this.surveyService.targetUser = data;
+        // this.surveyService.targetUser = data;
+        localStorage.removeItem('loggedInUserId');
+        localStorage.setItem('loggedInUserId',data.id);
+        localStorage.setItem('respondentEmail', data.email);
       });
       console.log(this.surveyId);
       this.router.navigate(['questions', this.surveyId]);
