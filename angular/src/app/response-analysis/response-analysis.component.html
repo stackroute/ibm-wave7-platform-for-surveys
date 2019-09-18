@@ -1,4 +1,5 @@
 <div class="flex-container" fxLayout="row" fxLayout.xs="column">
+    <a routerLink="/survey"><button class="back" mat-raised-button><mat-icon>arrow_back</mat-icon></button></a>
 <div class="split-left">
   <div class="questions">
     <div>
@@ -10,19 +11,9 @@
     </div>
   </div>
 </div>
-
-<div class="split-right" *ngIf="OverallChart">
-  <div class="centered">
-    <div class="chart" *ngFor="let Source of dataSourceList">
-      <fusioncharts width="700" height="500" type="Column2d" [dataSource]="Source">
-      </fusioncharts>
-    </div> 
-  </div>  
-</div>
-
-
+ 
 <div class="chart" *ngIf="showChart">
-  <fusioncharts width="700" height="500" type="Column2d" [dataSource]="questionChart">
+  <fusioncharts [width]="width" [height]="height" type="Column2d" [dataSource]="questionChart">
   </fusioncharts>
 </div> 
 </div>

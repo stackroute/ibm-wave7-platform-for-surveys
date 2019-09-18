@@ -18,9 +18,9 @@ export class SurveyinfoComponent implements OnInit {
   private questionList : Question[];
 
   ngOnInit() {
-    this.survey=this.surveyService.editSurvey;
-    console.log(this.surveyService.surveyId);
-    this.getQuestionList(this.surveyService.surveyId);
+    // this.survey=this.surveyService.editSurvey;
+    console.log(localStorage.getItem('EditingSurveyId'));
+    this.getQuestionList(localStorage.getItem('EditingSurveyId'));
     // this.survey.surveydata().subscribe(data=>{this.result=data;
     // console.log(this.result);});
   }
