@@ -67,7 +67,7 @@ export class SignUpComponent implements OnInit {
       console.log("result is ", data);
       alert("Account successfully created");
       this.router.navigateByUrl("login");
-    });
+    });   
   }
 }
 

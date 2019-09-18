@@ -25,7 +25,6 @@ export class MySurveyCardComponent implements OnInit {
 
   ngOnInit() {
     this.getSurveyorSurveysList();
-    // this.getSurveyList();
     this.isLoggedOut$ = this.userRegistrationService.logOut;
     this.userRegistrationService.setLogout(true);
     this.isLoggedOut$.subscribe(data => {
@@ -33,48 +32,35 @@ export class MySurveyCardComponent implements OnInit {
       console.log(this.loggedOut);
     });
   }
-
   preview(survey) {
     this.surveyService.surveyId = survey.id;
     this.router.navigateByUrl('surveyinfo');
   }
-
-  getSurveyList() {
-    this.surveyService.getAllSurveys().subscribe(
-      (data) => {
-      this.surveyList = data
-        console.log(this.surveyList)
-      })
-  }
-
   getSurveyorSurveysList() {
     this.surveyService.getSurveysBySurveyor().subscribe(
       (data) => {
-      this.surveyList = data.surveysList
-        console.log(this.surveyList)
+        if (data != null) {
+          this.surveyList = data.surveysList
+          console.log(this.surveyList)
+        }
       })
   }
 
   deleteSurvey(survey) {
     console.log(survey);
-    let demo;
-    this.surveyService.deleteSurvey(survey).subscribe(data=>demo=data);
-    this.getSurveyList();
+    this.surveyService.deleteSurvey(survey).subscribe(data =>
+    this.getSurveyorSurveysList()
+    );
   }
 
   editQuestions(survey: Survey) {
     this.surveyService.surveyId = survey.id;
     this.surveyService.editSurvey = survey
     this.router.navigate(['question-template', survey.id]);
-  } 
-
-  analyze(survey : Survey){
-    this.surveyService.editSurvey = survey;
-    this.router.navigateByUrl('analysis');
   }
-  
-  goToResponseAnalysis(survey: Survey) { 
-    this.surveyService.surveyId = survey.id;
+
+  analyze(survey: Survey) {
+    this.surveyService.editSurvey = survey;
     this.router.navigateByUrl('analysis');
   }
 
@@ -93,7 +79,7 @@ export class MySurveyCardComponent implements OnInit {
             console.log(data);
             this.surveyService.editSurvey = data;
             this.router.navigate(['question-template', data.id]);
-            this.getSurveyList();
+            this.getSurveyorSurveysList();
           })
       }
     });

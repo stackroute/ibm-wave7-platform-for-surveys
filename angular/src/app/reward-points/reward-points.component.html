@@ -1,29 +1,8 @@
-<div class="rewardscontainer" >
-  <p class="heading" >Survey Reward Points</p>
-      <h3 class="header">Congratulations !! You have Earned {{parentData}} coins as Reward-points in your wallet!</h3>
-      <h3 class="header1">Take Survey to earn coins as Rewards!</h3>
-      <!-- <h1 class="header2">Complete your user profile to earn 100 coins as Rewards!</h1> -->
-  <form novalidate="" class="reward-pointsform" 
-  (ngSubmit)="rewards()">
-    <mat-card class="reward-card"  >
-          <mat-card-header>
-            <div mat-card-avatar class="example-header-image"></div>
-            <mat-card-title>Take Survey and earn Rewards!</mat-card-title>
-            <mat-card-subtitle>By pollurvey.com</mat-card-subtitle>
-          </mat-card-header>
-          <img mat-card-image src="../../assets/pictures/images.jpeg" alt="Image not found">
-        </mat-card>
-        <!-- <mat-card class="reward-card" >
-          <mat-card-header>
-            <div mat-card-avatar class="example-header-image"></div>
-            <mat-card-title>Earn rewards</mat-card-title>
-            <mat-card-subtitle>By pollurvey.com</mat-card-subtitle>
-          </mat-card-header>
-          <img mat-card-image src="/assets/pictures/rewards.png" alt="Image not found">
-         -->
-          <!-- <mat-card-actions> -->
-            <!-- <button id="submit" class="btn btn-success btn-lg" >Redeem</button> -->
-          <!-- </mat-card-actions> -->
-        <!-- </mat-card> -->
-  </form>
-  </div>
+<div class="rewards-container" >
+  <mat-card>
+<h3 class="header">Congratulations.....!!! You have Earned {{parentData}} coins as Reward-points in your wallet!
+  To redeem your reward points please sign-up here....!!!! 
+</h3>
+<div class="btn"><a routerLink='/sign-up'><button mat-raised-button color="primary">Signup</button></a></div>
+</mat-card> 
+</div>

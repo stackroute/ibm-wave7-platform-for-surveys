@@ -16,7 +16,6 @@ import { ChatbotComponent } from '../chatbot/chatbot.component';
 import { MatBottomSheet } from '@angular/material/bottom-sheet';
 import { Mail } from '../mail';
 
-
 @Component({
   selector: "app-questions-template",
   templateUrl: "./questions-template.component.html",
@@ -33,8 +32,6 @@ export class QuestionsTemplateComponent implements OnInit {
   private recommendedQuestionList: Question[];
   private newchoices: string[] = [];
   public userResponse: Response;
-  private show: String;
-  private limit: number = 2;
   emailIds: string[];
   private email: Mail;
 
@@ -54,12 +51,6 @@ export class QuestionsTemplateComponent implements OnInit {
     this.getQuestionList(this.surveyService.editSurvey.id);
     this.getRecommendedQuestions(this.surveyService.editSurvey.domain_type);
   }
-  showMore() {
-    console.log("this.recommendedQuestionList");
-    this.limit = 40;
-    this.show = "less";
-    this.getRecommendedQuestions(this.surveyService.editSurvey.domain_type);
-  }
   drop(event: CdkDragDrop<Object[]>) {
     console.log(event.previousContainer.data);
     console.log(event.container.data[0]);
@@ -70,7 +61,6 @@ export class QuestionsTemplateComponent implements OnInit {
         event.container.data,
         event.previousIndex,
         event.currentIndex);
-      let droppedQuestion = event.container.data[0];                    
       this.saveDroppedQuestion(event.container.data[event.currentIndex]);
     }
   }
@@ -146,7 +136,7 @@ export class QuestionsTemplateComponent implements OnInit {
     });
   }
 
-  getRecommendedQuestions(domain: String) {
+  getRecommendedQuestions(domain: string) {
     this.surveyService.getRecommendedQuestions(domain).subscribe(data => {
       this.recommendedQuestionList = data;
       console.log("Recommended Questions : ", this.recommendedQuestionList);
