@@ -23,7 +23,7 @@ export class ChatService {
 
   constructor() { }
   init(){
-    this.update(new Message("Hi ! Welcome to Pollurvey bot.","bot"));
+    this.update(new Message("Hi! Welcome to Pollurvey bot.","bot"));
   }
   talk(){
     this.client.textRequest('who are you!').then(res =>console.log(res));

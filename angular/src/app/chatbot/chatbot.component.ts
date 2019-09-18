@@ -54,10 +54,7 @@ export class ChatbotComponent implements OnInit {
 
 
   sendMessage() {
-    if (this.formValue.length < 1)
-      return;
     this.chat.converse(this.formValue);
-
     if (this.formValue.match("question is")) {
       let questionTag = this.formValue.replace("question is", '');
       this.question.questionTag = questionTag;
@@ -136,7 +133,7 @@ export class ChatbotComponent implements OnInit {
         });
   }
 
-  deActivateSpeechSearch(): void {
+  deActivateSpeechSearch(): void { 
     this.startListenButton = true;
     this.stopListeningButton = true;
     this.speechRecognitionService.DestroySpeechObject();
