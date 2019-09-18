@@ -31,13 +31,11 @@ export class LoginComponent implements OnInit {
     this.userResgistrationService.setLogin(false);
     this.isLoggedIn$.subscribe(data => {
       this.loggedIn = data;
-      console.log(this.loggedIn);
     });
     this.isLoggedOut$ = this.userResgistrationService.logOut;
     this.userResgistrationService.setLogout(false);
     this.isLoggedOut$.subscribe(data => {
       this.loggedOut = data;
-      console.log(this.loggedOut);
     });
 
   }
@@ -54,8 +52,8 @@ export class LoginComponent implements OnInit {
   {
     return this.emailFormControl.hasError("required")
     ? "This field is required"
-    : this.emailFormControl.hasError("username")
-    ? "Not a valid email"
+    : this.emailFormControl.hasError("email")
+    ? "This is not a valid email"
     : "";
   }
    getPasswordErrorMessage(field) {
@@ -64,7 +62,6 @@ export class LoginComponent implements OnInit {
       : "";
   }
   login(user: LoginUser) {
-
     this.userResgistrationService.authenticateUser(user).subscribe(
       (data) => {
         console.log(data);
@@ -72,21 +69,25 @@ export class LoginComponent implements OnInit {
         console.log(this.userResgistrationService.loginuser.email);
         this.userResgistrationService.getUserByEmail(this.userResgistrationService.loginuser.email).
           subscribe((data) => {
-            this.userResgistrationService.loginCredentials = data;
-            console.log(this.userResgistrationService.loginCredentials);
+            // this.userResgistrationService.loginCredentials = data;
+            // console.log(this.userResgistrationService.loginCredentials);
             this.user = data;
             this.user.isAuthenticated = this.isAuthenticated;
-            this.surveyService.loginCredentials = data;
-            console.log("loginCredentials", data);
+            // this.surveyService.loginCredentials = data;
+            // console.log("loginCredentials", data);
+            localStorage.setItem('loggedInUserId',data.id);
+            localStorage.setItem('loggedInUserRole',data.role);
             if (this.isAuthenticated && this.user.role == 'Surveyor') {
               this.router.navigateByUrl('survey'); 
             }
             else if (this.isAuthenticated && this.user.role == 'User') {
+              // this.surveyService.targetUser = data;
               this.router.navigateByUrl('landing');
             }
             else{
               alert("username and password does not match")
               this.router.navigateByUrl('');
+              
             }
           })
       },

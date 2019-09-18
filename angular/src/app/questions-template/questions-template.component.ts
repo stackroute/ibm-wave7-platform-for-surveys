@@ -16,7 +16,6 @@ import { ChatbotComponent } from '../chatbot/chatbot.component';
 import { MatBottomSheet } from '@angular/material/bottom-sheet';
 import { Mail } from '../mail';
 
-
 @Component({
   selector: "app-questions-template",
   templateUrl: "./questions-template.component.html",
@@ -33,8 +32,6 @@ export class QuestionsTemplateComponent implements OnInit {
   private recommendedQuestionList: Question[];
   private newchoices: string[] = [];
   public userResponse: Response;
-  private show: String;
-  private limit: number = 2;
   emailIds: string[];
   private email: Mail;
 
@@ -43,23 +40,18 @@ export class QuestionsTemplateComponent implements OnInit {
     private route: ActivatedRoute,
     private dialog: MatDialog,
     private location: Location,
-    private httpClient: HttpClient,
     private router: Router,
     private bottomSheet: MatBottomSheet
   ) { }
 
-
   ngOnInit() {
-    this.survey=this.surveyService.editSurvey;
-    this.getQuestionList(this.surveyService.editSurvey.id);
-    this.getRecommendedQuestions(this.surveyService.editSurvey.domain_type);
+    this.surveyService.getSurveysBySurveyor().subscribe((data) => {
+      this.survey = data.surveysList.filter(x => x.id == localStorage.getItem('EditingSurveyId'))[0]
+      this.getQuestionList(localStorage.getItem('EditingSurveyId'));
+      this.getRecommendedQuestions(this.survey.domain_type);
+    })
   }
-  showMore() {
-    console.log("this.recommendedQuestionList");
-    this.limit = 40;
-    this.show = "less";
-    this.getRecommendedQuestions(this.surveyService.editSurvey.domain_type);
-  }
+
   drop(event: CdkDragDrop<Object[]>) {
     console.log(event.previousContainer.data);
     console.log(event.container.data[0]);
@@ -70,7 +62,6 @@ export class QuestionsTemplateComponent implements OnInit {
         event.container.data,
         event.previousIndex,
         event.currentIndex);
-      let droppedQuestion = event.container.data[0];                    
       this.saveDroppedQuestion(event.container.data[event.currentIndex]);
     }
   }
@@ -89,28 +80,28 @@ export class QuestionsTemplateComponent implements OnInit {
 
   saveDroppedQuestion(question: any) {
     console.log("questin from ts", question);
-    this.surveyService.saveQuestion(question).subscribe((data) => {
+    this.surveyService.saveQuestion(question, this.survey.domain_type).subscribe((data) => {
       this.question = data;
       console.log("result is ", this.question);
-      this.getQuestionList(this.surveyService.editSurvey.id);
+      this.getQuestionList(localStorage.getItem('EditingSurveyId'));
     });
   }
 
   publish() {
-    // this.surveyService.editSurvey.status = "Open";
-    // this.surveyService.editSurveyById(this.surveyService.editSurvey).subscribe((data) => {
-    //   console.log(data);
+    this.survey.status = "Open";
+    this.surveyService.editSurveyById(this.survey).subscribe((data) => {
+      console.log(data);
       this.surveyService.getAllMails().subscribe((emailIds) => {
         this.emailIds = emailIds;
         console.log(this.emailIds);
         this.sendLink(this.emailIds);
       });
-    // })
+    })
   }
 
   sendLink(Ids) {
     this.email = {
-      "url": "http://172.23.238.147:4200/user-welcome/" + this.surveyService.surveyId,
+      "url": "http://172.23.238.245:4200/user-welcome/" + localStorage.getItem('EditingSurveyId'),
       "emailIds": Ids
     };
     console.log(this.email.url);
@@ -129,10 +120,10 @@ export class QuestionsTemplateComponent implements OnInit {
     this.surveyService.getFilteredEmails().subscribe(
       (data) => {
         console.log(data);
-      }),
+      },
       (error) => {
         console.log(error);
-      }
+      })
   }
 
   addQuestion() {
@@ -142,11 +133,11 @@ export class QuestionsTemplateComponent implements OnInit {
   deleteQuestion(question: any) {
     this.surveyService.deleteQuestion(question).subscribe(data => {
       console.log(data);
-      this.getQuestionList(this.surveyService.editSurvey.id);
+      this.getQuestionList(this.survey.id);
     });
   }
 
-  getRecommendedQuestions(domain: String) {
+  getRecommendedQuestions(domain: string) {
     this.surveyService.getRecommendedQuestions(domain).subscribe(data => {
       this.recommendedQuestionList = data;
       console.log("Recommended Questions : ", this.recommendedQuestionList);
@@ -162,10 +153,10 @@ export class QuestionsTemplateComponent implements OnInit {
     let question = form.value;
     question.choices = this.newchoices;
     console.log("questin from ts", question);
-    this.surveyService.saveQuestion(question).subscribe((data) => {
+    this.surveyService.saveQuestion(question, this.survey.domain_type).subscribe((data) => {
       this.question = data;
       console.log("result is ", this.question);
-      this.getQuestionList(this.surveyService.editSurvey.id);
+      this.getQuestionList(this.survey.id);
       this.condition = false;
       form.reset();
       this.newchoices = [];
@@ -185,7 +176,7 @@ export class QuestionsTemplateComponent implements OnInit {
         this.surveyService.editQuestion(result.question).subscribe(data => {
           console.log(data);
           console.log("Choices", data.choices);
-          this.getQuestionList(this.surveyService.surveyId);
+          this.getQuestionList(localStorage.getItem('EditingSurveyId'));
         });
       }
     });
@@ -205,8 +196,14 @@ export class QuestionsTemplateComponent implements OnInit {
     this.bottomSheet.open(ChatbotComponent, {
       panelClass: 'custom-width'
     });
+    this.bottomSheet._openedBottomSheetRef.afterDismissed().subscribe(data => {
+      this.surveyService.getAllQuestions(this.survey.id).subscribe(data => {
+      this.questionList = data.questionList;
+      });
+    });
   }
-}
+ }
+
 
 @Component({
   selector: "editQuestionDialog",

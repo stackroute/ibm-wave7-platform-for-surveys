@@ -72,8 +72,8 @@ public class UserResponseControllerTest {
 
         //verify here verifies that ResponseService saveResponse method is only called once
         verify(responseService, times(1)).saveResponse(response);
-
     }
+
     @Test
     public void givenGetMappingUrlShouldReturnListOfAllResponses() throws Exception {
         when(responseService.getAllResponses()).thenReturn(list);
@@ -86,8 +86,6 @@ public class UserResponseControllerTest {
         verify(responseService, times(1)).getAllResponses();
 
     }
-
-
 
     private static String asJsonString(final Object object) {
         try {

@@ -42,8 +42,4 @@ public class ResponseServiceImpl implements ResponseService {
         return responseRepository.findAll();
     }
 
-    @Override
-    public Response getResponseById(String question_id) {
-        return responseRepository.save(getResponseById(question_id));
-    }
 }

@@ -14,7 +14,7 @@ export class HeaderComponent implements OnInit {
   loggedIn: boolean;
   isLoggedOut$:Observable<boolean>;
   loggedOut: boolean;
-  public url: string = "http://localhost:4200/login";
+  // public url: string = "http://localhost:4200/login";
   constructor(private userRegistrationService:UserRegistrationService, private router: Router,) {}
 
   ngOnInit() {
@@ -27,25 +27,33 @@ export class HeaderComponent implements OnInit {
       this.loggedOut = data;
     });
   }
+
   login() {
     this.router.navigateByUrl("login");
   }
+
+  logOut()
+  {
+    localStorage.removeItem('loggedInUserId');
+    localStorage.removeItem('loggedInUserRole');
+    localStorage.removeItem('respondentEmail');
+    this.router.navigateByUrl('');
+  }
+
   navbarOpen = false;
   toggleNavbar() {
     this.navbarOpen = !this.navbarOpen;
   }
+
   myprofile() {
-    if(this.userRegistrationService.loginCredentials.role=="Surveyor"){
+    if(localStorage.getItem('loggedInUserRole') == "Surveyor"){
       this.router.navigateByUrl("myprofile");
       }
       else
       {
         this.router.navigateByUrl("userprofile");
       }
-
   }
-
- 
 
   support() {
     this.router.navigateByUrl("support");

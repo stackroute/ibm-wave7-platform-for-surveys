@@ -21,15 +21,11 @@ justify-content: center;
 align-content: center;
 height: auto;
 width: -webkit-fill-available;
-// position: relative;
 display: inline-block;
-//overflow: hidden;
 text-align: center;
 margin:0.5em 0 0.5em;
-// padding:2cm;
 margin-left:1cm;
 border: solid;
-// border-color: rgb(97, 97, 97);
 margin-bottom:1cm;
 overflow: hidden;
 text-overflow: ellipsis; 
@@ -115,10 +111,6 @@ white-space: nowrap;
 mat-card-subtitle{
 text-align:left;
 }
-h2{
-margin-left:2cm;
-// margin-bottom:14cm;
-}
 a{
 text-decoration: none;
 }
@@ -166,4 +158,12 @@ ngb-carousel{
   justify-content: center;
   padding:1cm;
   // align-items: center;
+}
+.heading{
+  text-align: center;
+  flex-direction: row;
+}
+img {
+ width:6cm;
+ height: 4cm;;
 }

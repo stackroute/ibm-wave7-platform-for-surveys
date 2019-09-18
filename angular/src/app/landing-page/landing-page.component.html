@@ -26,7 +26,7 @@
     >
       <ngb-carousel
         *ngIf="images"
-        style="height:10cm;padding:20px; background: rgb(255,149,149);
+        style="height:9cm;padding:20px; background: rgb(255,149,149);
         background: linear-gradient(264deg, rgba(255,149,149,1) 0%, rgba(33,1,56,1) 89%, rgba(33,1,56,1) 100%);"
       >
         <ng-template
@@ -42,15 +42,25 @@
                      <mat-card-title>{{ survey.name }}</mat-card-title>
                     <!-- <mat-card-subtitle>{{ survey.description }}</mat-card-subtitle> -->
                   </mat-card-header>
-                  <img
-                    mat-card-image src="assets/pictures/business.jpeg"
-                    alt="Photo of a Shiba Inu"
-                  />
+                  <div class="image" *ngIf="survey.domain_type == 'Product'">
+                    <img
+                      mat-card-image
+                      src="/assets/pictures/product3.jpg"
+                      alt="Product Image"
+                    />
+                  </div>
+                  <div class="image" *ngIf="survey.domain_type == 'Hospital'">
+                    <img
+                      mat-card-image
+                      src="/assets/pictures/Hospital.webp"
+                      alt="Hospital Image"
+                    />
+                  </div>
                   <mat-card-content>
                     <p>
                       Reward points:
                     </p>
-                    <p>Number of respondants:</p>
+                    <!-- <p>Number of respondants:</p> -->
                   </mat-card-content>
                 </mat-card></a>
               </div>

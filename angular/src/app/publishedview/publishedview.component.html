@@ -1,6 +1,7 @@
 <div class="hero-image">
   <div class="hero-text">
-    <h2>Your survey have been published successfully.You can distribute your survey using this link</h2>
-    <button (click)="getSurveyId()"><a>{{ publishedURL }}</a></button>
+    <h2>Your survey have been published successfully.You can distribute your survey using this link!</h2>
+    <a (click)="getSurveyId()" >{{ publishedURL }}</a>
   </div>
+  <a routerLink="/survey"><button class="back" mat-raised-button><mat-icon>arrow_back</mat-icon></button></a>
 </div>

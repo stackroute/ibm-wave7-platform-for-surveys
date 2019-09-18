@@ -1,6 +1,6 @@
 .welcome{
     background-image: url("/assets/pictures/52_blog_19_Purple.jpg");
-    opacity:3;
+    opacity: 0.7;
     height: 100%;
     width: 100%;
     // background-repeat: no-repeat;
@@ -28,8 +28,7 @@ button{
     background:white;
     width: 4cm;
     justify-content: center;
-    
-    
+    margin: auto;
 }
 button:hover{
     box-shadow: 0 8px 25px 0 white(0,0,0,0.8);

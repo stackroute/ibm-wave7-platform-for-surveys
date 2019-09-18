@@ -18,7 +18,12 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  color:rgb(252, 249, 249);
+  color: white;
+
+}
+a{
+  font-size:35px;
+  text-decoration: blue;
 }
 .hero-text button {
     border: none;
@@ -36,9 +41,7 @@
     background-color: #555;
     color: white;
   }
-  a{
-    font-size: 40px;
-  }
+
   h2{
-    font-size: 20px;
+    font-size: 30px;
   }

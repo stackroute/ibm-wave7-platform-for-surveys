@@ -21,7 +21,7 @@ export class UserRegistrationService {
 
   constructor(private httpClient: HttpClient) { }
   public user: User;
-  public loginCredentials: User;
+  // public loginCredentials: User;
   private loggedIn = new BehaviorSubject<boolean>(false);
   logged = this.loggedIn.asObservable();
   private loggedOut = new BehaviorSubject<boolean>(false);
@@ -34,7 +34,6 @@ export class UserRegistrationService {
       .pipe(catchError((error: any) => {
         console.log(error);
         return throwError(error)
-
       }
       ));
   }
@@ -54,7 +53,7 @@ export class UserRegistrationService {
       isAuthenticated: true,
       surveysList: [],
       rewardPoints: 0
-    }; 
+    };
     targetUser.id = Guid.create().toString();
     targetUser.email = email
     return this.httpClient.post<User>(environment.signUpBaseURI + "/saveEmail", targetUser, httpOptions);
@@ -68,10 +67,10 @@ export class UserRegistrationService {
   }
 
   public loginuser: LoginUser;
-  login(user: LoginUser): Observable<LoginUser> {
-    var apiUrl = "http://localhost:8080/login";
-    return this.httpClient.post<LoginUser>(apiUrl, this.loginuser, httpOptions);
-  }
+  // login(user: LoginUser): Observable<LoginUser> {
+  //   var apiUrl = "http://localhost:8080/login";
+  //   return this.httpClient.post<LoginUser>(apiUrl, this.loginuser, httpOptions);
+  // }
 
   authenticateUser(user: LoginUser): Observable<boolean> {
     this.loginuser = user;
@@ -84,10 +83,10 @@ export class UserRegistrationService {
         ))
     // return this.httpClient.get<boolean>(environment.loginBaseURI+'/authenticate/?username='+user.username+'&password='+user.password);
   }
-  
+
   updateUser(user: User, id: String): Observable<User> {
     console.log(user);
-    var url = environment.signUpBaseURI + "/user/" + this.loginCredentials.id;
+    var url = environment.signUpBaseURI + "/user/" + localStorage.getItem('loggedInUserId');
     return this.httpClient.put<User>(url, user, httpOptions);
   }
 
@@ -100,18 +99,16 @@ export class UserRegistrationService {
     var apiUrl = environment.loginBaseURI + "/reset-password";
     return this.httpClient.put<any>(apiUrl, data);
   }
-  getUser(): Observable<User> {
-    var url = "http://localhost:8095/user";
 
-    return this.httpClient.get<User>(url);
-
-  }
+  // getUser(): Observable<User> {
+  //   var url = "http://localhost:8095/user";
+  //   return this.httpClient.get<User>(url);
+  // }
 
   getUserById(id: string): Observable<User> {
-    var url = environment.signUpBaseURI + "/user/" + this.loginCredentials.id;
+    var url = environment.signUpBaseURI + "/user/" + localStorage.getItem('loggedInUserId');
     return this.httpClient.get<User>(url);
   }
-
 
   getTargetUserById(id: string): Observable<User> {
     var url = environment.signUpBaseURI + "/user/" + id;
@@ -121,6 +118,5 @@ export class UserRegistrationService {
   getUserByEmail(email: string): Observable<User> {
 
     return this.httpClient.get<User>(environment.signUpBaseURI + "/userByEmail/" + email);
-
   }
 }

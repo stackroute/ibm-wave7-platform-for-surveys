@@ -22,24 +22,24 @@ export class SurveyService {
 
   constructor(private httpclient: HttpClient) { }
 
-  public surveyId: string;
+  // public surveyId: string;
 
-  public loginCredentials: User;
+  // public loginCredentials: User;
 
   public publishedURL: String;
 
-  public editSurvey: Survey;
+  // public editSurvey: Survey;
 
-  public targetUser: User;
+  // public targetUser: User;
 
   public emailIds : string[];
 
   createSurvey(survey: Survey): Observable<Survey> {
     //creating a Guid Id
     survey.id = Guid.create().toString();
-    this.surveyId = survey.id;
+    localStorage.setItem('EditingSurveyId',survey.id);
     //microservice create survey api link
-    return this.httpclient.post<Survey>(environment.baseURI + "/survey/?surveyorId=" + this.loginCredentials.id, survey, httpOptions);
+    return this.httpclient.post<Survey>(environment.baseURI + "/survey/?surveyorId=" + localStorage.getItem('loggedInUserId'), survey, httpOptions);
   }
 
   getAllSurveys(): Observable<Survey[]> {
@@ -47,20 +47,20 @@ export class SurveyService {
   }
 
   getSurveysBySurveyor(): Observable<User> {
-    return this.httpclient.get<User>(environment.baseURI + "/surveyor/" + this.loginCredentials.id);
+    return this.httpclient.get<User>(environment.baseURI + "/surveyor/" + localStorage.getItem('loggedInUserId'));
   }
 
   getFilteredEmails(): Observable<String[]> {
-    return this.httpclient.get<String[]>(environment.signUpBaseURI + "/surveyor/" + this.loginCredentials.id);
+    return this.httpclient.get<String[]>(environment.signUpBaseURI + "/surveyor/" + localStorage.getItem('loggedInUserId'));
   }
 
-  saveQuestion(question: Question) {
+  saveQuestion(question: Question, domainType : string) {
     //creating a Guid Id
     question.questionId = Guid.create().toString();
-    question.domainType = this.editSurvey.domain_type;
+    question.domainType = domainType;
     //microservice create survey api link
     console.log(question);
-    return this.httpclient.post<Question>(environment.baseURI + "/questionToSurvey/?surveyId=" + this.surveyId, question, httpOptions)
+    return this.httpclient.post<Question>(environment.baseURI + "/questionToSurvey/?surveyId=" + localStorage.getItemEditingSurveyId , question, httpOptions)
   }
 
   editQuestion(question: Question) {
@@ -68,11 +68,11 @@ export class SurveyService {
     console.log(oldQuestionId)
     question.questionId = Guid.create().toString();
     console.log(question.questionId);
-    return this.httpclient.put<Question>(environment.baseURI + "/question?surveyId=" + this.surveyId + "&questionId=" + oldQuestionId, question, httpOptions);
+    return this.httpclient.put<Question>(environment.baseURI + "/question?surveyId=" + localStorage.getItem('EditingSurveyId') + "&questionId=" + oldQuestionId, question, httpOptions);
   }
 
   deleteQuestion(question: Question) {
-    return this.httpclient.delete<Question>(environment.baseURI + "/question/" + question.questionId + "?surveyId=" + this.surveyId, httpOptions);
+    return this.httpclient.delete<Question>(environment.baseURI + "/question/" + question.questionId + "?surveyId=" + localStorage.getItem('EditingSurveyId'), httpOptions);
   }
 
   deleteSurvey(survey) {
@@ -95,11 +95,11 @@ export class SurveyService {
   }
 
   expiryCheck() {
-    return this.httpclient.get<number>(environment.baseURI + "/expiryCheck?id=" + this.editSurvey.id);
+    return this.httpclient.get<number>(environment.baseURI + "/expiryCheck?id=" + localStorage.getItem('EditingSurveyId'));
   }
 
   getRelatedSurveys() {
-    return this.httpclient.get<String[]>(environment.baseURI + "/relatedSurveys?id=" + this.surveyId);
+    return this.httpclient.get<String[]>(environment.baseURI + "/relatedSurveys?id=" + localStorage.getItem('EditingSurveyId'));
   }
 
   getAllMails() {

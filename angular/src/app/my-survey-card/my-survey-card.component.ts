@@ -24,8 +24,7 @@ export class MySurveyCardComponent implements OnInit {
   public surveyList: Survey[];
 
   ngOnInit() {
-    // this.getSurveyorSurveysList();
-    this.getSurveyList();
+    this.getSurveyorSurveysList();
     this.isLoggedOut$ = this.userRegistrationService.logOut;
     this.userRegistrationService.setLogout(true);
     this.isLoggedOut$.subscribe(data => {
@@ -35,46 +34,37 @@ export class MySurveyCardComponent implements OnInit {
   }
 
   preview(survey) {
-    this.surveyService.surveyId = survey.id;
+    localStorage.setItem('EditingSurveyId',survey.id);
     this.router.navigateByUrl('surveyinfo');
-  }
-
-  getSurveyList() {
-    this.surveyService.getAllSurveys().subscribe(
-      (data) => {
-      this.surveyList = data
-        console.log(this.surveyList)
-      })
   }
 
   getSurveyorSurveysList() {
     this.surveyService.getSurveysBySurveyor().subscribe(
       (data) => {
-      this.surveyList = data.surveysList
-        console.log(this.surveyList)
+        if (data != null) {
+          this.surveyList = data.surveysList
+          console.log(this.surveyList)
+        }
       })
   }
 
   deleteSurvey(survey) {
     console.log(survey);
-    let demo;
-    this.surveyService.deleteSurvey(survey).subscribe(data=>demo=data);
-    this.getSurveyList();
+    this.surveyService.deleteSurvey(survey).subscribe(data =>
+    this.getSurveyorSurveysList()
+    );
   }
 
   editQuestions(survey: Survey) {
-    this.surveyService.surveyId = survey.id;
-    this.surveyService.editSurvey = survey
+    // this.surveyService.surveyId = survey.id;
+    localStorage.setItem('EditingSurveyId',survey.id);
+    // this.surveyService.editSurvey = survey
     this.router.navigate(['question-template', survey.id]);
-  } 
-
-  analyze(survey : Survey){
-    this.surveyService.editSurvey = survey;
-    this.router.navigateByUrl('analysis');
   }
-  
-  goToResponseAnalysis(survey: Survey) { 
-    this.surveyService.surveyId = survey.id;
+
+  analyze(survey: Survey) {
+    localStorage.setItem('EditingSurveyId',survey.id);
+    // this.surveyService.editSurvey = survey;
     this.router.navigateByUrl('analysis');
   }
 
@@ -91,9 +81,10 @@ export class MySurveyCardComponent implements OnInit {
         this.surveyService.createSurvey(result).subscribe(
           (data) => {
             console.log(data);
-            this.surveyService.editSurvey = data;
+            // this.surveyService.editSurvey = data;
+            localStorage.setItem('EditingSurveyId',data.id);
             this.router.navigate(['question-template', data.id]);
-            this.getSurveyList();
+            this.getSurveyorSurveysList();
           })
       }
     });

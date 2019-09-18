@@ -1,24 +1,33 @@
 <div class="container">
-  <h1>Angular Bot</h1>
-  
   <ng-container *ngFor="let message of messages | async">
-    <div class="message" [ngClass]="{ 'from': message.sentBy === 'bot',
-                                      'to':   message.sentBy === 'user' }">
+    <div
+      class="message"
+      [ngClass]="{
+        from: message.sentBy === 'bot',
+        to: message.sentBy === 'user'
+      }"
+    >
       {{ message.content }}
     </div>
   </ng-container>
-  <form class="my-form" [formGroup]="biodataForm" #chatForm="ngForm">
   <label for="nameField">Your Message</label>
-  <input [(ngModel)]="formValue" (keyup.enter)="sendMessage()" type="text">  
-  <button (click)="sendMessage()" [disabled]="biodataForm.invalid">Send</button>
-</form>
-  <button  mat-button class="btn btn-info btn-fill btn-wd" name="btnActivateSpeechSearch" 
+  <input  [(ngModel)]="formValue" (keyup.enter)="sendMessage()" type="text">
+  <div class="alignment">
+  <button (click)="sendMessage()">Send</button>
+  <button class="btn btn-info btn-fill btn-wd" name="btnActivateSpeechSearch"
     id="btnActivateSpeechSearch" (click)="activateSpeechSearch()"
-    [disabled]="!startListenButton"><mat-icon>mic</mat-icon>
+    [disabled]="!startListenButton">
+   <mat-icon>mic</mat-icon>
   </button>
-  <button mat-button class="btn btn-info btn-fill btn-wd" name="btnDeactivateSpeechSearch" 
+  <button class="btn btn-info btn-fill btn-wd" name="btnDeactivateSpeechSearch"
     id="btnDeactivateSpeechSearch" (click)="deActivateSpeechSearch()"
-    [disabled]="startListenButton"><mat-icon>mic_off</mat-icon>
+    [disabled]="startListenButton">
+    <mat-icon>mic_off</mat-icon>
   </button>
-
   </div>
+  </div>
+
+  <link rel="stylesheet" href="//cdn.rawgit.com/necolas/normalize.css/master/normalize.css">
+  
+  <!-- Milligram CSS minified -->
+<link rel="stylesheet" href="//cdn.rawgit.com/milligram/milligram/master/dist/milligram.min.css">
