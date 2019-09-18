@@ -71,18 +71,19 @@ export class LoginComponent implements OnInit {
         console.log(this.userResgistrationService.loginuser.email);
         this.userResgistrationService.getUserByEmail(this.userResgistrationService.loginuser.email).
           subscribe((data) => {
-            this.userResgistrationService.loginCredentials = data;
-            console.log(this.userResgistrationService.loginCredentials);
+            // this.userResgistrationService.loginCredentials = data;
+            // console.log(this.userResgistrationService.loginCredentials);
             this.user = data;
             this.user.isAuthenticated = this.isAuthenticated;
-            this.surveyService.loginCredentials = data;
-            console.log("loginCredentials", data);
-            localStorage.setItem('loggedInUser',JSON.stringify(data));
+            // this.surveyService.loginCredentials = data;
+            // console.log("loginCredentials", data);
+            localStorage.setItem('loggedInUserId',data.id);
+            localStorage.setItem('loggedInUserRole',data.role);
             if (this.isAuthenticated && this.user.role == 'Surveyor') {
               this.router.navigateByUrl('survey'); 
             }
             else if (this.isAuthenticated && this.user.role == 'User') {
-              this.surveyService.targetUser = data;
+              // this.surveyService.targetUser = data;
               this.router.navigateByUrl('landing');
             }
             else{

@@ -24,13 +24,13 @@ export class SurveyService {
 
   public surveyId: string;
 
-  public loginCredentials: User;
+  // public loginCredentials: User;
 
   public publishedURL: String;
 
   public editSurvey: Survey;
 
-  public targetUser: User;
+  // public targetUser: User;
 
   public emailIds : string[];
 
@@ -39,7 +39,7 @@ export class SurveyService {
     survey.id = Guid.create().toString();
     this.surveyId = survey.id;
     //microservice create survey api link
-    return this.httpclient.post<Survey>(environment.baseURI + "/survey/?surveyorId=" + this.loginCredentials.id, survey, httpOptions);
+    return this.httpclient.post<Survey>(environment.baseURI + "/survey/?surveyorId=" + localStorage.getItem('loggedInUserId'), survey, httpOptions);
   }
 
   getAllSurveys(): Observable<Survey[]> {
@@ -47,11 +47,11 @@ export class SurveyService {
   }
 
   getSurveysBySurveyor(): Observable<User> {
-    return this.httpclient.get<User>(environment.baseURI + "/surveyor/" + this.loginCredentials.id);
+    return this.httpclient.get<User>(environment.baseURI + "/surveyor/" + localStorage.getItem('loggedInUserId'));
   }
 
   getFilteredEmails(): Observable<String[]> {
-    return this.httpclient.get<String[]>(environment.signUpBaseURI + "/surveyor/" + this.loginCredentials.id);
+    return this.httpclient.get<String[]>(environment.signUpBaseURI + "/surveyor/" + localStorage.getItem('loggedInUserId'));
   }
 
   saveQuestion(question: Question) {

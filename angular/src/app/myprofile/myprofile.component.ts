@@ -30,7 +30,7 @@ export class MyprofileComponent implements OnInit {
 
   ngOnInit() {
     console.log(this.user)
-    this.id = this.registrationService.loginCredentials.id;
+    this.id = localStorage.getItem('loggedInUserId');
     this.registrationService.getUserById(this.id).subscribe((data) =>{
       this.user=data;
       console.log(this.user);
@@ -62,12 +62,8 @@ export class MyprofileComponent implements OnInit {
       this.updateUser(result);
     });
   }
-  
-  
-  
-
-
  }
+ 
 @Component({
   selector: 'app-dialogComponent',
   templateUrl: 'dialogComponent.html',

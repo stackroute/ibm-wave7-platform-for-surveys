@@ -70,7 +70,7 @@ export class QuestionsComponent implements OnInit {
         response.question_id = question.questionId;
         response.response = question.response;
         response.survey_id = this.surveyId;
-        response.email = this.surveyService.targetUser.email;
+        response.email = localStorage.getItem('respondentEmail');
         this.responseList.push(response);
       }
 
@@ -80,13 +80,13 @@ export class QuestionsComponent implements OnInit {
           console.log("saved response" , data);
           let randomNum=Math.floor(Math.random()*100)+50;
           console.log(randomNum);
-          this.userRegistrationservce.getTargetUserById(this.surveyService.targetUser.id)
+          this.userRegistrationservce.getTargetUserById(localStorage.getItem('loggedInUserId'))
           .subscribe((data) => {
               this.targetUser = data,
               this.targetUser.rewardPoints = this.targetUser.rewardPoints + randomNum;
               this.userRegistrationservce.updateUser(this.targetUser, this.targetUser.id)
               .subscribe((data) => {
-                  this.surveyService.targetUser = data
+                  // this.surveyService.targetUser = data
               })
           })
         }, 
