@@ -13,6 +13,8 @@ COPY /package.json /app/package.json
 RUN npm install
 #RUN npm install node-sass --save-dev
 RUN npm install -g @angular/cli@8.3.3
+
+RUN ng set --global warnings.packageDeprecation=false
 # add app
 COPY . /app
 # start app
