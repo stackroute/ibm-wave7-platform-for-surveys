@@ -89,18 +89,4 @@ public class UserResponseServiceTest {
         verify(responseRepository,times(1)).findAll();
         verifyNoMoreInteractions(responseRepository);
     }
-
-
-
-
-    private static String asJsonString(final Object object) {
-        try {
-            return new ObjectMapper().writeValueAsString(object);
-
-        } catch (Exception exception) {
-            throw new RuntimeException(exception);
-        }
-    }
-
-
 }

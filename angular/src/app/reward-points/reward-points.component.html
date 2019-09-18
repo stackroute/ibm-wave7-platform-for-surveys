@@ -1,11 +1,11 @@
 <div class="rewardscontainer" >
   <p class="heading" >Survey Reward Points</p>
-      <h3 class="header">Congratulations !! You have Earned {{parentData}} coins as Reward-points in your wallet!</h3>
+      <h3 class="header">Congratulations !! You have Earned {{respondent.rewardPoints}} coins as Reward-points in your wallet!</h3>
       <h3 class="header1">Take Survey to earn coins as Rewards!</h3>
       <!-- <h1 class="header2">Complete your user profile to earn 100 coins as Rewards!</h1> -->
   <form novalidate="" class="reward-pointsform" 
   (ngSubmit)="rewards()">
-    <mat-card class="reward-card"  >
+    <mat-card class="reward-card">
           <mat-card-header>
             <div mat-card-avatar class="example-header-image"></div>
             <mat-card-title>Take Survey and earn Rewards!</mat-card-title>

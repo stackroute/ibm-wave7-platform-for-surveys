@@ -47,18 +47,19 @@ export class QuestionsTemplateComponent implements OnInit {
     private bottomSheet: MatBottomSheet
   ) { }
 
-
   ngOnInit() {
     this.survey=this.surveyService.editSurvey;
     this.getQuestionList(this.surveyService.editSurvey.id);
     this.getRecommendedQuestions(this.surveyService.editSurvey.domain_type);
   }
+
   showMore() {
     console.log("this.recommendedQuestionList");
     this.limit = 40;
     this.show = "less";
     this.getRecommendedQuestions(this.surveyService.editSurvey.domain_type);
   }
+  
   drop(event: CdkDragDrop<Object[]>) {
     console.log(event.previousContainer.data);
     console.log(event.container.data[0]);

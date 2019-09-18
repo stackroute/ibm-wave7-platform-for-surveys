@@ -33,7 +33,7 @@ public class User {
     private String location;
     private String ageGroup;
     private String gender;
-    private String rewardPoints;
+    private int rewardPoints;
 
     public String getEmail() {
         return email;

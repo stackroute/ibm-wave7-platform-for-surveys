@@ -11,5 +11,4 @@ public interface ResponseService {
 
     public List<Response> getAllResponses();
 
-    public Response getResponseById(String question_id);
 }
