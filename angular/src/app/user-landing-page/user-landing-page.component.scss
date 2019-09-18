@@ -90,11 +90,9 @@ img {
   border-radius: 5px 5px 0 0;
 }
 .draft{
-    margin-top: 20px;
     border:2px solid white;
-    background-color: black;
+    background-color: rgb(68, 173, 36);
     color: white;
-    opacity: 0.7;
   position: absolute;
   height: 8%;
   padding: 2px;
@@ -106,7 +104,6 @@ img {
 
 .bottom{
   display: flex;
- 
   padding: 20px;
   justify-content: space-around;
 }
@@ -122,10 +119,12 @@ mat-card-title,mat-card-subtitle{
   overflow: hidden;
   text-overflow: ellipsis; 
   text-align:left;
-  // border: 1px solid #000000;
 }
-button{
-  width:100px;
+.take
+{
+  margin-top:2cm;
+  width:3cm;
+  background-color: grey;
 }
 
 

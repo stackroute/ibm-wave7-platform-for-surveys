@@ -97,11 +97,11 @@
   </mat-card>
 </ng-template>
 </div>
-<button class="save"  mat-mini-fab type="submit" color="primary" (click)="addQuestion()">
+<button class="save"  mat-mini-fab type="submit" (click)="addQuestion()">
   +
 </button>
-<button class="save" mat-raised-button type="submit" color="primary" (click)="publish()">
-  Publish
+<button class="save" mat-mini-fab type="submit" (click)="publish()">
+  <mat-icon> publish</mat-icon>
 </button>
 </div>
 <div class="float" (click)="chat()">
