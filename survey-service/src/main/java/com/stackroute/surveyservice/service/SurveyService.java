@@ -8,9 +8,10 @@ import java.util.Collection;
 import java.util.List;
 
 public interface SurveyService {
+
     public Survey saveSurvey(Survey survey,String surveyorId);
 
-    public boolean deleteSurvey(String id);
+    public Survey deleteSurvey(String id);
 
     public Collection<Survey> getAllSurveys();
 
@@ -23,9 +24,5 @@ public interface SurveyService {
     public int surveyExpiryCheck(String id);
 
     public List<String> getRelatedSurveysId(String id);
-
-
-
-
 
 }

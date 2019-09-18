@@ -60,6 +60,7 @@ export class SurveyService {
     question.domainType = domainType;
     //microservice create survey api link
     console.log(question);
+    console.log(localStorage.getItem('EditingSurveyId'));
     return this.httpclient.post<Question>(environment.baseURI + "/questionToSurvey/?surveyId=" + localStorage.getItem('EditingSurveyId') , question, httpOptions)
   }
 
