@@ -194,25 +194,25 @@ services:
       test: "exit 0"
 
   kafka:
-      image: wurstmeister/kafka
-      container_name: kafka
-      network_mode: "host"
-      hostname: localhost
-      ports:
-        - 9092:9092
-      depends_on:
-        config-server:
-          condition: service_healthy
-        zookeeper:
-          condition: service_healthy
-      environment:
-        KAFKA_ZOOKEEPER_CONNECT: 'localhost:2181'
-        KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://localhost:9092
-        KAFKA_LISTENERS: PLAINTEXT://localhost:9092
-        KAFKA_CREATE_TOPICS: "UserRegistration"
-      restart: always
-      healthcheck:
-        test: "exit 0"
+    image: wurstmeister/kafka
+    container_name: kafka
+    network_mode: "host"
+    hostname: localhost
+    ports:
+      - 9092:9092
+    depends_on:
+      config-server:
+        condition: service_healthy
+      zookeeper:
+        condition: service_healthy
+    environment:
+      KAFKA_ZOOKEEPER_CONNECT: 'localhost:2181'
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://localhost:9092
+      KAFKA_LISTENERS: PLAINTEXT://localhost:9092
+      KAFKA_CREATE_TOPICS: "UserRegistration"
+    restart: always
+    healthcheck:
+      test: "exit 0"
 
   angular:
     build: angular/
@@ -223,3 +223,5 @@ services:
       - 4200:4200
     healthcheck:
       test: "exit 0"
+    image: angular
+    container_name: angular
