@@ -9,6 +9,11 @@
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11"
+  ],
   "private": true,
   "dependencies": {
     "@angular/animations": "^8.2.3",
