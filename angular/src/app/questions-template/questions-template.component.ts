@@ -46,8 +46,10 @@ export class QuestionsTemplateComponent implements OnInit {
 
   ngOnInit() {
     this.surveyService.getSurveysBySurveyor().subscribe((data) => {
+      console.log(data);
       this.survey = data.surveysList.filter(x => x.id == localStorage.getItem('EditingSurveyId'))[0]
       this.getQuestionList(localStorage.getItem('EditingSurveyId'));
+      console.log(this.survey);
       this.getRecommendedQuestions(this.survey.domain_type);
     })
   }

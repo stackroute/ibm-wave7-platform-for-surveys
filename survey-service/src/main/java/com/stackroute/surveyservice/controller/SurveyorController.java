@@ -55,6 +55,11 @@ public class SurveyorController {
         responseEntity = new ResponseEntity<Surveyor>(surveyorService.getSurveyorById(id), HttpStatus.OK);
         return responseEntity;
     }
+    @GetMapping("surveyorwithquestions/{id}")
+    public ResponseEntity<?> getSurveyorByIdWithQuestions(@PathVariable("id") String id) throws SurveyorDoesNotExistsException {
+        responseEntity = new ResponseEntity<Surveyor>(surveyorService.getSurveyorByIdWithQuestions(id), HttpStatus.OK);
+        return responseEntity;
+    }
 
 }
 

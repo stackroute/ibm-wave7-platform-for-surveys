@@ -10,5 +10,8 @@ public interface SurveyorRepository extends Neo4jRepository<Surveyor,String> {
 
     //returns surveyor based on surveyorid
     @Query("MATCH(s:Surveyor{id:{surveyorId}})-[c:Creates]->(u:Survey)<-[b:BelongsTo]-(q:Question) RETURN s,c,u,b,q")
+    Surveyor getSurveyorByIdWithQuestions(String surveyorId);
+    @Query("MATCH(s:Surveyor{id:{surveyorId}})-[c:Creates]->(u:Survey)<-[b:BelongsTo] s,c,u")
     Surveyor getSurveyorById(String surveyorId);
+
 }
