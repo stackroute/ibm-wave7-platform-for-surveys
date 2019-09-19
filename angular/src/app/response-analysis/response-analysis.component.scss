@@ -5,13 +5,23 @@
     transform: translate(-50%, -50%);
     
   }
+  
+.questions{
+  
+    height:100%;
+  
+   
+}
+
 .questionCard {
     transition: 0.1s;
     // margin: 5px;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     height:15%;
-    margin:0.5cm;
-}   
+      // padding:0.5cm;
+   
+
+  } 
   .questionCard:hover {
     box-shadow: 0 8px 25px 0 rgba(0,0,0,0.8);
     
@@ -26,6 +36,8 @@
     height:100%;
     padding:0.5cm;
     float:right;
+    transition: 0.1s;
+
   
   }
   .flex-container
