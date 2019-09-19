@@ -1,38 +1,26 @@
 .example-card{
     padding-top:50px;
    // padding-left: 60px;
-padding-bottom: 80px;
+padding-bottom: 190px;
 
 }
     mat-card{
         min-width:auto;
-       // margin:60px 60px 50px 50px;
        display: block;
        margin-top: 1cm;
         margin-left:auto;
          margin-right:auto;
          align-content: center;
     }
-    // label{
-    //     padding-right: 20px;
-    //     justify-content: center; 
-    // }
     .example-container{
     font-family: arial;
     }
     h6{
     padding-top:20px;
     }
-    // #button1{
-    //     width: 200px;
-    //     height: 40px;
-    //     margin-right: 150px;
-        
-    // }
     mat-card-actions{
         text-align: center;
-        padding-bottom: 20px;
-        
+        padding-bottom: 20px; 
     }
     .mat-raised-.mat-card-actions .mat-button, .mat-card-actions .mat-raised-button{
         margin:5px;

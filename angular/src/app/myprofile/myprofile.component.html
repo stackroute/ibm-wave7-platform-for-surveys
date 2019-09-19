@@ -10,8 +10,6 @@
       <table>
         <tr><td>Username:</td>
         <td><label>{{user?.name}}</label></td></tr>
-      
-      
       <tr><td>Email Id</td>
       <td><label>:{{user?.email}}</label></td>
       </tr>
@@ -24,25 +22,13 @@
           <tr><td>Location</td>
             <td><label>:{{user?.location}}</label></td>
             </tr>
-      
-      <!-- <h6></h6>Email Id: <label>{{user?.email}}</label> </h6>
-      
-      <h6>AgeGroup:<label>{{user?.ageGroup}}</label></h6>
-      
-      <h6>Gender:<label> {{user?.gender}}</label></h6>
-      <h6>Location:<label>{{user?.location}}</label></h6> -->
-      <!-- <button mat-raised-button color="primary" (click)=openDialog()>Edit</button> -->
     </table>
     </div>
-    
   </mat-card-content>
   <mat-card-actions>
-    
-    <!-- <button mat-raised-button color="primary" id="button1" >change password</button> -->
     <button mat-raised-button color="primary" (click)=openDialog()>Edit</button>
     <button type="cancel" mat-raised-button color="primary" routerLink="/survey">Back</button>
   </mat-card-actions>
-
   </mat-card>
 </div>
 </div>
