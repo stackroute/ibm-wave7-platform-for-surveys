@@ -71,18 +71,18 @@ public class SurveyControllerTest {
                 .andExpect(status().isCreated())
                 .andDo(print());
     }
-    @Test
-    public void deleteSurvey() throws Exception{
-        when(surveyService.deleteSurvey(survey.getId())).thenReturn(true);
-        mockMvc.perform(delete("/api/v1/survey/1")
-                .contentType(MediaType.APPLICATION_JSON_UTF8)
-                .accept(MediaType.APPLICATION_JSON)
-                .content(asJsonString(survey)))
-                .andExpect(status().isOk())
-                .andDo(print());
+//    @Test
+//    public void deleteSurvey() throws Exception{
+//        when(surveyService.deleteSurvey(survey.getId())).thenReturn(true);
+//        mockMvc.perform(delete("/api/v1/survey/1")
+//                .contentType(MediaType.APPLICATION_JSON_UTF8)
+//                .accept(MediaType.APPLICATION_JSON)
+//                .content(asJsonString(survey)))
+//                .andExpect(status().isOk())
+//                .andDo(print());
+//
 
-
-    }
+//    }
     @Test
     public void updateSurvey() throws Exception{
         when(surveyService.getAllSurveys()).thenReturn(list);
