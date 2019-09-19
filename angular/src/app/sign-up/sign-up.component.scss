@@ -17,6 +17,8 @@
 
 .Error{
     color: red;
+    margin-top:0px;
+    margin-bottom:0px;
 }
    
   mat-card{
@@ -29,7 +31,6 @@
       margin-left:auto;
       margin-right:auto;
       padding:0.5cm;
-      background-color: rgb(248, 207, 233);
   }
   mat-card-actions{
       text-align: center;
@@ -53,7 +54,7 @@
   }
   .example-card{
     width:10cm;
-    height:10.5cm;
+    height:11cm;
     min-width: 6cm;
     box-shadow: 0 8px 8px -1px rgba(0,0,0,1), 
     0 8px 8px 0 rgba(0,0,0,1), 
