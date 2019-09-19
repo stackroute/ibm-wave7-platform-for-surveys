@@ -1,12 +1,9 @@
-/*
+
 package com.stackroute.surveyservice.service;
 
 import com.stackroute.surveyservice.domain.Question;
-import com.stackroute.surveyservice.domain.Survey;
 import com.stackroute.surveyservice.exceptions.QuestionAlreadyExistsException;
-import com.stackroute.surveyservice.exceptions.QuestionDoesNotExistsException;
 import com.stackroute.surveyservice.repository.QuestionRepository;
-import com.stackroute.surveyservice.repository.SurveyRepository;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -14,13 +11,10 @@ import org.junit.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 import static org.junit.Assert.*;
-import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
 
 public class QuestionServiceTest {
@@ -49,24 +43,21 @@ public class QuestionServiceTest {
     @After
     public void tearDown() throws Exception {
     }
+    @Test
+    public void getAllQuestions() {
+        questionRepository.save(question);
+        when(questionRepository.findAll()).thenReturn(list);
+        List<Question> questionList=questionService.getAllQuestions();
+        Assert.assertEquals(list,questionList);
+    }
 
 
-//    @Test
-//    public void getAllQuestions() {
-//        questionRepository.save(question);
-//        when(questionRepository.findAll()).thenReturn(list);
-//        List<Question> questionList=questionService.getAllQuestions();
-//        Assert.assertEquals(list,questionList);
-//    }
-//
-//
-//    @Test
-//    public void addQuestion() throws QuestionAlreadyExistsException {
-//        when(questionRepository.save((Question) any())).thenReturn(question);
-//        Question savedQuestion=questionService.addQuestionToSurvey(question,"10");
-//        assertEquals(question,savedQuestion);
-//        verify(questionRepository,times(1)).save(question);
-//    }
-<<<<<<< HEAD
-//}*/
+    @Test
+    public void addQuestion() throws QuestionAlreadyExistsException {
+        when(questionRepository.save((Question) any())).thenReturn(question);
+        Question savedQuestion=questionService.addQuestionToSurvey(question,"10");
+        assertEquals(question,savedQuestion);
+        verify(questionRepository,times(1)).save(question);
+    }
+}
 

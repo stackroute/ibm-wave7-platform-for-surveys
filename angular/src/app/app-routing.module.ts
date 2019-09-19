@@ -89,7 +89,7 @@ const routes: Routes = [
     path: 'rewards', component: RewardPointsComponent
   },
   {
-    path:'thankyou/signup',component:SignUpComponent
+    path:'thankyou/login',component:LoginComponent
   },
   {
    path:'services',component:ServicespageComponent

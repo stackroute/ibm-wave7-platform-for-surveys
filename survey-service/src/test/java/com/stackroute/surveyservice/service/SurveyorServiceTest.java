@@ -42,7 +42,7 @@ public class SurveyorServiceTest {
     }
     @Test
     public void addSurveyor() throws SurveyorAlreadyExistException {
-        when(surveyorRepository.save(any())).thenReturn(surveyor);
+        when(surveyorRepository.save(surveyor)).thenReturn(surveyor);
         Surveyor savedSurveyor=surveyorService.addSurveyor(surveyor);
         assertEquals(surveyor,savedSurveyor);
         verify(surveyorRepository,times(1)).save(surveyor);
