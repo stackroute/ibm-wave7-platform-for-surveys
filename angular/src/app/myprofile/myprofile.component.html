@@ -7,16 +7,32 @@
   <mat-divider></mat-divider>
   <mat-card-content>
     <div class="example-container">
-
-      <h6>Username :{{user?.name}} </h6> 
+      <table>
+        <tr><td>Username:</td>
+        <td><label>{{user?.name}}</label></td></tr>
       
-      <h6>Email Id :{{user?.email}} </h6>
       
-      <h6>Age-Group   :{{user?.ageGroup}}</h6>
+      <tr><td>Email Id</td>
+      <td><label>:{{user?.email}}</label></td>
+      </tr>
+      <tr><td>Gender</td>
+        <td><label>:{{user?.gender}}</label></td>
+        </tr>
+        <tr><td>AgeGroup</td>
+          <td><label>:{{user?.ageGroup}}</label></td>
+          </tr>
+          <tr><td>Location</td>
+            <td><label>:{{user?.location}}</label></td>
+            </tr>
       
-      <h6> Gender  :{{user?.gender}}</h6>
-      <h6>Location :{{user?.location}}</h6>
+      <!-- <h6></h6>Email Id: <label>{{user?.email}}</label> </h6>
+      
+      <h6>AgeGroup:<label>{{user?.ageGroup}}</label></h6>
+      
+      <h6>Gender:<label> {{user?.gender}}</label></h6>
+      <h6>Location:<label>{{user?.location}}</label></h6> -->
       <!-- <button mat-raised-button color="primary" (click)=openDialog()>Edit</button> -->
+    </table>
     </div>
     
   </mat-card-content>

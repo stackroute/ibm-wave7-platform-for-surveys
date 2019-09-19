@@ -34,7 +34,6 @@ border: 2px solid grey;
 .a{ 
   margin-left:auto;
   margin-right:auto;
-  // margin-top:0.3cm;
   margin-bottom:auto;
   padding-left: 3cm;
   padding-right:3cm;
@@ -64,49 +63,41 @@ li{
   text-align: left;
 }
 .card {
-  // box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-  // transition: 0.1s;
   border-radius: 5px;
-  // margin-top: 100px;
-  width:150px;
-  min-width: 180px;
-  height:8cm;
+  width:7cm;
+  height:9cm;
   margin:1cm;
-  // padding:1cm;
   white-space: nowrap; 
-  width: 50px; 
   overflow: hidden;
   text-overflow: ellipsis; 
   border: 1px solid #000000;
-
 }
 
 .card:hover {
   box-shadow: 0 8px 25px 0 rgba(0,0,0,0.8);
-  width:200px;
+  width:8cm;
 }
 
 img {
-  border-radius: 5px 5px 0 0;
-}
+  width:7cm;
+  height: 4cm;;
+ }
+   
 .draft{
-    margin-top: 20px;
-    border:2px solid white;
-    background-color: black;
+
+    background-color: rgb(68, 173, 36);
     color: white;
-    opacity: 0.7;
   position: absolute;
   height: 8%;
   padding: 2px;
-  margin-left:0px ;
   width: 50%;
   text-align: center;
   border-radius: 0px 50px 50px 0px;
+  margin-left:0cm;
 }
 
 .bottom{
   display: flex;
- 
   padding: 20px;
   justify-content: space-around;
 }
@@ -122,10 +113,12 @@ mat-card-title,mat-card-subtitle{
   overflow: hidden;
   text-overflow: ellipsis; 
   text-align:left;
-  // border: 1px solid #000000;
 }
-button{
-  width:100px;
+.take
+{
+  margin-top:1.5cm;
+  width:3cm;
+  background-color: grey;
 }
 
 

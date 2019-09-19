@@ -1,6 +1,6 @@
 <div class="main">
-    <a routerLink="/survey"><button class="back" mat-raised-button><mat-icon>arrow_back</mat-icon></button></a>
-    <h2>{{survey.name}}</h2>
+<a routerLink="/survey"><button class="back" mat-raised-button><mat-icon>arrow_back</mat-icon></button></a>
+<h2>{{survey.name}}</h2>
 <span><h3>Recommended Questions</h3></span>
 <span><h3 class="questions">Your Questions</h3></span>
 <div
@@ -97,17 +97,17 @@
   </mat-card>
 </ng-template>
 </div>
-<button class="save" mat-raised-button type="submit" color="primary" (click)="addQuestion()">
-  Add Question
+<button class="save"  mat-mini-fab type="submit" (click)="addQuestion()" matTooltip="Add question" color="primary">
+  +
 </button>
-<button class="save" mat-raised-button type="submit" color="primary" (click)="publish()">
-  Publish
+<button class="save" mat-mini-fab type="submit" (click)="publish()" matTooltip="Publish your survey" color="primary">
+  <mat-icon> publish</mat-icon>
 </button>
 </div>
 <div class="float" (click)="chat()">
   <i class="fa fa-weixin my-float" aria-hidden="true"></i>
   <div class="label-container">
   <div class="label-text">Any Help?</div>
-  <i class="fa fa-play label-arrow"></i>
+  <em class="fa fa-play label-arrow"></em>
   </div>
   </div>

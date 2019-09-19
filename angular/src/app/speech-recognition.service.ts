@@ -58,6 +58,8 @@ export class SpeechRecognitionService {
 
 DestroySpeechObject() {
     if (this.speechRecognition)
+
+        console.log("speech recognition is", this.speechRecognition);
         console.log('speech liseting stop');
         this.speechRecognition.stop();
 }
