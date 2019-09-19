@@ -11,5 +11,8 @@ public interface SurveyorService {
     Surveyor editSurveyor(Surveyor question) throws SurveyorDoesNotExistsException;
     void removeSurveyor(String surveyorId) throws SurveyorDoesNotExistsException;
     Surveyor getSurveyorById(String surveyorId) throws SurveyorDoesNotExistsException;
+    Surveyor getSurveyorByIdWithQuestions(String surveyorId) throws SurveyorDoesNotExistsException;
+
+
 
 }

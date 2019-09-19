@@ -55,4 +55,9 @@ public class SurveyorServiceImpl implements SurveyorService {
     public Surveyor getSurveyorById(String surveyorId) throws SurveyorDoesNotExistsException {
         return surveyorRepository.getSurveyorById(surveyorId);
     }
+
+    @Override
+    public Surveyor getSurveyorByIdWithQuestions(String surveyorId) throws SurveyorDoesNotExistsException {
+        return surveyorRepository.getSurveyorByIdWithQuestions(surveyorId);
+    }
 }

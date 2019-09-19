@@ -74,15 +74,19 @@
           <mat-form-field class="full-width">
             <mat-label>Email</mat-label>
             <input matInput placeholder="Email" name="email" [(ngModel)]="email" required
-              [formControl]="emailFormControl" disabled />
+              [formControl]="emailFormControl" disabled (keyup)="emailValidation()"/>
             <mat-error *ngIf="emailFormControl.invalid">{{
               getEmailErrorMessage("email")
             }}</mat-error>
-
+<!-- 
             <div *ngIf="emailAlredyExist != ''" class="alert alert-danger">
               {{emailAlreadyExist}}
-            </div>
-          </mat-form-field>
+            </div> -->
+            <!-- <p class="Error" *ngIf="IsEmailExisted"> Email already exists </p> -->
+
+          </mat-form-field> 
+
+          <p class="Error" *ngIf="IsEmailExisted"> Email already exists </p>
 
           <mat-form-field class="full-width">
             <mat-label>Password</mat-label>

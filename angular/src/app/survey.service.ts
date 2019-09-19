@@ -47,6 +47,7 @@ export class SurveyService {
   }
 
   getSurveysBySurveyor(): Observable<User> {
+    console.log(localStorage.getItem('loggedInUserId'));
     return this.httpclient.get<User>(environment.baseURI + "/surveyor/" + localStorage.getItem('loggedInUserId'));
   }
 

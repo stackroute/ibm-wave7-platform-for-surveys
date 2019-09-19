@@ -15,6 +15,7 @@ export class SignUpComponent implements OnInit {
   public user: User;
   public emailAlredyExist = "";
   email: string;
+  public IsEmailExisted : boolean = false;
 
   constructor(
     private registrationService: UserRegistrationService,
@@ -65,9 +66,16 @@ export class SignUpComponent implements OnInit {
     this.registrationService.saveUser(user).subscribe(data => {
       this.user = data;
       console.log("result is ", data);
-      alert("Account successfully created");
+      // alert("Account successfully created");
       this.router.navigateByUrl("login");
+    },
+    (error) => {
+      this.IsEmailExisted = true;
     });   
+  }
+
+  emailValidation(){
+    this.IsEmailExisted = false;
   }
 }
 
