@@ -22,6 +22,7 @@ export class LoginComponent implements OnInit {
   loggedIn: boolean;
   isLoggedOut$:Observable<boolean>;
   loggedOut: boolean;
+  NotAuthenticated : boolean = false;
 
 
   constructor(private userResgistrationService: UserRegistrationService, private router: Router, public constant: ConstantsService, private surveyService : SurveyService) { }
@@ -61,7 +62,9 @@ export class LoginComponent implements OnInit {
       ? "This field is required"
       : "";
   }
+
   login(user: LoginUser) {
+    this.NotAuthenticated = false;
     this.userResgistrationService.authenticateUser(user).subscribe(
       (data) => {
         console.log(data);
@@ -69,7 +72,8 @@ export class LoginComponent implements OnInit {
         console.log(this.userResgistrationService.loginuser.email);
         this.userResgistrationService.getUserByEmail(this.userResgistrationService.loginuser.email).
           subscribe((data) => {
-            console.log(data);            // this.userResgistrationService.loginCredentials = data;
+            console.log(data);          
+            // this.userResgistrationService.loginCredentials = data;
             // console.log(this.userResgistrationService.loginCredentials);
             this.user = data;
             this.user.isAuthenticated = this.isAuthenticated;
@@ -85,15 +89,14 @@ export class LoginComponent implements OnInit {
               this.router.navigateByUrl('landing');
             }
             else{
-              alert("username and password does not match")
+              this.NotAuthenticated = true;
               this.router.navigateByUrl('');
-              
             }
           })
       },
       (error) =>{ 
-        alert("You are not a valid user")
-        this.router.navigateByUrl('');
+        this.NotAuthenticated = true;
+        // this.router.navigateByUrl('');
       })
   }
   signup() {

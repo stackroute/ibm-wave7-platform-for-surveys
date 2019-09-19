@@ -18,6 +18,8 @@
             getPasswordErrorMessage("password")
           }}</mat-error>
         </mat-form-field>
+        <p class="Error" *ngIf="NotAuthenticated">Incorrect email or password</p>
+ 
       </mat-card-content>
       <mat-card-actions>
         <button mat-raised-button type="submit" color="primary" [disabled]="loginForm.invalid">Login</button>
