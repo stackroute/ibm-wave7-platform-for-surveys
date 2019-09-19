@@ -24,7 +24,7 @@ export class ResponseAnalysisComponent implements OnInit {
   private analyzeSurveyId : string;
   
   constructor(private surveyService: SurveyService) {
-    this.width="90%";
+    this.width="100%";
     this.height="500";
 
   }

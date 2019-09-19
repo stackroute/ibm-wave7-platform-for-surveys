@@ -9,6 +9,7 @@
 .questions{
   
     height:100%;
+  
    
 }
 
@@ -17,7 +18,7 @@
     // margin: 5px;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     height:15%;
-    margin:0.5cm;
+      // padding:0.5cm;
    
 
   } 
@@ -36,9 +37,12 @@
     width:100%;
     padding:0.5cm;
     float:right;
+    transition: 0.1s;
+
   
   }
   .flex-container
   {
-    background-color: black;
+    height:100%;
+    background-color: rgb(80, 2, 77);
   }
