@@ -200,8 +200,10 @@ services:
     ports:
       - 9092:9092
     depends_on:
-      - config-server
-      - zookeeper
+      config-server:
+        condition: service_healthy
+      zookeeper:
+        condition: service_healthy
     environment:
       KAFKA_ZOOKEEPER_CONNECT: 'localhost:2181'
       KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://localhost:9092
