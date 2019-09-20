@@ -47,8 +47,6 @@ services:
     depends_on:
       - config-server
     network_mode: "host"
-    volumes:
-      - /DB/mongo:/data/db
     hostname: localhost
     healthcheck:
       test: "exit 0"
@@ -160,8 +158,6 @@ services:
     depends_on:
       - config-server
     network_mode: "host"
-    volumes:
-      - /DB/mysql:/var/lib/mysql
     hostname: localhost
     restart: always
     healthcheck:
@@ -179,9 +175,6 @@ services:
     depends_on:
       - config-server
     network_mode: "host"
-    volumes:
-      - /DB/neo4j/data:/data
-      - /DB/neo4j/import:/import
     hostname: localhost
     healthcheck:
       test: "exit 0"
