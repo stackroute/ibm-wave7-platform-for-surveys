@@ -25,7 +25,6 @@ services:
     ports:
       - 8888:8888
 
-
   zuul-api:
     build: zuul-api/
     depends_on:
