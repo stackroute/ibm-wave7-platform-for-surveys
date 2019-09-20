@@ -5,6 +5,7 @@ services:
     build: eureka-server/
     restart: always
     network_mode: "host"
+    container_name: eureka-server
     hostname: localhost
     image: eureka-server
     healthcheck:
@@ -16,6 +17,7 @@ services:
     build: config-server/
     restart: always
     network_mode: "host"
+    container_name: config-server
     image: config-server
     depends_on:
       - eureka-server
@@ -33,6 +35,7 @@ services:
       - eureka-server
     restart: always
     network_mode: "host"
+    container_name: zuul-api
     image: zuul-api
     hostname: localhost
     healthcheck:
