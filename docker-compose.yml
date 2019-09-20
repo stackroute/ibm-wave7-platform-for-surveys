@@ -1,4 +1,4 @@
-version: '2.1'
+version: '3'
 
 services:
   eureka-server:
@@ -207,10 +207,8 @@ services:
     ports:
       - 9092:9092
     depends_on:
-      config-server:
-        condition: service_healthy
-      zookeeper:
-        condition: service_healthy
+      - config-server
+      - zookeeper
     environment:
       KAFKA_ZOOKEEPER_CONNECT: 'localhost:2181'
       KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://localhost:9092
