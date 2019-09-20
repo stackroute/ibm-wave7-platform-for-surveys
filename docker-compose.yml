@@ -45,6 +45,8 @@ services:
     ports:
       - 27017:27017
     container_name: mongo
+    volumes:
+      - /DB/mongo:/data/db
     depends_on:
       - config-server
     network_mode: "host"
@@ -159,6 +161,8 @@ services:
     depends_on:
       - config-server
     network_mode: "host"
+    volumes:
+      - /DB/mysql:/var/lib/mysql
     hostname: localhost
     restart: always
     healthcheck:
@@ -173,6 +177,9 @@ services:
       - 7474:7474
       - 7687:7687
     container_name: neo4j
+    volumes:
+      - /DB/neo4j/data:/data
+      - /DB/neo4j/import:/import
     depends_on:
       - config-server
     network_mode: "host"
