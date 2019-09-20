@@ -48,8 +48,6 @@
             <artifactId>spring-cloud-starter-config</artifactId>
             <version>2.1.4.RELEASE</version>
         </dependency>
-
-
     </dependencies>
     <build>
         <plugins>
